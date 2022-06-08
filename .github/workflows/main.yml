@@ -23,6 +23,16 @@ jobs:
       with:
         php-version: '8.1.4'
 #     - uses: actions/checkout@v3
+
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.APP_HOST }}
+        username: ${{ secrets.APP_USER }}
+        key: ${{ secrets.APP_KEY }}
+        port: 22
+        script: whoami
+
 #     - name: Cache Composer packages
 #       id: composer-cache
 #       uses: actions/cache@v3
@@ -41,14 +51,14 @@ jobs:
 #       env:
 #         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
 #       run: vendor/bin/phpunit
-    - name: APT UPDATE and INSTALL SSHPASS
-      run: 
-        sudo apt update && sudo apt install sshpass
-    - name: deploy
-      run: 
-        sshpass -e ssh ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
-        "ls -al"
-        
+#     - name: APT UPDATE and INSTALL SSHPASS
+#       run: 
+#         sudo apt update && sudo apt install sshpass
+#     - name: deploy
+#       run: 
+#         sshpass -e ssh ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
+#         "ls -al"
+#         
 #         "cd FAO &&
 #         git pull &&
 #         composer install &&
