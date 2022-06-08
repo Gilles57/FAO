@@ -13,7 +13,7 @@ jobs:
   symfony-tests:
     runs-on: ubuntu-latest
     env:
-      SSHPASS: 'vWZzt4uKvchabkT0'
+      SSHPASS: ${{ secrets.APP_PASS }}
 
     steps:
     #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
@@ -46,7 +46,7 @@ jobs:
         sudo apt update && sudo apt install sshpass
     - name: deploy
       run: 
-        sshpass -e ssh -o stricthostkeychecking=no gsalmon@alligator.o2switch.net
+        sshpass -e ssh ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
         "cd FAO &&
         git pull &&
         composer install &&
