@@ -22,32 +22,32 @@ jobs:
     - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
       with:
         php-version: '8.1.4'
-    - uses: actions/checkout@v3
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-    - name: Install Dependencies
-      run: composer install  --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Create Database
-      run: |
-        mkdir -p data
-        touch data/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
-      run: vendor/bin/phpunit
+#     - uses: actions/checkout@v3
+#     - name: Cache Composer packages
+#       id: composer-cache
+#       uses: actions/cache@v3
+#       with:
+#         path: vendor
+#         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+#         restore-keys: |
+#           ${{ runner.os }}-php-
+#     - name: Install Dependencies
+#       run: composer install  --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+#     - name: Create Database
+#       run: |
+#         mkdir -p data
+#         touch data/database.sqlite
+#     - name: Execute tests (Unit and Feature tests) via PHPUnit
+#       env:
+#         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
+#       run: vendor/bin/phpunit
     - name: APT UPDATE and INSTALL SSHPASS
       run: 
         sudo apt update && sudo apt install sshpass
     - name: deploy
       run: 
-        echo ${{ secrets.APP_PASS }}
         sshpass -e ssh ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
+        "ls -al"
         
 #         "cd FAO &&
 #         git pull &&
