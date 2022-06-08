@@ -31,8 +31,9 @@ jobs:
         username: ${{ secrets.APP_USER }}
         password: ${{ secrets.APP_PASS }}
         port: 22
-        script: whoami
-
+        script:
+          "cd FAO && git pull && composer install && php bin/console d:m:m -n"
+        
 #     - name: Cache Composer packages
 #       id: composer-cache
 #       uses: actions/cache@v3
