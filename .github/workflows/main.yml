@@ -12,6 +12,9 @@ permissions:
 jobs:
   symfony-tests:
     runs-on: ubuntu-latest
+    env:
+      SSHPASS: ${{ secrets.APP_PASS }}
+
     steps:
     #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
     # change this to (see https://github.com/shivammathur/setup-php#bookmark-versioning):
@@ -20,8 +23,6 @@ jobs:
       with:
         php-version: '8.1.4'
     - uses: actions/checkout@v3
-    - name: Copy .env.test.local
-      run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
@@ -40,3 +41,13 @@ jobs:
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
       run: vendor/bin/phpunit
+    - name: APT UPDATE and INSTALL SSHPASS
+      run: 
+        sudo apt update && sudo apt install sshpass
+    - name: deploy
+      run: 
+        sshpass -e ssh -o stricthostkeychecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }}
+        "cd public_html/ &&
+        git pull &&
+        composer install &&
+        php bin/console d:m:m -n"
