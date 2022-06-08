@@ -13,7 +13,7 @@ jobs:
   symfony-tests:
     runs-on: ubuntu-latest
     env:
-      SSHPASS: ${{ secrets.APP_PASS }}
+      SSHPASS: vWZzt4uKvchabkT0
 
     steps:
     #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
