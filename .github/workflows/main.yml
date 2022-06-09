@@ -16,5 +16,5 @@ jobs:
         command: ls -a
         host: ${{ secrets.APP_HOST }}
         username: ${{ secrets.APP_USER }}
-        passphrase: ${{ secrets.APP_PASS }}
+        password: ${{ secrets.APP_PASS }}
         privateKey: ${{ secrets.APP_KEY }} 
