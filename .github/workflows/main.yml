@@ -10,17 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ls -a via OPEN SSH Private Key
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd /FAO
-            ls -a
-            echo "env_var:$FIRST_NAME"
-            exit 1
-          host: ${{ secrets.APP_HOST }}
-          port: 22
-          user: root
-          key: ${{ secrets.APP_KEY}}
-          pass: ${{ secrets.APP_PASS }}
-          args: "-tt -vvv"
+    - name: ls -a via ssh
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: ls -a
+        host: ${{ secrets.APP_HOST }}
+        username: ${{ secrets.USER }}
+        passphrase: ${{ secrets.APP_PASS }}
+        privateKey: ${{ secrets.APP_KEY}}
