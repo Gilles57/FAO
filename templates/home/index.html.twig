@@ -3,32 +3,45 @@
 {% block title %}Hello FAO TRAVEL !{% endblock %}
 {% block body %}
     {% include 'home/menu.html.twig' %}
-    <div class="div container">
-        <p>Salut à toi l’ami.e !</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/image_accueil.png') }}" alt="Etienne jouant du hanpan">
+            </div>
+            <div class="col-md-8 pt-1 text-center">
+                <p>Salut à toi l’ami.e !</p>
 
-        <p>Bienvenue sur mon site Fao Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie atypique de
-        voyageur nomade !</p>
+                <p>Bienvenue sur mon site Fao Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie
+                    atypique
+                    de
+                    voyageur nomade !</p>
 
-        <p>Je m’appelle Etienne, j’ai 35 ans et en mars 2018 j’ai décidé de quitter mon taf pour partir à la découverte du
-        monde et des merveilles qui le compose.</p>
+                <p>Je m’appelle Etienne, j’ai 35 ans et en mars 2018 j’ai décidé de quitter mon taf pour partir à la
+                    découverte du
+                    monde et des merveilles qui le compose.</p>
 
-        <p>Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut de backpacker pour
-        celui de vanlifer !</p>
+                <p>Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut de
+                    backpacker
+                    pour
+                    celui de vanlifer !</p>
+            </div>
+            <p>Qui suis-je ?</p>
 
-        <p>Qui suis-je ?</p>
+            <p>Animateur jeunesse de formation, j’ai travaillé plusieurs années dans des associations, des collèges et
+                des MJC,
+                avant de terminer comme responsable du service jeunesse d’une collectivité avant mon départ pour le tour
+                du
+                monde.</p>
 
-        <p>Animateur jeunesse de formation, j’ai travaillé plusieurs années dans des associations, des collèges et des MJC,
-        avant de terminer comme responsable du service jeunesse d’une collectivité avant mon départ pour le tour du
-        monde.</p>
+            <p>Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone pendant dix ans, puis, en autodidacte,
+                la
+                guitare, le piano, le djembé, la derbouka, le cajon et enfin le Handan. Aujourd’hui,
+                multi-instrumentaliste, je
+                compose mes propres morceaux via la MAO (Musique Assistée par Ordinateur).</p>
 
-        <p>Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone pendant dix ans, puis, en autodidacte, la
-        guitare, le piano, le djembé, la derbouka, le cajon et enfin le Handan. Aujourd’hui, multi-instrumentaliste, je
-        compose mes propres morceaux via la MAO (Musique Assistée par Ordinateur).</p>
-
-        <p>Pourquoi cette vie de voyageur ?</p>
-
+            <p>Pourquoi cette vie de voyageur ?</p>
+        </div>
     </div>
-
     {% include 'home/footer.html.twig' %}
 
 {% endblock %}
