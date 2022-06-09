@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.APP_USER }}
         key: ${{ secrets.APP_KEY }}
         passphrase: ${{ secrets.APP_PASS }}
-        script: whoami
+        script: ls -al
