@@ -18,3 +18,4 @@ jobs:
         username: ${{ secrets.USER }}
         passphrase: ${{ secrets.APP_PASS }}
         privateKey: ${{ secrets.APP_KEY }} 
+ 
