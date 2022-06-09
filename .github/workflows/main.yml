@@ -17,4 +17,5 @@ jobs:
         host: ${{ secrets.APP_HOST }}
         username: ${{ secrets.APP_USER }}
         password: ${{ secrets.APP_PASS }}
+        passphrase: ${{ secrets.APP_PASS }}
         privateKey: ${{ secrets.APP_KEY }} 
