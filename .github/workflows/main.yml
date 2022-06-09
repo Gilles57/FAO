@@ -1,20 +1,15 @@
-name: test
-on:
-  push:
-    branches:
-    - main
-
-env:
-  FIRST_NAME: Gilles
+name: remote ssh command
+on: [push]
 jobs:
+
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: ls -a via ssh
-      uses: fifsky/ssh-action@master
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
       with:
-        command: ls -a
         host: ${{ secrets.APP_HOST }}
-        user: ${{ secrets.APP_USER }}
-        pass: ${{ secrets.APP_PASS }}
-        key: ${{ secrets.APP_KEY }} 
+        username: ${{ secrets.APP_USER }}
+        password: ${{ secrets.APP_PASS }}
+        script: whoami
