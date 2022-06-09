@@ -11,11 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: ls -a via ssh
-      uses: garygrossgarten/github-action-ssh@release
+      uses: fifsky/ssh-action@master
       with:
         command: ls -a
         host: ${{ secrets.APP_HOST }}
-        username: ${{ secrets.APP_USER }}
-        password: ${{ secrets.APP_PASS }}
-        passphrase: ${{ secrets.APP_PASS }}
-        privateKey: ${{ secrets.APP_KEY }} 
+        user: ${{ secrets.APP_USER }}
+        pass: ${{ secrets.APP_PASS }}
+        key: ${{ secrets.APP_KEY }} 
