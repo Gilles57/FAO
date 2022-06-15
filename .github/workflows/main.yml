@@ -12,7 +12,6 @@ jobs:
           host: ${{ secrets.APP_HOST }}
           user:  ${{ secrets.APP_USER }}
           pass: ${{ secrets.APP_PASS }}
-          key: ${{ secrets.APP_KEY}}
           run: |
             cd ~/FAO
             ls -a
