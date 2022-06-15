@@ -12,6 +12,7 @@ jobs:
         host: ${{ secrets.APP_HOST }}
         username: ${{ secrets.APP_USER }}
         key: ${{ secrets.APP_KEY }}
+        passphrase: ${{ secrets.APP_PASS }}
         port: 22
         script: |
             cd ~
