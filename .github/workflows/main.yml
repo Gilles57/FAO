@@ -9,10 +9,8 @@ jobs:
     - name: ls -a via ssh
       uses: matheusvanzan/sshpass-action@v2
       with:
-          host: ${{ secrets.APP_HOST }}
-          user:  ${{ secrets.APP_USER }}
-          pass: ${{ secrets.APP_PASS }}
+          host: alligator.o2switch.net
+          user:  gsalmon
+          pass: vWZzt4uKvchabkT0
           run: |
-            cd ~/FAO
             ls -a
-            exit
