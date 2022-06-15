@@ -2,6 +2,7 @@
 
 {% block title %}Hello FAO TRAVEL !{% endblock %}
 {% block body %}
+    {% include 'home/flash.html.twig' %}
     {% include 'home/menu.html.twig' %}
     <div class="container">
         <div class="row">
@@ -25,23 +26,39 @@
                     pour
                     celui de vanlifer !</p>
             </div>
-            <p>Qui suis-je ?</p>
+            <h1 class="h3 pt-5">Qui suis-je ?</h1>
+            <div class="border border-primary">
+                <p>Animateur jeunesse de formation, j’ai travaillé plusieurs années dans des associations, des collèges
+                    et
+                    des MJC,
+                    avant de terminer comme responsable du service jeunesse d’une collectivité avant mon départ pour le
+                    tour
+                    du
+                    monde.</p>
 
-            <p>Animateur jeunesse de formation, j’ai travaillé plusieurs années dans des associations, des collèges et
-                des MJC,
-                avant de terminer comme responsable du service jeunesse d’une collectivité avant mon départ pour le tour
-                du
-                monde.</p>
-
-            <p>Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone pendant dix ans, puis, en autodidacte,
-                la
-                guitare, le piano, le djembé, la derbouka, le cajon et enfin le Handan. Aujourd’hui,
-                multi-instrumentaliste, je
-                compose mes propres morceaux via la MAO (Musique Assistée par Ordinateur).</p>
-
-            <p>Pourquoi cette vie de voyageur ?</p>
+                <p>Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone pendant dix ans, puis, en
+                    autodidacte,
+                    la
+                    guitare, le piano, le djembé, la derbouka, le cajon et enfin le Handan. Aujourd’hui,
+                    multi-instrumentaliste, je
+                    compose mes propres morceaux via la MAO (Musique Assistée par Ordinateur).</p>
+            </div>
+            <h1 class="h3 pt-5">Pourquoi cette vie de voyageur ?</h1>
+            <div class="border border-primary">
+                <p> Après avoir passé 18 ans dans un schéma professionnel et sociétal classique, j’ai constaté que cette
+                    vie-là ne me rendait pas heureux, et ce, même si j’adorais et étais passionné par mon travail.
+                    J’avais un logement, un travail, une voiture, une bonne situation financière mais il me manquait
+                    quand même quelque chose. Alors comme le meilleur moyen de se connaitre est de partir seul à l’autre
+                    bout du monde, c’est ce que j’ai fait.</p>
+                <p>14 mois plus tard, j’ai compris que c’est ça qui me rendait heureux, la liberté. La liberté d’aller
+                    partout, de rencontrer des gens, de les découvrir, découvrir leurs cultures, leurs traditions, leurs
+                    paysages ... La liberté de faire ce qu’il me plait, quand il me plait !</p>
+                <p>Et pour continuer cette vie, j’ai mis en place différents projets pour me permettre d’être autonome
+                    n’importe où sur la planète (hors zone de guerre, désert brulant et iceberg géant !)</p>
+            </div>
         </div>
     </div>
+    <p></p>
     {% include 'home/footer.html.twig' %}
 
 {% endblock %}

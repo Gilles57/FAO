@@ -1,5 +1,14 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        nom: 'Salmon'
+        prenom: 'Étienne'
+        mail: 'barbpapan25@gmail.com'
+        telephone: '06 32 51 85 85'
+        youtube: 'Etienne Salmon'
+    form_themes:
+    - "bootstrap_4_layout.html.twig"
+    - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 
 when@test:
     twig:
