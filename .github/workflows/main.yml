@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: tests via ssh
-      uses: matheusvanzan/sshpass-action@v2
+      uses: appleboy/ssh-action@master
       with:
-          host: ${{ secrets.APP_HOST }}
-          user: ${{ secrets.APP_USER }}
-          key: ${{ secrets.APP_KEY }}
-          run: |
+        host: ${{ secrets.APP_HOST }}
+        username: ${{ secrets.APP_USER }}
+        key: ${{ secrets.APP_KEY }}
+        port: 22
+        script: |
             cd ~
+            ls -al
