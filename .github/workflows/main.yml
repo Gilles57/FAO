@@ -10,9 +10,8 @@ jobs:
       uses: matheusvanzan/sshpass-action@v2
       with:
           host: ${{ secrets.APP_HOST }}
-          username:  ${{ secrets.APP_USER }}
-          passphrase: ${{ secrets.APP_PASS }}
-          password: ${{ secrets.APP_PASS }}
-          privateKey: ${{ secrets.APP_KEY}}
+          user:  ${{ secrets.APP_USER }}
+          pass: ${{ secrets.APP_PASS }}
+          key: ${{ secrets.APP_KEY}}
           run: |
-          command: ls -a
+            ls -a
