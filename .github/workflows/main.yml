@@ -1,17 +1,31 @@
-name: remote ssh command
-on: [push]
-jobs:
+name: Tests Symfony
 
-  build:
-    name: Build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  symfony-tests:
     runs-on: ubuntu-latest
     steps:
-    - name: ls -a via ssh
-      uses: garygrossgarten/github-action-ssh@release
+    #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
+    # change this to (see https://github.com/shivammathur/setup-php#bookmark-versioning):
+    # uses: shivammathur/setup-php@v2
+    - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
       with:
+<<<<<<< HEAD
         command: ls -a
         host: ${{ secrets.APP_HOST }}
         username:  ${{ secrets.APP_USER }}
         passphrase: ${{ secrets.APP_PASS }}
         password: ${{ secrets.APP_PASS }}
         privateKey: ${{ secrets.APP_KEY}}
+=======
+        php-version: '8.1.4'
+    - uses: actions/checkout@v3
+>>>>>>> 08b4edec5d016195ada38915254413779d53c758
