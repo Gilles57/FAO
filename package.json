@@ -7,8 +7,7 @@
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.52.2",
         "sass-loader": "^12.6.0",
-        "webpack-notifier": "^1.6.0",
-        "error-stack-parser": "2.0.6"
+        "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
     "private": true,
