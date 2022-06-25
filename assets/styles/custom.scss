@@ -1,15 +1,15 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
 // Default variable overrides
 $primary: #000;
-$body-bg: #999999;
+$secondary: #d57735;
+$body-bg: #fadcaf;
 $body-color: #422608;
-$bs-heading-color: #000;
+//$bs-heading-color: #000;
 $font-family-monospace: 'Libre Bodoni', serif;
-
+//
+//$h6-font-size:  0.5rem !important;
+//
 .pied{
     font-weight: 100 !important;
     font-size: 12px !important;
     color: black !important;
-    background-color: #B0413E;
 }
