@@ -3,7 +3,7 @@ twig:
     globals:
         nom: 'Salmon'
         prenom: 'Étienne'
-        mail: 'barbpapan25@gmail.com'
+        mail: 'barbapapan25@gmail.com'
         telephone: '06 32 51 85 85'
         facebook: 'Etienne Salmon'
         youtube: 'Etienne Salmon'
