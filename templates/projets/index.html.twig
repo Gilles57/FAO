@@ -1,19 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Projets FAO TRAVEL !{% endblock %}
+{% block title %}Hello FAO TRAVEL !{% endblock %}
 {% block body %}
     {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-2">
-                <img src="{{ asset('images/image_accueil.png') }}" alt="">
+                <img src="{{ asset('images/facteur.png') }}" width="100%" alt="">
             </div>
-            <div class="col-md-8 pt-1 text-center">
-                <p> bla bla</p>
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/tortue.jpg') }}" width="100%" alt="">
+            </div>
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/pompier.png') }}" width="100%" alt="">
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/ecolojo.jpg') }}" width="100%" alt="">
+            </div>
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/paysage.jp') }}" width="100%" alt="">
+            </div>
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/sacados.png') }}" width="100%" alt="">
+            </div>
+        </div>
+           </div>
     <p></p>
     {% include 'home/_footer.html.twig' %}
 
