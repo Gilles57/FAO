@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Massage FAO TRAVEL !{% endblock %}
+
+{% block body %}
+    {% include 'home/_flash.html.twig' %}
+    {% include 'home/_menu.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 pt-2">
+                <img src="{{ asset('images/image_accueil.png') }}" alt="">
+            </div>
+            <div class="col-md-8 pt-1 text-center">
+                <p> bla bla</p>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    {% include 'home/_footer.html.twig' %}
+
+{% endblock %}

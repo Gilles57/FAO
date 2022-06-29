@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2 offset-1">
-            <img src="{{ asset('images/logo2.png') }}" width='200' height='230' alt="Logo FAO Travel">
+            <img src="{{ asset('images/logos/logo2.png') }}" width='200' height='230' alt="Logo FAO Travel">
         </div>
         <div class="col-md-9    ">
             <h3 class="text-center"></h3>
@@ -13,34 +13,56 @@
     </div>
 
 
-
-    <nav class="nav navbar-nav navbar-expand-md nav-tabs   flex-column flex-sm-row mt-3">
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_home' %}#}
+    <ul class="nav navbar-nav navbar-expand-md nav-tabs nav-fill  flex-column flex-sm-row mt-3">
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_home' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_home') }}">Accueil</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_trajet' %}#}
+                {% endif %}" href="{{ path('app_home') }}">Accueil</a>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_trajet' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_trajet') }}">Trajet</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_carnet' %}#}
+                {% endif %}" href="{{ path('app_trajet') }}">Trajet</a>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_carnet' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_carnet') }}">Carnet de voyage</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_musique' %}#}
+                {% endif %}" href="{{ path('app_carnet') }}">Carnet de voyage</a>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_musique' %}#}
            bg-secondary
                 {% endif %}" href="{{ path('app_musique') }}">Musique</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_animation' %}#}
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_animation' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_animation') }}">Animation</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_bienetre' %}#}
+                {% endif %}" href="{{ path('app_animation') }}">Animation</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  {% if app.request.attributes.get('_route') != 'app_bienetre' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_bienetre') }}">Bien-être</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_projets' %}#}
+                {% endif %}" data-bs-toggle="dropdown" href="{{ path('app_bienetre') }}"
+               role="button" aria-expanded="false">Bien-être</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ path('app_relaxation') }}">Relaxation vibratoire</a></li>
+                <li><a class="dropdown-item" href="{{ path('app_massage') }}">Massage californien</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_projets' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_projets') }}">Projets</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_presse' %}#}
+                {% endif %}" href="{{ path('app_projets') }}">Projets</a>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_presse' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_presse') }}">Presse</a>
-        <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') == 'app_partenaires' %}#}
+                {% endif %}" href="{{ path('app_presse') }}">Presse</a>
+        </li>
+        <li class="nav-item">
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_partenaires' %}#}
            bg-secondary
-                {% endif %}"  href="{{ path('app_partenaires') }}">Partenaires</a>
-    </nav>
+                {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
+        </li>
+    </ul>
 </div>
