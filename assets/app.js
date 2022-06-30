@@ -10,5 +10,6 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-require('bootstrap/js/dist/tooltip');
-require('bootstrap/js/dist/popover');
+const $ = require('jquery');
+
+require('bootstrap');
