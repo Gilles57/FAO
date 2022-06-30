@@ -12,7 +12,6 @@ class LivredorController extends AbstractController
     public function index(): Response
     {
         return $this->render('livredor/index.html.twig', [
-            'controller_name' => 'LivredorController',
         ]);
     }
 }

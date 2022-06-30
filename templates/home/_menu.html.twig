@@ -40,7 +40,7 @@
                 {% endif %}" href="{{ path('app_animation') }}">Animation</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle  {% if app.request.attributes.get('_route') != 'app_bienetre' %}#}
+            <a class="nav-link dropdown-toggle border-light {% if app.request.attributes.get('_route') != 'app_bienetre' %}#}
            bg-secondary
                 {% endif %}" data-bs-toggle="dropdown" href="#"
                role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Bien-être</a>
@@ -68,7 +68,7 @@
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_livre' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_partenaires') }}">Livre d'Or</a>
+                {% endif %}" href="{{ path('app_livredor') }}">Livre d'Or</a>
         </li>
     </ul>
 </div>
