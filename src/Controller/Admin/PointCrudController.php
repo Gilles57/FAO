@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Point;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class PoiCrudController extends AbstractCrudController
+class PointCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
