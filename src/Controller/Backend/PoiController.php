@@ -2,7 +2,7 @@
 
 namespace App\Controller\Backend;
 
-use App\Entity\Poi;
+use App\Entity\Point;
 use App\Form\PoiType;
 use App\Repository\PoiRepository;
 use Doctrine\Persistence\ObjectManager;
@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PoiController extends AbstractController
 {
-    #[Route('/poi', name: 'app_poi')]
+    #[Route('/points', name: 'app_poi')]
     public function star(PoiRepository $poiRepository,  Request $request): Response
     {
 //        $pois = $poiRepository->findAll();
@@ -56,23 +56,23 @@ class PoiController extends AbstractController
         }
         $villes = json_encode($villes);
 
-        return $this->render('poi/carte.html.twig', compact('villes'));
+        return $this->render('points/carte.html.twig', compact('villes'));
     }
 
     /**
-     * @Route("/poi", name="poi_index", methods="GET")
+     * @Route("/points", name="poi_index", methods="GET")
      */
     public function index(PoiRepository $poiRepository): Response
     {
-        return $this->render('poi/index.html.twig', ['pois' => $poiRepository->findAllOrdered()]);
+        return $this->render('points/index.html.twig', ['pois' => $poiRepository->findAllOrdered()]);
     }
 
     /**
-     * @Route("/poi/new", name="poi_new", methods="GET|POST")
+     * @Route("/points/new", name="poi_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
-        $poi = new Poi();
+        $poi = new Point();
         $poi->setPreferred(0);
         $form = $this->createForm(PoiType::class, $poi);
         $form->handleRequest($request);
@@ -85,24 +85,24 @@ class PoiController extends AbstractController
             return $this->redirectToRoute('poi_index');
         }
 
-        return $this->render('poi/new.html.twig', [
-            'poi' => $poi,
+        return $this->render('points/new.html.twig', [
+            'points' => $poi,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/poi/{id}", name="poi_show", methods="GET")
+     * @Route("/points/{id}", name="poi_show", methods="GET")
      */
-    public function show(Poi $poi): Response
+    public function show(Point $poi): Response
     {
-        return $this->render('poi/show.html.twig', ['poi' => $poi]);
+        return $this->render('points/show.html.twig', ['points' => $poi]);
     }
 
     /**
-     * @Route("/poi/{id}/edit", name="poi_edit", methods="GET|POST")
+     * @Route("/points/{id}/edit", name="poi_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Poi $poi): Response
+    public function edit(Request $request, Point $poi): Response
     {
         $form = $this->createForm(PoiType::class, $poi);
         $form->handleRequest($request);
@@ -113,16 +113,16 @@ class PoiController extends AbstractController
             return $this->redirectToRoute('poi_index', ['id' => $poi->getId()]);
         }
 
-        return $this->render('poi/edit.html.twig', [
-            'poi' => $poi,
+        return $this->render('points/edit.html.twig', [
+            'points' => $poi,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/poi/{id}", name="poi_delete", methods="DELETE")
+     * @Route("/points/{id}", name="poi_delete", methods="DELETE")
      */
-    public function delete(Request $request, Poi $poi): Response
+    public function delete(Request $request, Point $poi): Response
     {
         if ($this->isCsrfTokenValid('delete'.$poi->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();

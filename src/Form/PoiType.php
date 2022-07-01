@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Poi;
+use App\Entity\Point;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,7 +29,7 @@ class PoiType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Poi::class,
+            'data_class' => Point::class,
         ]);
     }
 }

@@ -6,7 +6,7 @@ use App\Repository\PoiRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PoiRepository::class)]
-class Poi
+class Point
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -27,6 +27,9 @@ class Poi
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $startAt;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $endAt;
 
 
     public function getId(): ?int
@@ -90,6 +93,18 @@ class Poi
     public function setStartAt(\DateTimeImmutable $startAt): self
     {
         $this->startAt = $startAt;
+
+        return $this;
+    }
+
+    public function getEndAt(): ?\DateTimeImmutable
+    {
+        return $this->endAt;
+    }
+
+    public function setEndAt(?\DateTimeImmutable $endAt): self
+    {
+        $this->endAt = $endAt;
 
         return $this;
     }

@@ -11,7 +11,7 @@ class CarteController extends AbstractController
     #[Route('/trajet', name: 'app_trajet')]
     public function index(): Response
     {
-        return $this->render('poi/carte.html.twig', [
+        return $this->render('points/carte.html.twig', [
             'controller_name' => 'CarteController',
         ]);
     }

@@ -2,14 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Poi;
+use App\Entity\Point;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class PoiCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Poi::class;
+        return Point::class;
     }
 
     /*

@@ -20,16 +20,16 @@ final class Version20220701123352 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE poi ADD COLUMN start_at DATETIME NOT NULL');
+        $this->addSql('ALTER TABLE points ADD COLUMN start_at  DATETIME DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TEMPORARY TABLE __temp__poi AS SELECT id, nom, lat, lon, preferred FROM poi');
-        $this->addSql('DROP TABLE poi');
-        $this->addSql('CREATE TABLE poi (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, lat DOUBLE PRECISION NOT NULL, lon DOUBLE PRECISION NOT NULL, preferred BOOLEAN NOT NULL)');
-        $this->addSql('INSERT INTO poi (id, nom, lat, lon, preferred) SELECT id, nom, lat, lon, preferred FROM __temp__poi');
+        $this->addSql('CREATE TEMPORARY TABLE __temp__poi AS SELECT id, nom, lat, lon, preferred FROM points');
+        $this->addSql('DROP TABLE points');
+        $this->addSql('CREATE TABLE points (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, lat DOUBLE PRECISION NOT NULL, lon DOUBLE PRECISION NOT NULL, preferred BOOLEAN NOT NULL)');
+        $this->addSql('INSERT INTO points (id, nom, lat, lon, preferred) SELECT id, nom, lat, lon, preferred FROM __temp__poi');
         $this->addSql('DROP TABLE __temp__poi');
     }
 }

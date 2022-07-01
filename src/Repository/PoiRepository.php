@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Poi;
+use App\Entity\Point;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Poi|null find($id, $lockMode = null, $lockVersion = null)
- * @method Poi|null findOneBy(array $criteria, array $orderBy = null)
- * @method Poi[]    findAll()
- * @method Poi[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Point|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Point|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Point[]    findAll()
+ * @method Point[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class PoiRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Poi::class);
+        parent::__construct($registry, Point::class);
     }
 
     public function findAllOrdered()
@@ -26,7 +26,7 @@ class PoiRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Poi[] Returns an array of Poi objects
+    //  * @return Point[] Returns an array of Point objects
     //  */
     /*
     public function findByExampleField($value)
@@ -43,7 +43,7 @@ class PoiRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Poi
+    public function findOneBySomeField($value): ?Point
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
