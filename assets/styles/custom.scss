@@ -2,6 +2,7 @@
     font-family: "Ecolojo";
     src: url("https://ecolojo.com/wp-content/themes/ecolojo_th/font/Ecolojo.ttf");
 }
+
 @font-face {
     font-family: "Playon";
     src: url("https://ecolojo.com/wp-content/themes/ecolojo_th/font/Playon.ttf");
@@ -17,9 +18,12 @@ $font-family-monospace: 'Libre Bodoni', serif;
 //
 //$h6-font-size:  0.5rem !important;
 //
-.pied{
+.pied {
     font-weight: 100 !important;
     font-size: 12px !important;
     color: $secondary !important;
 }
 
+#map { /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height: 600px;
+}
