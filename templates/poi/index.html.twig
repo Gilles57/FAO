@@ -52,23 +52,23 @@
     {{ parent() }}
 
     <script type="text/javascript">
-        $(function () {
-            $('img.star').click(function () {
-                var current = $(this);
-                var id = current.data('value');
+        {#$(function () {#}
+        {#    $('img.star').click(function () {#}
+        {#        var current = $(this);#}
+        {#        var id = current.data('value');#}
 
-                $('img.star').attr('src','{{ asset("/images/staroff.png") }}' );
-                current.attr('src','{{ asset("/images/staron.png") }}' );
+        {#        $('img.star').attr('src','{{ asset("/images/staroff.png") }}' );#}
+        {#        current.attr('src','{{ asset("/images/staron.png") }}' );#}
 
-                $.ajax({
-                    url: "{{ path('star') }}" ,
-                    type: 'POST',
-                    data: {'id' : id},
-                });
+        {#        $.ajax({#}
+        {#            url: "{{ path('star') }}" ,#}
+        {#            type: 'POST',#}
+        {#            data: {'id' : id},#}
+        {#        });#}
 
 
-            });
-        });
+        {#    });#}
+        {#});#}
 
     </script>
 

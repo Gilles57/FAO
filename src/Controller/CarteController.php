@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TrajetController extends AbstractController
+class CarteController extends AbstractController
 {
     #[Route('/trajet', name: 'app_trajet')]
     public function index(): Response
     {
-        return $this->render('trajet/index.html.twig', [
-            'controller_name' => 'TrajetController',
+        return $this->render('poi/carte.html.twig', [
+            'controller_name' => 'CarteController',
         ]);
     }
 }

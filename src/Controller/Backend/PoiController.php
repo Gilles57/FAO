@@ -40,10 +40,11 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/carte", name="carte")
+     * @Route("/carte", name="app_carte")
      */
     public function carte(PoiRepository $poiRepository): Response
     {
+
         $pois = $poiRepository->findAll();
         $villes = [];
 
@@ -59,7 +60,7 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/", name="poi_index", methods="GET")
+     * @Route("/poi", name="poi_index", methods="GET")
      */
     public function index(PoiRepository $poiRepository): Response
     {
@@ -67,7 +68,7 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="poi_new", methods="GET|POST")
+     * @Route("/poi/new", name="poi_new", methods="GET|POST")
      */
     public function new(Request $request): Response
     {
@@ -91,7 +92,7 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="poi_show", methods="GET")
+     * @Route("/poi/{id}", name="poi_show", methods="GET")
      */
     public function show(Poi $poi): Response
     {
@@ -99,7 +100,7 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="poi_edit", methods="GET|POST")
+     * @Route("/poi/{id}/edit", name="poi_edit", methods="GET|POST")
      */
     public function edit(Request $request, Poi $poi): Response
     {
@@ -119,7 +120,7 @@ class PoiController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="poi_delete", methods="DELETE")
+     * @Route("/poi/{id}", name="poi_delete", methods="DELETE")
      */
     public function delete(Request $request, Poi $poi): Response
     {

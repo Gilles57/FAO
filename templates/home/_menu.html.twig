@@ -1,17 +1,5 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-2 offset-1">
-            <img src="{{ asset('images/logos/logo2.png') }}" width='200' height='230' alt="Logo FAO Travel">
-        </div>
-        <div class="col-md-9    ">
-            <h3 class="text-center"></h3>
-            <h1 class="text-center  font-family-serif" style="font-family: font-family-serif,serif; font-size: 7rem">FAO
-                TRAVEL</h1>
-            <h3 class="text-center ">Musique, Animation</h3>
-            <h3 class="text-center">& Bien-être</h3>
-        </div>
-    </div>
-
+{% include 'home/_banniere.html.twig' %}
 
     <ul class="nav navbar-nav navbar-expand-md nav-tabs nav-fill  flex-column flex-sm-row mt-3">
         <li class="nav-item">
@@ -20,9 +8,9 @@
                 {% endif %}" href="{{ path('app_home') }}">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_trajet' %}#}
+            <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_carte' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_trajet') }}">Trajet</a>
+                {% endif %}" href="{{ path('app_carte') }}">Carte</a>
         </li>
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_carnet' %}#}
