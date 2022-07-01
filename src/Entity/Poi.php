@@ -25,6 +25,9 @@ class Poi
     #[ORM\Column(type: 'boolean')]
     private $preferred;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $startAt;
+
 
     public function getId(): ?int
     {
@@ -75,6 +78,18 @@ class Poi
     public function setPreferred(bool $preferred): self
     {
         $this->preferred = $preferred;
+
+        return $this;
+    }
+
+    public function getStartAt(): ?\DateTimeImmutable
+    {
+        return $this->startAt;
+    }
+
+    public function setStartAt(\DateTimeImmutable $startAt): self
+    {
+        $this->startAt = $startAt;
 
         return $this;
     }
