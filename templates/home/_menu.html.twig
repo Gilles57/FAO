@@ -12,10 +12,10 @@
            bg-secondary
                 {% endif %}" href="{{ path('app_carte') }}">Carte</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item disabled">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_carnet' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_carnet') }}">Carnet de voyage</a>
+                {% endif %}" href="#">Carnet de voyage</a>
         </li>
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_musique' %}#}
@@ -46,17 +46,17 @@
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_presse' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_presse') }}">Presse</a>
+                {% endif %}" href="#">Presse</a>
         </li>
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_partenaires' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
+                {% endif %}" href="#">Partenaires</a>
         </li>
         <li class="nav-item">
             <a class="flex-sm-fill text-sm-center nav-link border-light {% if app.request.attributes.get('_route') != 'app_livre' %}#}
            bg-secondary
-                {% endif %}" href="{{ path('app_livredor') }}">Livre d'Or</a>
+                {% endif %}" href="#">Livre d'Or</a>
         </li>
     </ul>
 </div>
