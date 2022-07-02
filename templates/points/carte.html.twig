@@ -40,20 +40,6 @@
             let lon = 6.045450869180901;
             let zoom = 6;
             let villes = {{ villes | raw }};
-            console.log(villes)
-            let nb_villes = Object.keys(villes).length;
-
-            // On initialise la latitude et la longitude du centre de la carte
-            let pref;
-
-            // for (let i = 0; i < nb_villes; i++) {
-            // if (villes[i]['preferred'] === true) {
-            //        lat = villes[i]['lat'];
-            //        lon = villes[i]['lon'];
-            //        pref = i;
-            //    }
-            // }
-
 
             {# // Nous définissons le dossier qui contiendra les marqueurs #}
             const iconBase = '/images/carte/';
@@ -67,14 +53,13 @@
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-
             // Nous parcourons la liste des villes
             let myIcon;
             for (const ville of villes) {
                 // Nous définissons l'icône à utiliser pour le marqueur, sa taille affichée (iconSize), sa position (iconAnchor) et le décalage de son ancrage (popupAnchor)
                 console.log(ville)
 
-                if (ville['preferred'] == true) {
+                if (ville['preferred'] === true) {
                     myIcon = L.icon({
                         iconUrl: iconBase + "pin_green.webp",
                         iconSize: [60, 60],
@@ -99,7 +84,6 @@
             // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
             initMap();
         }
-
 
     </script>
 {% endblock %}
