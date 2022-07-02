@@ -4,7 +4,7 @@ namespace App\Controller\Backend;
 
 use App\Entity\Point;
 use App\Form\PoiType;
-use App\Repository\PoiRepository;
+use App\Repository\PointRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PoiController extends AbstractController
 {
     #[Route('/points', name: 'app_poi')]
-    public function star(PoiRepository $poiRepository,  Request $request): Response
+    public function star(PointRepository $poiRepository, Request $request): Response
     {
 //        $pois = $poiRepository->findAll();
 //        $id = $request->get('id');
@@ -42,7 +42,7 @@ class PoiController extends AbstractController
     /**
      * @Route("/carte", name="app_carte")
      */
-    public function carte(PoiRepository $poiRepository): Response
+    public function carte(PointRepository $poiRepository): Response
     {
 
         $pois = $poiRepository->findAll();
@@ -62,7 +62,7 @@ class PoiController extends AbstractController
     /**
      * @Route("/points", name="poi_index", methods="GET")
      */
-    public function index(PoiRepository $poiRepository): Response
+    public function index(PointRepository $poiRepository): Response
     {
         return $this->render('points/index.html.twig', ['pois' => $poiRepository->findAllOrdered()]);
     }

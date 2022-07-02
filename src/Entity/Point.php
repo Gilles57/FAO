@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\PoiRepository;
+use App\Repository\PointRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PoiRepository::class)]
+#[ORM\Entity(repositoryClass: PointRepository::class)]
 class Point
 {
     #[ORM\Id]

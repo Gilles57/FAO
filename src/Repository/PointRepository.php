@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Point[]    findAll()
  * @method Point[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PoiRepository extends ServiceEntityRepository
+class PointRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
