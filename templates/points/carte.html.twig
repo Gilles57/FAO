@@ -17,40 +17,41 @@
     {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
     <div class="container">
-        <div class="row mt-4" style="justify-content: center;">
-            <div id="map" class="col-md-9 mx-2">
+        <div class="row mt-4  vh-75" style="justify-content: center;">
+            <div id="map" class="col-sm-12 col-lg-8 mb-4">
                 <!-- Ici s'affichera la carte -->
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-12 col-lg-3 mx-3">
                 <div class="row rounded-2  border border-primary ">
                     <p>Où suis-je ?</p>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3 col-2">
                             <img src="{{ asset('images/carte/pin_grey.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-9 col-10">
                             <p>C'est passé !</p>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3 col-2">
                             <img src="{{ asset('images/carte/pin_green.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-9 col-10">
                             <p>Je suis ici !</p>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                            <img src="{{ asset('images/carte/pin_red.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-3 col-2">
+                            <img  src="{{ asset('images/carte/pin_red.webp') }}" width="30px"
+                                 alt="icon"></div>
+                        <div class="col-md-9 col-10">
                             <p>À venir</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3 col-2">
                             <img src="{{ asset('images/carte/pin.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-10">
+                        <div class="col-md-9 col-10">
                             <p>En projet</p>
                         </div>
                     </div>
@@ -72,9 +73,19 @@
     <script type="text/javascript">
         function initMap() {
             let lat = 47.260751953373706;
-            let lon = 6.045450869180901;
+            let lon = 3;
             let zoom = 6;
+            if (screen.width < 300) {
+                zoom = 4;
+            }else if (screen.width < 400) {
+                zoom = 5;
+            } else if (screen.width < 700){
+                zoom = 5;
+            }
             let villes = {{ villes | raw }};
+
+            console.log(screen.width);
+            console.log(zoom);
 
             {# // Nous définissons le dossier qui contiendra les marqueurs #}
             const iconBase = '/images/carte/';
@@ -103,21 +114,21 @@
                     });
                 } else {
                     console.log((ville.start))
-                    if (Date.parse(ville.start) >  Date.now()) {
+                    if (Date.parse(ville.start) > Date.now()) {
                         myIcon = L.icon({
                             iconUrl: iconBase + "pin_red.webp",
                             iconSize: [30, 30],
                             iconAnchor: [15, 15],
                             popupAnchor: [-3, -30],
                         });
-                    } else if  ( ville.start == '... ?') {
+                    } else if (ville.start == '... ?') {
                         myIcon = L.icon({
                             iconUrl: iconBase + "pin.webp",
                             iconSize: [30, 30],
                             iconAnchor: [15, 15],
                             popupAnchor: [-3, -30],
                         });
-                    }else {
+                    } else {
                         myIcon = L.icon({
                             iconUrl: iconBase + "pin_grey.webp",
                             iconSize: [30, 30],
