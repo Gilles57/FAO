@@ -18,8 +18,18 @@ class CarteController extends AbstractController
 
         foreach ($points as $p) {
             $villes[$index]['nom'] = $p->getNom();
-            $villes[$index]['lat'] = $p->getLat();
-            $villes[$index]['lon'] = $p->getLon();
+            $villes[$index]['latitude'] = $p->getLat();
+            $villes[$index]['longitude'] = $p->getLon();
+            if (null != $p->getStartAt()) {
+                $villes[$index]['start'] = $p->getStartAt()->format('Y-m-d');
+            } else {
+                $villes[$index]['start'] = '... ?';
+            }
+            if (null != $p->getEndAt()) {
+                $villes[$index]['end'] = $p->getEndAt()->format('Y-m-d');
+            } else {
+                $villes[$index]['end'] = '... ?';
+            }
             $villes[$index]['preferred'] = $p->getPreferred();
             ++$index;
         }

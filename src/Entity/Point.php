@@ -25,7 +25,7 @@ class Point
     #[ORM\Column(type: 'boolean')]
     private $preferred;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private $startAt;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
@@ -90,7 +90,7 @@ class Point
         return $this->startAt;
     }
 
-    public function setStartAt(\DateTimeImmutable $startAt): self
+    public function setStartAt(?\DateTimeImmutable $startAt): self
     {
         $this->startAt = $startAt;
 
