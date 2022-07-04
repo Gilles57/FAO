@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Commentaire;
 use App\Entity\Point;
 use App\Entity\Projet;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,6 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Accueil', 'fa fa-solid fa-home', 'app_home');
         yield MenuItem::section('Administration');
         yield MenuItem::linkToCrud('Les points sur la carte', 'fa fa-solid fa-map-marker', Point::class);
+        yield MenuItem::linkToCrud('Les utilisateurs', 'fa fa-solid fa-user', User::class);
 
         yield MenuItem::section("Le livre d'or");
         yield MenuItem::linkToCrud('Les commentaires', 'fa fa-solid fa-comments', Commentaire::class);
