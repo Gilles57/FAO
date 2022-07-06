@@ -3,20 +3,41 @@
 namespace App\DataFixtures;
 
 use App\Entity\Point;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $faker = Factory::create('fr_FR');
+
+        $contact = new User();
+        $contact->setEmail('g.salmon@free.fr');
+        $contact->setForename('Gilles');
+        $contact->setName('SALMON');
+        $contact->setPassword('$2y$13$bpRp7C8b8eq3GnWL6VfM2.2DktphM5qP3v9Xg3PFuWCWsHaY3pph6');
+        $contact->setRoles(['ROLE_ADMIN']);
+        $manager->persist($contact);
+        $moi = $contact;
+
+        $contact2 = new User();
+        $contact2->setEmail('barbapapan25@gmail.com');
+        $contact2->setForename('Étienne');
+        $contact2->setName('SALMON');
+        $contact2->setPassword('$2y$13$34NeZiP42kSYOqCpMPpSFeyL65nyhQqU.k20ZQ.5M.JiawuZoTP1e');
+        $contact2->setRoles(['ROLE_ADMIN']);
+        $manager->persist($contact2);
+
         $points = [
-            ['Teluk Bahang', 5.451459, 100.212194, 1],
-            ['Cable car', 6.371694, 99.671673, 0],
-            ['Butterfly', 6.369682, 99.714647, 0],
-            ['Kuah', 6.320639, 99.848726, 0],
-            ['Koh Lipe', 6.487, 99.303, 0],
+            ['Besançon', 47.261, 6.045, 1, '2022-07-02 00:00', null],
+            ['Nantes', 47.169, -1.721, 0, null, null],
+            ['Nîmes', 43.838, 4.358, 0, '2022-06-17 00:00', '2022-06-19 00:00'],
+            ['Paris', 48.857, 2.295, 0, '2022-08-01 00:00', '2022-08-08 00:00'],
         ];
+
         for ($i = 0; $i < count($points); ++$i) {
             $point = new Point();
 
@@ -24,12 +45,16 @@ class AppFixtures extends Fixture
             $point->setLat($points[$i][1]);
             $point->setLon($points[$i][2]);
             $point->setPreferred($points[$i][3]);
-            $point->setStartAt(new \DateTimeImmutable());
-            $point->setEndAt(new \DateTimeImmutable());
+            if (null != $points[$i][4]) {
+                $point->setStartAt(new \DateTimeImmutable($points[$i][4]));
+            }
+            if (null != $points[$i][5]) {
+                $point->setEndAt(new \DateTimeImmutable($points[$i][4]));
+            }
 
             $manager->persist($point);
         }
+
         $manager->flush();
     }
 }
-

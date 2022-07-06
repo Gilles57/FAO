@@ -11,7 +11,7 @@ class PresseController extends AbstractController
     #[Route('/presse', name: 'app_presse')]
     public function index(): Response
     {
-        return $this->render('presse/index.html.twig', [
+        return $this->render('presse/presse.html.twig', [
             'controller_name' => 'PresseController',
         ]);
     }

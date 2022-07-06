@@ -13,11 +13,9 @@ $primary: #000;
 $secondary: #d57735;
 $body-bg: #fadcaf;
 $body-color: #422608;
-//$bs-heading-color: #000;
 $font-family-monospace: 'Libre Bodoni', serif;
-//
-//$h6-font-size:  0.5rem !important;
-//
+//$font-size-base: 0.5rem;
+
 .pied {
     font-weight: 100 !important;
     font-size: 12px !important;
@@ -28,12 +26,6 @@ $font-family-monospace: 'Libre Bodoni', serif;
     height: 600px;
 }
 
-.close-image {
-   cursor: none;
-   display: inline-block;
-   float: right;
-   z-index: 3;
-   position: absolute;
-   right: 5px;
-   top: 5px;
+li.a {
+ //font-size: 1vw;
 }

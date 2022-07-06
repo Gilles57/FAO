@@ -11,7 +11,7 @@ class ProjetsController extends AbstractController
     #[Route('/projets', name: 'app_projets')]
     public function index(): Response
     {
-        return $this->render('projets/index.html.twig', [
+        return $this->render('projets/projets.html.twig', [
             'controller_name' => 'ProjetsController',
         ]);
     }

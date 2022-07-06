@@ -11,7 +11,7 @@ class BienetreController extends AbstractController
     #[Route('/bienetre', name: 'app_bienetre')]
     public function index(): Response
     {
-        return $this->render('bienetre/index.html.twig');
+        return $this->render('bienetre/bienetre.html.twig');
     }
 
     #[Route('/relaxation', name: 'app_relaxation')]

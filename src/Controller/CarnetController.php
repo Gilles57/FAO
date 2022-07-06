@@ -11,7 +11,7 @@ class CarnetController extends AbstractController
     #[Route('/carnet', name: 'app_carnet')]
     public function index(): Response
     {
-        return $this->render('carnet/index.html.twig', [
+        return $this->render('carnet/carnet.html.twig', [
             'controller_name' => 'CarnetController',
         ]);
     }

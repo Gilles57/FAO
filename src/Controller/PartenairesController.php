@@ -11,7 +11,7 @@ class PartenairesController extends AbstractController
     #[Route('/partenaires', name: 'app_partenaires')]
     public function index(): Response
     {
-        return $this->render('partenaires/index.html.twig', [
+        return $this->render('partenaires/partenaires.html.twig', [
             'controller_name' => 'PartenairesController',
         ]);
     }

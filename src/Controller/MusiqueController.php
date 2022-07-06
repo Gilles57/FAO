@@ -11,7 +11,7 @@ class MusiqueController extends AbstractController
     #[Route('/musique', name: 'app_musique')]
     public function index(): Response
     {
-        return $this->render('musique/index.html.twig', [
+        return $this->render('musique/musique.html.twig', [
             'controller_name' => 'MusiqueController',
         ]);
     }

@@ -11,7 +11,7 @@ class LivredorController extends AbstractController
     #[Route('/livredor', name: 'app_livredor')]
     public function index(): Response
     {
-        return $this->render('livredor/index.html.twig', [
+        return $this->render('livredor/livredor.html.twig', [
         ]);
     }
 }

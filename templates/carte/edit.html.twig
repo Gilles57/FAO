@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Modifier un P.O.I.</h1>
 
-    {{ include('points/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('carte/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('poi_index') }}">Retour à la liste</a>
 
-    {{ include('points/_delete_form.html.twig') }}
+    {{ include('carte/_delete_form.html.twig') }}
 {% endblock %}

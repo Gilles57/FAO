@@ -35,6 +35,6 @@ class CarteController extends AbstractController
         }
         $villes = json_encode($villes);
 
-        return $this->render('points/carte.html.twig', compact('villes'));
+        return $this->render('carte/carte.html.twig', compact('villes'));
     }
 }

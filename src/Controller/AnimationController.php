@@ -11,7 +11,7 @@ class AnimationController extends AbstractController
     #[Route('/animation', name: 'app_animation')]
     public function index(): Response
     {
-        return $this->render('animation/index.html.twig', [
+        return $this->render('animation/animation.html.twig', [
             'controller_name' => 'AnimationController',
         ]);
     }
