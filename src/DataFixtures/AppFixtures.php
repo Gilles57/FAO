@@ -2,7 +2,9 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Commentaire;
 use App\Entity\Point;
+use App\Entity\Projet;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -53,6 +55,27 @@ class AppFixtures extends Fixture
             }
 
             $manager->persist($point);
+        }
+
+        $commentaire = new Commentaire();
+        $commentaire->setMessage("Merci Étienne pour ce moment de partage, d'échange sur le voyage et la musique et ça tombe bien car le son pur de ton instrument nous emmène ailleurs, là où tout est possible, dans un monde meilleur ! ");
+        $commentaire->setPrenom('Virginie');
+        $commentaire->setAge(47);
+        $manager->persist($commentaire);
+
+        for ($i = 0; $i < 10; ++$i) {
+            $commentaire = new Commentaire();
+            $commentaire->setMessage($faker->text(300));
+            $commentaire->setPrenom($faker->firstName());
+            $commentaire->setAge($faker->numberBetween(10, 100));
+            $manager->persist($commentaire);
+        }
+        for ($i = 0; $i < 10; ++$i) {
+            $projet = new Projet();
+            $projet->setTitre($faker->paragraph());
+            $projet->setDescription($faker->text(300));
+            $projet->setImage($faker->imageUrl());
+            $manager->persist($projet);
         }
 
         $manager->flush();

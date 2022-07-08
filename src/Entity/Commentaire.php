@@ -13,52 +13,52 @@ class Commentaire
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $titre;
-
     #[ORM\Column(type: 'text')]
-    private $contenu;
+    private $message;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $signature;
+    private $prenom;
+
+    #[ORM\Column(type: 'integer')]
+    private $age;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getAge(): ?int
     {
-        return $this->titre;
+        return $this->age;
     }
 
-    public function setTitre(string $titre): self
+    public function setAge(int $age): self
     {
-        $this->titre = $titre;
+        $this->age = $age;
 
         return $this;
     }
 
-    public function getContenu(): ?string
+    public function getMessage(): ?string
     {
-        return $this->contenu;
+        return $this->message;
     }
 
-    public function setContenu(string $contenu): self
+    public function setMessage(string $message): self
     {
-        $this->contenu = $contenu;
+        $this->message = $message;
 
         return $this;
     }
 
-    public function getSignature(): ?string
+    public function getPrenom(): ?string
     {
-        return $this->signature;
+        return $this->prenom;
     }
 
-    public function setSignature(string $signature): self
+    public function setPrenom(string $prenom): self
     {
-        $this->signature = $signature;
+        $this->prenom = $prenom;
 
         return $this;
     }
