@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Entity\Point;
 use App\Entity\Projet;
@@ -16,6 +17,7 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create('fr_FR');
 
+        // Création des users
         $contact = new User();
         $contact->setEmail('g.salmon@free.fr');
         $contact->setForename('Gilles');
@@ -33,6 +35,7 @@ class AppFixtures extends Fixture
         $contact2->setRoles(['ROLE_ADMIN']);
         $manager->persist($contact2);
 
+        // Création des points
         $points = [
             ['Besançon', 47.261, 6.045, 1, '2022-07-02 00:00', null],
             ['Nantes', 47.169, -1.721, 0, null, null],
@@ -57,8 +60,11 @@ class AppFixtures extends Fixture
             $manager->persist($point);
         }
 
+        // Création des commentaires
         $commentaire = new Commentaire();
-        $commentaire->setMessage("Merci Étienne pour ce moment de partage, d'échange sur le voyage et la musique et ça tombe bien car le son pur de ton instrument nous emmène ailleurs, là où tout est possible, dans un monde meilleur ! ");
+        $commentaire->setMessage("Merci Étienne pour ce moment de partage, d'échange sur le voyage et la musique et ça ".
+            'tombe bien car le son pur de ton instrument nous emmène ailleurs, là où tout est possible, dans un '.
+            'monde meilleur ! ');
         $commentaire->setPrenom('Virginie');
         $commentaire->setAge(47);
         $manager->persist($commentaire);
@@ -70,13 +76,67 @@ class AppFixtures extends Fixture
             $commentaire->setAge($faker->numberBetween(10, 100));
             $manager->persist($commentaire);
         }
-        for ($i = 0; $i < 10; ++$i) {
-            $projet = new Projet();
-            $projet->setTitre($faker->paragraph());
-            $projet->setDescription($faker->text(300));
-            $projet->setImage($faker->imageUrl());
-            $manager->persist($projet);
-        }
+
+        // Création des projets
+        $projet = new Projet();
+        $projet->setTitre('Le facteur timbré');
+        $projet->setDescription('Ce projet consiste à récupérer des lettres/colis des personnes rencontrées '.
+            'le long de ma route et de les emmener à leurs destinataires. Cela me permet d’étendre mon réseau et de '.
+            'faire de nouvelles rencontres. C’est l’une des actions qui me permet de développer mon activité principale'.
+            ' et de signer des contrats.
+');
+        $projet->setImage('images/projets/facteur.png');
+        $manager->persist($projet);
+
+        $projet = new Projet();
+        $projet->setTitre('Tortue de l’espoir');
+        $projet->setDescription('L’image peut rester la même ou tu peux prendre le logo du dossier
+');
+        $projet->setImage('images/projets/tortue.jpg');
+        $manager->persist($projet);
+
+        $projet = new Projet();
+        $projet->setTitre('Portrait d’artistes/artisans');
+        $projet->setDescription('Au cours de mes voyages, j’ai eu l’occasion de rencontrer des personnes '.
+            'extraordinaires aux talents incroyables. Ce projet a pour objectif de mettre en valeurs ces personnes '.
+            'à travers des vidéos qui seront diffusées sur tous mes réseaux.
+');
+        $projet->setImage('images/projets/artistes.png');
+        $manager->persist($projet);
+
+        $projet = new Projet();
+        $projet->setTitre('J’irai jouer chez vous');
+        $projet->setDescription('À l’image de d’Antoine de Maximy dans son émission « J’irai dormir chez '.
+            'vous », moi, j’irai faire des concerts chez les gens. Encore une fois, ce projet est un prétexte pour '.
+            'rencontrer de nouvelles personnes et de nouveaux endroits.
+');
+        $projet->setImage('images/projets/paysage.jpg');
+        $manager->persist($projet);
+
+        // Création des articles
+        $presse = new Article();
+        $presse->setReference('Est Républicain');
+        $presse->setPublishedAt(new \DateTimeImmutable('2018-12-22'));
+        $presse->setMedia('images/presse/ER-2018-12-22.jpg');
+        $manager->persist($presse);
+
+        $presse = new Article();
+        $presse->setReference('Est Républicain');
+        $presse->setPublishedAt(new \DateTimeImmutable('2019-01-14'));
+        $presse->setMedia('images/presse/ER-2019-01-14.jpg');
+        $manager->persist($presse);
+
+        $presse = new Article();
+        $presse->setReference('Est Républicain');
+        $presse->setPublishedAt(new \DateTimeImmutable('2019-03-16'));
+        $presse->setMedia('images/presse/ER-2019-03-16.jpg');
+        $manager->persist($presse);
+
+        $presse = new Article();
+        $presse->setReference('Est Républicain');
+        $presse->setPublishedAt(new \DateTimeImmutable('2019-04-26'));
+        $presse->setMedia('images/presse/ER-2019-04-26.jpg');
+        $manager->persist($presse);
 
         $manager->flush();
     }

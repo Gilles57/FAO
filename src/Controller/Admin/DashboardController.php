@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Entity\Point;
 use App\Entity\Projet;
@@ -45,5 +46,8 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Les projets');
         yield MenuItem::linkToCrud('Les projets', 'fa fa-solid fa-map-signs ', Projet::class);
+
+        yield MenuItem::section('La presse');
+        yield MenuItem::linkToCrud('Les articles', 'fa fa-solid fa-newspaper ', Article::class);
     }
 }
