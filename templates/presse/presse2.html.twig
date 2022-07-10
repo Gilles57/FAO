@@ -11,12 +11,13 @@
             <div class="col-sm-4">
                 <div class="card m-3  bg-secondary">
                     <div class="card-body bg-dark">
-                        <p class="card-text text-light">{{ article.reference }} <span class="position-absolute"
-                                 style="right: 10px"> {{ article.publishedAt | date ('d m([ \t.-])* Y', 'Europe/Paris') }}</span>
-                        </p>
+                        <div class="d-flex justify-content-between card-text text-light">
+                            <div class="p-2">{{ article.reference }}</div>
+                            <div class="p-2">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
+                        </div>
                     </div>
                     <a href="{{ path('app_presse_show', {'id' : article.id}) }}" target="_blank"
-                       class="text-center"><img src="{{ article.media }}"
+                       class="text-center m-2"><img src="{{ article.media }}"
                                                 style="width: 200px; height: 200px; "
                                                 alt="..."></a>
                 </div>
@@ -27,4 +28,3 @@
     {% include 'home/_footer.html.twig' %}
 
 {% endblock %}
-{# TODO Finir la page presse      #}

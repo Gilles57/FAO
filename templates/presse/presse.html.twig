@@ -4,15 +4,19 @@
 {% block body %}
     {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
-           {% for article in articles %}
+    {% for article in articles %}
         <div class="col">
-                    <h1 class="mt-5 bg-secondary">{{ article.reference }} - {{ article.publishedAt | date}}.</h1>
-            <img src="{{article.media }}" style="width: 100%; height: 100%;" alt="...">
+            <h1 class="mt-5 bg-secondary">
+                <div class="d-flex justify-content-between card-text text-light">
+                    <div class="p-2">{{ article.reference }}</div>
+                    <div class="p-2">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
+                </div>
+            </h1>
+            <img src="{{ article.media }}" style="width: 100%; height: 100%;" alt="...">
 
         </div>
-        {% endfor %}
+    {% endfor %}
 
     {% include 'home/_footer.html.twig' %}
 
 {% endblock %}
-{#  TODO Faire la page presse#}

@@ -2,14 +2,15 @@
 
 {% block title %}Presse FAO TRAVEL !{% endblock %}
 {% block body %}
-    {{ dump(article) }}
     {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
-    <h1 class="mt-5 bg-secondary">{{ article.reference }} - {{ article.publishedAt | date }}.</h1>
+    <div class="d-flex justify-content-between">
+        <div class="p-2">{{ article.reference }}</div>
+        <div class="p-2">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
+    </div>
     <img src="/{{ article.media }}" style="width: 100%; height: 100%;" alt="...">
 
 
     {% include 'home/_footer.html.twig' %}
 
 {% endblock %}
-{# TODO Faire la page presse  #}
