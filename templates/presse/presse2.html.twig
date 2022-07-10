@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presse FAO TRAVEL !{% endblock %}
+{% block body %}
+    {% include 'home/_flash.html.twig' %}
+    {% include 'home/_menu.html.twig' %}
+
+
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-sm-4">
+                <div class="card m-3  bg-secondary">
+                    <div class="card-body bg-dark">
+                        <p class="card-text text-light">{{ article.reference }} <span class="position-absolute"
+                                 style="right: 10px"> {{ article.publishedAt | date ('d m([ \t.-])* Y', 'Europe/Paris') }}</span>
+                        </p>
+                    </div>
+                    <a href="{{ path('app_presse_show', {'id' : article.id}) }}" target="_blank"
+                       class="text-center"><img src="{{ article.media }}"
+                                                style="width: 200px; height: 200px; "
+                                                alt="..."></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'home/_footer.html.twig' %}
+
+{% endblock %}
+{# TODO Finir la page presse      #}
