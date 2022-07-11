@@ -2,22 +2,39 @@
 
 {% block title %}Test FAO TRAVEL !{% endblock %}
 {% block body %}
-    {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
 
-    <div {{ stimulus_controller('say-hello') }}>
-    <input type="text" {{ stimulus_target('say-hello', 'name') }}>
+    <body {{ stimulus_controller('symfony/ux-swup/swup') }}>
+    <div class="h1" >Test de swup</div>
 
-    <button  {{ stimulus_action('say-hello', 'greet') }}>
-        Greet
-    </button>
-    <div {{ stimulus_target('say-hello', 'output') }}></div>
-    <div {{ stimulus_target('say-hello', 'output') }}></div>
-    <div {{ stimulus_target('say-hello', 'output') }}></div>
-    <div {{ stimulus_target('say-hello', 'output') }}></div>
-</div>
+    <main id="swup">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-2">
+                    <img  src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan">
+                </div>
+                <div class="col-md-8 pt-1 text-center align-self-center">
+                    <p >Salut à toi l’ami.e !</p>
 
-    {% include 'home/_footer.html.twig' %}
+                    <p>Bienvenue sur mon site Fao Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie
+                        atypique de voyageur nomade !</p>
+
+                    <p>Je m’appelle Etienne, j’ai 35 ans et, en mars 2018 j’ai décidé de quitter mon taf pour partir à
+                        la
+                        découverte du monde et des merveilles qui le compose.</p>
+
+                    <p>Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut de
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="un routard, un bourlingueur">backpacker*</span>
+                        pour celui de <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="qui vit et habite dans un véhicule aménagé">vanlifer*</span> !</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    </body>
+
+
 
 {% endblock %}
 

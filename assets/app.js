@@ -14,15 +14,15 @@ import './styles/app.scss';
 require('bootstrap');
 // import {dropdown} from "bootstrap" ;
 
+import './bootstrap';
+
 // or you can include specific pieces
 require('bootstrap/js/dist/tooltip');
 require('bootstrap/js/dist/popover');
 
-// $(document).ready(function() {
-//     $('[data-toggle="popover"]').popover();
-//     console.log('test')
-// });
 
+
+/*
 document.addEventListener('DOMContentLoader', () => {
   enableDropdowns()
 })
@@ -33,4 +33,4 @@ const enableDropdowns = () => {
   dropdownElementList.map(function(dropdownToggleEl) {
     return new Dropdown(dropdownToggleEl)
   })
-}
+}*/

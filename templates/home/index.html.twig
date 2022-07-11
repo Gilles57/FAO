@@ -4,6 +4,8 @@
 {% block body %}
     {% include 'home/_flash.html.twig' %}
     {% include 'home/_menu.html.twig' %}
+        <main id="swup">
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 pt-2">
@@ -19,36 +21,48 @@
                     découverte du monde et des merveilles qui le compose.</p>
 
                 <p>Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut de
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="un routard, un bourlingueur">backpacker*</span> pour celui de <span data-bs-toggle="tooltip" data-bs-placement="top" title="qui vit et habite dans un véhicule aménagé">vanlifer*</span> !</p>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="un routard, un bourlingueur">backpacker*</span>
+                    pour celui de <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="qui vit et habite dans un véhicule aménagé">vanlifer*</span> !</p>
             </div>
+        </div>
+        <div class="row">
             <h1 class="h3 pt-5">Qui suis-je ?</h1>
             <div class="border border-primary">
-                <p style=" text-align: justify;">Animateur jeunesse de formation, j’ai travaillé plusieurs années dans des associations, des collèges
+                <p style=" text-align: justify;">Animateur jeunesse de formation, j’ai travaillé plusieurs années dans
+                    des associations, des collèges
                     et des MJC, avant de terminer comme responsable du service jeunesse d’une collectivité avant mon
                     départ pour le tour du monde.</p>
 
-                <p style=" text-align: justify;">Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone pendant dix ans, puis, en
+                <p style=" text-align: justify;">Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone
+                    pendant dix ans, puis, en
                     autodidacte, la guitare, le piano, le djembé, la derbouka, le cajon et enfin le handpan.
                     Aujourd’hui, multi-instrumentaliste, je compose mes propres morceaux via la MAO (Musique Assistée
                     par Ordinateur).</p>
             </div>
+        </div>
+        <div class="row">
             <h1 class="h3 pt-5">Pourquoi cette vie de voyageur ?</h1>
             <div class="border border-primary">
-                <p style=" text-align: justify;"> Après avoir passé 18 ans dans un schéma professionnel et sociétal classique, j’ai constaté que cette
+                <p style=" text-align: justify;"> Après avoir passé 18 ans dans un schéma professionnel et sociétal
+                    classique, j’ai constaté que cette
                     vie-là ne me rendait pas heureux, et ce, même si j’adorais et étais passionné par mon travail.
                     J’avais un logement, un travail, une voiture, une bonne situation financière mais il me manquait
                     quand même quelque chose. Alors comme le meilleur moyen de se connaître est de partir seul à l’autre
                     bout du monde, c’est ce que j’ai fait.</p>
-                <p style=" text-align: justify;">14 mois plus tard, j’ai compris que ce qui me rendait heureux, c'est la liberté. <br>
+                <p style=" text-align: justify;">14 mois plus tard, j’ai compris que ce qui me rendait heureux, c'est la
+                    liberté. <br>
                     La liberté d’aller partout, de rencontrer des gens, de les découvrir, de découvrir leurs cultures,
                     leurs traditions, leurs paysages ... <br>
                     La liberté de faire ce qu’il me plait, quand il me plait !</p>
-                <p style=" text-align: justify;">Et pour continuer cette vie, j’ai mis en place différents projets pour me permettre d’être autonome
+                <p style=" text-align: justify;">Et pour continuer cette vie, j’ai mis en place différents projets pour
+                    me permettre d’être autonome
                     n’importe où sur la planète (hors zone de guerre, désert brûlant et iceberg géant !)</p>
             </div>
         </div>
     </div>
-    <p></p>
+        </main>
+
     {% include 'home/_footer.html.twig' %}
 
 {% endblock %}

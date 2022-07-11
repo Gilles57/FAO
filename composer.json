@@ -40,6 +40,8 @@
         "symfony/string": "6.1.*",
         "symfony/translation": "6.1.*",
         "symfony/twig-bundle": "6.1.*",
+        "symfony/ux-chartjs": "^2.3",
+        "symfony/ux-swup": "^2.3",
         "symfony/validator": "6.1.*",
         "symfony/var-dumper": "6.1.*",
         "symfony/web-link": "6.1.*",
