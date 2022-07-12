@@ -2,66 +2,18 @@
 
 {% block title %}Hello FAO TRAVEL !{% endblock %}
 {% block body %}
-    {% include 'home/_flash.html.twig' %}
-    {% include 'home/_menu.html.twig' %}
     <div class="row ">
         {% for projet in projets %}
         <div class="col-sm-4">
             <div class="card m-3  bg-secondary">
                 <div class="card-body">
-                    <p class="card-text">{{ projet.titre }}.</p>
+                    <p class="card-text">{{ projet.titre }}</p>
                 </div>
-                <img src="{{projet.image }}" style="width: 100%; height: 250px;" alt="...">
+                <img src="{{projet.image }}" style="width: 100%; height: 250px;" alt="{{ projet.titre }}">
             </div>
         </div>
         {% endfor %}
-{#        <div class="col-sm-4">#}
-{#            <div class="card m-3  bg-secondary">#}
-{#                <div class="card-body">#}
-{#                    <p class="card-text">Troc tortue.</p>#}
-{#                </div>#}
-{#                <img src="{{ asset('images/projets/tortue.jpg') }}" style="width: 100%; height: 250px;" alt="...">#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="col-sm-4">#}
-{#            <div class="card m-3  bg-secondary">#}
-{#                <div class="card-body">#}
-{#                    <p class="card-text">Passion pompier.</p>#}
-{#                </div>#}
-{#                <img src="{{ asset('images/projets/pompier.png') }}" style="width: 100%; height: 250px;" alt="...">#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#    <div class="row ">#}
-{#        <div class="col-sm-4">#}
-{#            <div class="card m-3  bg-secondary">#}
-{#                <div class="card-body">#}
-{#                    <p class="card-text">Portraits artistes/artisans.</p>#}
-{#                </div>#}
-{#                <img src="{{ asset('images/projets/ecolojo.jpg') }}" style="width: 100%; height: 250px;" alt="...">#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="col-sm-4">#}
-{#            <div class="card m-3  bg-secondary">#}
-{#                <div class="card-body">#}
-{#                    <p class="card-text"> J’irai jouer chez vous.</p>#}
-{#                </div>#}
-{#                <img src="{{ asset('images/projets/paysage.jpg') }}" style="width: 100%; height: 250px;" alt="...">#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="col-sm-4">#}
-{#            <div class="card m-3  bg-secondary">#}
-{#                <div class="card-body">#}
-{#                    <p class="card-text">Ados et sac à dos.</p>#}
-{#                </div>#}
-{#                <img src="{{ asset('images/projets/adosetsacados.jpg') }}" style="width: 100%; height: 250px;"#}
-{#                     alt="...">#}
-{#            </div>#}
-{#        </div>#}
     </div>
-
-</div>
-<p></p>
 {% include 'home/_footer.html.twig' %}
 
 {% endblock %}

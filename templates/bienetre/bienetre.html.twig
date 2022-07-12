@@ -2,8 +2,6 @@
 
 {% block title %}Bien-être FAO TRAVEL !{% endblock %}
 {% block body %}
-    {% include 'home/_flash.html.twig' %}
-    {% include 'home/_menu.html.twig' %}
     <div class="container">
         <div class="row ">
             <div class="col-md-4 offset-md-1">
@@ -14,7 +12,7 @@
                     <a href="{{ path('app_relaxation') }}" class="btn btn-warning stretched-link">Relaxation
                         vibratoire</a>
                     <img src="{{ asset('images/bienetre/relaxation.jpeg') }}" style="width: 100%; height: 250px;"
-                         alt="...">
+                         alt="Illustration pour la Relaxation.">
                 </div>
             </div>
             <div class="col-md-4 offset-md-2">
@@ -23,7 +21,7 @@
                     {# <p class="card-text">Massage californien.</p> #}
                     {# </div> #}
                     <a href="{{ path('app_massage') }}" class="btn btn-warning stretched-link">Massage californien</a>
-                    <img src="{{ asset('images/bienetre/massage.jpg') }}" style="width: 100%; height: 250px;" alt="...">
+                    <img src="{{ asset('images/bienetre/massage.jpg') }}" style="width: 100%; height: 250px;" alt="Illustration pour le Massage">
                 </div>
             </div>
         </div>

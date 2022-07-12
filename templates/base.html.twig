@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr_FR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href={{ asset('images/favicon.ico') }}>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href={{ asset('images/favicon.ico') }}>
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-        {% block nav %}{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+{% block nav %}{% endblock %}
+<body>
+<div class="container">
+    {% include 'home/_banniere.html.twig' %}
+    {% include 'home/_menu.html.twig' %}
+    {% include 'home/_flash.html.twig' %}
 
         {% block body %}{% endblock %}
+
+</div>
+</body>
 </html>
+
+
+
+
+

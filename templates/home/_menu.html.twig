@@ -1,93 +1,86 @@
-{% include 'home/_banniere.html.twig' %}
 {% block nav %}
-        <nav class="navbar navbar-expand-sm  nav-fill  flex-column flex-sm-row mt-3">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse nav-tabs" id="navbarNav">
-                <ul class="nav  navbar-expand-sm  nav-fill  flex-column flex-sm-row mt-3  flex-grow-1 ">
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+    <nav class="navbar navbar-expand-sm  nav-fill  flex-column flex-sm-row mt-3">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-tabs" id="navbarNav">
+            <ul class="nav  navbar-expand-sm  nav-fill  flex-column flex-sm-row mt-3  flex-grow-1 ">
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                              {% if app.request.attributes.get('_route') != 'app_home' %}
                              bg-secondary
                              {% endif %}" href="{{ path('app_home') }}">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_carte' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_carte') }}">Carte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_carnet' %}
                          bg-secondary
-                         {% endif %}" href="{{ path('app_test') }}">Carnet de voyage</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                         {% endif %}" href="#">Carnet de voyage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_musique' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_musique') }}">Musique</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_animation' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_animation') }}">Animation</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle border-light
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border-light
                         {% if app.request.attributes.get('_route') != 'app_bienetre' %}
                          bg-secondary
                          {% endif %}" data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
-                           aria-expanded="false">Bien-être</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item
+                       aria-expanded="false">Bien-être</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item
                            {% if app.request.attributes.get('_route') == 'app_bienetre' %}disabled{% endif %}"
-                                   href="{{ path('app_bienetre') }}">Présentation de l'activité</a></li>
-                            <li><a class="dropdown-item
+                               href="{{ path('app_bienetre') }}">Présentation de l'activité</a></li>
+                        <li><a class="dropdown-item
                      {% if app.request.attributes.get('_route') == 'app_relaxation' %}disabled{% endif %}"
-                                   href="{{ path('app_relaxation') }}">Relaxation vibratoire</a>
-                            </li>
-                            <li><a class="dropdown-item
+                               href="{{ path('app_relaxation') }}">Relaxation vibratoire</a>
+                        </li>
+                        <li><a class="dropdown-item
                      {% if app.request.attributes.get('_route') == 'app_massage' %}disabled{% endif %}"
-                                   href="{{ path('app_massage') }}">Massage californien</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                               href="{{ path('app_massage') }}">Massage californien</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_projets' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_projets') }}">Projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_presse' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_presse') }}">Presse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_presse2' %}
-                         bg-secondary
-                         {% endif %}" href="{{ path('app_presse2') }}">Presse (bis)</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_partenaires' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="flex-sm-fill text-sm-center nav-link border-light
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if app.request.attributes.get('_route') != 'app_livre' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_livredor') }}">Livre d'Or</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% endblock %}
