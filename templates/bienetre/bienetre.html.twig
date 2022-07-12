@@ -1,31 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bien-être FAO TRAVEL !{% endblock %}
+{% block title %}Bien-être - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="container">
         <div class="row ">
             <div class="col-md-4 offset-md-1">
-                <div class="card m-3  bg-secondary">
-                    {# <div class="card-body"> #}
-                    {# <p class="card-text">Relaxation vibratoire.</p> #}
-                    {# </div> #}
-                    <a href="{{ path('app_relaxation') }}" class="btn btn-warning stretched-link">Relaxation
+                <div class="card m-3  ">
+                    <a href="{{ path('app_relaxation') }}" class="btn btn-secondary stretched-link  rounded-0 ">Relaxation
                         vibratoire</a>
                     <img src="{{ asset('images/bienetre/relaxation.jpeg') }}" style="width: 100%; height: 250px;"
                          alt="Illustration pour la Relaxation.">
                 </div>
             </div>
             <div class="col-md-4 offset-md-2">
-                <div class="card m-3  bg-secondary">
-                    {# <div class="card-body"> #}
-                    {# <p class="card-text">Massage californien.</p> #}
-                    {# </div> #}
-                    <a href="{{ path('app_massage') }}" class="btn btn-warning stretched-link">Massage californien</a>
+                <div class="card m-3">
+                    <a href="{{ path('app_massage') }}" class="btn btn-secondary stretched-link  rounded-0 ">Massage californien</a>
                     <img src="{{ asset('images/bienetre/massage.jpg') }}" style="width: 100%; height: 250px;" alt="Illustration pour le Massage">
                 </div>
             </div>
         </div>
-    </div>
     <div class="border border-primary pt-2 mb-3 rounded-5 bg-secondary">
         <div class="mx-5 pt-1">
             <div class="fw-bold row ">
