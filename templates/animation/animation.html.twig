@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animation FAO TRAVEL !{% endblock %}
+{% block title %}Animation - FAO TRAVEL !{% endblock %}
 {% block body %}
     <div class="row">
         <div class="col-md-5 align-self-center">
             <img src="{{ asset('images/animation/animation.jpg') }}" width="100%" alt="Animation avec un groupe d'enfants">
         </div>
-        <div class="col-md-7 text-center align-self-center">
-            <p class="mt-3" style=" text-align: justify;">Titulaire d’un BP JEPS Animation Sociale, du BAFA, du BAFD et
+        <div class="col-md-7 align-self-center"  style=" text-align: justify;">
+            <p>Titulaire d’un BP JEPS Animation Sociale, du BAFA, du BAFD et
                 avec mes nombreuses années
                 d’expériences avec tous les publics
                 (enfants, adolescents, adultes, personnes âgées, personnes handicapées), j’ai la possibilité
                 d’adapter toutes mes animations en fonctions des effectifs,
                 de la durée, du lieu et du budget.</p>
-            <p style=" text-align: justify;"> J’ai déjà travaillé avec des écoles, des collèges, des accueils de
+            <p> J’ai déjà travaillé avec des écoles, des collèges, des accueils de
                 loisirs, des ehpad, des maisons
                 de retraite et même un centre équestre !
             </p>
         </div>
     </div>
-    <div class=" my-5 align-self-center">
+    <div class="mt-3 align-self-center">
 
         <table class="table table-secondary">
         <thead>
@@ -52,9 +52,6 @@
         </tr>
         </tbody>
         </table>
-        <p class="small bg-light">*objets recyclés à fournir, la liste vous sera envoyée en même temps que le devis</p>
+        <p class="small bg-light px-1">*objets recyclés à fournir, la liste vous sera envoyée en même temps que le devis</p>
     </div>
-
-    {% include 'home/_footer.html.twig' %}
-
 {% endblock %}
