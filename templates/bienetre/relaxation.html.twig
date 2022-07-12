@@ -1,116 +1,130 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Massage FAO TRAVEL !{% endblock %}
+{% block title %}Relaxation - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <p style=" text-align: justify;">La relaxation vibratoire ou sonothérapie, est une technique de relaxation douce et profonde qui agit
-                comme un véritable nettoyage des fatigues et tensions accumulées dans notre quotidien. Les
-                vibrations du ou des instruments permettent d’agir à la fois au niveau musculaire, articulaire,
-                organique ... Comme une onde qui se propage dans tout le corps.</p>
-            <p style=" text-align: justify;"> Les ressentis sont variables suivant chaque personne, et différents d'une séance à l'autre :
-                Sensations de détente, de bien- être, d'énergie qui circule, prise de conscience de chaque partie du
-                corps, lâcher-prise... Et les effets peuvent se prolonger bien après la séance : apaisement du
-                mental, meilleure qualité de sommeil, de la digestion, dynamisme, diminution du stress... Action sur
-                les viscères, les os, les masses musculaires, les tendons...</p>
-            <div class="col-md-12 pt-2">
-                <img src="{{ asset('images/bienetre/rainbow.jpeg') }}" width="100%" height="200" alt="Frise décorative">
-            </div>
+    <div class="row">
+        <p style=" text-align: justify;">La relaxation vibratoire ou sonothérapie, est une technique de relaxation douce
+            et profonde qui agit
+            comme un véritable nettoyage des fatigues et tensions accumulées dans notre quotidien. Les
+            vibrations du ou des instruments permettent d’agir à la fois au niveau musculaire, articulaire,
+            organique ... Comme une onde qui se propage dans tout le corps.</p>
+        <p style=" text-align: justify;"> Les ressentis sont variables suivant chaque personne, et différents d'une
+            séance à l'autre :
+            Sensations de détente, de bien- être, d'énergie qui circule, prise de conscience de chaque partie du
+            corps, lâcher-prise... Et les effets peuvent se prolonger bien après la séance : apaisement du
+            mental, meilleure qualité de sommeil, de la digestion, dynamisme, diminution du stress... Action sur
+            les viscères, les os, les masses musculaires, les tendons...</p>
+        <div class="col-md-12 text-center">
+            <img src="{{ asset('images/bienetre/rainbow.jpeg') }}" width="50%" height="50" alt="Frise décorative">
         </div>
-        <div class="row pt-4">
-            <div class="col-md-7 pt-1">
-                <p style=" text-align: justify;"> La séance se passe, allongé sur le ventre ou sur le dos, sur une table de massage (prévoir une tenue
-                    souple et confortable) et dure entre 10 et 30 minutes suivant la formule choisie.</p>
-                <p style=" text-align: justify;"> C’est une expérience qui permet de se recentrer sur l’équilibre du corps, au repos de l’esprit et
-                    qui apporte différents bienfaits :</p>
-                <ul>
-                    <li>Relâchement profond (musculaire et mental)</li>
-                    <li>Diminution du stress</li>
-                    <li>Récupération importante (énergie)</li>
-                    <li>Amélioration du sommeil</li>
-                    <li>Action sur les viscères</li>
-                </ul>
-            </div>
-            <div class="col-md-5">
-                <img src="{{ asset('images/bienetre/table.webp') }}" width="90%" height="90%" alt="table de massage">
-            </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-7 align-self-center">
+            <p style=" text-align: justify;"> La séance se passe, allongé sur le ventre ou sur le dos, sur une table de
+                massage (prévoir une tenue
+                souple et confortable) et dure entre 10 et 30 minutes suivant la formule choisie.</p>
+            <p style=" text-align: justify;"> C’est une expérience qui permet de se recentrer sur l’équilibre du corps,
+                au repos de l’esprit et
+                qui apporte différents bienfaits :</p>
+            <ul>
+                <li>Relâchement profond (musculaire et mental)</li>
+                <li>Diminution du stress</li>
+                <li>Récupération importante (énergie)</li>
+                <li>Amélioration du sommeil</li>
+                <li>Action sur les viscères</li>
+            </ul>
         </div>
-        <div class="row">
-            <div class="col-md-6 pt-2">
-                <img src="{{ asset('images/bienetre/meditation.jpg') }}" width="100%" height="250" alt="personnage en méditation">
-            </div>
-            <div class="col-md-6 pt-2 align-self-center">
-                <h5 class="pb-3">Comment ça fonctionne ?</h5>
-                <p style=" text-align: justify;"> On fait résonner le handpan au-dessus du corps ou sur le corps, les vibrations produites par
-                    l’instrument activent l'eau dans tout notre corps : cellules, organes, tissus, os, etc, notamment au
-                    niveau des points d’énergie que sont les chakras.</p>
-                <p style=" text-align: justify;">Pour comprendre, utilisons une comparaison : voyez les cercles ondulatoires que forme un caillou
-                    lancé dans l'eau, imaginez-vous au cœur même de cette eau, vous ressentiriez alors l'arrivée
-                    successive des vagues venant s'échouer graduellement contre vous, cellules, organes, tissus sont
-                    alors massés en profondeur ...</p>
-            </div>
+        <div class="col-md-5 align-self-center">
+            <img src="{{ asset('images/bienetre/table.webp') }}" width="90%" height="90%" alt="table de massage">
         </div>
-        <div class="row pt-2">
-            <div class="col-md-10 pt-2 align-self-center">
-                <h5 class="pb-3">Pourquoi ça fonctionne ?</h5>
-                <p style=" text-align: justify;">Il faut déjà savoir que le son traverse plus facilement l’eau que l’air, et ça tombe bien puisque
-                    notre corps est constitué d’environ 60% d’eau !</p>
-                <p style=" text-align: justify;">La majeure partie de l’eau que notre corps contient se trouve dans nos cellules, avec une proportion
-                    très inégale. Évoquons le fait qu’il y a 79 % d’eau dans le sang, 78 % dans les poumons et le cœur,
-                    76 % dans le cerveau, 75 % dans les muscles et 70 % dans la peau.</p>
-            </div>
-            <div class="col-md-2 pt-2">
-                <img src="{{ asset('images/bienetre/eau2.png') }}" width="100%" height="100%" alt="Goutte d'eau qui tombe">
-            </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 align-self-center">
+            <img src="{{ asset('images/bienetre/meditation.jpg') }}" width="100%" height="250"
+                 alt="personnage en méditation">
         </div>
-        <div class="row">
-            <div class="col-md-3 pt-4">
-                <img src="{{ asset('images/bienetre/3handpan.webp') }}" width="100%" alt="3 handpans">
-            </div>
-            <div class="col-md-9 pt-2 align-self-center">
-                <h5 class="pb-3">L’instrument</h5>
-                <p style=" text-align: justify;">Le Handpan ou « Hang » qui signifie « main » en dialecte bernois, a vu le jour en 2000 en Suisse dans
-                    les ateliers de Pan’Art après 25 ans de recherche. Sa tonalité est profonde et douce ; une véritable
-                    musique de détente et de méditation, une acoustique unique pour une relaxation suprême.</p>
-                <p style=" text-align: justify;">Ces mélodies harmonieuses sont le fruit d’un travail de physiciens, d’ingénieurs et de
-                    métallurgistes qui ont tous collaboré à percer le mystère du principe de résonnance et de vibration.
-                </p>
-                <p style=" text-align: justify;">L’instrument est composé de deux coquilles en acier, et de 7 à 9 notes autour du centre du corps de
-                    l’instrument (le Helmholtz ou Ding). Il s’agit de la note la plus grave de l’instrument, et en
-                    dessous de celui-ci se trouve une cavité (le Gü) qui amplifie la résonance du corps.
-                </p>
-            </div>
+        <div class="col-md-6  align-self-center">
+            <h5 class="pb-3">Comment ça fonctionne ?</h5>
+            <p style=" text-align: justify;"> On fait résonner le handpan au-dessus du corps ou sur le corps, les
+                vibrations produites par
+                l’instrument activent l'eau dans tout notre corps : cellules, organes, tissus, os, etc, notamment au
+                niveau des points d’énergie que sont les chakras.</p>
+            <p style=" text-align: justify;">Pour comprendre, utilisons une comparaison : voyez les cercles ondulatoires
+                que forme un caillou
+                lancé dans l'eau, imaginez-vous au cœur même de cette eau, vous ressentiriez alors l'arrivée
+                successive des vagues venant s'échouer graduellement contre vous, cellules, organes, tissus sont
+                alors massés en profondeur ...</p>
         </div>
-        <div class="row pt-2">
-            <div class="col-md-8 pt-2 align-self-center">
-                <h5 class="pb-3"> Le son et les vibrations sonores nous font du bien !</h5>
-                <p style=" text-align: justify;">Le son en tant que forme de thérapie et de guérison est une chose à laquelle tout le monde peut
-                    s'identifier. Nous écoutons de la musique lorsque nous sommes heureux ou tristes, en train de
-                    célébrer ou de pleurer.</p>
-                <p style=" text-align: justify;">La musique a un moyen de canaliser et de transformer les émotions en quelque chose de plus riche et
-                    palpable. Une citation populaire, probablement attribuée à tort à Platon, l'explique :</p>
-                <p class="fst-italic">«La musique donne une âme à l'univers, des ailes à l'esprit, une envolée vers
-                    l'imagination et la
-                    vie à tout.»</p>
-            </div>
-            <div class="col-md-4 pt-2">
-                <img src="{{ asset('images/bienetre/cerveau.jpg') }}" width="100%" alt="Schéma du cerveau">
-            </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-10 align-self-center">
+            <h5 class="pb-3">Pourquoi ça fonctionne ?</h5>
+            <p style=" text-align: justify;">Il faut déjà savoir que le son traverse plus facilement l’eau que l’air, et
+                ça tombe bien puisque
+                notre corps est constitué d’environ 60% d’eau !</p>
+            <p style=" text-align: justify;">La majeure partie de l’eau que notre corps contient se trouve dans nos
+                cellules, avec une proportion
+                très inégale. Évoquons le fait qu’il y a 79 % d’eau dans le sang, 78 % dans les poumons et le cœur,
+                76 % dans le cerveau, 75 % dans les muscles et 70 % dans la peau.</p>
         </div>
-        <div class="row">
-            <div class="col-md-10 offset-md-2 pt-2">
+        <div class="col-md-2 align-self-center">
+            <img src="{{ asset('images/bienetre/eau2.png') }}" width="100%" height="100%" alt="Goutte d'eau qui tombe">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-3 align-self-center">
+            <img src="{{ asset('images/bienetre/3handpan.webp') }}" width="100%" alt="3 handpans">
+        </div>
+        <div class="col-md-9 align-self-center">
+            <h5 class="pb-3">L’instrument</h5>
+            <p style=" text-align: justify;">Le Handpan ou « Hang » qui signifie « main » en dialecte bernois, a vu le
+                jour en 2000 en Suisse dans
+                les ateliers de Pan’Art après 25 ans de recherche. Sa tonalité est profonde et douce ; une véritable
+                musique de détente et de méditation, une acoustique unique pour une relaxation suprême.</p>
+            <p style=" text-align: justify;">Ces mélodies harmonieuses sont le fruit d’un travail de physiciens,
+                d’ingénieurs et de
+                métallurgistes qui ont tous collaboré à percer le mystère du principe de résonnance et de vibration.
+            </p>
+            <p style=" text-align: justify;">L’instrument est composé de deux coquilles en acier, et de 7 à 9 notes
+                autour du centre du corps de
+                l’instrument (le Helmholtz ou Ding). Il s’agit de la note la plus grave de l’instrument, et en
+                dessous de celui-ci se trouve une cavité (le Gü) qui amplifie la résonance du corps.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-8 align-self-center">
+            <h5 class="pb-3"> Le son et les vibrations sonores nous font du bien !</h5>
+            <p style=" text-align: justify;">Le son en tant que forme de thérapie et de guérison est une chose à
+                laquelle tout le monde peut
+                s'identifier. Nous écoutons de la musique lorsque nous sommes heureux ou tristes, en train de
+                célébrer ou de pleurer.</p>
+            <p style=" text-align: justify;">La musique a un moyen de canaliser et de transformer les émotions en
+                quelque chose de plus riche et
+                palpable. Une citation populaire, probablement attribuée à tort à Platon, l'explique :</p>
+            <p class="fst-italic">«La musique donne une âme à l'univers, des ailes à l'esprit, une envolée vers
+                l'imagination et la
+                vie à tout.»</p>
+        </div>
+        <div class="col-md-4 align-self-center">
+            <img src="{{ asset('images/bienetre/cerveau.jpg') }}" width="100%" alt="Schéma du cerveau">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-10 offset-md-2 align-self-center">
             <img src="{{ asset('images/bienetre/paon.webp') }}" width="80%" alt="Schéma des bienfaits de la musique">
-            </div>
         </div>
-        <p style=" text-align: justify;"> Ces dernières années, la guérison par le son, également appelée thérapie par le son, a évolué vers
+    </div>
+    <div class="row"  style=" text-align: justify;">
+        <p> Ces dernières années, la guérison par le son, également appelée thérapie par le
+            son, a évolué vers
             un domaine thérapeutique qui utilise le son pour traiter le stress, l'anxiété, la dépression, etc.
             Les guérisseurs sonores et les thérapeutes utilisent souvent les vibrations sonores pour favoriser
             la relaxation et réduire le stress. Il n'est donc pas surprenant que l'accent soit mis sur les
             instruments réels générant les sons qui ont un impact sur notre état émotionnel, spirituel et
             physique.</p>
-        <p style=" text-align: justify;"> Alors que les Handpans sont des instruments relativement nouveaux, les guérisseurs du son du monde
+        <p> Alors que les Handpans sont des instruments relativement nouveaux, les guérisseurs
+            du son du monde
             entier louent leurs qualités sonores hypnotiques, relaxantes, rêveuses et méditatives.</p>
-    </div>
-    {% include 'home/_footer.html.twig' %}
-
+        </div>
 {% endblock %}
