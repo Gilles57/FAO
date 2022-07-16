@@ -1,14 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivredorController!{% endblock %}
-
+{% block title %}Livre d'or - FAO TRAVEL !{% endblock %}
 {% block body %}
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <img src="{{ asset('images/image_accueil.png') }}" alt="Eienne jouant du handpan">
-            </div>
-            <div class="col-md-8 text-center">
-                <p> bla bla</p>
+    <div class="container text-j">
+        <div class=" ">
+            <div class="row pt-2 livre">
+                <p></p>
+                <p></p>
+                {% for comment in commentaires %}
+                    <div class="col-sm-4 offset-sm-1 commentaire">
+                        <p style=" text-align: justify;"> {{ comment.message }}</p>
+                        <p class="text-end fst-italic"> {{ comment.prenom }} - {{ comment.age }} ans</p>
+                        <hr>
+                    </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
+
 {% endblock %}

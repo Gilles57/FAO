@@ -24,8 +24,9 @@
 
         {% block body %}{% endblock %}
 
-        {% include 'home/_footer.html.twig' %}
+{#        {% include 'home/_footer.html.twig' %}#}
 
+{{ render(path('app_footer') )}}
 </div>
 </body>
 </html>

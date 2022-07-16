@@ -8,13 +8,17 @@
     src: url("https://ecolojo.com/wp-content/themes/ecolojo_th/font/Playon.ttf");
 }
 
+#map { /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height: 600px;
+}
+
 // Default variable overrides
 $primary: #000;
 $secondary: #d57735;
 $body-bg: #fadcaf;
 $body-color: #422608;
 $font-family-monospace: 'Libre Bodoni', serif;
-//$font-size-base: 0.5rem;
+
 
 .pied {
     font-weight: 100 !important;
@@ -23,12 +27,26 @@ $font-family-monospace: 'Libre Bodoni', serif;
     padding-bottom: 1rem !important;
 }
 
-#map { /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-    height: 600px;
+.commentaire {
+    border: 0px $primary;
 }
 
-li.a {
- //font-size: 1vw;
+.livre {
+    width: 100%;
+    height: auto;
+
+    background-image: url('/public/images/livre/fond_livre.png');
+    background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 1024px) {
+    .livre {
+        background-image: none;
+    }
+    .commentaire {
+        border: 1px $primary;
+    }
+}
+
 
 // TODO Couleur du fond de page / fond de container
