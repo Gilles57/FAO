@@ -13,7 +13,10 @@ class Partenaire
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $entreprise;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $nom;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -22,11 +25,14 @@ class Partenaire
     #[ORM\Column(type: 'string', length: 10, nullable: true)]
     private $codepostal;
 
-    #[ORM\Column(type: 'string', length: 50)]
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $ville;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
+
+    #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    private $tel;
 
     public function getId(): ?int
     {
@@ -89,6 +95,30 @@ class Partenaire
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getEntreprise(): ?string
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?string $entreprise): self
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    public function setTel(string $tel): self
+    {
+        $this->tel = $tel;
 
         return $this;
     }

@@ -1,18 +1,72 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Massage FAO TRAVEL !{% endblock %}
-
+{% block title %}Massage - FAO TRAVEL !{% endblock %}
 {% block body %}
-        <div class="row mb-3">
-            <div class="col-md-4 pt-2">
-                <img src="{{ asset('images/bienetre/massage.jpg') }}" alt="alt à venir">
+
+    <div class="row">
+        <h1 class="h3 pt-5">Le massage californien, c’est quoi ?</h1>
+        <div class="border border-primary" style=" text-align: justify;">
+            <p>Plus communément appelé le « toucher du cœur », le massage californien est
+                une pratique psychocorporelle datant des années 70. On l’appelle aussi massage harmonique,
+                neurosensoriel ou holistique.</p>
+            <p> Le massage californien est une approche globale qui vise autant la détente que l'éveil d'une conscience
+                psychocorporelle. Ce massage utilise de longs mouvements lents et fluides qui permettent une profonde
+                relaxation physique et psychique.</p>
+            <p> Partant d'effleurages doux, enveloppants et relaxants, les manœuvres s’enchaînent et s’intensifient pour
+                soulager des tensions plus profondes. Cela peut faire surgir et libérer des émotions cachées, inscrites
+                dans la mémoire corporelle. Plus la personne massée s’abandonne à l'expérience, plus elle s'ouvre à ce
+                que le massage californien qualifie de « toucher du cœur ».</p>
+
+        </div>
+    </div>
+    <div class="row">
+        <h1 class="h3 pt-5">Quels en sont les bienfaits ?</h1>
+        <div class="border border-primary" style=" text-align: justify;">
+            <div class="row my-3">
+                <div class="col-md-3 "><span class="fw-bold">Soulager certains types de douleurs</span></div>
+                <div class="col-md-9">
+                    Selon la Fédération québécoise des massothérapeutes, le massage californien contribuerait à soulager
+                    efficacement les personnes souffrant de douleurs chroniques et les douleurs musculaires, les gens
+                    atteints de fibromyalgie, de maladies arthritiques ou autres.
+                </div>
             </div>
-            <div class="col-md-8 pt-1 text-center align-self-center">
-                <p> bla bla</p>
+            <div class="row my-3">
+                <div class="col-md-3 "><span class="fw-bold">Favoriser l'émergence de la mémoire corporelle</span></div>
+                <div class="col-md-9">
+                    En détectant les tensions et les émotions sous-jacentes, le massage californien permet d’aider les
+                    personnes ayant un vécu traumatique, ou qui suivent une démarche psychothérapeutique, à se libérer.
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-3 "><span class="fw-bold">Procurer une grande relaxation</span></div>
+                <div class="col-md-9">
+                    La sensation de bien-être provoquée par le massage californien est propice à une réduction du stress
+                    et de l’anxiété. Elle est accentuée par l’utilisation des huiles essentielles.
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-3 "><span class="fw-bold">Améliorer la circulation sanguine</span></div>
+                <div class="col-md-9">
+                    Les longs mouvements permettent de drainer la circulation veineuse et lymphatique, ce qui provoque
+                    une meilleure oxygénation et irrigation des tissus.
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-3 "><span class="fw-bold">Prendre conscience de son corps et se le réapproprier</span></div>
+                <div class="col-md-9">
+                    Le massage californien permet de se recentrer sur ses sensations corporelles et de les intégrer
+                    pleinement. C’est en cela qu’il est conseillé aux individus ayant subi des changements corporels
+                    importants (comme une prise ou une perte importante de poids).
+                </div>
             </div>
         </div>
-    {% include 'home/_footer.html.twig' %}
+        <div class="row mt-3 text-center">
+            <p  class="fst-italic">Je ne pratique pas de massage sur les femmes enceintes de plus de trois mois et sur les personnes<br>
+                souffrant de sciatique, cancer, psoriasis, eczéma, fièvre, phlébite, hémophilie.</p>
+            <p  class="fst-italic">En tout état de cause, ce massage ne s'apparente à aucune pratique médicale, ni paramédicale. <br>Il ne
+                s'agit pas d'un massage thérapeutique, mais d'un massage de bien-être relaxant/détente.</p>
+        </div>
+    </div>
+
 
 {% endblock %}
-
-{#  TODO Faire la page massage#}
