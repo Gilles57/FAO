@@ -3,26 +3,17 @@
 {% block title %}Test FAO TRAVEL !{% endblock %}
 {% block body %}
 
-    <div class="h1">Test 1</div>
+    <div class="h1 text-center">Test 1</div>
 
-    <main id="swup">
-        <div class="container">
-            <div class="row">
-            <div>{{ render_chart(chart) }}</div>
-                <div class="col-md-4 pt-2">
-                    <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan">
-                </div>
-                <div class="col-md-8 pt-1 text-center align-self-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut fugit in iste iure modi qui
-                        quibusdam sed, sit sunt! Dicta doloribus inventore mollitia sed. Dicta fuga incidunt odit
-                        perferendis? </p>
-                </div>
+    {% set comment  = commentaires[0] %}
+    <div class="col-sm-3 offset-3">
+        <div class="bg-image" style="background-image: url('/images/livre/yellow-post-it.png');">
+            <div class="p-5">
+                <p style=" text-align: justify" class="text-wrap"> {{ comment.message }}</p>
+                <p class="text-end fst-italic"> {{ comment.prenom }} - {{ comment.age }} ans</p>
             </div>
         </div>
-    </main>
-    </body>
-
-
+    </div>
 
 {% endblock %}
 

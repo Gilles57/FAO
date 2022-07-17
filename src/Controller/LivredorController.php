@@ -13,11 +13,15 @@ class LivredorController extends AbstractController
     public function index(CommentaireRepository $commentaireRepository, string $rubrique): Response
     {
         $commentaires = $commentaireRepository->findByRubriqueField($rubrique);
-//        if ($commentaires == null){
-//
-//        }
-//        dd($commentaires);
 
         return $this->render('livredor/livredor.html.twig', compact('commentaires'));
+    }
+
+    #[Route('/test', name: 'app_test')]
+    public function test(CommentaireRepository $commentaireRepository): Response
+    {
+        $commentaires = $commentaireRepository->findByRubriqueField('relax');
+
+        return $this->render('test.html.twig', compact('commentaires'));
     }
 }

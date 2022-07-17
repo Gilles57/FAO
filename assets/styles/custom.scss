@@ -19,6 +19,11 @@ $body-bg: #fadcaf;
 $body-color: #422608;
 $font-family-monospace: 'Libre Bodoni', serif;
 
+.bg-image{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .pied {
     font-weight: 100 !important;
@@ -31,21 +36,27 @@ $font-family-monospace: 'Libre Bodoni', serif;
     border: 0px $primary;
 }
 
-//.livre {
-//    width: 100%;
-//    height: auto;
-//
-//    background-image: url('/public/images/livre/fond_livre.png');
-//    background-repeat: no-repeat;
-//}
+.decalage {
+    padding-top: 5rem !important;
+}
 
-@media screen and (max-width: 1024px) {
-    .livre {
-        background-image: none;
-    }
+.masque {
+    visibility: hidden !important;
+}
+
+//Pour téléphone
+@media screen and (max-width: 680px){
     .commentaire {
-        border: 1px $primary;
+        border: 1px red;
     }
+
+    .decalage {
+        padding-top: 0rem !important;
+    }
+    .masque {
+        visibility: visible !important;
+    }
+
 }
 
 
