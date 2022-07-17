@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieRepository;
+use App\Repository\RubriqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CategorieRepository::class)]
-class Categorie
+#[ORM\Entity(repositoryClass: RubriqueRepository::class)]
+class Rubrique
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -18,7 +18,7 @@ class Categorie
     #[ORM\Column(type: 'string', length: 255)]
     private $nom;
 
-    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Commentaire::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Commentaire::class, orphanRemoval: true)]
     private $commentaires;
 
     public function __construct()
@@ -55,7 +55,7 @@ class Categorie
     {
         if (!$this->commentaires->contains($commentaire)) {
             $this->commentaires[] = $commentaire;
-            $commentaire->setCategorie($this);
+            $commentaire->setRubrique($this);
         }
 
         return $this;
@@ -65,8 +65,8 @@ class Categorie
     {
         if ($this->commentaires->removeElement($commentaire)) {
             // set the owning side to null (unless already changed)
-            if ($commentaire->getCategorie() === $this) {
-                $commentaire->setCategorie(null);
+            if ($commentaire->getRubrique() === $this) {
+                $commentaire->setRubrique(null);
             }
         }
 

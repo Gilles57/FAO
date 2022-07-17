@@ -2,20 +2,30 @@
 
 {% block title %}Livre d'or - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="container text-j">
-        <div class=" ">
-            <div class="row pt-2 livre">
-                <p></p>
-                <p></p>
-                {% for comment in commentaires %}
-                    <div class="col-sm-4 offset-sm-1 commentaire">
-                        <p style=" text-align: justify;"> {{ comment.message }}</p>
-                        <p class="text-end fst-italic"> {{ comment.prenom }} - {{ comment.age }} ans</p>
-                        <hr>
-                    </div>
-                {% endfor %}
+    {% if commentaires is empty %}
+        <div>
+            No comments
+        </div>
+
+    {% else %}
+        <div class="container ">
+            <div class=" ">
+                <div class="row pt-2 bg-image"
+                    style="
+                    background-image: url('/images/livre/fond_livre.png');
+                    background-repeat: no-repeat;
+                    ">
+                    <p></p>
+                    <p></p>
+                    {% for comment in commentaires %}
+                        <div class="col-sm-4 offset-sm-1 text-justify">
+                            <p style=" text-align: justify;"> {{ comment.message }}</p>
+                            <p class="text-end fst-italic"> {{ comment.prenom }} - {{ comment.age }} ans</p>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-
+    {% endif %}
 {% endblock %}

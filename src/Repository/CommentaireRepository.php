@@ -39,6 +39,21 @@ class CommentaireRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByRubriqueField($value): ?array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT c, r
+            FROM App\Entity\Commentaire c
+            INNER JOIN c.rubrique r
+            WHERE r.nom = :nom'
+        )->setParameter('nom', $value);
+
+        return $query->getArrayResult();
+    }
+
+
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */

@@ -1,11 +1,10 @@
 <div class="row bg-dark mt-3  p-2">
     <div class="row ">
         <div class="col-md-6">
-            <div class="mb-2 text-secondary">
-                <p>Contacts :</p>
+            <div class="text-secondary">
+                <p>Contacts : </p><i class="fa-earth"></i>rrr
                 <p class="text-secondary pied">
-                    <a href="#"></a> <span class="fw-bold">Me contacter </span> ****
-                    <br> {# TODO Formulaire de contact #}
+                    <a href="#"></a> <span class="fw-bold">Me contacter</span><br> {# TODO Formulaire de contact #}
                     <span class="fw-bold">Facebook : </span>{{ facebook }}<br>
                     <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
                     <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
@@ -14,22 +13,17 @@
         </div>
 
         <div class="col-md-6">
-            <div class="mb-2 text-secondary">
+            <div class="text-secondary">
                 <p class="fs-5">Partenaires :</p>
                 <p class="text-secondary pied">
                     {% for partenaire in partenaires %}
                         <span class="fw-bold"> {{ partenaire.entreprise }}</span> - {{ partenaire.codepostal }} {{ partenaire.ville | upper}}<br>
                     {% endfor %}
-
-{#                <span class="fw-bold">GilDev</span> - 57050 METZ<br>#}
-{#                <span class="fw-bold">Ederod Handpan</span> - 25000 BESANÇON<br>#}
-{#                <span class="fw-bold">Ecolojo</span> - 88530 LA FORGE<br>#}
                 </p>
             </div>
         </div>
     </div>
     <div class="row text-center text-secondary copyright pied">
-        {# <span class="copyright">© {{ 'now'|date('Y') }} {{ options['blog_copyright'] }}</span> #}
         <span class="copyright">© {{ 'now'|date('Y') }} <a href="https://gildev.fr" class="text-secondary"
                                                            style="text-decoration: none"
                                                            target="_blank"> GilDev</a></span>

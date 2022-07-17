@@ -9,10 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LivredorController extends AbstractController
 {
-    #[Route('/livredor', name: 'app_livredor')]
-    public function index(CommentaireRepository $commentaireRepository): Response
+    #[Route('/livredor/{rubrique}', name: 'app_livre')]
+    public function index(CommentaireRepository $commentaireRepository, string $rubrique): Response
     {
-        $commentaires = $commentaireRepository->findAll();
+        $commentaires = $commentaireRepository->findByRubriqueField($rubrique);
+//        if ($commentaires == null){
+//
+//        }
+//        dd($commentaires);
 
         return $this->render('livredor/livredor.html.twig', compact('commentaires'));
     }

@@ -44,7 +44,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section("Le livre d'or");
         yield MenuItem::linkToCrud('Les commentaires', 'fa fa-solid fa-comments', Commentaire::class);
-//        yield MenuItem::linkToCrud('Les catégories', 'fa fa-solid fa-book', CategorieFilm
+//        yield MenuItem::linkToCrud('Les rubriques', 'fa fa-solid fa-book', Rubrique::class);
 
         yield MenuItem::section('Les projets');
         yield MenuItem::linkToCrud('Les projets', 'fa fa-solid fa-map-signs ', Projet::class);

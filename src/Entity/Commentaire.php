@@ -22,9 +22,9 @@ class Commentaire
     #[ORM\Column(type: 'integer')]
     private $age;
 
-    #[ORM\ManyToOne(targetEntity: Categorie::class, inversedBy: 'commentaires')]
+    #[ORM\ManyToOne(targetEntity: Rubrique::class, inversedBy: 'commentaires')]
     #[ORM\JoinColumn(nullable: false)]
-    private $categorie;
+    private $rubrique;
 
     public function getId(): ?int
     {
@@ -67,14 +67,14 @@ class Commentaire
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
+    public function getRubrique(): ?Rubrique
     {
-        return $this->categorie;
+        return $this->rubrique;
     }
 
-    public function setCategorie(?Categorie $categorie): self
+    public function setRubrique(?Rubrique $rubrique): self
     {
-        $this->categorie = $categorie;
+        $this->rubrique = $rubrique;
 
         return $this;
     }

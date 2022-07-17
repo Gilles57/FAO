@@ -31,13 +31,13 @@ $font-family-monospace: 'Libre Bodoni', serif;
     border: 0px $primary;
 }
 
-.livre {
-    width: 100%;
-    height: auto;
-
-    background-image: url('/public/images/livre/fond_livre.png');
-    background-repeat: no-repeat;
-}
+//.livre {
+//    width: 100%;
+//    height: auto;
+//
+//    background-image: url('/public/images/livre/fond_livre.png');
+//    background-repeat: no-repeat;
+//}
 
 @media screen and (max-width: 1024px) {
     .livre {

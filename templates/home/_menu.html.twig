@@ -1,4 +1,10 @@
 {% block nav %}
+    {% if app.request.attributes.get('_route_params') is not empty %}
+        {%  set current_route =  app.request.attributes.get('_route')~"/"~app.request.attributes.get('_route_params')['rubrique']  %}
+        {% else %}
+                {%  set current_route =  app.request.attributes.get('_route') %}
+    {% endif %}
+{#{{ dump(current_route) }}#}
     <nav class="navbar navbar-expand-sm  nav-fill  flex-column flex-sm-row mb-3">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,39 +14,39 @@
             <ul class="nav  navbar-expand-sm  nav-fill  flex-column flex-sm-row mt-3  flex-grow-1 ">
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                             {% if app.request.attributes.get('_route') != 'app_home' %}
+                             {% if current_route != 'app_home' %}
                              bg-secondary
                              {% endif %}" href="{{ path('app_home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_carte' %}
+                         {% if current_route != 'app_carte' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_carte') }}">Carte</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_carnet' %}
+                         {% if current_route != 'app_carnet' %}
                          bg-secondary
                          {% endif %}" href="#">Carnet de voyage</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_musique' %}
+                         {% if current_route != 'app_musique' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_musique') }}">Musique</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_animation' %}
+                         {% if current_route != 'app_animation' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_animation') }}">Animation</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle border-light
-                        {% if app.request.attributes.get('_route') != 'app_bienetre' %}
+
                          bg-secondary
-                         {% endif %}" data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
+                        " data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
                        aria-expanded="false">Bien-être</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
@@ -58,27 +64,41 @@
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_projets' %}
+                         {% if current_route != 'app_projets' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_projets') }}">Projets</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_presse' %}
+                         {% if current_route != 'app_presse' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_presse') }}">Presse</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_partenaires' %}
+                         {% if current_route != 'app_partenaires' %}
                          bg-secondary
                          {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
                 </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if app.request.attributes.get('_route') != 'app_livre' %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border-light
+                        {% if current_route != 'app_livre' %}
                          bg-secondary
-                         {% endif %}" href="{{ path('app_livredor') }}">Livre d'Or</a>
+                         {% endif %}" data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
+                       aria-expanded="false">Livre d'or</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item
+                           {% if current_route == 'app_livre/relax' %}disabled{% endif %}"
+                               href="{{ path('app_livre', {rubrique:'relax'}) }}">Relaxation</a></li>
+                        <li><a class="dropdown-item
+                           {% if current_route == 'app_livre/musique' %}disabled{% endif %}"
+                               href="{{ path('app_livre', {rubrique:'musique'}) }}">Musique</a></li>
+                        </li>
+                        <li><a class="dropdown-item
+                           {% if current_route == 'app_livre/animation' %}disabled{% endif %}"
+                               href="{{ path('app_livre', {rubrique:'animation'}) }}">Animations</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

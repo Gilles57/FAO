@@ -15,7 +15,6 @@ class FooterController extends AbstractController
         $partenaires = $partenaireRepository->findAll();
 
         return $this->render('home/_footer.html.twig',
-//        return $this->render('footer/index.html.twig',
             compact('partenaires')
         );
     }
