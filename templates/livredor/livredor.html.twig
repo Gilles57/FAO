@@ -19,8 +19,8 @@
 {% block title %}Livre d'or - FAO TRAVEL !{% endblock %}
 {% block body %}
     {% if commentaires is empty %}
-        <div>
-            No comments{# TODO gérer les erreurs de rubrique #}
+        <div style="height: 400px">
+            <div class="h1 bg-warning text-center">Ce livre n'existe pas !</div>
         </div>
     {% else %}
         <div class="container ">
@@ -29,7 +29,7 @@
                 <div class="col-sm-4 bg-image " style="background-image: url('/images/livre/livre.png');display:grid;">
                     <div class=" m-3  text-center  text-warning align-self-center ">
                         <div class="card-body ">
-                            <p class="card-text ms-3"  style="font-family: font-family-serif,serif; font-size: 1.5vw;">
+                            <p class="card-text ms-3"  style="font-family: Balthazar,serif; font-size: 1.5vw;">
                                 Livre d'or<br>• • •<br>{{ titre | raw}}
                             </p>
                         </div>
