@@ -23,7 +23,8 @@ class CommentaireCrudController extends AbstractCrudController
     {
         return $crud
             ->setSearchFields(['message', 'prenom'])
-            ;
+            ->setAutofocusSearch()
+        ;
     }
 
     public function configureFilters(Filters $filters): Filters
