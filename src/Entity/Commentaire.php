@@ -26,6 +26,9 @@ class Commentaire
     #[ORM\JoinColumn(nullable: false)]
     private $rubrique;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $validate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Commentaire
     public function setRubrique(?Rubrique $rubrique): self
     {
         $this->rubrique = $rubrique;
+
+        return $this;
+    }
+
+    public function isValidate(): ?bool
+    {
+        return $this->validate;
+    }
+
+    public function setValidate(?bool $validate): self
+    {
+        $this->validate = $validate;
 
         return $this;
     }
