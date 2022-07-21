@@ -47,7 +47,8 @@ class CommentaireRepository extends ServiceEntityRepository
             'SELECT c, r
             FROM App\Entity\Commentaire c
             INNER JOIN c.rubrique r
-            WHERE r.nom = :nom'
+            WHERE r.nom = :nom
+            AND  c.validate = true'
         )->setParameter('nom', $value);
 
         return $query->getArrayResult();
