@@ -1,0 +1,34 @@
+{% extends 'emails/basemail.html.twig' %}
+
+{% block body %}
+	{{ parent() }}
+
+
+	<h3>Félicitation, vous êtes enregistré sur la plateforme d'échanges "Ados et sac à dos"!</h3>
+
+	<p> Lorsque votre compte aura été vérifié et validé, vous pourrez vous connecter <a href="{{ url('security_login') }}"> à cette adresse</a> et accéder à l'ensemble du contenu.</p>
+
+	<p>Merci de rejoindre mon projet !</p><br />
+
+	<hr>
+
+	<h3> Congratulations, you are registered on the "Ados et sac à dos" exchange platform! </h3>
+
+	<p>Once your account has been verified and validated, you'll can sign in <a href="{{ url('security_login') }}"> to this address </a> and access all content.</p>
+
+	<p>Thank you for joining my project! </p><br />
+
+	<hr>
+	<div>Tourdumondistement,
+		<br />
+		Étienne
+	</div>
+	<hr>
+	<div>
+		<p><span style="font-size: 16px; font-weight: bold;">Contacts :</span></p>
+		Facebook : Pich Prod Movies Etienne<br/>
+		Youtube : Etienne Salmon<br/>
+		Snapchat : Pichmimoune<br/>
+		Instagram : Etienne Salmon<br/>
+	</div>
+{% endblock %}

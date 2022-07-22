@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        body {
+            background-image: linear-gradient(rgb(210, 181, 132) 0px, rgb(186, 143, 69) 288px, rgb(19, 14, 7) 1050px);
+            color: black;
+            font-size: large;
+        }
+
+        .container {
+            background: url("http://127.0.0.1:8000/images/logos/logo2.png") center fixed;
+            padding: 20px;
+        }
+
+        div {
+            margin: 10px 0px;
+        }
+
+        img {
+            width: 76px;
+            height: 90px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div>
+        <img src="{{ absolute_url(asset('/images/logos/logo2.png')) }}">
+    </div>
+    {% block body %}
+
+    {% endblock body %}
+</div>
+
+
+</body>
+</html>

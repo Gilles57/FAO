@@ -7,9 +7,11 @@ use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
 use App\Repository\RubriqueRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LivredorController extends AbstractController
@@ -23,29 +25,48 @@ class LivredorController extends AbstractController
     }
 
     #[Route('/livredor/add', name: 'app_livre_add')]
-     public function saisie(Request $request, CommentaireRepository $repo, EntityManagerInterface $manager, RubriqueRepository $rubriqueRepository): Response
-     {
-         $commentaire = new Commentaire();
-         $rubriques = $rubriqueRepository->findAll();
+    public function saisie(Request $request, CommentaireRepository $repo,
+        EntityManagerInterface $manager,
+        MailerInterface $mailer,
+        RubriqueRepository $rubriqueRepository): Response
+    {
+        $commentaire = new Commentaire();
+        $rubriques = $rubriqueRepository->findAll();
 
-         $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form = $this->createForm(CommentaireType::class, $commentaire);
 
-         $form->createView();
-         $form->handleRequest($request);
+        $form->createView();
+        $form->handleRequest($request);
 
-         if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            $commentaire = $form->getData();
+            $commentaire->setCreatedAt(new \DateTime());
 
-             $commentaire = $form->getData();
-             $commentaire->setCreatedAt(new \DateTime());
+            $manager->persist($commentaire);
+            $manager->flush();
 
-             $manager->persist($commentaire);
-             $manager->flush();
+            $this->addFlash(
+                'success',
+                "Votre message a été envoyé. Il sera visible lorsqu'il aura été validé."
+            );
+            // mail de validation ;
+            $message = (new TemplatedEmail())
+                ->from('contact@adosetsacados.fr')
+//                ->bcc('barbapapan@gmail.com')
+                ->to('g.salmon@free.fr')
+                ->subject('FAO Travel : nouveau commentaire à valider')
+                ->htmlTemplate('emails/validation.html.twig')
+                ->context([
+                    'prenom' => $commentaire->getPrenom(),
+                ]);
 
-             return $this->redirectToRoute('app_home');
-         }
+            $mailer->send($message);
 
-         return $this->renderForm('livredor/livredor_add.html.twig', compact('form', 'rubriques'));
-     }
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->renderForm('livredor/livredor_add.html.twig', compact('form', 'rubriques'));
+    }
 
     #[Route('/test', name: 'app_test')]
     public function test(CommentaireRepository $commentaireRepository): Response

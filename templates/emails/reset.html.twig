@@ -1,0 +1,18 @@
+{% extends 'emails/basemail.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% set lien %}
+        <a href="{{ url('security_newpw', {'jeton': jeton}) }}">ici</a>
+    {% endset %}
+    <div>Merci de cliquer {{ lien | raw }} pour réinitialiser ton mot de passe.</div>
+
+    <hr>
+    {% set lien %}
+        <a href="{{ url('security_newpw', {'jeton': jeton}) }}">here</a>
+    {% endset %}
+
+    <div>Please click {{ lien | raw }} to reset your password.</div>
+
+{% endblock %}
