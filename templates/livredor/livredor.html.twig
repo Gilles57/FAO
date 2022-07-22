@@ -1,27 +1,34 @@
 {% extends 'base.html.twig' %}
 
+
 {% if app.request.attributes.get('_route_params') is not empty %}
     {% set rubrique =  app.request.attributes.get('_route_params')['rubrique'] %}
 {% else %}
     {% set rubrique =  "" %}
 {% endif %}
 
-{% if rubrique == 'relax' %}
+{% if rubrique == 'Relaxation' %}
     {% set titre = "Relaxation" %}
-{% elseif rubrique == 'musique' %}
+{% elseif rubrique == 'Musique et concerts' %}
     {% set titre = "Musique<br>et<br>concerts" %}
-{% elseif rubrique == 'animation' %}
+{% elseif rubrique == 'Animations' %}
     {% set titre = "Animations" %}
 {% else %}
-    {% set titre = "" %}
+    {% set titre = "inconnu" %}
 {% endif %}
 
 {% block title %}Livre d'or - FAO TRAVEL !{% endblock %}
 {% block body %}
     {% if commentaires is empty %}
-        <div style="height: 400px">
-            <div class="h1 bg-warning text-center">Ce livre n'existe pas !</div>
-        </div>
+        {% if titre == 'inconnu' %}
+            <div style="height: 400px">
+                <div class="h1 bg-warning text-center">Ce livre n'existe pas !</div>
+            </div>
+        {% else %}
+            <div style="height: 400px">
+                <div class="h1 bg-warning text-center">Il n'y a pas de commentaires dans cette catégorie !</div>
+            </div>
+        {% endif %}
     {% else %}
         <div class="container ">
             <div class="masque text-center"><span class="bg-secondary "> Livre d'or : {{ titre }}</span></div>
@@ -29,8 +36,8 @@
                 <div class="col-lg-4 bg-image " style="background-image: url('/images/livre/livre.png');display:grid;">
                     <div class=" m-3  text-center  text-warning align-self-center ">
                         <div class="card-body ">
-                            <p class="card-text ms-3"  style="font-family: Balthazar,serif; font-size: 1.5vw;">
-                                Livre d'or<br>• • •<br>{{ titre | raw}}
+                            <p class="card-text ms-3" style="font-family: Balthazar,serif; font-size: 1.5vw;">
+                                Livre d'or<br>• • •<br>{{ titre | raw }}
                             </p>
                         </div>
                     </div>

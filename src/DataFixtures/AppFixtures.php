@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Entity\Point;
 use App\Entity\Projet;
+use App\Entity\Rubrique;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -16,6 +17,23 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
+
+        $rubriques = [];
+        // Création des rubriques
+        $rubrique1 = new Rubrique();
+        $rubrique1->setNom('Animations');
+        $manager->persist($rubrique1);
+        $rubriques[0] = $rubrique1;
+
+        $rubrique2 = new Rubrique();
+        $rubrique2->setNom('Musique et concerts');
+        $manager->persist($rubrique2);
+        $rubriques[1] = $rubrique2;
+
+        $rubrique3 = new Rubrique();
+        $rubrique3->setNom('Relaxation');
+        $manager->persist($rubrique3);
+        $rubriques[2] = $rubrique3;
 
         // Création des users
         $contact = new User();
@@ -67,6 +85,9 @@ class AppFixtures extends Fixture
             'monde meilleur ! ');
         $commentaire->setPrenom('Virginie');
         $commentaire->setAge(47);
+        $commentaire->setRubrique($rubriques[1]);
+        $commentaire->setCreatedAt($faker->dateTimeThisDecade());
+        $commentaire->setValidate(true);
         $manager->persist($commentaire);
 
         for ($i = 0; $i < 10; ++$i) {
@@ -74,7 +95,9 @@ class AppFixtures extends Fixture
             $commentaire->setMessage($faker->text(300));
             $commentaire->setPrenom($faker->firstName());
             $commentaire->setAge($faker->numberBetween(10, 100));
+            $commentaire->setRubrique($rubriques[$faker->numberBetween(0, 2)]);
             $commentaire->setCreatedAt($faker->dateTimeThisDecade());
+            $commentaire->setValidate(true);
             $manager->persist($commentaire);
         }
 
@@ -85,14 +108,14 @@ class AppFixtures extends Fixture
             'le long de ma route et de les emmener à leurs destinataires. Cela me permet d’étendre mon réseau et de '.
             'faire de nouvelles rencontres. C’est l’une des actions qui me permet de développer mon activité principale'.
             ' et de signer des contrats.
-');
+ ');
         $projet->setImage('images/projets/facteur.png');
         $manager->persist($projet);
 
         $projet = new Projet();
         $projet->setTitre('Tortue de l’espoir');
         $projet->setDescription('L’image peut rester la même ou tu peux prendre le logo du dossier
-');
+ ');
         $projet->setImage('images/projets/tortue.jpg');
         $manager->persist($projet);
 
@@ -101,7 +124,7 @@ class AppFixtures extends Fixture
         $projet->setDescription('Au cours de mes voyages, j’ai eu l’occasion de rencontrer des personnes '.
             'extraordinaires aux talents incroyables. Ce projet a pour objectif de mettre en valeurs ces personnes '.
             'à travers des vidéos qui seront diffusées sur tous mes réseaux.
-');
+ ');
         $projet->setImage('images/projets/artistes.png');
         $manager->persist($projet);
 
@@ -110,7 +133,7 @@ class AppFixtures extends Fixture
         $projet->setDescription('À l’image de d’Antoine de Maximy dans son émission « J’irai dormir chez '.
             'vous », moi, j’irai faire des concerts chez les gens. Encore une fois, ce projet est un prétexte pour '.
             'rencontrer de nouvelles personnes et de nouveaux endroits.
-');
+ ');
         $projet->setImage('images/projets/paysage.jpg');
         $manager->persist($projet);
 

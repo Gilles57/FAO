@@ -36,7 +36,7 @@ class LivredorController extends AbstractController
          if ($form->isSubmitted() && $form->isValid()) {
 
              $commentaire = $form->getData();
-             $commentaire->setUpdatedAt(new \DateTime());
+             $commentaire->setCreatedAt(new \DateTime());
 
              $manager->persist($commentaire);
              $manager->flush();
