@@ -9,9 +9,7 @@ twig:
         youtube: 'Etienne Salmon'
         instagram : 'Etienne Salmon TDM'
         tiktok : 'Barbapapan'
-    form_themes:
-    - "bootstrap_4_layout.html.twig"
-    - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+    form_themes: ['bootstrap_5_horizontal_layout.html.twig']
 
 when@test:
     twig:

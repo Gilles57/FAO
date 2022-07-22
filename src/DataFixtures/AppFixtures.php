@@ -74,6 +74,7 @@ class AppFixtures extends Fixture
             $commentaire->setMessage($faker->text(300));
             $commentaire->setPrenom($faker->firstName());
             $commentaire->setAge($faker->numberBetween(10, 100));
+            $commentaire->setCreatedAt($faker->dateTimeThisDecade());
             $manager->persist($commentaire);
         }
 

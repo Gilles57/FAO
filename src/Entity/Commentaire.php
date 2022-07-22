@@ -29,6 +29,9 @@ class Commentaire
     #[ORM\Column(type: 'boolean', nullable: true)]
     private $validate;
 
+    #[ORM\Column(type: 'datetime_immutable')]
+    private $createdAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Commentaire
     public function setValidate(?bool $validate): self
     {
         $this->validate = $validate;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
