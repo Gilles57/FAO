@@ -51,7 +51,7 @@ class LivredorController extends AbstractController
             );
             // mail de validation ;
             $message = (new TemplatedEmail())
-                ->from('contact@adosetsacados.fr')
+                ->from('contact@faotravel.fr')
 //                ->bcc('barbapapan@gmail.com')
                 ->to('g.salmon@free.fr')
                 ->subject('FAO Travel : nouveau commentaire à valider')
