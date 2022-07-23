@@ -37,7 +37,6 @@ class LivredorController extends AbstractController
 
         $form->createView();
         $form->handleRequest($request);
-dd($form);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $commentaire = $form->getData();
@@ -46,9 +45,10 @@ dd($form);
             $manager->persist($commentaire);
             $manager->flush();
 
+
             $this->addFlash(
                 'success',
-                "Votre message a été envoyé. Il sera visible lorsqu'il aura été validé."
+                "Bonjour " .$commentaire->getPrenom().", votre message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."
             );
             // mail de validation ;
             $message = (new TemplatedEmail())

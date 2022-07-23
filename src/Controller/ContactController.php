@@ -15,18 +15,17 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
-         $form = $this->createForm(ContactType::class);
+        $form = $this->createForm(ContactType::class);
 
         $form->createView();
         $form->handleRequest($request);
-
 
         if ($form->isSubmitted() && $form->isValid()) {
             $datas = $form->getData();
 
             $this->addFlash(
                 'success',
-                'Votre message a été envoyé. Il sera traité le plus rapidement possible.'
+                'Bonjour '.$datas['prenom'].', votre message a été envoyé.<br>Il sera traité le plus rapidement possible.'
             );
             // mail de validation ;
             $message = (new TemplatedEmail())
@@ -36,7 +35,7 @@ class ContactController extends AbstractController
                 ->subject('FAO Travel : nouveau commentaire à valider')
                 ->htmlTemplate('emails/validation.html.twig')
                 ->context([
-                    'prenom' => $datas->getPrenom(),
+                    'prenom' => $datas['prenom'],
                 ]);
 
             $mailer->send($message);
