@@ -8,7 +8,6 @@
         }
 
         .container {
-            background: url("http://127.0.0.1:8000/images/logos/logo2.png") center fixed;
             padding: 20px;
         }
 
@@ -26,7 +25,7 @@
 <body>
 <div class="container">
     <div>
-        <img src="{{ absolute_url(asset('/images/logos/logo2.png')) }}">
+        <img class="img" src="{{ absolute_url(asset('/images/logos/logo2.png')) }}">
     </div>
     {% block body %}
 

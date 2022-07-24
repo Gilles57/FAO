@@ -2,10 +2,14 @@
 
 {% block body %}
 	{{ parent() }}
-    <h3>Commentaire à valider !</h3>
+    <h3>Nouveau message venant du site !</h3>
 
-    {{ prenom }} a posté un commentaire sur le site.<br/>
-    et attend qu'il soit validé.
+    {{ prenom }} a posté un message sur le site.<br/>
+    et attend une réponse.
 
     <a href=" {{ absolute_url(postUrl) }}"> Lien vers le commentaire</a>
+
+
+
+
 {% endblock %}

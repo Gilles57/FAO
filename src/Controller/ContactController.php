@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
@@ -29,13 +30,14 @@ class ContactController extends AbstractController
             );
             // mail de validation ;
             $message = (new TemplatedEmail())
-                ->from('contact@faotravel.fr')
-//                ->bcc('barbapapan@gmail.com')
-                ->to('g.salmon@free.fr')
+                ->from(new Address('contact@faotravel.fr', 'Site FAO Travel'))
+//                ->bcc(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
+                ->to(new Address('g.salmon@free.fr', 'Gilles SALMON'))
                 ->subject('FAO Travel : nouveau commentaire à valider')
                 ->htmlTemplate('emails/validation.html.twig')
                 ->context([
                     'prenom' => $datas['prenom'],
+                    'message' => $datas['message'],
                 ]);
 
             $mailer->send($message);
