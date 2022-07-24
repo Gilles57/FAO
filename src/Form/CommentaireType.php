@@ -44,7 +44,11 @@ class CommentaireType extends AbstractType
                 'help' => 'Choisissez la rubrique la plus adaptée à votre commentaire.',
                 'choice_label' => 'nom',
                 'expanded' => true,
-                'multiple' => false, ]);
+                'multiple' => false,
+                'constraints' => [
+                    new NotBlank(['message' => 'Veuillez choisir une des rubriques.']),
+                ], ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

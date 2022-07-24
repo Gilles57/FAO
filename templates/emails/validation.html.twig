@@ -1,10 +1,11 @@
 {% extends 'emails/basemail.html.twig' %}
 
 {% block body %}
+    <h3>Commentaire à valider !</h3>
+    {{ dump(postUrl) }}
 
-    <h3>Inscription à valider !</h3>
+    {{ prenom }} a posté un commentaire sur le site.<br/>
+    et attend qu'il soit validé.
 
-      {{ prenom }} s'est inscrit(e) sur le site.<br />
-    et attend que son compte soit validé.
-
+    <a href=" {{ absolute_url(postUrl) }}"> Lien vers le commentaire</a>
 {% endblock %}

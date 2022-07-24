@@ -39,7 +39,7 @@ class CommentaireCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-//            IdField::new('id')->onlyOnIndex(),
+            IdField::new('id')->onlyOnIndex(),
             BooleanField::new('validate'),
             TextareaField::new('message'),
             TextField::new('prenom'),

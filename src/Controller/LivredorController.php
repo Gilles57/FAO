@@ -39,16 +39,27 @@ class LivredorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $commentaire = $form->getData();
+            $datas = $form->getData();
+
+            $commentaire->setPrenom($datas->getPrenom());
+            $commentaire->setAge($datas->getAge());
+            $commentaire->setMessage($datas->getMessage());
+            $commentaire->setRubrique($datas->getRubrique());
             $commentaire->setCreatedAt(new \DateTime());
 
-            $manager->persist($commentaire);
-            $manager->flush();
+            $repo->add($commentaire, true);
 
+            $postUrl = $this->generateUrl('admin', [
+                'crudAction' => 'edit',
+                'crudControllerFqcn' => 'App\Controller\Admin\CommentaireCrudController',
+                'entityId' => $commentaire->getId(),
+            ]);
+
+//            dd($postUrl);
 
             $this->addFlash(
                 'success',
-                "Bonjour " .$commentaire->getPrenom().", votre message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."
+                'Bonjour '.$commentaire->getPrenom().", votre message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."
             );
             // mail de validation ;
             $message = (new TemplatedEmail())
@@ -59,6 +70,7 @@ class LivredorController extends AbstractController
                 ->htmlTemplate('emails/validation.html.twig')
                 ->context([
                     'prenom' => $commentaire->getPrenom(),
+                    'postUrl' => $postUrl,
                 ]);
 
             $mailer->send($message);
