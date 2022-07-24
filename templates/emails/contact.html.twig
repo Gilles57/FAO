@@ -1,15 +1,16 @@
 {% extends 'emails/basemail.html.twig' %}
-
 {% block body %}
-	{{ parent() }}
-    <h3>Nouveau message venant du site !</h3>
+    {{ parent() }}
+<h3>Nouveau message venant du site !</h3>
 
-    {{ prenom }} a posté un message sur le site.<br/>
-    et attend une réponse.
-
-    <a href=" {{ absolute_url(postUrl) }}"> Lien vers le commentaire</a>
-
-
-
-
-{% endblock %}
+<div>
+    <p>{{ prenom }} a posté un message sur le site.<br/>
+        et attend une réponse.</p>
+    <div>
+        <p>Le message : </p>
+        <div class="text-light bg-dark">{{ message | italic }}>
+        </div>
+        <p> Pour lui répondre : <a href="mailto:" {{ mail }}>{{ mail | italic }}</a></p>
+    </div>
+</div>
+    {% endblock %}

@@ -28,15 +28,16 @@ class ContactController extends AbstractController
                 'success',
                 'Bonjour '.$datas['prenom'].', votre message a été envoyé.<br>Il sera traité le plus rapidement possible.'
             );
-            // mail de validation ;
+            // mail de contact ;
             $message = (new TemplatedEmail())
                 ->from(new Address('contact@faotravel.fr', 'Site FAO Travel'))
 //                ->bcc(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
                 ->to(new Address('g.salmon@free.fr', 'Gilles SALMON'))
                 ->subject('FAO Travel : nouveau commentaire à valider')
-                ->htmlTemplate('emails/validation.html.twig')
+                ->htmlTemplate('emails/contact.html.twig')
                 ->context([
                     'prenom' => $datas['prenom'],
+                    'mail' => $datas['email'],
                     'message' => $datas['message'],
                 ]);
 
