@@ -3,6 +3,7 @@ twig:
     globals:
         nom: 'Salmon'
         prenom: 'Étienne'
+        mailContact: 'contact@faotravel.fr'
         mailFAO: 'barbapapan25@gmail.com'
         mailWM: 'g.salmon@free.fr'
         telephone: '06 32 51 85 85'
@@ -11,7 +12,9 @@ twig:
         instagram : 'Etienne Salmon TDM'
         tiktok : 'Barbapapan'
     form_themes: ['bootstrap_5_horizontal_layout.html.twig']
-
+    paths:
+        # point this wherever your images live
+        '%kernel.project_dir%/public/images': images
 when@test:
     twig:
         strict_variables: true

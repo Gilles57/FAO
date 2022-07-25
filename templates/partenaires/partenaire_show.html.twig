@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ partenaire.entreprise }} - FAO TRAVEL !{% endblock %}
+{% block body %}
+    <div class="d-flex justify-content-between bg-dark text-secondary">
+        <div class="p-2">{{ partenaire.entreprise }}</div>
+        <div class="p-2">{{ partenaire.description }}</div>
+    </div>
+    <img src="/{{ partenaire.logo }}" style="width: 100%; height: 100%;" alt="Logo de {{ partenaire.logo }} ">
+{% endblock %}

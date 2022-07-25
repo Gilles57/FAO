@@ -1,6 +1,6 @@
 {% block nav %}
-    {% if app.request.attributes.get('_route_params') is not empty %}
-        {% set current_route =  app.request.attributes.get('_route')~"/"~app.request.attributes.get('_route_params')['rubrique'] %}
+    {% if app.request.attributes.get('_route_params') is not empty and app.request.attributes.get('_route_params')['rubrique'] is defined %}
+            {% set current_route =  app.request.attributes.get('_route')~"/"~app.request.attributes.get('_route_params')['rubrique'] %}
     {% else %}
         {% set current_route =  app.request.attributes.get('_route') %}
     {% endif %}
@@ -94,13 +94,15 @@
                                href="{{ path('app_livre_index', {rubrique:'Relaxation'}) }}">Relaxation</a></li>
                         <li><a class="dropdown-item
                            {% if current_route == 'app_livre/index/musique' %}disabled{% endif %}"
-                               href="{{ path('app_livre_index', {rubrique:'Musique et concerts'}) }}">Musique et concerts</a></li>
+                               href="{{ path('app_livre_index', {rubrique:'Musique et concerts'}) }}">Musique et
+                                concerts</a></li>
                         </li>
                         <li><a class="dropdown-item
                            {% if current_route == 'app_livre/index/animation' %}disabled{% endif %}"
                                href="{{ path('app_livre_index', {rubrique:'Animations'}) }}">Animations</a></li>
                         <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item" href="{{ path('app_livre_add', {rubrique:'animation'}) }}">Ajouter un commentaire</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_livre_add', {rubrique:'animation'}) }}">Ajouter
+                                un commentaire</a></li>
 
                     </ul>
                 </li>

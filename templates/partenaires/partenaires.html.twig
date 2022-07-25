@@ -1,14 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivredorController!{% endblock %}
+{% block title %}Partenaire - FAO TRAVEL !{% endblock %}
 
 {% block body %}
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <img src="{{ asset('images/image_accueil.png') }}" alt="Eienne jouant du handpan">
-            </div>
-            <div class="col-md-8 text-center">
-                <p> bla bla</p>
+    <div class="row ">
+        {% for partenaire in partenaires %}
+        <div class="col-sm-4">
+            <div class="card m-3  bg-secondary">
+                <div class="card-body">
+                    <p class="card-text">{{ partenaire.entreprise }}</p>
+                </div><a href="{{ path('app_partenaire_show', {'id' : partenaire.id}) }}" target="_blank"
+                       class="text-center m-2"><img src="{{ partenaire.logo }}"
+                                                style="width: 200px; height: 200px; "
+                                                alt="Logo de {{ partenaire.entreprise }} "></a>
             </div>
         </div>
+        {% endfor %}
+    </div>
 {% endblock %}
