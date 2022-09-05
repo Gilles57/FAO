@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
 class Commentaire
@@ -14,23 +15,21 @@ class Commentaire
     private $id;
 
     #[ORM\Column(type: 'text')]
-    private $message;
+    private ?string $message;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $prenom;
+    private ?string $prenom;
 
     #[ORM\Column(type: 'integer')]
-    private $age;
+    private ?int $age;
 
     #[ORM\ManyToOne(targetEntity: Rubrique::class, inversedBy: 'commentaires')]
     #[ORM\JoinColumn(nullable: false)]
-    private $rubrique;
+    private ?Rubrique $rubrique;
 
-    #[ORM\Column(type: 'boolean', nullable: true)]
-    private $validate;
+    #[ORM\Column(type: 'boolean')]
+    private boolean $validate;
 
-    #[ORM\Column(type: 'datetime')]
-    private $createdAt;
 
     public function getId(): ?int
     {
@@ -97,15 +96,4 @@ class Commentaire
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTime $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
 }
