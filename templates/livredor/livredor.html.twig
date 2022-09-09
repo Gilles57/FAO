@@ -48,7 +48,7 @@
                         <div class="card m-3  bg-warning">
                             <div class="card-body">
                                 <p class="card-text">{{ comment.message }}</p>
-                                <p class="text-end fst-italic"> {{ comment.prenom }} - {{ comment.age }} ans</p>
+                                <p class="text-end fst-italic"> {{ comment.prenom }} - {%  if comment.age != 0%}{{ comment.age }} ans{% endif %}</p>
                             </div>
                         </div>
                     </div>

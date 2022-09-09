@@ -20,7 +20,7 @@ class Commentaire
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $prenom;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $age;
 
     #[ORM\ManyToOne(targetEntity: Rubrique::class, inversedBy: 'commentaires')]
@@ -28,7 +28,7 @@ class Commentaire
     private ?Rubrique $rubrique;
 
     #[ORM\Column(type: 'boolean')]
-    private boolean $validate;
+    private $validate;
 
 
     public function getId(): ?int
