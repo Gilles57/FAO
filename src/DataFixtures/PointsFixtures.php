@@ -30,7 +30,7 @@ class PointsFixtures extends Fixture
             $point->setLon($points[$i][2]);
             $point->setPreferred($points[$i][3]);
             if (null != $points[$i][4]) {
-                $point->setStartAt(new \DateTimeImmutable($points[$i][4]));
+                $point->setBeginAt(new \DateTimeImmutable($points[$i][4]));
             }
             if (null != $points[$i][5]) {
                 $point->setEndAt(new \DateTimeImmutable($points[$i][4]));

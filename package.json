@@ -26,6 +26,11 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@fullcalendar/core": "^5.11.3",
+        "@fullcalendar/daygrid": "^5.11.3",
+        "@fullcalendar/interaction": "^5.11.3",
+        "@fullcalendar/list": "^5.11.3",
+        "@fullcalendar/timegrid": "^5.11.3",
         "bootstrap": "^5.2.0-beta1",
         "maildev": "^2.0.5"
     }

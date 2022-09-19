@@ -20,8 +20,8 @@ class CarteController extends AbstractController
             $villes[$index]['nom'] = $p->getNom();
             $villes[$index]['latitude'] = $p->getLat();
             $villes[$index]['longitude'] = $p->getLon();
-            if (null != $p->getStartAt()) {
-                $villes[$index]['start'] = $p->getStartAt()->format('Y-m-d');
+            if (null != $p->getBeginAt()) {
+                $villes[$index]['start'] = $p->getBeginAt()->format('Y-m-d');
             } else {
                 $villes[$index]['start'] = '... ?';
             }

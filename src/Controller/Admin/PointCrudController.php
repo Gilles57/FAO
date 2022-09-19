@@ -25,7 +25,7 @@ class PointCrudController extends AbstractCrudController
             NumberField::new('lat', 'Latitude'),
             NumberField::new('lon', 'Longitude'),
             BooleanField::new('preferred', 'Ville actuelle'),
-            DateTimeField::new('startAt', "Date d'arrivée")->setFormat('d/M/Y'),
+            DateTimeField::new('beginAt', "Date d'arrivée")->setFormat('d/M/Y'),
             DateTimeField::new('endAt', 'Date de départ')->setFormat('d/M/Y'),
         ];
     }
