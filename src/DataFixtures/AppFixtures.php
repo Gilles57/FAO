@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Entity\Partenaire;
-use App\Entity\Point;
+use App\Entity\Evenement;
 use App\Entity\Projet;
 use App\Entity\Rubrique;
 use App\Entity\User;

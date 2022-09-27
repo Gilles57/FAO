@@ -1,16 +1,32 @@
-{# templates/booking/calendar.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {#    <a href="{{ path('app_booking_new') }}">Create new booking</a> #}
-    <div class="col-md-6">
-        <div id="calendar-holder"
-             data-events-url="{{ path('fc_load_events') }}"
-        ></div>
-    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div id="calendar-holder"
+                 data-events-url="{{ path('fc_load_events') }}"
+                 style="background-color: #decdbc"
+            ></div>
+        </div>
 
-    <div class="col-md-4 ">
-        <img src="{{ asset('images/animation/animation.jpg') }}" width="100%" alt="Animation avec un groupe d'enfants">
+        <div class="col-md-3 ">
+            <ul>
+                {% for event in events %}
+                    <li>
+                        {% set formatted_date = "" %}
+                        {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
+                            {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
+                        {% else %}
+                            {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
+                        {% endif %}
+                        <p class=" small">{{ event.ville.nom }} </br>
+                            {{ formatted_date }}</br>
+                            {{ event.rubrique.nom }}
+                        </p>
+                    </li>
+                                   {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}
 
@@ -23,34 +39,4 @@
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('calendar') }}
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', () => {
-            var calendarEl = document.getElementById('calendar-holder');
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                defaultView: 'dayGridMonth',
-                editable: true,
-                eventSources: [
-                    {
-                        url: "{{ path('fc_load_events') }}",
-                        method: "POST",
-                        extraParams: {
-                            filters: JSON.stringify({})
-                        },
-                        failure: () => {
-                            alert("There was an error while fetching FullCalendar!");
-                        },
-                    },
-                ],
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
-                },
-                plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
-                timeZone: 'UTC',
-            });
-            calendar.render();
-        });
-    </script>
 {% endblock %}

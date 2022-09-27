@@ -21,9 +21,13 @@ class Rubrique
     #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Commentaire::class, orphanRemoval: true)]
     private $commentaires;
 
+    #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Evenement::class)]
+    private Collection $points;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->points = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,5 +80,35 @@ class Rubrique
     public function __toString(): string
     {
         return $this->nom;
+    }
+
+    /**
+     * @return Collection<int, Evenement>
+     */
+    public function getPoints(): Collection
+    {
+        return $this->points;
+    }
+
+    public function addPoint(Evenement $point): self
+    {
+        if (!$this->points->contains($point)) {
+            $this->points->add($point);
+            $point->setRubrique($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoint(Evenement $point): self
+    {
+        if ($this->points->removeElement($point)) {
+            // set the owning side to null (unless already changed)
+            if ($point->getRubrique() === $this) {
+                $point->setRubrique(null);
+            }
+        }
+
+        return $this;
     }
 }

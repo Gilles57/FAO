@@ -2,7 +2,7 @@
 
 namespace App\EventSubscriber;
 
-use App\Repository\PointRepository;
+use App\Repository\EvenementRepository;
 use CalendarBundle\CalendarEvents;
 use CalendarBundle\Entity\Event;
 use CalendarBundle\Event\CalendarEvent;
@@ -11,13 +11,18 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CalendarSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private PointRepository       $pointRepository,
-                                private UrlGeneratorInterface $router
-    )
-    {
+    private $eventRepo;
+    private $router;
+
+    public function __construct(
+        EvenementRepository $eventRepo,
+        UrlGeneratorInterface $router
+    ) {
+        $this->eventRepo = $eventRepo;
+        $this->router = $router;
     }
 
-    public static function getSubscribedEvents(): array
+    public static function getSubscribedEvents()
     {
         return [
             CalendarEvents::SET_DATA => 'onCalendarSetData',
@@ -30,42 +35,44 @@ class CalendarSubscriber implements EventSubscriberInterface
         $end = $calendar->getEnd();
         $filters = $calendar->getFilters();
 
-        // You may want to make a custom query from your database to fill the calendar
-        $points = $this->pointRepository->findAll();
+        $events = $this->eventRepo
+            ->createQueryBuilder('e')
+            ->where('e.beginAt BETWEEN :start and :end OR e.endAt BETWEEN :start and :end')
+            ->setParameter('start', $start->format('Y-m-d H:i:s'))
+            ->setParameter('end', $end->format('Y-m-d H:i:s'))
+            ->getQuery()
+            ->getResult();
 
-
-        foreach ($points as $p) {
-            $pointEvent = new Event(
-                $p->getNom(),
-                $p->getBeginAt(),
-                $p->getEndAt()
+        foreach ($events as $event) {
+            // this create the events with your data (here booking data) to fill calendar
+            $bookingEvent = new Event(
+                $event->getVille()->getNom(),
+                $event->getBeginAt(),
+                $event->getEndAt() // If the end date is null or not defined, a all day event is created.
             );
-            $pointEvent->setOptions([
+
+            $bookingEvent->setOptions([
                 'backgroundColor' => 'red',
                 'borderColor' => 'red',
             ]);
-//            $pointEvent->addOption(
+//            $bookingEvent->addOption(
 //                'url',
-//                $this->router->generate('app_event_show', [
-//                    'id' => $p->getId(),
+//                $this->router->generate('app_booking_show', [
+//                    'id' => $event->getId(),
 //                ])
 //            );
 
             // finally, add the event to the CalendarEvent to fill the calendar
-            $calendar->addEvent($pointEvent);
+            $calendar->addEvent($bookingEvent);
+//
+//        $event = new Event(
+//            'toto',
+//            new \DateTimeImmutable('now'),
+//            new \DateTimeImmutable('now + 2 days'),
+//        );
+//
+//        // finally, add the event to the CalendarEvent to fill the calendar
+//        $calendar->addEvent($event);
         }
-
-        $calendar->addEvent(new Event(
-            'Event 1',
-            new \DateTime('Tuesday this week'),
-            new \DateTime()
-        ));
-
-//         If the end date is null or not defined, it creates a all day event
-        $calendar->addEvent(new Event(
-            'All day event',
-            new \DateTime('Friday this week')
-        ));
     }
-
 }

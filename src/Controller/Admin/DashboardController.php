@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Entity\Commentaire;
 use App\Entity\Partenaire;
-use App\Entity\Point;
+use App\Entity\Evenement;
 use App\Entity\Projet;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
         #[IsGranted('ROLE_ADMIN')]
     public function index(): Response
     {
-        return $this->redirect($this->adminUrlGenerator->setController(PointCrudController::class)->generateUrl());
+        return $this->redirect($this->adminUrlGenerator->setController(EvenementCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -40,7 +40,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Aller sur le site', 'fa fa-solid fa-undo', 'app_home');
         yield MenuItem::linkToRoute('La carte', 'fa fa-solid fa-map', 'app_carte');
         yield MenuItem::section('Administration');
-        yield MenuItem::linkToCrud('Les carte sur la carte', 'fa fa-solid fa-map-marker', Point::class);
+        yield MenuItem::linkToCrud('Les événements', 'fa fa-solid fa-map-marker', Evenement::class);
         yield MenuItem::linkToCrud('Les utilisateurs', 'fa fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Les partenaires', 'fa fa-solid fa-handshake', Partenaire::class);
 

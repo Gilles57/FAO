@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Point;
+use App\Entity\Evenement;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Exception;
@@ -23,7 +23,7 @@ class PointsFixtures extends Fixture
         ];
 
         for ($i = 0; $i < count($points); ++$i) {
-            $point = new Point();
+            $point = new Evenement();
 
             $point->setNom($points[$i][0]);
             $point->setLat($points[$i][1]);

@@ -1,6 +1,6 @@
 {% block nav %}
     {% if app.request.attributes.get('_route_params') is not empty and app.request.attributes.get('_route_params')['rubrique'] is defined %}
-            {% set current_route =  app.request.attributes.get('_route')~"/"~app.request.attributes.get('_route_params')['rubrique'] %}
+        {% set current_route =  app.request.attributes.get('_route')~"/"~app.request.attributes.get('_route_params')['rubrique'] %}
     {% else %}
         {% set current_route =  app.request.attributes.get('_route') %}
     {% endif %}
@@ -28,7 +28,7 @@
                     <a class="flex-sm-fill text-sm-center nav-link border-light
                          {% if current_route != 'app_carnet' %}
                          bg-secondary
-                         {% endif %}" href="{{ path('app_carnet') }}">Carnet de voyage</a>
+                         {% endif %}" href="{{ path('app_carnet') }}">Agenda</a>
                 </li>
                 <li class="nav-item">
                     <a class="flex-sm-fill text-sm-center nav-link border-light
@@ -69,18 +69,6 @@
                          bg-secondary
                          {% endif %}" href="{{ path('app_projets') }}">Projets</a>
                 </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if current_route != 'app_presse' %}
-                         bg-secondary
-                         {% endif %}" href="{{ path('app_presse') }}">Presse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if current_route != 'app_partenaires' %}
-                         bg-secondary
-                         {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle border-light
                         {% if current_route != 'app_livre' %}
@@ -106,6 +94,19 @@
 
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
+                         {% if current_route != 'app_presse' %}
+                         bg-secondary
+                         {% endif %}" href="{{ path('app_presse') }}">Presse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill text-sm-center nav-link border-light
+                         {% if current_route != 'app_partenaires' %}
+                         bg-secondary
+                         {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
+                </li>
+
             </ul>
         </div>
     </nav>
