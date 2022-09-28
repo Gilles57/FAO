@@ -15,9 +15,10 @@ class CalendarSubscriber implements EventSubscriberInterface
     private $router;
 
     public function __construct(
-        EvenementRepository $eventRepo,
+        EvenementRepository   $eventRepo,
         UrlGeneratorInterface $router
-    ) {
+    )
+    {
         $this->eventRepo = $eventRepo;
         $this->router = $router;
     }
@@ -51,28 +52,20 @@ class CalendarSubscriber implements EventSubscriberInterface
                 $event->getEndAt() // If the end date is null or not defined, a all day event is created.
             );
 
+
             $bookingEvent->setOptions([
-                'backgroundColor' => 'red',
-                'borderColor' => 'red',
+                'backgroundColor' => $event->getRubrique()->getColor(),
             ]);
-//            $bookingEvent->addOption(
-//                'url',
-//                $this->router->generate('app_booking_show', [
-//                    'id' => $event->getId(),
-//                ])
-//            );
+
+            $bookingEvent->addOption(
+                'url',
+                $this->router->generate('app_event_show', [
+                    'id' => $event->getId(),
+                ])
+            );
 
             // finally, add the event to the CalendarEvent to fill the calendar
             $calendar->addEvent($bookingEvent);
-//
-//        $event = new Event(
-//            'toto',
-//            new \DateTimeImmutable('now'),
-//            new \DateTimeImmutable('now + 2 days'),
-//        );
-//
-//        // finally, add the event to the CalendarEvent to fill the calendar
-//        $calendar->addEvent($event);
         }
     }
 }

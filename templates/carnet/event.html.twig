@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+
+        <div class="col-md-8 m-auto ">
+            {% set formatted_date = "" %}
+            {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
+                {% set formatted_date = "le "~event.beginAt | date('d-m-Y à h:m') %}
+            {% else %}
+                {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
+            {% endif %}
+            <h1>{{ event.ville.nom }} </h1>
+                <h3>{{ event.rubrique.nom }}</h3>
+            <hr>
+                <div class="fw-bold">{{ formatted_date }}</div>
+                <div>{{ event.description }}</div>
+
+            <a href="{{ path('app_carnet') }}" class="btn btn-success mt-3">Retour au calendrier</a>
+        </div>
+    </div>
+{% endblock %}

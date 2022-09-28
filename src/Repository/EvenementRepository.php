@@ -42,26 +42,16 @@ class EvenementRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            'SELECT e, v
+            'SELECT e, v, r
             FROM App\Entity\Evenement e
             INNER JOIN e.ville v
-            Where (e.beginAt >= :date or e.endAt >= :date)
+            INNER JOIN e.rubrique r
+            WHERE (e.beginAt >= :date or e.endAt >= :date)
+            ORDER BY e.beginAt ASC
             '
         )->setParameter('date', $now);
 
         return $query->getArrayResult();
-    }
-
-    /**
-     * @return array Returns an array of Evenement objects
-     */
-    public function findAllWithBeginDefined(): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.beginAt IS NOT NULL')
-            ->orderBy('p.beginAt', 'ASC')
-            ->getQuery()
-            ->getResult();
     }
 
     /**
@@ -80,6 +70,18 @@ class EvenementRepository extends ServiceEntityRepository
         );
 
         return $query->getArrayResult();
+    }
+
+    /**
+     * @return array Returns an array of Evenement objects
+     */
+    public function findAllWithBeginDefined(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.beginAt IS NOT NULL')
+            ->orderBy('p.beginAt', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 
 }

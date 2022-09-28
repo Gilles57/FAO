@@ -12,10 +12,16 @@ class CarnetController extends AbstractController
     #[Route('/carnet', name: 'app_carnet')]
     public function index(EvenementRepository $eventRepo): Response
     {
-//        $events = $eventRepo->findAllInFuture(new \DateTimeImmutable('now'));
-        $events = $eventRepo->findAll();
-//        $events2 = $pointRepository->findAllwithBeginDefinied();
-//        dd($events);
+        $now = new \DateTimeImmutable('now');
+        $events = $eventRepo->findAllInFuture($now);
         return $this->render('carnet/carnet.html.twig', compact('events'));
+    }
+
+   #[Route('/event[{id}', name: 'app_event_show')]
+    public function showEvent(EvenementRepository $eventRepo, int $id): Response
+    {
+        $event = $eventRepo->findOneById($id);
+
+        return $this->render('carnet/event.html.twig', compact('event'));
     }
 }

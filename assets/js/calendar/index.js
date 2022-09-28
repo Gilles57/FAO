@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           filters: JSON.stringify({}) // pass your parameters to the subscriber
         },
         failure: () => {
-          // alert("There was an error while fetching FullCalendar!");
+          alert("There was an error while fetching FullCalendar!");
         },
       },
     ],
@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     initialView: "dayGridMonth",
+    height: '100%',
     navLinks: true, // can click day/week names to navigate views
     plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin ],
     timeZone: "UTC",

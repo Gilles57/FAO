@@ -19,16 +19,19 @@ class CommentsFixtures extends Fixture
 
         $rubrique0 = new Rubrique();
         $rubrique0->setNom('Animations');
+        $rubrique0->setColor('#9682f4');
         $manager->persist($rubrique0);
         $rubriques[0] = $rubrique0;
 
         $rubrique1 = new Rubrique();
         $rubrique1->setNom('Musique et concerts');
+        $rubrique0->setColor('#d98134');
         $manager->persist($rubrique1);
         $rubriques[1] = $rubrique1;
 
         $rubrique2 = new Rubrique();
         $rubrique2->setNom('Relaxation');
+        $rubrique0->setColor('#bbf482');
         $manager->persist($rubrique2);
         $rubriques[2] = $rubrique2;
 

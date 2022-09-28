@@ -15,20 +15,12 @@ class Rubrique
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: false)]
     private $nom;
 
-    #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Commentaire::class, orphanRemoval: true)]
-    private $commentaires;
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $color = null;
 
-    #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Evenement::class)]
-    private Collection $points;
-
-    public function __construct()
-    {
-        $this->commentaires = new ArrayCollection();
-        $this->points = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -47,68 +39,23 @@ class Rubrique
         return $this;
     }
 
-    /**
-     * @return Collection<int, Commentaire>
-     */
-    public function getCommentaires(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setRubrique($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getRubrique() === $this) {
-                $commentaire->setRubrique(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function __toString(): string
     {
         return $this->nom;
     }
 
-    /**
-     * @return Collection<int, Evenement>
-     */
-    public function getPoints(): Collection
+    public function getColor(): ?string
     {
-        return $this->points;
+        return $this->color;
     }
 
-    public function addPoint(Evenement $point): self
+    public function setColor(?string $color): self
     {
-        if (!$this->points->contains($point)) {
-            $this->points->add($point);
-            $point->setRubrique($this);
-        }
+        $this->color = $color;
 
         return $this;
     }
 
-    public function removePoint(Evenement $point): self
-    {
-        if ($this->points->removeElement($point)) {
-            // set the owning side to null (unless already changed)
-            if ($point->getRubrique() === $this) {
-                $point->setRubrique(null);
-            }
-        }
 
-        return $this;
-    }
 }
