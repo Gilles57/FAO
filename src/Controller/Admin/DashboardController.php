@@ -8,6 +8,7 @@ use App\Entity\Partenaire;
 use App\Entity\Evenement;
 use App\Entity\Projet;
 use App\Entity\User;
+use App\Entity\Ville;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -41,6 +42,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('La carte', 'fa fa-solid fa-map', 'app_carte');
         yield MenuItem::section('Administration');
         yield MenuItem::linkToCrud('Les événements', 'fa fa-solid fa-map-marker', Evenement::class);
+        yield MenuItem::linkToCrud('Les villes', 'fa fa-solid fa-city', Ville::class);
         yield MenuItem::linkToCrud('Les utilisateurs', 'fa fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Les partenaires', 'fa fa-solid fa-handshake', Partenaire::class);
 

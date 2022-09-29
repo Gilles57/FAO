@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CarnetController extends AbstractController
+class EventController extends AbstractController
 {
     #[Route('/carnet', name: 'app_carnet')]
     public function index(EvenementRepository $eventRepo): Response

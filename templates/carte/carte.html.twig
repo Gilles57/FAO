@@ -74,7 +74,7 @@
             } else if (screen.width < 700) {
                 zoom = 5;
             }
-            let villes = {{ villes | raw }};
+            let villes = {{ cities | raw }};
 
             console.log('screen.width : ' + screen.width);
             console.log('zoom : ' + zoom);
@@ -93,12 +93,12 @@
 
             // Nous parcourons la liste des villes
             let myIcon;
-            var elts;
+            let elts;
             for (const ville of villes) {
 
                 // Nous définissons l'icône à utiliser pour le marqueur, sa taille affichée (iconSize), sa position (iconAnchor) et le décalage de son ancrage (popupAnchor)
                 elts = ville.start.split('-')
-                var begin = elts[2] + '-' + elts[1] + '-' + elts[0]
+                const begin = elts[2] + '-' + elts[1] + '-' + elts[0];
 
                 if (ville['preferred'] === true) {
                     myIcon = L.icon({
@@ -132,7 +132,7 @@
                     }
                 }
 
-                var marker = L.marker([ville.latitude, ville.longitude], {icon: myIcon}).addTo(map);
+                const marker = L.marker([ville.latitude, ville.longitude], {icon: myIcon}).addTo(map);
                 marker.bindPopup('<p class="text-center"> ' + ville.nom + "<br />du " + ville.start + " au " + ville.end + '</p>');
             }
         }

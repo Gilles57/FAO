@@ -46,7 +46,6 @@ class LivredorController extends AbstractController
             $commentaire->setAge($datas->getAge());
             $commentaire->setMessage($datas->getMessage());
             $commentaire->setRubrique($datas->getRubrique());
-            $commentaire->setCreatedAt(new \DateTime());
 
             $repo->add($commentaire, true);
 
@@ -56,7 +55,6 @@ class LivredorController extends AbstractController
                 'entityId' => $commentaire->getId(),
             ]);
 
-//            dd($postUrl);
 
             $this->addFlash(
                 'success',

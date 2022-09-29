@@ -13,8 +13,6 @@ class VilleType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('latitude')
-            ->add('longitude')
         ;
     }
 

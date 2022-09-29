@@ -18,32 +18,31 @@ class CarteController extends AbstractController
     #[Route('/carte', name: 'app_carte')]
     public function index(EvenementRepository $eventRepo): Response
     {
-        $evenements = $eventRepo->findOneById(10);
-        $evenements = $eventRepo->findAllInFuture(new \DateTimeImmutable('now'));
-        $evenements = $eventRepo->findAll();
+        $events = $eventRepo->findAll();
 
         $index = 0;
+        $cities = [];
+        foreach ($events as $e) {
 
-        foreach ($evenements as $e) {
-            $villes[$index]['nom'] = $e->getVille()->getNom();
-            $villes[$index]['latitude'] = $e->getVille()->getLatitude();
-            $villes[$index]['longitude'] = $e->getVille()->getLongitude();
-            if (null != $e->getBeginAt()) {
-                $villes[$index]['start'] = $e->getBeginAt()->format('d-m-Y');
+            $cities[$index]['nom'] = $e['ville']['nom'];
+            $cities[$index]['latitude'] = $e['ville']['latitude'];
+            $cities[$index]['longitude'] = $e['ville']['longitude'];
+            if (null != $e['beginAt']) {
+                $cities[$index]['start'] = $e['beginAt']->format('d-m-Y');
             } else {
-                $villes[$index]['start'] = '... ?';
+                $cities[$index]['start'] = '... ?';
             }
-            if (null != $e->getEndAt()) {
-                $villes[$index]['end'] = $e->getEndAt()->format('d-m-Y');
+            if (null != $e['endAt']) {
+                $cities[$index]['end'] = $e['endAt']->format('d-m-Y');
             } else {
-                $villes[$index]['end'] = '... ?';
+                $cities[$index]['end'] = '... ?';
             }
-            $villes[$index]['preferred'] = $e->getPreferred();
+            $cities[$index]['preferred'] = $e['preferred'];
             ++$index;
         }
-        $villes = json_encode($villes);
+        $cities = json_encode($cities);
 
-        return $this->render('carte/carte.html.twig', compact('villes'));
+        return $this->render('carte/carte.html.twig', compact('cities'));
     }
 
     #[Route('/new', name: 'app_new_event')]
@@ -58,11 +57,11 @@ class CarteController extends AbstractController
             $em->persist($event);
             $em->flush();
 
-            return $this->redirectToRoute('poi_index');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('admin/new.html.twig', [
-            'poi' => $event,
+            'event' => $event,
             'form' => $form->createView(),
         ]);
     }

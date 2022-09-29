@@ -26,9 +26,7 @@ class EvenementCrudController extends AbstractCrudController
 
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('nom', 'Nom de la ville'),
-            NumberField::new('lat', 'Latitude'),
-            NumberField::new('lon', 'Longitude'),
+            AssociationField::new('ville', 'Nom de la ville'),
             AssociationField::new('rubrique'),
             BooleanField::new('preferred', 'Ville actuelle'),
             DateTimeField::new('beginAt', "Date d'arrivée")->setFormat('d/M/Y'),

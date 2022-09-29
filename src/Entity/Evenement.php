@@ -18,10 +18,10 @@ class Evenement
     #[ORM\Column(type: 'boolean')]
     private $preferred;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $beginAt;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $endAt;
 
     #[ORM\ManyToOne(inversedBy: 'points')]
@@ -54,24 +54,24 @@ class Evenement
         return $this;
     }
 
-    public function getBeginAt(): ?\DateTimeImmutable
+    public function getBeginAt(): ?\DateTime
     {
         return $this->beginAt;
     }
 
-    public function setBeginAt(?\DateTimeImmutable $beginAt): self
+    public function setBeginAt(?\DateTime $beginAt): self
     {
         $this->beginAt = $beginAt;
 
         return $this;
     }
 
-    public function getEndAt(): ?\DateTimeImmutable
+    public function getEndAt(): ?\DateTime
     {
         return $this->endAt;
     }
 
-    public function setEndAt(?\DateTimeImmutable $endAt): self
+    public function setEndAt(?\DateTime $endAt): self
     {
         $this->endAt = $endAt;
 
