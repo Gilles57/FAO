@@ -30,31 +30,56 @@
             </div>
         {% endif %}
     {% else %}
-        <div class="container ">
-            <div class="masque text-center"><span class="bg-secondary "> Livre d'or : {{ titre }}</span></div>
-            <div class="row montre">
-                <div class="col-lg-4 bg-image " style="background-image: url('/images/livre/livre.png');display:grid;">
-                    <div class=" m-3  text-center  text-warning align-self-center ">
-                        <div class="card-body ">
-                            <p class="card-text ms-3" style="font-family: Balthazar,serif; font-size: 1.5vw;">
+        {#        <div class="container "> #}
+        {#            <div class="masque text-center"><span class="bg-secondary "> Livre d'or : {{ titre }}</span></div> #}
+        {#            <div class="row montre"> #}
+        {#                <div class="col-lg-4 bg-image " style="background-image: url('/images/livre/livre.png');display:grid;"> #}
+        {#                    <div class=" m-3  text-center  text-warning align-self-center "> #}
+        {#                        <div class="card-body "> #}
+        {#                            <p class="card-text ms-3" style="font-family: Balthazar,serif; font-size: 1.5vw;"> #}
+        {#                                Livre d'or<br>• • •<br>{{ titre | raw }} #}
+        {#                            </p> #}
+        {#                        </div> #}
+        {#                    </div> #}
+        {#                </div> #}
+        {#    TODO modifier le style #}
+
+        {#                {% for comment in commentaires %} #}
+        {#                    <div class="col-lg-4"> #}
+        {#                        <div class="card m-3  bg-warning"> #}
+        {#                            <div class="card-body"> #}
+        {#                                <p class="card-text">{{ comment.message }}</p> #}
+        {#                                <p class="text-end fst-italic"> {{ comment.prenom }} - {%  if comment.age != 0%}{{ comment.age }} ans{% endif %}</p> #}
+        {#                            </div> #}
+        {#                        </div> #}
+        {#                    </div> #}
+        {#                {% endfor %} #}
+        {#            </div> #}
+        {#        </div> #}
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="bg-image" style="background-image: url('/images/livre/livre.png');display:grid;">
+                    <div class=" m-3  text-center">
+                        <div class="card-body">
+                            <p class="card-text ms-3 pt-5" style="font-family: Balthazar,serif; font-size: 1.5vw; color: yellow; height: 300px;"">
                                 Livre d'or<br>• • •<br>{{ titre | raw }}
                             </p>
                         </div>
                     </div>
                 </div>
 
+            </div>
+            <div class="col-lg-9">
                 {% for comment in commentaires %}
-                    <div class="col-lg-4">
-                        <div class="card m-3  bg-warning">
-                            <div class="card-body">
-                                <p class="card-text">{{ comment.message }}</p>
-                                <p class="text-end fst-italic"> {{ comment.prenom }} - {%  if comment.age != 0%}{{ comment.age }} ans{% endif %}</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="card-text">{{ comment.message }}</p>
+                    <p class="text-end fst-italic fw-bold"> {{ comment.prenom }}
+                        - {% if comment.age != 0 %}{{ comment.age }} ans{% endif %}</p>
+                    <hr>
                 {% endfor %}
+
             </div>
         </div>
+
     {% endif %}
 
 {% endblock %}
