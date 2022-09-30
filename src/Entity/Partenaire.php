@@ -14,25 +14,25 @@ class Partenaire
     private $id;
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
-    private $entreprise;
+    private ?string $entreprise;
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
-    private $nom;
+    private ?string $nom;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $adresse;
+    private ?string $adresse;
 
     #[ORM\Column(type: 'string', length: 10, nullable: true)]
-    private $codepostal;
+    private ?string $codepostal;
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
-    private $ville;
+    private ?string $ville;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
     #[ORM\Column(type: 'string', length: 20, nullable: true)]
-    private $tel;
+    private ?string $tel;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
@@ -119,7 +119,7 @@ class Partenaire
         return $this->tel;
     }
 
-    public function setTel(string $tel): self
+    public function setTel(?string $tel): self
     {
         $this->tel = $tel;
 
