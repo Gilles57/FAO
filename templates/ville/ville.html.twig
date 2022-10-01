@@ -1,8 +1,11 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Ajouter une ville - FAO TRAVEL !{% endblock %}
+{% block nav %}{% endblock %}
+
 {% block body %}
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top: 100px;">
 
         <div class="col-md-6 bg-light p-2">
             <h1 class="h2 mb-4 text-center">Ajouter une ville</h1>
@@ -14,13 +17,17 @@
         </div>
 
         <div>
+            <div class="col-md-8 offset-md-2  text-center p-2 mt-5 d-grid gap-2">
                 {% for city in cities %}
-{#                    {{ dump(city) }}#}
-                    <a href="{{ path('app_add_ville', {name: (city.display_name |split(","))[0], lat: city.lat, lon: city.lon}) }}" >
-                                <p>{{ city.display_name }} ({{ city.lat | u.truncate(5)}}-{{ city.lon  | u.truncate(5)}})</p>
-                        </a>
+                    <a class="btn btn-sm btn-secondary m-1" style="  --bs-btn-border-radius: 1rem;" href="{{ path('app_add_ville', {name: (city.display_name |split(","))[0], lat: city.lat, lon: city.lon}) }}">
+                        <p>{{ city.display_name }} ({{ city.lat | u.truncate(5) }}-{{ city.lon  | u.truncate(5) }})</p>
+                    </a>
                 {% endfor %}
+            </div>
+
         </div>
     </div>
 
 {% endblock %}
+    {% block footer %}
+    {% endblock %}

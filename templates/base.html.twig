@@ -13,18 +13,20 @@
 
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
-        
+
     {% endblock %}
 </head>
-{% block nav %}{% endblock %}
 <body>
-    <div class="container">
+<div class="container">
+    {% block nav %}
         {% include 'home/_banniere.html.twig' %}
         {% include 'home/_menu.html.twig' %}
         {% include 'home/_flash.html.twig' %}
-
-        {% block body %}{% endblock %}
-        {{ render(path('app_footer') )}}
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}
+        {{ render(path('app_footer') ) }}
+    {% endblock %}
 </div>
 </body>
 </html>
