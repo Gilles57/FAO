@@ -22,6 +22,8 @@
                         <div  >
                             <p class=" mb-0"> <span style="font-weight: bold;">• {{ event.ville.nom }}</span></br>
                             {{ formatted_date }}</br>{{ event.rubrique.nom }}</p>
+                            <hr>
+                            {{ event.description | raw }}
                         </div>
                     </li>
                                    {% endfor %}

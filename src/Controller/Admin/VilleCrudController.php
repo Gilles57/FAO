@@ -21,7 +21,7 @@ class VilleCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $newCity = Action::new('newCity', 'Nouvelle Ville', 'fa fa-city')
-            ->linkToRoute('app_home')
+            ->linkToRoute('app_add_ville')
             ->addCssClass('btn btn-info')
         ;
 

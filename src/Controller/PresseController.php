@@ -13,7 +13,7 @@ class PresseController extends AbstractController
     #[Route('/presse', name: 'app_presse')]
     public function index(ArticleRepository $articleRepository): Response
     {
-        $articles = $articleRepository->findAll();
+        $articles = $articleRepository->findAllByDate();
 
         return $this->render('presse/presse.html.twig', compact('articles'));
     }

@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Bundle\MakerBundle\Doctrine\RelationManyToOne;
 
@@ -31,6 +32,7 @@ class EvenementCrudController extends AbstractCrudController
             BooleanField::new('preferred', 'Ville actuelle'),
             DateTimeField::new('beginAt', "Date d'arrivée")->setFormat('d/M/Y'),
             DateTimeField::new('endAt', 'Date de départ')->setFormat('d/M/Y'),
+            TextEditorField::new('description'),
         ];
     }
 }

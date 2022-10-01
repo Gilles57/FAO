@@ -39,7 +39,7 @@ class PartnersFixtures extends Fixture
         $partenaire->setVille('Besançon');
         $partenaire->setDescription('Ederod est un fabricant français de Handpan Endro®, un instrument de musique à percussion mélodique en acier. Le Handpan Endro® est un instrument aux qualités sonores exceptionnelles. Il est fabriqué de manière totalement artisanale.');
         $partenaire->setTel('06 65 31 23 52');
-        $partenaire->setLogo('images/partenaires/ecolojo.jpg');
+        $partenaire->setLogo('images/partenaires/ecolojo_rond.jpg');
         $manager->persist($partenaire);
 
         $partenaire = new Partenaire();

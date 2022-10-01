@@ -4,9 +4,10 @@
 {% block body %}
     <div class="row">
         <div class="col-md-5 align-self-center">
-            <img src="{{ asset('images/animation/animation.jpg') }}" width="100%" alt="Animation avec un groupe d'enfants">
+            <img src="{{ asset('images/animation/animation.jpg') }}" width="100%"
+                 alt="Animation avec un groupe d'enfants">
         </div>
-        <div class="col-md-7 align-self-center"  style=" text-align: justify;">
+        <div class="col-md-7 align-self-center" style=" text-align: justify;">
             <p>Titulaire d’un BP JEPS Animation Sociale, du BAFA, du BAFD et
                 avec mes nombreuses années
                 d’expériences avec tous les publics
@@ -19,40 +20,42 @@
             </p>
         </div>
     </div>
-{#    TODO ajouter les photos#}
+    {#    TODO ajouter les photos #}
     <div class="mt-3 align-self-center">
 
         <table class="table table-secondary">
-        <thead>
-        <tr>
-            <th scope="col">Animations</th>
-            <th scope="col">Durée</th>
-            <th scope="col">Effectifs</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Séance découverte et initiation au Handpan</td>
-            <td>1h</td>
-            <td>3-9 pers.</td>
-        </tr>
-        <tr>
-            <td>Blind-test au Handpan</td>
-            <td>30 min</td>
-            <td>3-12 pers.</td>
-        </tr>
-        <tr>
-            <td>Atelier de création d’instruments avec des objets recyclés*</td>
-            <td>2h</td>
-            <td>6 pers. Mini</td>
-        </tr>
-        <tr>
-            <td>Séance découverte et initiation à la MAO (Musique Assistée par Ordinateur)</td>
-            <td>4h</td>
-            <td>2-4 pers.</td>
-        </tr>
-        </tbody>
+            <thead>
+            <tr>
+                <th scope="col">Animations</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Effectifs</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Séance découverte et initiation au Handpan</td>
+                <td>1h</td>
+                <td>3 - 6 pers.</td>
+            </tr>
+            <tr>
+                <td>Blind-test au Handpan</td>
+                <td>30 min</td>
+                <td>minimum 10 pers.</td>
+            </tr>
+            <tr>
+                <td>Séance découverte et initiation à la MAO (Musique Assistée par Ordinateur)</td>
+                <td>4h</td>
+                <td>2 - 4 pers.</td>
+            </tr>
+            </tbody>
         </table>
-        <p class="small bg-light px-1">*objets recyclés à fournir, la liste vous sera envoyée en même temps que le devis</p>
+        <div class="border border-primary text-center align-self-center">
+            <p class="fw-bold">Le tarif de chaque prestation est adapté à la personne ou à la structure qui souhaite
+                travailler avec moi,<br>ainsi qu’à l’ampleur du projet.</p>
+            <p class="fw-bold">Pour avoir un devis ou discuter des termes du contrat, merci de m’envoyer votre demande :<br><a
+                        class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                            class="fa fa-envelope-o"></i>
+                </a></p>
+        </div>
     </div>
 {% endblock %}
