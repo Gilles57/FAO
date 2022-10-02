@@ -13,7 +13,7 @@
                             <div class="p-2">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
                         </div>
                     </div>
-                    <a href="{{ path('app_presse_show', {'id' : article.id}) }}" target="_blank"
+                    <a href="{{ path('app_presse_show', {'id' : article.id}) }}"
                        class="text-center m-2"><img src="{{ article.media }}"
                                                 style="width: 200px; height: 200px; "
                                                 alt="Article de {{ article.reference }} publié le {{ article.publishedAt | format_date ('full', locale='fr') }}"></a>

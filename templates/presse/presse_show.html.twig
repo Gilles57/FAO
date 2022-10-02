@@ -7,4 +7,7 @@
         <div class="p-2">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
     </div>
     <img src="/{{ article.media }}" style="width: 100%; height: 100%;" alt="Article de {{ article.reference }} publié le {{ article.publishedAt | format_date ('short', locale='fr') }}">
+            <div class="row">
+                <a href="{{ path('app_presse') }}" class="btn btn-success mt-3 ">Retour aux articles de presse</a>
+            </div>
 {% endblock %}

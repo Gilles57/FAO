@@ -11,12 +11,14 @@
                 {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
             {% endif %}
             <h1>{{ event.ville.nom }} </h1>
-                <h3>{{ event.rubrique.nom }}</h3>
+            <h3>{{ event.rubrique.nom }}</h3>
             <hr>
-                <div class="fw-bold">{{ formatted_date }}</div>
-                <div>{{ event.description }}</div>
+            <div class="fw-bold">{{ formatted_date }}</div>
+            <div>{{ event.description }}</div>
 
-            <a href="{{ path('app_carnet') }}" class="btn btn-success mt-3">Retour au calendrier</a>
+            <div class="row">
+                <a href="{{ path('app_carnet') }}" class="btn btn-success mt-3 ">Retour au calendrier</a>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -15,10 +15,9 @@ class CalendarSubscriber implements EventSubscriberInterface
     private $router;
 
     public function __construct(
-        EvenementRepository   $eventRepo,
+        EvenementRepository $eventRepo,
         UrlGeneratorInterface $router
-    )
-    {
+    ) {
         $this->eventRepo = $eventRepo;
         $this->router = $router;
     }
@@ -51,7 +50,6 @@ class CalendarSubscriber implements EventSubscriberInterface
                 $event->getBeginAt(),
                 $event->getEndAt() // If the end date is null or not defined, a all day event is created.
             );
-
 
             $bookingEvent->setOptions([
                 'backgroundColor' => $event->getRubrique()->getColor(),

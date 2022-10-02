@@ -13,20 +13,24 @@
             <ul class="small">
                 {% for event in events %}
                     <li class="p-1 m-1 " style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                        {% set formatted_date = "" %}
-                        {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
-                            {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
-                        {% else %}
-                            {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
-                        {% endif %}
-                        <div  >
-                            <p class=" mb-0"> <span style="font-weight: bold;">• {{ event.ville.nom }}</span></br>
-                            {{ formatted_date }}</br>{{ event.rubrique.nom }}</p>
-                            <hr>
-                            {{ event.description | raw }}
-                        </div>
+                        <a href="{{path('app_event_show' , {'id' : event.id}) }}" class="btn text-left">
+                            {% set formatted_date = "" %}
+                            {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
+                                {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
+                            {% else %}
+                                {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
+                            {% endif %}
+                            <div>
+                                <p class=" mb-0"><span style="font-weight: bold;">• {{ event.ville.nom }}</span></br>
+                                    {{ formatted_date }}</br>{{ event.rubrique.nom }}</p>
+                                {% if event.description is not null %}
+                                    <hr>
+                                    {{ event.description | raw }}
+                                {% endif %}
+                            </div>
+                        </a>
                     </li>
-                                   {% endfor %}
+                {% endfor %}
             </ul>
         </div>
     </div>
