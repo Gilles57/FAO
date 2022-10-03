@@ -49,7 +49,7 @@ class CarteController extends AbstractController
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $event = new Evenement();
-        $event->setPreferred(0);
+        $event->setActual(0);
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 

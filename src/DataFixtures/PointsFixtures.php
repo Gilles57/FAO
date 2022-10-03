@@ -28,7 +28,7 @@ class PointsFixtures extends Fixture
             $point->setNom($points[$i][0]);
             $point->setLat($points[$i][1]);
             $point->setLon($points[$i][2]);
-            $point->setPreferred($points[$i][3]);
+            $point->setActual($points[$i][3]);
             if (null != $points[$i][4]) {
                 $point->setBeginAt(new \DateTimeImmutable($points[$i][4]));
             }
