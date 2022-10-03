@@ -24,7 +24,7 @@ class Evenement
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $endAt;
 
-    #[ORM\ManyToOne(inversedBy: 'points')]
+    #[ORM\ManyToOne(inversedBy: 'events')]
     private ?Rubrique $rubrique = null;
 
     #[ORM\ManyToOne(inversedBy: 'evenements')]
