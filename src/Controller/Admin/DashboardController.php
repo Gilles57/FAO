@@ -7,6 +7,7 @@ use App\Entity\Commentaire;
 use App\Entity\Partenaire;
 use App\Entity\Evenement;
 use App\Entity\Projet;
+use App\Entity\Rubrique;
 use App\Entity\User;
 use App\Entity\Ville;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -48,7 +49,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section("Le livre d'or");
         yield MenuItem::linkToCrud('Les commentaires', 'fa fa-solid fa-comments', Commentaire::class);
-//        yield MenuItem::linkToCrud('Les rubriques', 'fa fa-solid fa-book', Rubrique::class);
+        yield MenuItem::linkToCrud('Les rubriques', 'fa fa-solid fa-book', Rubrique::class);
 
         yield MenuItem::section('Les projets');
         yield MenuItem::linkToCrud('Les projets', 'fa fa-solid fa-map-signs ', Projet::class);
