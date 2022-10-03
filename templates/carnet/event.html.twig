@@ -3,7 +3,12 @@
 {% block body %}
     <div class="row">
 
-        <div class="col-md-8 m-auto ">
+        <div class="col-md-3 offset-1 ">
+            {% if event.image is not null %}
+                <img src="{{ asset(event.image) }}" alt="{{ event.image }}">
+            {% endif %}
+        </div>
+        <div class="col-md-7 ">
             {% set formatted_date = "" %}
             {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
                 {% set formatted_date = "le "~event.beginAt | date('d-m-Y à h:m') %}
