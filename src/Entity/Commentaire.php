@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Boolean;
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
 class Commentaire
@@ -23,12 +23,12 @@ class Commentaire
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $age;
 
-    #[ORM\ManyToOne(targetEntity: Rubrique::class, inversedBy: 'commentaires')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Rubrique $rubrique;
-
     #[ORM\Column(type: 'boolean')]
     private $validate;
+
+    #[ORM\ManyToOne]
+    private ?Rubrique $rubrique = null;
+
 
 
     public function getId(): ?int
@@ -95,5 +95,4 @@ class Commentaire
 
         return $this;
     }
-
 }

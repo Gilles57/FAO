@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Coupure;
 use App\Entity\Commentaire;
+use App\Entity\Media;
 use App\Entity\Partenaire;
 use App\Entity\Evenement;
 use App\Entity\Projet;
@@ -49,6 +50,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Activités');
         yield MenuItem::linkToCrud('Les événements', 'fa fa-solid fa-map-marker', Evenement::class);
+        yield MenuItem::linkToCrud('Les images', 'fa fa-solid fa-photo-video', Media::class);
 
         yield MenuItem::section("Le livre d'or");
         yield MenuItem::linkToCrud('Les commentaires', 'fa fa-solid fa-comments', Commentaire::class);

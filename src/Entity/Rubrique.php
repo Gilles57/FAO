@@ -21,6 +21,12 @@ class Rubrique
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $color = null;
 
+    /**
+     * @var Evenement[]|Collection
+     */
+    #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Evenement::class, cascade: ['persist'], orphanRemoval: false)]
+    private Collection $events;
+
 
     public function getId(): ?int
     {
