@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
+use App\Repository\CoupureRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ArticleRepository::class)]
-class Article
+#[ORM\Entity(repositoryClass: CoupureRepository::class)]
+class Coupure
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Article;
+use App\Entity\Coupure;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Article>
+ * @extends ServiceEntityRepository<Coupure>
  *
- * @method Article|null find($id, $lockMode = null, $lockVersion = null)
- * @method Article|null findOneBy(array $criteria, array $orderBy = null)
- * @method Article[]    findAll()
- * @method Article[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Coupure|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Coupure|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Coupure[]    findAll()
+ * @method Coupure[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ArticleRepository extends ServiceEntityRepository
+class CoupureRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Article::class);
+        parent::__construct($registry, Coupure::class);
     }
 
-    public function add(Article $entity, bool $flush = false): void
+    public function add(Coupure $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Article $entity, bool $flush = false): void
+    public function remove(Coupure $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -48,7 +48,7 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Article[] Returns an array of Article objects
+//     * @return Coupure[] Returns an array of Coupure objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -62,7 +62,7 @@ class ArticleRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Article
+//    public function findOneBySomeField($value): ?Coupure
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

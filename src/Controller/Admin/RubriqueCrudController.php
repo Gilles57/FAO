@@ -19,8 +19,8 @@ class RubriqueCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('nom', "Nom de la rubrique"),
-            ColorField::new('color', "Couleur de la rubrique"),
+            TextField::new('nom', 'Nom de la rubrique'),
+            ColorField::new('color', 'Couleur de la rubrique'),
         ];
     }
 }

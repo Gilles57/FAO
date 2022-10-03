@@ -2,15 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Article;
+use App\Entity\Coupure;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class ArticleCrudController extends AbstractCrudController
+class CoupureCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Article::class;
+        return Coupure::class;
     }
+// TODO gestion des coupures de presse
 
     /*
     public function configureFields(string $pageName): iterable

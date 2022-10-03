@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\ArticleRepository;
+use App\Repository\CoupureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,7 +11,7 @@ class PresseController extends AbstractController
 {
 
     #[Route('/presse', name: 'app_presse')]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(CoupureRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAllByDate();
 
@@ -20,7 +20,7 @@ class PresseController extends AbstractController
 
 
     #[Route('/presse/show/{id}', name: 'app_presse_show')]
-    public function show($id, ArticleRepository $articleRepository): Response
+    public function show($id, CoupureRepository $articleRepository): Response
     {
         $article = $articleRepository->findOneById($id);
 
