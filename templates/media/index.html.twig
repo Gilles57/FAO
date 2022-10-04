@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MediaController!{% endblock %}
+
+{% block body %}
+    {% for media in medias %}
+        <img class="img-thumbnail" style="max-width: 300px;" src="{{ asset('uploads/medias/'~media.mediaName) }}"
+             alt="">
+        <h5>{{ media.mediaName }}</h5>
+    {% endfor %}
+{% endblock %}

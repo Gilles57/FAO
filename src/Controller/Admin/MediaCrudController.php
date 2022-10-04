@@ -20,13 +20,14 @@ class MediaCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('mediaName', "nom de l'image"),
-            TextField::new('mediaFile')
+            TextField::new('mediaName', "Nom de l'image"),
+            TextField::new('mediaFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
                 ->onlyWhenCreating(),
-            ImageField::new('mediaFile')
+            ImageField::new('mediaName', 'IMAGE')
                 ->setBasePath('/uploads/medias')
-                ->setUploadDir('/public/uploads/medias'),
+                ->setUploadDir('/public/uploads/medias')
+                ->onlyOnIndex(),
         ];
     }
 }

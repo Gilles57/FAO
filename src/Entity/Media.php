@@ -45,7 +45,7 @@ class Media
         return $this->mediaName;
     }
 
-    public function setMediaName(string $mediaName): self
+    public function setMediaName(?string $mediaName): self
     {
         $this->mediaName = $mediaName;
         $this->uploadedAt = new \DateTimeImmutable();

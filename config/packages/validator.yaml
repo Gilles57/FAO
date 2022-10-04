@@ -7,6 +7,11 @@ framework:
         #auto_mapping:
         #    App\Entity\: []
 
+#App\Entity\Media:
+#    properties:
+#        -   File:
+#                maxSize: 2M
+
 when@test:
     framework:
         validation:
