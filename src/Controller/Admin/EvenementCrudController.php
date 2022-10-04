@@ -9,7 +9,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EvenementCrudController extends AbstractCrudController
 {
@@ -33,6 +36,13 @@ class EvenementCrudController extends AbstractCrudController
             DateTimeField::new('beginAt', "Date d'arrivée")->setFormat('d/M/Y'),
             DateTimeField::new('endAt', 'Date de départ')->setFormat('d/M/Y'),
             TextEditorField::new('description'),
+//            TextField::new('imageName', "Nom de l'image"),
+            TextField::new('imageFile', 'Nom du fichier')
+                ->setFormType(VichImageType::class),
+            ImageField::new('imageName', 'IMAGE')
+                ->setBasePath('/uploads/medias')
+                ->setUploadDir('/public/uploads/medias')
+                ->onlyOnIndex(),
         ];
     }
 }

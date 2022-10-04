@@ -6,6 +6,7 @@
 parameters:
     router.request_context.scheme: 'https'
     asset.request_context.secure: true
+    upload_dir: 'uploads/medias'
 
 services:
     # default configuration for services in *this* file
