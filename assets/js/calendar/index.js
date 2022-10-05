@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin ],
     timeZone: "UTC",
   });
-  console.log(calendar)
+  // console.log(calendar)
 
   calendar.render();
 });

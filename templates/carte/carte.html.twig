@@ -67,12 +67,7 @@
             let lat = 47.260751953373706;
             let lon = 3;
             let zoom = 6;
-            if (screen.width < 300) {
-                zoom = 4;
-            } else if (screen.width < 400) {
-                zoom = 5;
-            } else if (screen.width < 700) {
-                zoom = 5;
+
             }
             let villes = {{ cities | raw }};
 

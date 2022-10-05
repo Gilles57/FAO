@@ -5,7 +5,7 @@
                 <div>
                     <p class="fs-5 fw-bold">Contacts :</p>
                     <p class="">
-                        <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                        <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}" style="color: #D77739 !important;">Me contacter <i
                                     class="fa fa-envelope-o"></i>
                         </a>
                 </div>
@@ -26,7 +26,7 @@
                     <p class="fs-5 fw-bold">Partenaires :</p>
                     <p class="text-secondary pied">
                         {% for partenaire in partenaires %}
-                            <span class="fw-bold"> {{ partenaire.entreprise }}</span> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
+                            <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none" style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span class="fw-bold"> {{ partenaire.entreprise }}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
                             <br>
                         {% endfor %}
                     </p>

@@ -27,6 +27,7 @@ class PartenaireCrudController extends AbstractCrudController
             TextField::new('ville'),
             TextField::new('tel'),
             TextField::new('logo'),
+            TextField::new('site'),
             TextEditorField::new('description'),
         ];
     }
