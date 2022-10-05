@@ -1,22 +1,37 @@
-<a href="{{path('admin')}}"><img src="{{ asset('images/logos/unlock.webp') }}" width='20' height='30' style="
-   cursor: not-allowed;
-   display: inline-block;
-   float: right;
-   z-index: 3;
-   position: absolute;
-   right: 5px;
-   top: 5px;" alt="icon de connexion"> </a>
-<div class="row">
-    <div class="col-md-2 offset-md-1 text-center mt-3">
-        <a  href="{{ path('app_home') }}" >  <img class="img-fluid"  src="{{ asset('images/logos/logo2.png') }}" width='200' height='230' alt="Logo FAO Travel"></a>
+{% include 'home/_locker.html.twig' %}
+<div class="row">{# ordi #}
+    <div class="row d-none d-md-flex">
 
+        <div class="col-md-2 offset-md-1 text-center mt-3">
+            <a href="{{ path('app_home') }}"> <img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
+                                                   width='200'
+                                                   height='230' alt="Logo FAO Travel"></a>
+        </div>
+        <div class="col-md-9  mt-2">
+            <h1 class="text-center" style="font-family: font-family-serif,serif;  font-size: 7vw;">FAO
+                TRAVEL</h1>
+
+            <h3 class="text-center ">Musique, Animation</h3>
+            <h3 class="text-center">& Bien-être</h3>
+        </div>
     </div>
-    <div class="col-md-9  mt-2">
-        <h1 class="text-center" style="font-family: font-family-serif,serif;  font-size: 7vw;">FAO
-            TRAVEL</h1>
+</div>{# ordi #}
 
-        <h3 class="text-center ">Musique, Animation</h3>
-        <h3 class="text-center">& Bien-être</h3>
+<div>{# tél #}
+    <div class="row d-md-none text-center">
+
+        <div class="col-3 offset-1  text-center mt-3">
+            <a href="{{ path('app_home') }}"> <img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
+                                                   width='200'
+                                                   height='230' alt="Logo FAO Travel"></a>
+        </div>
+        <div class="col-8  mt-4 align-self-center">
+            <h1 class="text-center" style="font-family: font-family-serif,serif;  font-size: 8vw;">FAO
+                TRAVEL</h1>
+
+            <p class="text-center ">Musique, Animation</br>
+            & Bien-être</p>
+        </div>
+        <hr>
     </div>
-
-</div>
+</div>{# tél #}
