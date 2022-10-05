@@ -2,18 +2,48 @@
 
 {% block title %} {{ partenaire.entreprise }} - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="row">
-        <div class="col-lg-2">
-            <img class="rounded img-thumbnail" src="/{{ partenaire.logo }}" alt="Logo de {{ partenaire.logo }} ">
-        </div>
-        <div class="col-lg-10">
-            <h3>{{ partenaire.entreprise }}</h3>
-            <p>{{ partenaire.description | raw}}</p>
-        </div>
+    <div class="row d-none d-md-flex"> {# ordi #}
+    <div class="col-lg-2">
+        <img class="rounded img-thumbnail" src="/{{ partenaire.logo }}" alt="Logo de {{ partenaire.logo }} ">
     </div>
-    <div class="row">
-   <a href="{{ path('app_partenaires') }}" class="btn btn-success mt-3 ">Retour aux partenaires</a>
+    <div class="col-lg-10">
+        <h3>{{ partenaire.entreprise }}</h3>
 
+        <p>{{ partenaire.description | raw }}</p>
+        <hr>
+        <p>{{ partenaire.nom }}</p>
+        <p>{{ partenaire.adresse }}</p>
+        <p>{{ partenaire.codepostal }} {{ partenaire.ville | upper }}</p>
+        <p><a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                    class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
+    </div>
+    </div>{# ordi #}
+
+    <div class="row d-md-none text-center"> {# tél #}
+        <h1>Les partenaires</h1>
+        <hr>
+        <div class="row">
+            <div class="col-4 align-self-center">
+                <img class="rounded img-thumbnail" src="/{{ partenaire.logo }}" alt="Logo de {{ partenaire.logo }} ">
+            </div>
+            <div class="col-8">
+                <h3>{{ partenaire.entreprise }}</h3>
+                <p class="small">{{ partenaire.nom }}</p>
+                <p class="small">{{ partenaire.adresse }}</p>
+                <p class="small">{{ partenaire.codepostal }} {{ partenaire.ville | upper }}</p>
+                <p class="small"><a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+                                    style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                                class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
+            </div>
+        </div>
+        <hr>
+        <div>{{ partenaire.description | raw }}</div>
+
+    </div> {# tél #}
+
+    <div class="row">
+        <a href="{{ path('app_partenaires') }}" class="btn btn-success mt-3 ">Retour aux partenaires</a>
     </div>
 
 {% endblock %}

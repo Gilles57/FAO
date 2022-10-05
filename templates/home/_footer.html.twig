@@ -1,54 +1,53 @@
 <div class="row bg-dark mt-3  p-2 text-secondary pied">
-    <div> {# ordi #}
-        <div class="row d-none d-md-flex">
-            <div class="col-4">
-                <div>
-                    <p class="fs-5 fw-bold">Contacts :</p>
-                    <p class="">
-                        <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}" style="color: #D77739 !important;">Me contacter <i
-                                    class="fa fa-envelope-o"></i>
-                        </a>
-                </div>
+    <div class="row d-none d-md-flex"> {# ordi #}
+        <div class="col-4">
+            <div>
+                <p class="fs-5 fw-bold">Contacts :</p>
+                <p class="">
+                    <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}"
+                       style="color: #D77739 !important;">Me contacter <i
+                                class="fa fa-envelope-o"></i>
+                    </a>
             </div>
+        </div>
 
-            <div class="col-4">
-                <div>
-                    <p class="fs-5 fw-bold">Sur les réseaux sociaux :</p>
-                    <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
-                        <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
-                        <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
-                        <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
-                </div>
+        <div class="col-4">
+            <div>
+                <p class="fs-5 fw-bold">Sur les réseaux sociaux :</p>
+                <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
+                    <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
+                    <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
+                    <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
             </div>
+        </div>
 
-            <div class="col-4">
-                <div>
-                    <p class="fs-5 fw-bold">Partenaires :</p>
-                    <p class="text-secondary pied">
-                        {% for partenaire in partenaires %}
-                            <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none" style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span class="fw-bold"> {{ partenaire.entreprise }}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
-                            <br>
-                        {% endfor %}
-                    </p>
-                </div>
+        <div class="col-4">
+            <div>
+                <p class="fs-5 fw-bold">Partenaires :</p>
+                <p class="text-secondary pied">
+                    {% for partenaire in partenaires %}
+                        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+                           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                                    class="fw-bold"> {{ partenaire.entreprise }}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
+                        <br>
+                    {% endfor %}
+                </p>
             </div>
         </div>
     </div>{# ordi #}
 
-    <div> {# tél #}
-        <div class="row d-md-none text-center">
-            <p class=""><a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
-                            class="fa fa-envelope-o"></i> </a></p>
-        </div>
+    <div class="row d-md-none text-center"> {# tél #}
+        <p class=""><a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                        class="fa fa-envelope-o"></i> </a></p>
+    </div>
 
-        <div class="d-md-none">
-            <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
-                <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
-                <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
-                <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
-        </div>
+    <div class="d-md-none">
+        <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
+            <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
+            <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
+            <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
+    </div> {# tél #}
 
-    </div>{# tél #}
     <hr>
     {% include 'home/_copyright.html.twig' %}
 </div>
