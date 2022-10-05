@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+    {#    {{ dump(articles) }} #}
+    <div>
+        <h1 class="text-center  bg-danger" style="color: white;">En cours de création...</h1>
+
+        {% for article in articles %}
+            <div class="row ">
+                <div class="col-3">
+{#                    {% if article.image is not null %}#}
+                    <img class="img-thumbnail" src="{{ asset('uploads/medias/nice-paca-credit-fotolia-1-1920x960-633d6f32564a8618548681.jpg') }}" alt="">
+                        <img class="img-thumbnail"
+                             src="{{ asset('uploads/medias/'~article.image) }}"
+                             alt="{{ article.image }}">
+{#                    {% endif %}#}
+
+                </div>
+                {#                 style="background-color: {{ article.rubrique.color }}; list-style-type: none;"> #}
+
+                <div class="col-9">
+                    <h1>{{ article.titre }}</h1>
+                    <p>Publié le : {{ article.publishedAt | date('d-m-y') }}</p>
+                    <div>
+                        {{ article.contenu | striptags | u.truncate(400, '...', false )}}
+                    </div>
+                <a href="{{ path('app_blog_show' , {'id' : article.id}) }}" class="btn text-left">Lire la suite...</a>
+                </div>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

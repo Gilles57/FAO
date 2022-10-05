@@ -19,7 +19,7 @@ class MediaController extends AbstractController
     {
         $medias = $repo->findAll();
 
-        return $this->render('media/index.html.twig', compact('medias'));
+        return $this->render('media/blog.html.twig', compact('medias'));
     }
 
     #[Route('/media/add', name: 'app_media_new')]
