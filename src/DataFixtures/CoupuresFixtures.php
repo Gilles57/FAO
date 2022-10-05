@@ -3,15 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\Coupure;
-use App\Entity\Commentaire;
-use App\Entity\Partenaire;
-use App\Entity\Evenement;
-use App\Entity\Projet;
-use App\Entity\Rubrique;
-use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
 
 class CoupuresFixtures extends Fixture
 {

@@ -13,45 +13,43 @@
         <div class="collapse navbar-collapse nav-tabs" id="navbarNav">
             <ul class="nav  navbar-expand-sm  nav-fill  flex-column flex-lg-row mt-3  flex-grow-1 flex-wrap">
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                             {% if current_route != 'app_home' %}
-                             bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                             {% if current_route == 'app_home' %}
+                             disabled
                              {% endif %}" href="{{ path('app_home') }}">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                         {% if current_route != 'app_carte' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                         {% if current_route == 'app_carte' %}
+                         disabled
                          {% endif %}" href="{{ path('app_carte') }}">Carte</a>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                         {% if current_route != 'app_carnet' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                         {% if current_route == 'app_carnet' %}
+                         disabled
                          {% endif %}" href="{{ path('app_carnet') }}">Agenda</a>
                 </li>
              <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                         {% if current_route != 'app_souvenir' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                         {% if current_route == 'app_souvenir' %}
+                         disabled
                          {% endif %}" href="{{ path('app_souvenir') }}">Souvenir</a>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if current_route != 'app_musique' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-secondary
+                         {% if current_route == 'app_musique' %}
+                          disabled
                          {% endif %}" href="{{ path('app_musique') }}">Musique</a>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if current_route != 'app_animation' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-secondary
+                         {% if current_route == 'app_animation' %}
+                          disabled
                          {% endif %}" href="{{ path('app_animation') }}">Animation</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle border-light
-
-                         bg-secondary
+                    <a class="nav-link dropdown-toggle border-light bg-secondary
                         " data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
                        aria-expanded="false">Bien-être</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -70,13 +68,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light
-                         {% if current_route != 'app_projets' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-secondary
+                         {% if current_route == 'app_projets' %}
+                         disabled
                          {% endif %}" href="{{ path('app_projets') }}">Projets</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle border-light bg-light
+                    <a class="nav-link dropdown-toggle border-secondary bg-light
                         {% if current_route != 'app_livre' %}
                          bg-secondary
                          {% endif %}" data-bs-toggle="dropdown" href="#" role="button" id="dropdownMenuLink"
@@ -101,15 +99,15 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                         {% if current_route != 'app_presse' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                         {% if current_route == 'app_presse' %}
+                         disabled
                          {% endif %}" href="{{ path('app_presse') }}">Presse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="flex-sm-fill text-sm-center nav-link border-light bg-light
-                         {% if current_route != 'app_partenaires' %}
-                         bg-secondary
+                    <a class="flex-sm-fill text-sm-center nav-link border-secondary bg-light
+                         {% if current_route == 'app_partenaires' %}
+                         disabled
                          {% endif %}" href="{{ path('app_partenaires') }}">Partenaires</a>
                 </li>
 

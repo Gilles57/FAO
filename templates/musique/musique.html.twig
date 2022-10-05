@@ -3,52 +3,58 @@
 {% block title %}Musique - FAO TRAVEL !{% endblock %}
 
 {% block body %}
-        <div class="row">
-            <div class="col-md-5  align-self-center">
-                <img src="{{ asset('images/musique/ponton.png') }}" width="100%" alt="Étienne jouant du handpan sur un ponton">
-            </div>
-            <div class="col-md-7  align-self-center">
-                <h5>Clips</h5>
+    <div class="row">
+        <div class="col-md-5  align-self-center">
+            <img src="{{ asset('images/musique/ponton.png') }}" width="100%"
+                 alt="Étienne jouant du handpan sur un ponton">
+        </div>
+        <div class="col-md-7  align-self-center">
+            <h5>Clips</h5>
 
-                <p style=" text-align: justify;">En tant que musicien, j’ai tout naturellement l’ambition de créer mon
-                    propre album. Et pour être tout
-                    à fait exact, je dirais même mes albums.</p>
-                <p style=" text-align: justify;">Le premier, déjà en préparation, vous fera découvrir mon univers
-                    musical avec le handpan et d’autres
-                    instruments en accompagnement.</p>
-                <p style=" text-align: justify;">Le deuxième sera un album itinérant qui se fera grâce aux rencontres
-                    sur ma route. L’objectif est de
-                    composer un morceau avec un artiste de chaque pays traversé.</p>
-                <p style=" text-align: justify;">Bien évidemment tout cela à un coup, alors si vous le souhaitez, vous
-                    pouvez soutenir le projet via
-                    la cagnotte en cliquant <a class="" href="https://www.leetchi.com/fr/c/lXJ4WKJ5" target="_blank">ici</a>.
-                </p>
-            </div>
+            <p style=" text-align: justify;">En tant que musicien, j’ai tout naturellement l’ambition de créer mon
+                propre album. Et pour être tout
+                à fait exact, je dirais même mes albums.</p>
+            <p style=" text-align: justify;">Le premier, déjà en préparation, vous fera découvrir mon univers
+                musical avec le handpan et d’autres
+                instruments en accompagnement.</p>
+            <p style=" text-align: justify;">Le deuxième sera un album itinérant qui se fera grâce aux rencontres
+                sur ma route. L’objectif est de
+                composer un morceau avec un artiste de chaque pays traversé.</p>
+            <p style=" text-align: justify;">Bien évidemment tout cela à un coup, alors si vous le souhaitez, vous
+                pouvez soutenir le projet via
+                la cagnotte en cliquant <a class="" href="https://www.leetchi.com/fr/c/lXJ4WKJ5" target="_blank">ici</a>.
+            </p>
+            <p>Pour aller découvrir ou redécouvrir mes 3 premiers clips,
+                <a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}" target="_blank">clique juste ici !</a>
         </div>
-        <div class="row">
-            <div class="col-md-7  align-self-center">
-                <h5>Créations</h5>
-                <p style=" text-align: justify;">L’un de mes objectifs musicaux est également de promouvoir le handpan à
-                    travers le monde, c’est pour
-                    cela que je joue beaucoup dans la rue, mais je fais également des concerts à la demande (mariage,
-                    anniversaire, soirée privée...) qui peuvent se compléter d’une animation "BlindTest".</p>
-                Je fais également découvrir le handpan à travers d’autres activités et c’est pour cela que je propose
-                mes services pour créer des morceaux sur mesure pour :</p>
-                <ul>
-                    <li>des troupes de danses (ou danseur.seuse solo)</li>
-                    <li>des beatmakers</li>
-                    <li>des entreprises (attente téléphonique, musique pour présentation d’un produit</li>
-                    <li>etc.</li>
-                </ul>
-            </div>
-            <div class="col-md-5  align-self-center">
-                <img src="{{ asset('images/musique/canap.jpg') }}" width="100%" alt="2 handpans sur un canapé">
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7  align-self-center">
+            <h5>Créations</h5>
+            <p style=" text-align: justify;">L’un de mes objectifs musicaux est également de promouvoir le handpan à
+                travers le monde, c’est pour
+                cela que je joue beaucoup dans la rue, mais je fais également des concerts à la demande (mariage,
+                anniversaire, soirée privée...) qui peuvent se compléter d’une animation "BlindTest".</p>
+            Je fais également découvrir le handpan à travers d’autres activités et c’est pour cela que je propose
+            mes services pour créer des morceaux sur mesure pour :</p>
+            <ul>
+                <li>des troupes de danses (ou danseur.seuse solo)</li>
+                <li>des beatmakers</li>
+                <li>des entreprises (attente téléphonique, musique pour présentation d’un produit...)</li>
+                <li>des cérémonies (baptême, mariage, enterrement...)</li>
+                <li>etc.</li>
+            </ul>
         </div>
-        <div class="border border-primary text-center align-self-center">
-            <p class="fw-bold">Le tarif de chaque prestation est adapté à la personne ou à la structure qui souhaite
-                travailler avec moi,<br>ainsi qu’à l’ampleur du projet.</p>
-            <p class="fw-bold">Pour avoir un devis ou discuter des termes du contrat, merci de m’envoyer votre demande :<br><a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i class="fa fa-envelope-o"></i>
-                    </a></p>
+        <div class="col-md-5  align-self-center">
+            <img src="{{ asset('images/musique/canap.jpg') }}" width="100%" alt="2 handpans sur un canapé">
         </div>
+    </div>
+    <div class="border border-primary text-center align-self-center">
+        <p class="fw-bold">Le tarif de chaque prestation est adapté à la personne ou à la structure qui souhaite
+            travailler avec moi,<br>ainsi qu’à l’ampleur du projet.</p>
+        <p class="fw-bold">Pour avoir un devis ou discuter des termes du contrat, merci de m’envoyer votre demande :<br><a
+                    class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                        class="fa fa-envelope-o"></i>
+            </a></p>
+    </div>
 {% endblock %}

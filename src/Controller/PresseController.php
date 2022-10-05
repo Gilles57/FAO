@@ -11,9 +11,9 @@ class PresseController extends AbstractController
 {
 
     #[Route('/presse', name: 'app_presse')]
-    public function index(CoupureRepository $articleRepository): Response
+    public function index(CoupureRepository $coupureRepo): Response
     {
-        $articles = $articleRepository->findAllByDate();
+        $articles = $coupureRepo->findAllByDate();
 
         return $this->render('presse/presse.html.twig', compact('articles'));
     }

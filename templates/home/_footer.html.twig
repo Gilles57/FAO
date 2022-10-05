@@ -1,39 +1,55 @@
 <div class="row bg-dark mt-3  p-2 text-secondary pied">
-    <div class="row ">
-        <div class="col-md-4">
-            <div>
-                <p class="fs-5 fw-bold">Contacts :</p>
-                <p class="">
-                    <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i class="fa fa-envelope-o"></i>
-                    </a>
+    <div> {# ordi #}
+        <div class="row d-none d-md-flex">
+            <div class="col-4">
+                <div>
+                    <p class="fs-5 fw-bold">Contacts :</p>
+                    <p class="">
+                        <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                                    class="fa fa-envelope-o"></i>
+                        </a>
+                </div>
             </div>
+
+            <div class="col-4">
+                <div>
+                    <p class="fs-5 fw-bold">Sur les réseaux sociaux :</p>
+                    <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
+                        <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
+                        <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
+                        <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div>
+                    <p class="fs-5 fw-bold">Partenaires :</p>
+                    <p class="text-secondary pied">
+                        {% for partenaire in partenaires %}
+                            <span class="fw-bold"> {{ partenaire.entreprise }}</span> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
+                            <br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>{# ordi #}
+
+    <div> {# tél #}
+        <div class="row d-md-none text-center">
+            <p class=""><a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
+                            class="fa fa-envelope-o"></i> </a></p>
         </div>
 
-        <div class="col-md-4">
-            <div>
-                <p class="fs-5 fw-bold">Sur les réseaux sociaux :</p>
-                <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
-                    <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
-                    <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
-                    <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
-            </div>
+        <div>
+            <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
+                <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
+                <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
+                <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
         </div>
 
-        <div class="col-md-4">
-            <div>
-                <p class="fs-5 fw-bold">Partenaires :</p>
-                <p class="text-secondary pied">
-                    {% for partenaire in partenaires %}
-                        <span class="fw-bold"> {{ partenaire.entreprise }}</span> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
-                        <br>
-                    {% endfor %}
-                </p>
-            </div>
-        </div>
     </div>
-    <div class="row text-center text-secondary copyright pied">
-        <span class="copyright">© {{ 'now'|date('Y') }} <a href="https://gildev.fr" class="text-secondary"
-                                                           style="text-decoration: none"
-                                                           target="_blank"> GilDev</a></span>
-    </div>
+</div>{# tél #}
+
+    {% include 'home/_copyright.html.twig' %}
 </div>
