@@ -36,7 +36,9 @@ $font-family-monospace: 'Libre Bodoni', serif;
     color: $secondary !important;
     padding-bottom: 1rem !important;
 }
-
+a{
+    color: #754517  !important;
+}
 li.nav-item a{
     color: var(--bs-body-color);
 }
