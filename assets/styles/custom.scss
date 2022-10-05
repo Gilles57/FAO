@@ -21,7 +21,7 @@
 $primary: #000;
 $secondary: #d57735;
 $body-bg: #fadcaf;
-$body-color: #422608;
+$body-color: #754517;
 $font-family-monospace: 'Libre Bodoni', serif;
 
 .bg-image {
@@ -37,21 +37,17 @@ $font-family-monospace: 'Libre Bodoni', serif;
     padding-bottom: 1rem !important;
 }
 
+li.nav-item a{
+    color: var(--bs-body-color);
+}
 .commentaire {
     border: 0px $primary;
 }
 
-.decalage {
+._decalage {
     padding-top: 5rem !important;
 }
 
-.masque {
-    visibility: hidden !important;
-}
-
-.montre {
-    visibility: visible !important;
-}
 
 //Pour téléphone
 //@media screen and (max-width: 680px){

@@ -29,6 +29,7 @@ class EvenementCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
+            TextField::new('titre', "Titre de l'événement"),
             AssociationField::new('ville', 'Nom de la ville')
                 ->autocomplete(),
             AssociationField::new('rubrique'),
@@ -38,7 +39,8 @@ class EvenementCrudController extends AbstractCrudController
             TextEditorField::new('description'),
 //            TextField::new('imageName', "Nom de l'image"),
             TextField::new('imageFile', 'Nom du fichier')
-                ->setFormType(VichImageType::class),
+                ->setFormType(VichImageType::class)
+                ->hideOnIndex(),
             ImageField::new('imageName', 'IMAGE')
                 ->setBasePath('/uploads/medias')
                 ->setUploadDir('/public/uploads/medias')
