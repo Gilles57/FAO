@@ -9,6 +9,13 @@
 import './styles/app.scss';
 
 require('bootstrap');
+require("jquery-ui-bundle");
 
 // start the Stimulus application
 import './bootstrap';
+
+// require jQuery normally
+const $ = require('jquery');
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;

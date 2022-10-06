@@ -1,26 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
-{#         {{ dump(article) }}#}
-                <h1 class="text-center  bg-danger" style="color: white;">En cours de création...</h1>
-
-        <div class="col-md-3  ">
-            {% if article.image is not null %}
-                <img class="img-thumbnail" src="{{ asset('uploads/medias/'~article.image) }}" alt="{{ article.image }}">
-            {% endif %}
-        </div>
-        <div class="col-md-9 ">
-
-
-            <h1>{{ article.titre }} </h1>
-            <div class="fw-bold">{{  article.publishedAt | date('d-m-Y') }}</div>
-            <hr>
-            <div>{{ article.contenu }} </div>
-
-        </div>
+    <div class="container">
         <div class="row">
-            <a href="{{ path('app_blog') }}" class="btn btn-success mt-3 ">Retour aux souvenirs</a>
+            {#         {{ dump(post) }} #}
+            <h1 class="text-center  bg-danger" style="color: white;">En cours de création...</h1>
+
+            <div class="col-md-4  ">
+                <img class="img-thumbnail slidable hiding" style="display: none;"
+                     src="{{ asset('uploads/posts/'~post.image) }}">
+            </div>
+            <div class="col-md-8 ">
+
+
+                <h1>{{ post.titre }} </h1>
+                <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
+                <hr>
+                <div>{{ post.contenu | raw }} </div>
+
+            </div>
+            <div class="row">
+                <a href="{{ path('app_blog') }}" class="btn btn-success mt-3 ">Retour aux souvenirs</a>
+            </div>
         </div>
     </div>
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        window.addEventListener('load', function () {
+            $(".slidable").hide();
+            $(".slidable").toggle("slide", 1000);
+        });
+    </script>
+{% endblock javascripts %}

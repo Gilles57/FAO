@@ -10,20 +10,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     #[Route('/blog', name: 'app_blog')]
-    public function index(PostRepository $articleRepo): Response
+    public function index(PostRepository $postRepo): Response
     {
-        $articles = $articleRepo->findAll();
+        $posts = $postRepo->findAll();
 
-        return $this->render('blog/blog.html.twig', compact('articles'));
+        return $this->render('blog/blog.html.twig', compact('posts'));
     }
 
 
 
     #[Route('/blog/show/{id}', name: 'app_blog_show')]
-    public function show($id, PostRepository $articleRepo): Response
+    public function show($id, PostRepository $postRepo): Response
     {
-        $article = $articleRepo->find($id);
+        $post = $postRepo->find($id);
 
-        return $this->render('blog/blog_show.html.twig', compact('article'));
+        return $this->render('blog/blog_show.html.twig', compact('post'));
     }
 }

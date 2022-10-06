@@ -7,6 +7,7 @@ use App\Entity\Commentaire;
 use App\Entity\Media;
 use App\Entity\Partenaire;
 use App\Entity\Evenement;
+use App\Entity\Post;
 use App\Entity\Projet;
 use App\Entity\Rubrique;
 use App\Entity\User;
@@ -50,6 +51,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Activités');
         yield MenuItem::linkToCrud('Les événements', 'fa fa-solid fa-map-marker', Evenement::class);
+        yield MenuItem::linkToCrud('Le blog', 'fa fa-solid fa-blog', Post::class);
         yield MenuItem::linkToCrud('Les images', 'fa fa-solid fa-photo-video', Media::class);
 
         yield MenuItem::section("Le livre d'or");
