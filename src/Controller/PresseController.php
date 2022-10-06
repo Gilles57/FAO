@@ -13,17 +13,17 @@ class PresseController extends AbstractController
     #[Route('/presse', name: 'app_presse')]
     public function index(CoupureRepository $coupureRepo): Response
     {
-        $articles = $coupureRepo->findAllByDate();
+        $coupures = $coupureRepo->findAllByDate();
 
-        return $this->render('presse/presse.html.twig', compact('articles'));
+        return $this->render('presse/presse.html.twig', compact('coupures'));
     }
 
 
     #[Route('/presse/show/{id}', name: 'app_presse_show')]
-    public function show($id, CoupureRepository $articleRepository): Response
+    public function show($id, CoupureRepository $coupureRepo): Response
     {
-        $article = $articleRepository->findOneById($id);
+        $coupure = $coupureRepo->findOneById($id);
 
-        return $this->render('presse/presse_show.html.twig', compact('article'));
+        return $this->render('presse/presse_show.html.twig', compact('coupure'));
     }
 }
