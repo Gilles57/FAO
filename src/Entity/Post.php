@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -37,6 +39,14 @@ class Post
 
     #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'image')]
     private ?File $imageFile = null;
+
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Media::class)]
+    private Collection $photos;
+
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
+    }
 
     /**
      * @return File|null
@@ -127,6 +137,36 @@ class Post
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Media>
+     */
+    public function getPhotos(): Collection
+    {
+        return $this->photos;
+    }
+
+    public function addPhoto(Media $photo): self
+    {
+        if (!$this->photos->contains($photo)) {
+            $this->photos->add($photo);
+            $photo->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Media $photo): self
+    {
+        if ($this->photos->removeElement($photo)) {
+            // set the owning side to null (unless already changed)
+            if ($photo->getPost() === $this) {
+                $photo->setPost(null);
+            }
+        }
 
         return $this;
     }

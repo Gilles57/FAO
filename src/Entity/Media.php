@@ -35,6 +35,9 @@ class Media
     #[ORM\Column]
     private ?\DateTimeImmutable $uploadedAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'photos')]
+    private ?Post $post = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +64,18 @@ class Media
     public function setUploadedAt(\DateTimeImmutable $uploadedAt): self
     {
         $this->uploadedAt = $uploadedAt;
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }
