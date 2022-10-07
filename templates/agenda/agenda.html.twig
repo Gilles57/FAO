@@ -22,8 +22,7 @@
                 {% endfor %}
                 <div>
                         {% for event in events %}
-                            <div class="p-1 mt-1 mb-2 "
-                                style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
+                            <div class="p-1 mt-1 mb-2" style= "background-color: {{ event.rubrique.color }}; list-style-type: none;">
                                 <a href="{{ path('app_event_show' , {'id' : event.id}) }}" class="btn text-left">
                                     {% set formatted_date = "" %}
                                     {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
@@ -31,10 +30,10 @@
                                     {% else %}
                                         {% set formatted_date = "du "~event.beginAt | date('d-m-y')~" au "~event.endAt | date('d-m-y') %}
                                     {% endif %}
-                                    <div>
-                                        <span style="font-weight: bold;">{{ event.titre }}</span>
+                                    <div style="color: var(--bs-body-color);">
+                                        <span class="gras" >{{ event.titre }}</span>
                                         <p class="small mb-0">
-                                            <span style="font-weight: bold;">{{ event.ville.nom }}</span>
+                                            <span class="gras">{{ event.ville.nom }}</span>
                                             : {{ formatted_date }}
                                         </p>
                                         {% if event.imageName is not null %}
@@ -62,7 +61,7 @@
         <h1>Agenda</h1>
         <div class="text-center mb-3"> {% for rubrique in rubriques %}
                 <span class="badge badge-pill text-center"
-                      style="background-color: {{ rubrique.color }}; color: var(--bs-body-color);">{{ rubrique.nom }}</span>
+                      style="background-color: {{ rubrique.color }};">{{ rubrique.nom }}</span>
             {% endfor %}
         </div>
         <ul class="small">
@@ -85,9 +84,9 @@
                                 {% endif %}
                             </div>
                             <div class="col-8">
-                                <span style="font-weight: bold;">{{ event.titre }}</span>
+                                <span class="gras" >{{ event.titre }}</span>
                                 <p class="small mb-0">
-                                    <span style="font-weight: bold;">{{ event.ville.nom }}</span>
+                                    <span class="gras">{{ event.ville.nom }}</span>
                                     : {{ formatted_date }}
                                 </p>
                             </div>

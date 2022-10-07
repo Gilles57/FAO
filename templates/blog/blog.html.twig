@@ -20,7 +20,7 @@
 
                     <div class="col-9">
                         <h1>{{ post.titre }}</h1>
-                        <p style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
+                        <p class="fst-italic" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-Y') }}</p>
                         <div>
                             {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
                         </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-7">
                     <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true )}}</h4>
-                    <p class="text-center" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
+                    <p class="text-center  fst-italic" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-Y') }}</p>
                 </div>
             </div> {# En-tête du post #}
             <div class="row mb-0">

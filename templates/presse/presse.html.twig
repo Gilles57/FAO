@@ -3,19 +3,19 @@
 {% block title %}Presse - FAO TRAVEL !{% endblock %}
 {% block body %}
     <div class="row">
-        {% for article in articles %}
+        {% for coupure in coupures %}
             <div class="col-sm-4">
                 <div class="card m-3  bg-secondary">
                     <div class="card-body bg-dark">
                         <div class="d-flex justify-content-between card-text text-light">
-                            <div class="p-2 small">{{ article.reference }}</div>
-                            <div class="p-2 small">{{ article.publishedAt | format_date ('full', locale='fr') }}</div>
+                            <div class="p-2 small">{{ coupure.reference }}</div>
+                            <div class="p-2 small">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
                         </div>
                     </div>
-                    <a href="{{ path('app_presse_show', {'id' : article.id}) }}"
-                       class="text-center m-2"><img src="{{ article.media }}"
+                    <a href="{{ path('app_presse_show', {'id' : coupure.id}) }}"
+                       class="text-center m-2"><img src="{{ coupure.media }}"
                                                 style="width: 200px; height: 200px; "
-                                                alt="Article de {{ article.reference }} publié le {{ article.publishedAt | format_date ('full', locale='fr') }}"></a>
+                                                alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('full', locale='fr') }}"></a>
                 </div>
             </div>
         {% endfor %}

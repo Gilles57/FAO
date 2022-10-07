@@ -12,47 +12,47 @@
 {% endblock %}
 
 {% block body %}
-        <div class="row vh-75 m-2" style="justify-content: center;">
-            <div id="map" class="col-sm-12 col-lg-8 mb-2">
-                <!-- Ici s'affichera la carte -->
-            </div>
-            <div class="col-sm-12 col-lg-3 mx-3">
-                <div class="row rounded-2  border border-primary ">
-                    <p>Où suis-je ?</p>
-                    <div class="row">
-                        <div class="col-md-3 col-2 text-center">
-                            <img src="{{ asset('images/carte/pin_grey.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-9 col-10">
-                            <p>C'est passé !</p>
-                        </div>
+    <div class="row vh-75 m-2" style="justify-content: center;">
+        <div id="map" class="col-sm-12 col-lg-8 mb-2">
+            <!-- Ici s'affichera la carte -->
+        </div>
+        <div class="col-sm-12 col-lg-3 mx-3">
+            <div class="row rounded-2  border border-primary ">
+                <p>Où suis-je ?</p>
+                <div class="row">
+                    <div class="col-md-3 col-2 text-center">
+                        <img src="{{ asset('images/carte/pin_grey.webp') }}" width="30px" alt="icon"></div>
+                    <div class="col-md-9 col-10">
+                        <p>C'est passé !</p>
+                    </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-2 text-center">
+                        <img src="{{ asset('images/carte/pin_green.webp') }}" width="30px" alt="icon"></div>
+                    <div class="col-md-9 col-10">
+                        <p class="fw-bold">Je suis ici !</p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 col-2 text-center">
-                            <img src="{{ asset('images/carte/pin_green.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-9 col-10">
-                            <p class="fw-bold">Je suis ici !</p>
-                        </div>
 
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-2 text-center">
+                        <img src="{{ asset('images/carte/pin_red.webp') }}" width="30px"
+                             alt="icon"></div>
+                    <div class="col-md-9 col-10">
+                        <p>À venir</p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 col-2 text-center">
-                            <img src="{{ asset('images/carte/pin_red.webp') }}" width="30px"
-                                 alt="icon"></div>
-                        <div class="col-md-9 col-10">
-                            <p>À venir</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 col-2 text-center">
-                            <img src="{{ asset('images/carte/pin.webp') }}" width="30px" alt="icon"></div>
-                        <div class="col-md-9 col-10">
-                            <p>En projet</p>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-2 text-center">
+                        <img src="{{ asset('images/carte/pin.webp') }}" width="30px" alt="icon"></div>
+                    <div class="col-md-9 col-10">
+                        <p>En projet</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -68,11 +68,10 @@
             let lon = 3;
             let zoom = 6;
 
-            }
             let villes = {{ cities | raw }};
 
-            console.log('screen.width : ' + screen.width);
-            console.log('zoom : ' + zoom);
+            // console.log('screen.width : ' + screen.width);
+            // console.log('zoom : ' + zoom);
 
             {# // Nous définissons le dossier qui contiendra les marqueurs #}
             const iconBase = '/images/carte/';

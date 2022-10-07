@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let calendar = new Calendar(calendarEl, {
     locale: frLocale,
-    themeSystem: 'bootstrap5',
+    // themeSystem: 'bootstrap5',
     editable: true,
     expandRows: true,
     dayMaxEvents: false,

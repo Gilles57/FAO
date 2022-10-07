@@ -10,14 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class EventController extends AbstractController
 {
-    #[Route('/carnet', name: 'app_carnet')]
+    #[Route('/agenda', name: 'app_agenda')]
     public function index(EvenementRepository $eventRepo, RubriqueRepository $rubriqueRepo): Response
     {
         $rubriques= $rubriqueRepo->findAll();
 
         $now = new \DateTimeImmutable('now');
         $events = $eventRepo->findAllInFuture($now);
-        return $this->render('carnet/carnet.html.twig', compact('events', 'rubriques'));
+        return $this->render('agenda/agenda.html.twig', compact('events', 'rubriques'));
     }
 
    #[Route('/event[{id}', name: 'app_event_show')]
@@ -25,6 +25,6 @@ class EventController extends AbstractController
     {
         $event = $eventRepo->findOneById($id);
 
-        return $this->render('carnet/event.html.twig', compact('event'));
+        return $this->render('agenda/event.html.twig', compact('event'));
     }
 }

@@ -28,7 +28,7 @@
                     {% for partenaire in partenaires %}
                         <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
                            style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
-                                    class="fw-bold"> {{ partenaire.entreprise }}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
+                                    class="fw-bold"> {{ partenaire.entreprise | upper}}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
                         <br>
                     {% endfor %}
                 </p>

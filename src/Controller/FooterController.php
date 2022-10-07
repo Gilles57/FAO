@@ -12,7 +12,7 @@ class FooterController extends AbstractController
     #[Route('/footer', name: 'app_footer')]
     public function allPartners(PartenaireRepository $partenaireRepository): Response
     {
-        $partenaires = $partenaireRepository->findAll();
+        $partenaires = $partenaireRepository->findAllSorted();
 
         return $this->render('home/_footer.html.twig',
             compact('partenaires')
