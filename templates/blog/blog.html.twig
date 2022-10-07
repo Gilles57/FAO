@@ -3,44 +3,78 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-    <div>
-        <h1 class="text-center  bg-danger" style="color: white;">En cours de création... {{ posts.getTotalItemCount }} articles</h1>
+    {# <h1 class="text-center  bg-danger" style="color: white;">En cours de #}
+    {#    création... {{ posts.getTotalItemCount }} articles</h1> #}
+    <div> {# ordi #}
+        <div class="row d-none d-md-flex ">
 
+            {% for post in posts %}
+                {#        {{ dump(posts) }} #}
+                <div class="row ">
+                    <div class="col-3">
+                        <img class="img-thumbnail slidable" style="display: none"
+                             src="{{ asset(post.image) }}"
+                             alt="{{ post.image }}">
+
+                    </div>
+
+                    <div class="col-9">
+                        <h1>{{ post.titre }}</h1>
+                        <p style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
+                        <div>
+                            {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
+                        </div>
+                        <a href="{{ path('app_blog_show' , {'id' : post.id}) }}" class="btn text-left">Lire la
+                            suite...</a>
+                    </div>
+                    <hr class="text-secondary">
+                </div>
+            {% endfor %}
+        </div>
+    </div> {# ordi #}
+
+    <div> {# tél #}
+    <div class="row d-md-none p-1">
+        <h1 class="bg-secondary text-center">Souvenirs</h1>
         {% for post in posts %}
-            {#        {{ dump(posts) }} #}
-            <div class="row ">
-                <div class="col-3">
+            <div class="row">
+                <div class="col-5">
                     <img class="img-thumbnail slidable" style="display: none"
                          src="{{ asset(post.image) }}"
                          alt="{{ post.image }}">
-
                 </div>
-
-                <div class="col-9">
-                    <h1>{{ post.titre }}</h1>
-                    <p style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
-                    <div>
-                        {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
-                    </div>
-                    <a href="{{ path('app_blog_show' , {'id' : post.id}) }}" class="btn text-left">Lire la suite...</a>
+                <div class="col-7">
+                    <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true )}}</h4>
+                    <p class="text-center" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
                 </div>
-                <hr class="text-secondary">
-            </div>
+            </div> {# En-tête du post #}
+            <div class="row mb-0">
+                <div style=" text-align: justify;">
+                    {{ post.contenu | striptags | u.truncate(150, '...', false ) }}
+                </div>
+                <a style=" text-align: right;" href="{{ path('app_blog_show' , {'id' : post.id}) }}"
+                   class="btn text-left p-0">Lire la
+                    suite...</a>
+            </div> {# Contenu du post #}
+            <hr class="text-secondary">
         {% endfor %}
     </div>
-    <div class="navigation">
-        {{ knp_pagination_render(posts) }}
+    </div>{# tél #}
+    <div class="row text-center m-auto">
+        <div class="navigation ">
+            {{ knp_pagination_render(posts) }}
+        </div>
     </div>
 
 {% endblock %}
-{% block javascripts %}
-    {{ parent() }}
+    {% block javascripts %}
+        {{ parent() }}
 
-    <script>
-        window.addEventListener('load', function () {
-            $(".slidable").hide();
-            $(".slidable").slideUp(0);
-            $(".slidable").slideDown(2000);
-        });
-    </script>
-{% endblock javascripts %}
+        <script>
+            window.addEventListener('load', function () {
+                $(".slidable").hide();
+                $(".slidable").slideUp(0);
+                $(".slidable").slideDown(1000);
+            });
+        </script>
+    {% endblock javascripts %}
