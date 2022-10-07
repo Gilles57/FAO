@@ -5,8 +5,8 @@
     <div class="row d-none d-md-flex "> {# ordi #}
         {% for projet in projets %}
             <div class="col-md-6 ">
-                <div class="card mb-3 text-bg-secondary" style="height: 330px;">
-                    <div class="row g-0 ">
+                <div class="card mb-3 text-bg-secondary " style="height: 330px;">
+                    <div class="row g-0 effet">
                         <div class="col-md-4 p-lg-3 ">
                             <img src="{{ projet.image }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
@@ -27,7 +27,7 @@
         <h1>Mes projets</h1>
         {% for projet in projets %}
             <div class="col-md-6 ">
-                <div class="card mb-3 text-bg-secondary" >
+                <div class="card mb-3 text-bg-secondary">
                     <div class="row g-0 ">
                         <div class="col-md-4 p-lg-3 ">
                             <img src="{{ projet.image }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
@@ -46,3 +46,15 @@
 
 
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        window.addEventListener('load', function () {
+            $(".effet").hide();
+            $(".effet").slideUp(0);
+            $(".effet").slideDown(2000);
+        });
+
+    </script>
+{% endblock javascripts %}
