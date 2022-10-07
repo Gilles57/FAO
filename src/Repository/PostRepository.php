@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,23 +22,32 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    public function save(Post $entity, bool $flush = false): void
+    public function getAll(): Query
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.publishedAt', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
     }
+}
 
-    public function remove(Post $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
+//    public function save(Post $entity, bool $flush = false): void
+//    {
+//        $this->getEntityManager()->persist($entity);
+//
+//        if ($flush) {
+//            $this->getEntityManager()->flush();
+//        }
+//    }
+//
+//    public function remove(Post $entity, bool $flush = false): void
+//    {
+//        $this->getEntityManager()->remove($entity);
+//
+//        if ($flush) {
+//            $this->getEntityManager()->flush();
+//        }
+//    }
 
 //    /**
 //     * @return Post[] Returns an array of Post objects
@@ -63,4 +73,3 @@ class PostRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}

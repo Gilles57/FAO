@@ -4,7 +4,7 @@
 
 {% block body %}
     <div>
-        <h1 class="text-center  bg-danger" style="color: white;">En cours de création...</h1>
+        <h1 class="text-center  bg-danger" style="color: white;">En cours de création... {{ posts.getTotalItemCount }} articles</h1>
 
         {% for post in posts %}
             {#        {{ dump(posts) }} #}
@@ -18,16 +18,20 @@
 
                 <div class="col-9">
                     <h1>{{ post.titre }}</h1>
-                    <p>Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
+                    <p style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-y') }}</p>
                     <div>
                         {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
                     </div>
                     <a href="{{ path('app_blog_show' , {'id' : post.id}) }}" class="btn text-left">Lire la suite...</a>
                 </div>
-                <hr>
+                <hr class="text-secondary">
             </div>
         {% endfor %}
     </div>
+    <div class="navigation">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
