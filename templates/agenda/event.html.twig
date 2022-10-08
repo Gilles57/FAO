@@ -16,10 +16,10 @@
                 {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
             {% endif %}
             <h1>{{ event.titre }} </h1>
-            <h4>{{ event.ville.nom }} </h4>
-            <h3>{{ event.rubrique.nom }}</h3>
+            <h4></h4>
+            <p style="background-color: {{ event.rubrique.color }};">{{ event.rubrique.nom }}</p>
+            <div><span  class="fw-bold">{{ event.ville.nom }} :</span> {{ formatted_date }}</div>
             <hr>
-            <div class="fw-bold">{{ formatted_date }}</div>
             <div>{{ event.description }}</div>
 
         </div>

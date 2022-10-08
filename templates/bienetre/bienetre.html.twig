@@ -2,125 +2,239 @@
 
 {% block title %}Bien-être - FAO TRAVEL !{% endblock %}
 {% block body %}
+
+    <div class="row d-none d-lg-flex ">{# ordi #}
         <div class="row ">
-            <div class="col-md-4 offset-md-1">
+            <div class="col-lg-4 offset-lg-1">
                 <div class="card m-3  ">
-                    <a href="{{ path('app_relaxation') }}" class="btn btn-secondary stretched-link  rounded-0 ">Relaxation
+                    <a href="{{ path('app_relaxation') }}" class="btn btn-primary stretched-link  rounded-0 ">Relaxation
                         vibratoire</a>
-                    <img src="{{ asset('images/bienetre/relaxation.jpeg') }}" style="width: 100%; height: 250px;"
+                    <img src="{{ asset('images/bienetre/relaxation.jpeg') }}"
                          alt="Illustration pour la Relaxation.">
                 </div>
             </div>
-            <div class="col-md-4 offset-md-2">
+            <div class="col-lg-4 offset-lg-2">
                 <div class="card m-3">
-                    <a href="#" class="btn btn-secondary stretched-link  rounded-0 ">Massage californien</a>
-                    <img src="{{ asset('images/bienetre/massage-a-venir.png') }}" style="width: 100%; height: 250px;" alt="Illustration pour le Massage">
-{#                    TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg#}
+                    <a href="#" class="btn btn-primary stretched-link  rounded-0 ">Massage californien</a>
+                    <img src="{{ asset('images/bienetre/massage-a-venir.png') }}" alt="Illustration pour le Massage">
+                    {#                    TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg #}
                 </div>
             </div>
         </div>
-    <div class="border border-primary pt-2 mb-3 rounded-5 bg-secondary">
-        <div class="mx-5 pt-1">
-            <div class="fw-bold row ">
-                <div class="col">
-                    DECOUVERTE VIBRATOIRE
+        <div class="border border-primary pt-2 mb-3 rounded-5 ">
+            <div class="mx-5 pt-1 small">
+                <div class="fw-bold row ">
+                    <div class="col">
+                        DECOUVERTE VIBRATOIRE
+                    </div>
+                    <div class="col">
+                        Durée : 10 minutes
+                    </div>
+                    <div class="col">
+                        Tarif : 10 €
+                    </div>
                 </div>
-                <div class="col">
-                    Durée : 10 minutes
+                <div class="row ">
+                    <div class="col-2">
+                        Déroulement&nbsp;:
+                    </div>
+                    <div>
+                        Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
+                        minutes puis je vais jouer sur l’instrument qui sera posé sur votre dos.
+                    </div>
                 </div>
-                <div class="col">
-                    Tarif : 10 €
+                <div class="row">
+                    <div class="col-2">
+                        Bienfait&nbsp;:
+                    </div>
+                    <div>
+                        Diminution du stress, récupération en énergie.
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    Déroulement :
+            <hr>
+            <div class=" mx-5 pt-1 small">
+                <div class="row fw-bold ">
+                    <div class="col">
+                        RELAXATION VIBRATOIRE
+                    </div>
+                    <div class="col">
+                        Durée : 30 minutes
+                    </div>
+                    <div class="col">
+                        Tarif : 25 €
+                    </div>
                 </div>
-                <div class="col-10">
-                    Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
-                    minutes puis je vais jouer sur l’instrument qui sera posé sur votre dos.
+                <div class="row ">
+                    <div class="col-2">
+                        Déroulement&nbsp;:
+                    </div>
+                    <div>
+                        Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
+                        minutes. Ensuite, je vais jouer sur l’instrument qui sera posé sur votre ventre, puis sur votre dos.
+                        Je
+                        finirai par jouer à côté de vous, de manière à ce que votre corps, par empreinte sonore puisse
+                        continuer
+                        à se relaxer.
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-2">
+                        Bienfait&nbsp;:
+                    </div>
+                    <div>
+                        Relâchement mental, diminution du stress, récupération en énergie, meilleure qualité du sommeil et
+                        de
+                        la digestion.
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    Bienfait :
+            <hr>
+            <div class=" mx-5 pt-1 mb-2 small">
+                <div class="row fw-bold ">
+                    <div class="col">
+                        SEANCE BIEN-ÊTRE
+                    </div>
+                    <div class="col">
+                        Durée : 60 min
+                    </div>
+                    <div class="col">
+                        Tarif : 50 €
+                    </div>
                 </div>
-                <div class="col-10">
-                    Diminution du stress, récupération en énergie.
+                <div class="row ">
+                    <div class="col-2">
+                        Déroulement&nbsp;:
+                    </div>
+                    <div>
+                        Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et pieds) avec
+                        une huile 100 % naturelle, dans une ambiance sonore de Handpan. Ensuite, je continuerai avec la
+                        séance
+                        de
+                        RELAXATION VIBRATOIRE.
+                    </div>
                 </div>
+                <div class="row ">
+                    <div class="col-2">
+                        Bienfait&nbsp;:
+                    </div>
+                    <div>
+                        Relâchement musculaire et mental, diminution du stress, récupération en énergie, meilleure qualité
+                        du
+                        sommeil et de la digestion.
+                    </div>
+                </div>
+            </div> {# TODO bloc à commenter provisoirement #}
+        </div>
+    </div>{# ordi #}
+
+    <div class="row d-lg-none">{# tél #}
+        <h1 class="text-center">Bien être</h1>
+        <div class="row small">
+            <div class="border border-primary  m-3 rounded-5 ">
+                <div class="m-2">
+                    <div class="row fw-bold text-center">
+                        <div class="col">
+                            DECOUVERTE VIBRATOIRE
+                        </div>
+                        <div>
+                            Durée : 10 minutes - Tarif : 10 €
+                        </div>
+                        <hr class="mt-2 mb-1">
+                    </div>
+                    <div class="row ">
+                        <div class="fw-bold">
+                            Déroulement&nbsp;:
+                        </div>
+                        <div>
+                            Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
+                            minutes puis je vais jouer sur l’instrument qui sera posé sur votre dos.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="fw-bold">
+                            Bienfait&nbsp;:
+                        </div>
+                        <div>
+                            Diminution du stress, récupération en énergie.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-primary  m-3 rounded-5 ">
+                <div class="m-2">
+                    <div class="row fw-bold text-center">
+                        <div class="col">
+                            RELAXATION VIBRATOIRE
+                        </div>
+                        <div>
+                            Durée : 30 minutes - Tarif : 25 €
+                        </div>
+                        <hr class="mt-2 mb-1">
+                    </div>
+                    <div class="row ">
+                        <div class="fw-bold">
+                            Déroulement&nbsp;:
+                        </div>
+                        <div>
+                            Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
+                            minutes. Ensuite, je vais jouer sur l’instrument qui sera posé sur votre ventre, puis sur
+                            votre
+                            dos.
+                            Je
+                            finirai par jouer à côté de vous, de manière à ce que votre corps, par empreinte sonore
+                            puisse
+                            continuer
+                            à se relaxer.
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="fw-bold">
+                            Bienfait&nbsp;:
+                        </div>
+                        <div>
+                            Relâchement mental, diminution du stress, récupération en énergie, meilleure qualité du
+                            sommeil et de la digestion.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-primary  m-3 rounded-5 ">
+                <div class="m-2">
+                    <div class="row fw-bold text-center">
+                        <div>
+                            SEANCE BIEN-ÊTRE
+                        </div>
+                        <div>
+                            Durée : 60 min - Tarif : 50 €
+                        </div>
+                        <hr class="mt-2 mb-1">
+                    </div>
+                    <div class="row ">
+                        <div class="fw-bold">
+                            Déroulement&nbsp;:
+                        </div>
+                        <div>
+                            Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et pieds)
+                            avec une huile 100 % naturelle, dans une ambiance sonore de Handpan. Ensuite, je continuerai
+                            avec la séance de RELAXATION VIBRATOIRE.
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="fw-bold">
+                            Bienfait&nbsp;:
+                        </div>
+                        <div>
+                            Relâchement musculaire et mental, diminution du stress, récupération en énergie, meilleure
+                            qualité
+                            du
+                            sommeil et de la digestion.
+                        </div>
+                    </div>
+                </div> {# TODO bloc à commenter provisoirement #}
             </div>
         </div>
-        <div class=" mx-5 pt-5">
-            <div class="row fw-bold ">
-                <div class="col">
-                    RELAXATION VIBRATOIRE
-                </div>
-                <div class="col">
-                    Durée : 30 minutes
-                </div>
-                <div class="col">
-                    Tarif : 25 €
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-2">
-                    Déroulement :
-                </div>
-                <div class="col-10">
-                    Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
-                    minutes. Ensuite, je vais jouer sur l’instrument qui sera posé sur votre ventre, puis sur votre dos.
-                    Je
-                    finirai par jouer à côté de vous, de manière à ce que votre corps, par empreinte sonore puisse
-                    continuer
-                    à se relaxer.
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-2">
-                    Bienfait :
-                </div>
-                <div class="col-10">
-                    Relâchement mental, diminution du stress, récupération en énergie, meilleure qualité du sommeil et
-                    de
-                    la digestion.
-                </div>
-            </div>
-        </div>
-{#        <div class=" mx-5 pt-5 pb-1">#}
-{#            <div class="row fw-bold ">#}
-{#                <div class="col">#}
-{#                    SEANCE BIEN-ÊTRE#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    Durée : 60 min#}
-{#                </div>#}
-{#                <div class="col">#}
-{#                    Tarif : 50 €#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row ">#}
-{#                <div class="col-2">#}
-{#                    Déroulement :#}
-{#                </div>#}
-{#                <div class="col-10">#}
-{#                    Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et pieds) avec#}
-{#                    une huile 100 % naturelle, dans une ambiance sonore de Handpan. Ensuite, je continuerai avec la#}
-{#                    séance#}
-{#                    de#}
-{#                    RELAXATION VIBRATOIRE.#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row ">#}
-{#                <div class="col-2">#}
-{#                    Bienfait :#}
-{#                </div>#}
-{#                <div class="col-10">#}
-{#                    Relâchement musculaire et mental, diminution du stress, récupération en énergie, meilleure qualité#}
-{#                    du#}
-{#                    sommeil et de la digestion.#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-    </div>
+    </div> {# tél #}
+
 
 {% endblock %}

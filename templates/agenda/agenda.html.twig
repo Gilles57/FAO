@@ -2,7 +2,7 @@
 
 {% block body %}
     <div> {# ordi #}
-    <div class="row d-none d-md-flex ">
+    <div class="row d-none d-lg-flex ">
         <div class="row  mx-0" style="min-height: 600px">
             <div class="col-9 d-block">
                 <div id="calendar-holder"
@@ -57,7 +57,7 @@
     </div>{# ordi #}
 
     <div> {# tél #}
-    <div class="row d-md-none text-center">
+    <div class="row d-lg-none text-center">
         <h1>Agenda</h1>
         <div class="text-center mb-3"> {% for rubrique in rubriques %}
                 <span class="badge badge-pill text-center"
@@ -92,8 +92,8 @@
                             </div>
 
                             {% if event.description is not null %}
-                                <hr style="margin: 0">
-                                <div style="text-align: justify">{{ event.description | striptags | u.truncate(50, ' ...  ➼', false ) }}</div>
+                                <hr class="mt-1" style="margin: 0">
+                                <div style="text-align: justify">{{ event.description | striptags | u.truncate(150, ' ...  ➼', false ) }}</div>
                             {% endif %}
                         </div>
                     </a>

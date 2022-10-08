@@ -2,15 +2,15 @@
 
 {% block title %}Projets - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="row d-none d-md-flex "> {# ordi #}
+    <div class="row d-none d-lg-flex "> {# ordi #}
         {% for projet in projets %}
-            <div class="col-md-6 ">
+            <div class="col-lg-6 ">
                 <div class="card mb-3 text-bg-secondary " style="height: 330px;">
                     <div class="row g-0 effet">
-                        <div class="col-md-4 p-lg-3 ">
+                        <div class="col-lg-4 p-lg-3 ">
                             <img src="{{ projet.image }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-lg-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{ projet.titre }}</h5>
                                 <p class="card-text">{{ projet.description }}</p>
@@ -23,16 +23,16 @@
     </div> {# ordi #}
 
 
-    <div class="row d-md-none text-center "> {# tél #}
-        <h1>Mes projets</h1>
+    <div class="row d-lg-none" style="text-align: justify"> {# tél #}
+        <h1 class="text-center">Mes projets</h1>
         {% for projet in projets %}
-            <div class="col-md-6 ">
+            <div>
                 <div class="card mb-3 text-bg-secondary">
                     <div class="row g-0 ">
-                        <div class="col-md-4 p-lg-3 ">
+                        <div class="p-lg-3 text-center">
                             <img src="{{ projet.image }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
-                        <div class="col-md-8">
+                        <div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ projet.titre }}</h5>
                                 <p class="card-text">{{ projet.description }}</p>

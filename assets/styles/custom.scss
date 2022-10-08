@@ -42,34 +42,7 @@ body {
     color: $secondary !important;
     padding-bottom: 1rem !important;
 }
-//a{
-//    color: #D77739   !important;
+
+//li a{
+//    color: #754517   !important;
 //}
-li a{
-    color: #754517   !important;
-}
-.commentaire {
-    border: 0px $primary;
-}
-
-._decalage {
-    padding-top: 5rem !important;
-}
-
-
-//Pour téléphone
-//@media screen and (max-width: 680px){
-@media (max-width: 575.98px)  {
-    .commentaire {
-        border: 1px red;
-    }
-
-    .decalage {
-        padding-top: 0rem !important;
-    }
-
-
-}
-
-
-// TODO Couleur du fond de page / fond de container

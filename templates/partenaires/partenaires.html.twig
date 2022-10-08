@@ -5,11 +5,12 @@
 {% block body %}
     <div class="row ">
         {% for partenaire in partenaires %}
-        <div class="col-sm-4">
+        <div class="col-lg-4">
             <div class="card m-3  bg-secondary">
-                <div class="card-body">
-                    <p class="card-text">{{ partenaire.entreprise }}</p>
-                </div><a href="{{ path('app_partenaire_show', {'id' : partenaire.id}) }}"
+{#                <div class="card-body">#}
+{#                    <p class="card-text">{{ partenaire.entreprise }}</p>#}
+{#                </div>#}
+                <a href="{{ path('app_partenaire_show', {'id' : partenaire.id}) }}"
                        class="text-center m-2"><img src="{{ partenaire.logo }}"
                                                 style="width: 200px; height: 200px; "
                                                 alt="Logo de {{ partenaire.entreprise }} "></a>

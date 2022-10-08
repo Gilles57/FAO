@@ -35,6 +35,7 @@ class PostCrudController extends AbstractCrudController
             TextEditorField::new('contenu'),
 //            TextField::new('imageName', "Nom de l'image"),
             TextField::new('imageFile', 'Nom du fichier')
+
                 ->setFormType(VichImageType::class)
                 ->hideOnIndex(),
             ImageField::new('image', 'IMAGE')
