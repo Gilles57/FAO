@@ -5,11 +5,20 @@
 {% block body %}
     <div class="row d-none d-lg-flex ">
     <div class="row">
-        <div class="col-md-5  align-self-center">
+        <div class="col-md-5 ">
             <img src="{{ asset('images/musique/ponton.png') }}" width="100%"
-                 alt="Étienne jouant du handpan sur un ponton">
-        </div>
-        <div class="col-md-7  align-self-center">
+                 alt="Étienne jouant du handpan sur un ponton" class="mb-2"
+            >
+            <p><a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}" target="_blank"><img
+                            src="{{ asset('images/logos/youtube.png') }}" alt="logo youtube" style="height: 20px;"></a>
+                Pour découvrir ou redécouvrir mes clips, clique juste
+                <a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}"
+                   target="_blank">ici</a>,</p>
+            <p><a href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}" target="_blank"><img
+                            src="{{ asset('images/logos/tiktok.webp') }}" alt="logo tiktok" style="height: 20px;"></a>
+                Et pour me suivre sur "Tik tok"© clique <a
+                        href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}" target="_blank">là</a> !</div>
+        <div class="col-md-7">
             <h5>Clips</h5>
 
             <p style=" text-align: justify;">En tant que musicien, j’ai tout naturellement l’ambition de créer mon
@@ -26,15 +35,7 @@
                 la cagnotte en cliquant <a class="" href="https://www.leetchi.com/fr/c/lXJ4WKJ5" target="_blank"
                                            style="color: #754517 !important" ;>ici</a>.
             </p>
-            <p><a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}" target="_blank"><img
-                            src="{{ asset('images/logos/youtube.png') }}" alt="logo youtube" style="height: 20px;"></a>
-                Pour découvrir ou redécouvrir mes 3 premiers clips, clique juste
-                <a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}"
-                   target="_blank">ici</a>,</p>
-            <p><a href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}" target="_blank"><img
-                            src="{{ asset('images/logos/tiktok.webp') }}" alt="logo tiktok" style="height: 20px;"></a>
-                Et pour me suivre sur "Tik tok"© clique <a
-                        href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}" target="_blank">là</a> !
+
         </div>
     </div>
     <div class="row">

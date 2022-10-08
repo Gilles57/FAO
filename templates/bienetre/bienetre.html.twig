@@ -7,17 +7,19 @@
         <div class="row ">
             <div class="col-lg-4 offset-lg-1">
                 <div class="card m-3  ">
-                    <a href="{{ path('app_relaxation') }}" class="btn btn-primary stretched-link  rounded-0 ">Relaxation
+                    <a href="{{ path('app_relaxation') }}" class="btn btn-primary   rounded-0 ">Relaxation
                         vibratoire</a>
-                    <img src="{{ asset('images/bienetre/relaxation.jpeg') }}"
+                    <img  class="card-img-top"  src="{{ asset('images/bienetre/relaxation.jpeg') }}"
+                         style="width: 100%; height:100%"
                          alt="Illustration pour la Relaxation.">
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-2">
                 <div class="card m-3">
-                    <a href="#" class="btn btn-primary stretched-link  rounded-0 ">Massage californien</a>
-                    <img src="{{ asset('images/bienetre/massage-a-venir.png') }}" alt="Illustration pour le Massage">
-                    {#                    TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg #}
+                    <a href="#" class="btn btn-primary   rounded-0 ">Massage californien</a>
+                    <img  class="card-img-top" src="{{ asset('images/bienetre/massage-a-venir.png') }}"
+                         alt="Illustration pour le Massage">
+                    {#  TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg #}
                 </div>
             </div>
         </div>
@@ -36,7 +38,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-2">
-                        Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                     </div>
                     <div>
                         Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
@@ -45,7 +47,7 @@
                 </div>
                 <div class="row">
                     <div class="col-2">
-                        Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                     </div>
                     <div>
                         Diminution du stress, récupération en énergie.
@@ -67,7 +69,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-2">
-                        Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                     </div>
                     <div>
                         Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
@@ -80,7 +82,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-2">
-                        Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                     </div>
                     <div>
                         Relâchement mental, diminution du stress, récupération en énergie, meilleure qualité du sommeil et
@@ -104,7 +106,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-2">
-                        Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                     </div>
                     <div>
                         Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et pieds) avec
@@ -116,7 +118,7 @@
                 </div>
                 <div class="row ">
                     <div class="col-2">
-                        Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                     </div>
                     <div>
                         Relâchement musculaire et mental, diminution du stress, récupération en énergie, meilleure qualité
@@ -144,7 +146,7 @@
                     </div>
                     <div class="row ">
                         <div class="fw-bold">
-                            Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                         </div>
                         <div>
                             Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
@@ -153,7 +155,7 @@
                     </div>
                     <div class="row">
                         <div class="fw-bold">
-                            Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                         </div>
                         <div>
                             Diminution du stress, récupération en énergie.
@@ -174,7 +176,7 @@
                     </div>
                     <div class="row ">
                         <div class="fw-bold">
-                            Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                         </div>
                         <div>
                             Lors de cette séance, je vous accompagne verbalement afin de vous détendre pendant quelques
@@ -190,7 +192,7 @@
                     </div>
                     <div class="row ">
                         <div class="fw-bold">
-                            Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                         </div>
                         <div>
                             Relâchement mental, diminution du stress, récupération en énergie, meilleure qualité du
@@ -212,7 +214,7 @@
                     </div>
                     <div class="row ">
                         <div class="fw-bold">
-                            Déroulement&nbsp;:
+                        {{ 'Déroulement&nbsp;:'|italic}}
                         </div>
                         <div>
                             Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et pieds)
@@ -222,7 +224,7 @@
                     </div>
                     <div class="row ">
                         <div class="fw-bold">
-                            Bienfait&nbsp;:
+                        {{ 'Bienfait&nbsp;:'|italic}}
                         </div>
                         <div>
                             Relâchement musculaire et mental, diminution du stress, récupération en énergie, meilleure

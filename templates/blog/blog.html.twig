@@ -12,20 +12,24 @@
                 {#        {{ dump(posts) }} #}
                 <div class="row ">
                     <div class="col-3">
-                        <img class="img-thumbnail slidable" style="display: none"
-                             src="{{ asset(post.image) }}"
-                             alt="{{ post.image }}">
+                        <a href="{{ path('app_blog_show' , {'id' : post.id}) }}"><img class="img-thumbnail slidable"
+                                                                                      style="display: none"
+                                                                                      src="{{ asset(post.image) }}"
+                                                                                      alt="{{ post.image }}"></a>
 
                     </div>
 
                     <div class="col-9">
-                        <h1>{{ post.titre }}</h1>
-                        <p class="fst-italic" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-Y') }}</p>
-                        <div>
+                        <h1><a href="{{ path('app_blog_show' , {'id' : post.id}) }}"
+                               class="text-decoration-none">{{ post.titre }}</a></h1>
+                        <p class="fst-italic" style="opacity: 80%">Publié le
+                            : {{ post.publishedAt | date('d-m-Y') }}</p>
+                        <div style="text-align: justify;">
                             {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
                         </div>
-                        <a href="{{ path('app_blog_show' , {'id' : post.id}) }}" class="btn text-left">Lire la
-                            suite...</a>
+                        <div style="text-align: right;"><a href="{{ path('app_blog_show' , {'id' : post.id}) }}"
+                                         class="btn ">Lire la suite...</a></div>
+                        <br>
                     </div>
                     <hr class="text-secondary">
                 </div>
@@ -44,8 +48,9 @@
                          alt="{{ post.image }}">
                 </div>
                 <div class="col-7">
-                    <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true )}}</h4>
-                    <p class="text-center  fst-italic" style="opacity: 80%">Publié le : {{ post.publishedAt | date('d-m-Y') }}</p>
+                    <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true ) }}</h4>
+                    <p class="text-center  fst-italic" style="opacity: 80%">Publié le
+                        : {{ post.publishedAt | date('d-m-Y') }}</p>
                 </div>
             </div> {# En-tête du post #}
             <div class="row mb-0">
