@@ -54,7 +54,6 @@ class CommentaireRepository extends ServiceEntityRepository
         return $query->getArrayResult();
     }
 
-
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */

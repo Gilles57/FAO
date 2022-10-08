@@ -2,11 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Coupure;
 use App\Entity\Commentaire;
+use App\Entity\Coupure;
+use App\Entity\Evenement;
 use App\Entity\Media;
 use App\Entity\Partenaire;
-use App\Entity\Evenement;
 use App\Entity\Post;
 use App\Entity\Projet;
 use App\Entity\Rubrique;

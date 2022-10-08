@@ -30,14 +30,13 @@ class AppExtension extends AbstractExtension
         ];
     }
 
-    public function mettre_en_gras($value)
+    public function mettre_en_gras($value): string
     {
         return '<strong>'.$value.'</strong>';
     }
 
-    public function mettre_en_italique($value)
+    public function mettre_en_italique($value) : string
     {
         return '<i>'.$value.'</i>';
     }
-
 }

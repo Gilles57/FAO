@@ -55,7 +55,6 @@ class LivredorController extends AbstractController
                 'entityId' => $commentaire->getId(),
             ]);
 
-
             $this->addFlash(
                 'success',
                 'Bonjour '.$commentaire->getPrenom().", votre message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."

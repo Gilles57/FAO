@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PresseController extends AbstractController
 {
-
     #[Route('/presse', name: 'app_presse')]
     public function index(CoupureRepository $coupureRepo): Response
     {
@@ -17,7 +16,6 @@ class PresseController extends AbstractController
 
         return $this->render('presse/presse.html.twig', compact('coupures'));
     }
-
 
     #[Route('/presse/show/{id}', name: 'app_presse_show')]
     public function show($id, CoupureRepository $coupureRepo): Response

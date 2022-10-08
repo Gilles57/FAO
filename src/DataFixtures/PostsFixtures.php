@@ -27,7 +27,6 @@ class PostsFixtures extends Fixture
             $manager->persist($post);
         }
 
-
         $manager->flush();
     }
 }

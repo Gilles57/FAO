@@ -48,17 +48,11 @@ class Post
         $this->photos = new ArrayCollection();
     }
 
-    /**
-     * @return File|null
-     */
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
 
-    /**
-     * @param File|null $imageFile
-     */
     public function setImageFile(?File $imageFile): void
     {
         $this->imageFile = $imageFile;

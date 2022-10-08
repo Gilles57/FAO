@@ -10,14 +10,12 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: EvenementRepository::class)]
 #[Vich\Uploadable]
-
 class Evenement
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
 
     #[ORM\Column(type: 'boolean')]
     private $preferred;
@@ -44,17 +42,11 @@ class Evenement
     #[Vich\UploadableField(mapping: 'medias', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
 
-    /**
-     * @return File|null
-     */
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
 
-    /**
-     * @param File|null $imageFile
-     */
     public function setImageFile(?File $imageFile): void
     {
         $this->imageFile = $imageFile;
@@ -62,7 +54,6 @@ class Evenement
         if (null !== $imageFile) {
             $this->updatedAt = new \DateTime();
         }
-
     }
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -75,8 +66,6 @@ class Evenement
     {
         return $this->id;
     }
-
-
 
     public function getPreferred(): ?bool
     {
@@ -185,5 +174,4 @@ class Evenement
 
         return $this;
     }
-
 }

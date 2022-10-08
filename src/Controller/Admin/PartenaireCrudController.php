@@ -15,7 +15,6 @@ class PartenaireCrudController extends AbstractCrudController
         return Partenaire::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -31,5 +30,4 @@ class PartenaireCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-
 }

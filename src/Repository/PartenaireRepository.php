@@ -29,6 +29,7 @@ class PartenaireRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
     public function add(Partenaire $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

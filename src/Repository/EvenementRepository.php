@@ -18,7 +18,7 @@ class EvenementRepository extends ServiceEntityRepository
         parent::__construct($registry, Evenement::class);
     }
 
-    public function findOneById(int $villeId)
+    public function findOneById(int $villeId): Evenement
     {
         $entityManager = $this->getEntityManager();
 
@@ -37,7 +37,7 @@ class EvenementRepository extends ServiceEntityRepository
      *
      * @return array Returns an array of Evenement objects
      */
-    public function findAllInFuture($now): array
+    public function findAllInFuture(\DateTimeImmutable $now): array
     {
         $entityManager = $this->getEntityManager();
 
@@ -83,5 +83,4 @@ class EvenementRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
 }

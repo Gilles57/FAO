@@ -20,7 +20,6 @@ class GetOsmDataService
             'https://nominatim.openstreetmap.org/search?city='.$city.'&format=json'
         );
 
-
         $statusCode = $response->getStatusCode();
         // $statusCode = 200
         $contentType = $response->getHeaders()['content-type'][0];
@@ -29,7 +28,6 @@ class GetOsmDataService
         // $content = '{"id":521583, "name":"symfony-docs", ...}'
         $content = $response->toArray();
         // $content = ['id' => 521583, 'name' => 'symfony-docs', ...]
-
 
         return $content;
     }

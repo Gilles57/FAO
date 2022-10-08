@@ -20,7 +20,7 @@
             <p style="background-color: {{ event.rubrique.color }};">{{ event.rubrique.nom }}</p>
             <div><span  class="fw-bold">{{ event.ville.nom }} :</span> {{ formatted_date }}</div>
             <hr>
-            <div>{{ event.description }}</div>
+            <div>{{ event.description | raw}}</div>
 
         </div>
             <div class="row">

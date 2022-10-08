@@ -13,10 +13,11 @@ class EventController extends AbstractController
     #[Route('/agenda', name: 'app_agenda')]
     public function index(EvenementRepository $eventRepo, RubriqueRepository $rubriqueRepo): Response
     {
-        $rubriques= $rubriqueRepo->findAll();
+        $rubriques = $rubriqueRepo->findAll();
 
         $now = new \DateTimeImmutable('now');
         $events = $eventRepo->findAllInFuture($now);
+
         return $this->render('agenda/agenda.html.twig', compact('events', 'rubriques'));
     }
 

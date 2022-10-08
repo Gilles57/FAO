@@ -61,6 +61,5 @@ class VilleController extends AbstractController
             ->generateUrl();
 
         return $this->redirect($url);
-
     }
 }

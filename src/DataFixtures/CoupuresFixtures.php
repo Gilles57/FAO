@@ -10,7 +10,6 @@ class CoupuresFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-
         // Création des articles
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');

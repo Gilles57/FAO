@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\RubriqueRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,7 +26,6 @@ class Rubrique
     #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Evenement::class, cascade: ['persist'], orphanRemoval: false)]
     private Collection $events;
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -45,7 +43,6 @@ class Rubrique
         return $this;
     }
 
-
     public function __toString(): string
     {
         return $this->nom;
@@ -62,6 +59,4 @@ class Rubrique
 
         return $this;
     }
-
-
 }

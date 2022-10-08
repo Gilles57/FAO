@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Post;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -20,16 +19,15 @@ class PostCrudController extends AbstractCrudController
         return Post::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('titre', "Titre du post"),
+            TextField::new('titre', 'Titre du post'),
 //            AssociationField::new('rubrique'),
-            DateTimeField::new('publishedAt', "Date de publication")
+            DateTimeField::new('publishedAt', 'Date de publication')
                 ->setFormat('d/M/Y'),
-            DateTimeField::new('createdAt', "Date de création")
+            DateTimeField::new('createdAt', 'Date de création')
                 ->setFormat('d/M/Y')
                 ->onlyOnIndex(),
             TextEditorField::new('contenu'),
@@ -44,5 +42,4 @@ class PostCrudController extends AbstractCrudController
                 ->onlyOnIndex(),
         ];
     }
-
 }

@@ -30,9 +30,7 @@ class VilleCrudController extends AbstractCrudController
             ->remove(Crud::PAGE_NEW, Action::SAVE_AND_RETURN);
 
         return parent::configureActions($actions);
-
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -43,5 +41,4 @@ class VilleCrudController extends AbstractCrudController
             NumberField::new('longitude')->onlyOnIndex(),
         ];
     }
-
 }

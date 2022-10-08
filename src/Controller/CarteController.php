@@ -6,7 +6,6 @@ use App\Entity\Evenement;
 use App\Form\EventType;
 use App\Repository\EvenementRepository;
 use App\Service\GetOsmDataService;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +22,6 @@ class CarteController extends AbstractController
         $index = 0;
         $cities = [];
         foreach ($events as $e) {
-
             $cities[$index]['nom'] = $e['ville']['nom'];
             $cities[$index]['latitude'] = $e['ville']['latitude'];
             $cities[$index]['longitude'] = $e['ville']['longitude'];

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
@@ -28,8 +27,6 @@ class Commentaire
 
     #[ORM\ManyToOne]
     private ?Rubrique $rubrique = null;
-
-
 
     public function getId(): ?int
     {

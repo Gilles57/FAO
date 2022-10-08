@@ -2,23 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Coupure;
-use App\Entity\Commentaire;
-use App\Entity\Partenaire;
-use App\Entity\Evenement;
-use App\Entity\Projet;
-use App\Entity\Rubrique;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-
-
         // Création des users
         $contact = new User();
         $contact->setEmail('g.salmon@free.fr');
@@ -36,8 +27,6 @@ class AppFixtures extends Fixture
         $contact2->setPassword('$2y$13$34NeZiP42kSYOqCpMPpSFeyL65nyhQqU.k20ZQ.5M.JiawuZoTP1e');
         $contact2->setRoles(['ROLE_ADMIN']);
         $manager->persist($contact2);
-
-
 
         $manager->flush();
     }

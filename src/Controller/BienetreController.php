@@ -26,4 +26,3 @@ class BienetreController extends AbstractController
         return $this->render('bienetre/massage.html.twig');
     }
 }
-
