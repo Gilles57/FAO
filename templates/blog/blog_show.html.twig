@@ -47,13 +47,7 @@
     </div>
 {% endblock %}
 
-    {% block javascripts %}
-        {{ parent() }}
-
-        <script>
-            window.addEventListener('load', function () {
-                $(".slidable").hide();
-                $(".slidable").toggle("slide", 1000);
-            });
-        </script>
-    {% endblock javascripts %}
+{% block javascripts %}
+   {{ parent() }}
+   {{ encore_entry_script_tags('custom') }}
+{% endblock javascripts %}

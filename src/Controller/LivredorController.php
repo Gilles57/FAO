@@ -46,7 +46,8 @@ class LivredorController extends AbstractController
             $commentaire->setAge($datas->getAge());
             $commentaire->setMessage($datas->getMessage());
             $commentaire->setRubrique($datas->getRubrique());
-
+            $commentaire->setValidate(false);
+//dd($commentaire);
             $repo->add($commentaire, true);
 
             $postUrl = $this->generateUrl('admin', [

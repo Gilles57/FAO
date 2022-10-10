@@ -28,7 +28,7 @@
                             {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
                         </div>
                         <div style="text-align: right;"><a href="{{ path('app_blog_show' , {'id' : post.id}) }}"
-                                         class="btn ">Lire la suite...</a></div>
+                                                           class="btn ">Lire la suite...</a></div>
                         <br>
                     </div>
                     <hr class="text-secondary">
@@ -72,14 +72,8 @@
     </div>
 
 {% endblock %}
-    {% block javascripts %}
-        {{ parent() }}
 
-        <script>
-            window.addEventListener('load', function () {
-                $(".slidable").hide();
-                $(".slidable").slideUp(0);
-                $(".slidable").slideDown(1000);
-            });
-        </script>
-    {% endblock javascripts %}
+{% block javascripts %}
+   {{ parent() }}
+   {{ encore_entry_script_tags('custom') }}
+{% endblock javascripts %}

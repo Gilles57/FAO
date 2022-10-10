@@ -6,7 +6,7 @@
         {% for projet in projets %}
             <div class="col-lg-6 ">
                 <div class="card mb-3 text-bg-secondary " style="height: 330px;">
-                    <div class="row g-0 effet">
+                    <div class="row g-0  effet" style="display: none;">
                         <div class="col-lg-4 p-lg-3 ">
                             <img src="{{ projet.image }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
@@ -43,18 +43,9 @@
             </div>
         {% endfor %}
     </div> {# tél #}
-
-
 {% endblock %}
+
 {% block javascripts %}
-    {{ parent() }}
-
-    <script>
-        window.addEventListener('load', function () {
-            $(".effet").hide();
-            $(".effet").slideUp(0);
-            $(".effet").slideDown(2000);
-        });
-
-    </script>
+   {{ parent() }}
+   {{ encore_entry_script_tags('custom') }}
 {% endblock javascripts %}
