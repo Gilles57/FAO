@@ -16,3 +16,7 @@ window.addEventListener('load', function () {
     img.slideUp(0);
     img.slideDown(2000);
 });
+
+$( "#myModalBtn" ).click(function() {
+    $('#myModal').modal('show')
+});

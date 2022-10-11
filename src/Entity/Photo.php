@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\MediaRepository;
+use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[ORM\Entity(repositoryClass: MediaRepository::class)]
+#[ORM\Entity(repositoryClass: PhotoRepository::class)]
 #[Vich\Uploadable]
-class Media
+class Photo
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

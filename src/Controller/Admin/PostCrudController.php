@@ -3,8 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
+use App\Form\PhotosType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -33,9 +34,10 @@ class PostCrudController extends AbstractCrudController
             TextEditorField::new('contenu'),
 //            TextField::new('imageName', "Nom de l'image"),
             TextField::new('imageFile', 'Nom du fichier')
-
-                ->setFormType(VichImageType::class)
+                                ->setFormType(VichImageType::class)
                 ->hideOnIndex(),
+            CollectionField::new('photos', 'PHOTOS')
+            ->setEntryType(PhotosType::class),
             ImageField::new('image', 'IMAGE')
                 ->setBasePath('/uploads/posts')
                 ->setUploadDir('/public/uploads/posts')

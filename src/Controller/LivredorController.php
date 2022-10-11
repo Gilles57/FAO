@@ -79,12 +79,4 @@ class LivredorController extends AbstractController
 
         return $this->renderForm('livredor/livredor_add.html.twig', compact('form', 'rubriques'));
     }
-
-    #[Route('/test', name: 'app_test')]
-    public function test(CommentaireRepository $commentaireRepository): Response
-    {
-        $commentaires = $commentaireRepository->findByRubriqueField('relax');
-
-        return $this->render('test.html.twig', compact('commentaires'));
-    }
 }

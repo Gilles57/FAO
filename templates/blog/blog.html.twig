@@ -16,7 +16,6 @@
                                                                                       style="display: none"
                                                                                       src="{{ asset(post.image) }}"
                                                                                       alt="{{ post.image }}"></a>
-
                     </div>
 
                     <div class="col-9">
@@ -44,7 +43,7 @@
             <div class="row">
                 <div class="col-5">
                     <img class="img-thumbnail slidable" style="display: none"
-                         src="{{ asset(post.image) }}"
+                         src="{{ asset('uploads/photos/'~post.image) }}"
                          alt="{{ post.image }}">
                 </div>
                 <div class="col-7">

@@ -7,7 +7,7 @@ framework:
         #auto_mapping:
         #    App\Entity\: []
 
-#App\Entity\Media:
+#App\Entity\Photo:
 #    properties:
 #        -   File:
 #                maxSize: 2M

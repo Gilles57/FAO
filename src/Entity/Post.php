@@ -37,10 +37,10 @@ class Post
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'image')]
+    #[Vich\UploadableField(mapping: 'photos', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Media::class)]
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Photo::class)]
     private Collection $photos;
 
     public function __construct()
@@ -136,14 +136,14 @@ class Post
     }
 
     /**
-     * @return Collection<int, Media>
+     * @return Collection<int, Photo>
      */
     public function getPhotos(): Collection
     {
         return $this->photos;
     }
 
-    public function addPhoto(Media $photo): self
+    public function addPhoto(Photo $photo): self
     {
         if (!$this->photos->contains($photo)) {
             $this->photos->add($photo);
@@ -153,7 +153,7 @@ class Post
         return $this;
     }
 
-    public function removePhoto(Media $photo): self
+    public function removePhoto(Photo $photo): self
     {
         if ($this->photos->removeElement($photo)) {
             // set the owning side to null (unless already changed)

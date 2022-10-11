@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Media;
+use App\Entity\Photo;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -13,7 +13,7 @@ class MediaCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Media::class;
+        return Photo::class;
     }
 
     public function configureFields(string $pageName): iterable

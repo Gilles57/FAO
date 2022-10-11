@@ -35,14 +35,15 @@
                 <div class="bg-image" style="background-image: url('/images/livre/livre.png');display:grid;">
                     <div class=" m-3  text-center">
                         <div class="card-body">
-                            <p class="card-text ms-3 pt-4" style="font-family: Balthazar,serif; font-size: 2em; color: yellow; height: 300px;">
+                            <p class="card-text ms-3 pt-4"
+                               style="font-family: Balthazar,serif; font-size: 2em; color: yellow; height: 300px;">
                                 Livre d'or<br>• • •<br>{{ titre | raw }}
                             </p>
                         </div>
                     </div>
                 </div>
-
             </div>
+
             <div class="col-lg-9">
                 {% for comment in commentaires %}
                     <p class="card-text" style="text-align: justify">{{ comment.message }}</p>
@@ -50,10 +51,7 @@
                         - {% if comment.age != 0 %}{{ comment.age }} ans{% endif %}</p>
                     <hr>
                 {% endfor %}
-
             </div>
         </div>
-
     {% endif %}
-
 {% endblock %}

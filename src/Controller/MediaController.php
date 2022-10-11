@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Media;
-use App\Repository\MediaRepository;
+use App\Entity\Photo;
+use App\Repository\PhotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 class MediaController extends AbstractController
 {
     #[Route('/media/index', name: 'app_media_index')]
-    public function index(MediaRepository $repo): Response
+    public function index(PhotoRepository $repo): Response
     {
         $medias = $repo->findAll();
 
@@ -23,9 +23,9 @@ class MediaController extends AbstractController
     }
 
     #[Route('/media/add', name: 'app_media_new')]
-    public function new(Request $request, MediaRepository $repo): Response
+    public function new(Request $request, PhotoRepository $repo): Response
     {
-        $media = new Media();
+        $media = new Photo();
         $media->setMediaName('Test du nom');
 
         $form = $this->createFormBuilder($media)
