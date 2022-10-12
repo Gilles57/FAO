@@ -16,6 +16,12 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', compact('age'));
     }
 
+    #[Route('/mentions', name: 'app_mentions_legales')]
+    public function mentions(): Response
+    {
+        return $this->render('_legal/mentions.html.twig');
+    }
+
     private function age()
     {
         $birthDate = new \DateTime('1986-06-21');
