@@ -62,16 +62,17 @@ class LivredorController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Bonjour '.$commentaire->getPrenom().", votre message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."
+                'Bonjour '.$commentaire->getPrenom().", ton message a été envoyé.<br>Il sera visible lorsqu'il aura été validé."
             );
             // mail de validation ;
             $message = (new TemplatedEmail())
                 ->from(new Address('contact@faotravel.fr', 'Site FAO Travel'))
 //                ->bcc(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
-                ->to(new Address('g.salmon@free.fr', 'Gilles SALMON'))
+                ->to(new Address('gilles.salmon.57@gamil.com', 'Gilles SALMON'))
                 ->subject('FAO Travel : nouveau commentaire à valider')
                 ->htmlTemplate('emails/validation.html.twig')
                 ->context([
+                    'message' => $commentaire->getMessage(),
                     'prenom' => $commentaire->getPrenom(),
                     'postUrl' => $postUrl,
                 ]);

@@ -20,33 +20,33 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('message', TextareaType::class, [
-                'label' => 'Votre message',
+                'label' => 'Ton message',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['min' => 10, 'max' => 500]),
                 ],
             ])
             ->add('prenom', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => 'Ton prénom',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['min' => 3, 'max' => 30]),
                 ],
             ])
             ->add('age', NumberType::class, [
-                'label' => 'Votre âge',
+                'label' => 'Ton âge',
                 'help' => 'Uniquement des chiffres',
                 'constraints' => [
                     new NotBlank(),
                 ], ])
             ->add('rubrique', EntityType::class, [
                 'class' => Rubrique::class,
-                'help' => 'Choisissez la rubrique la plus adaptée à votre commentaire.',
+                'help' => 'Choisis la rubrique la plus adaptée à ton commentaire.',
                 'choice_label' => 'nom',
                 'expanded' => true,
                 'multiple' => false,
                 'constraints' => [
-                    new NotBlank(['message' => 'Veuillez choisir une des rubriques.']),
+                    new NotBlank(['message' => "Choisis l'une des rubriques."]),
                 ], ])
         ;
     }
