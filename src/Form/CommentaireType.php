@@ -23,7 +23,7 @@ class CommentaireType extends AbstractType
                 'label' => 'Votre message',
                 'constraints' => [
                     new NotBlank(),
-                    new Length(['min' => 20, 'max' => 300]),
+                    new Length(['min' => 10, 'max' => 500]),
                 ],
             ])
             ->add('prenom', TextType::class, [

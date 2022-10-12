@@ -11,6 +11,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,6 +26,9 @@ class LivredorController extends AbstractController
         return $this->render('livredor/livredor.html.twig', compact('commentaires'));
     }
 
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/livredor/add', name: 'app_livre_add')]
     public function saisie(Request $request, CommentaireRepository $repo,
         EntityManagerInterface $manager,
