@@ -67,8 +67,8 @@ class LivredorController extends AbstractController
             // mail de validation ;
             $message = (new TemplatedEmail())
                 ->from(new Address('contact@faotravel.fr', 'Site FAO Travel'))
-//                ->bcc(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
-                ->to(new Address('gilles.salmon.57@gamil.com', 'Gilles SALMON'))
+                ->to(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
+                ->bcc(new Address('gilles.salmon.57@gmail.com', 'Gilles SALMON'))
                 ->subject('FAO Travel : nouveau commentaire à valider')
                 ->htmlTemplate('emails/validation.html.twig')
                 ->context([
