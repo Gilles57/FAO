@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class EvenementCrudController extends AbstractCrudController
 {
@@ -30,12 +31,12 @@ class EvenementCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('titre', "Titre de l'événement"),
-            AssociationField::new('ville', 'Nom de la ville')
+            AssociationField::new('ville', 'Lieu')
                 ->autocomplete(),
             AssociationField::new('rubrique'),
             BooleanField::new('preferred', 'Ville actuelle'),
-            DateTimeField::new('beginAt', "Date d'arrivée")->setFormat('d/M/Y'),
-            DateTimeField::new('endAt', 'Date de départ')->setFormat('d/M/Y'),
+            DateTimeField::new('beginAt', "Arrivée")->setFormat('d/M/Y'),
+            DateTimeField::new('endAt', 'Départ')->setFormat('d/M/Y'),
             TextEditorField::new('description'),
 //            TextField::new('imageName', "Nom de l'image"),
             TextField::new('imageFile', 'Nom du fichier')
@@ -46,5 +47,12 @@ class EvenementCrudController extends AbstractCrudController
                 ->setUploadDir('/public/uploads/medias')
                 ->onlyOnIndex(),
         ];
+    }
+
+       public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
     }
 }

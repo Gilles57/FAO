@@ -25,7 +25,7 @@ class CommentaireCrudController extends AbstractCrudController
         return $crud
             ->setSearchFields(['message', 'prenom'])
             ->setAutofocusSearch()
-        ;
+            ->showEntityActionsInlined();;
     }
 
     public function configureFilters(Filters $filters): Filters
@@ -49,4 +49,5 @@ class CommentaireCrudController extends AbstractCrudController
                 ->setCrudController(RubriqueCrudController::class),
         ];
     }
+
 }

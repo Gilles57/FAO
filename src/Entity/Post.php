@@ -16,7 +16,7 @@ class Post
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -28,7 +28,7 @@ class Post
     #[ORM\Column]
     private ?\DateTime $createdAt = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTime $publishedAt = null;
 
     #[ORM\Column(length: 255)]

@@ -5,20 +5,12 @@ vich_uploader:
         type: attribute
 
     mappings:
-        medias:
-            uri_prefix: /uploads/medias
-            upload_destination: '%kernel.project_dir%/public/uploads/medias'
+        coupures:
+            uri_prefix: /uploads/coupures
+            upload_destination: '%kernel.project_dir%/public/uploads/coupures'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-
-            inject_on_load: false
-            delete_on_update: true
-            delete_on_remove: true
 
         photos:
             uri_prefix: /uploads/posts
             upload_destination: '%kernel.project_dir%/public/uploads/posts'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-
-            inject_on_load: false
-            delete_on_update: true
-            delete_on_remove: true

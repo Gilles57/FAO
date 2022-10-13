@@ -13,6 +13,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+
+
 class PostCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -34,14 +39,22 @@ class PostCrudController extends AbstractCrudController
             TextEditorField::new('contenu'),
 //            TextField::new('imageName', "Nom de l'image"),
             TextField::new('imageFile', 'Nom du fichier')
-                                ->setFormType(VichImageType::class)
+                ->setFormType(VichImageType::class)
                 ->hideOnIndex(),
-            CollectionField::new('photos', 'PHOTOS')
-            ->setEntryType(PhotosType::class),
+//            CollectionField::new('photos', 'PHOTOS')
+//            ->setEntryType(PhotosType::class),
             ImageField::new('image', 'IMAGE')
                 ->setBasePath('/uploads/posts')
                 ->setUploadDir('/public/uploads/posts')
                 ->onlyOnIndex(),
         ];
     }
+
+        public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
+    }
+
 }

@@ -3,24 +3,47 @@
 namespace App\Entity;
 
 use App\Repository\CoupureRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CoupureRepository::class)]
+#[Vich\Uploadable]
 class Coupure
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $reference;
+    private ?string $reference;
 
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private $publishedAt;
+    private ?\DateTimeImmutable $publishedAt;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $media;
+    private ?string $coupure;
+
+    #[Vich\UploadableField(mapping: 'coupures', fileNameProperty: 'coupure')]
+    private ?File $coupureFile = null;
+
+    /**
+     * @return ?File
+     */
+    public function getCoupureFile(): ?File
+    {
+        return $this->coupureFile;
+    }
+
+    /**
+     * @param File|null $coupureFile
+     */
+    public function setCoupureFile(?File $coupureFile): void
+    {
+        $this->coupureFile = $coupureFile;
+    }
 
     public function getId(): ?int
     {
@@ -51,14 +74,14 @@ class Coupure
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getCoupure(): ?string
     {
-        return $this->media;
+        return $this->coupure;
     }
 
-    public function setMedia(string $media): self
+    public function setCoupure(string $coupure): self
     {
-        $this->media = $media;
+        $this->coupure = $coupure;
 
         return $this;
     }

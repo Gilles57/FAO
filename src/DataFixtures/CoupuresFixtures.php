@@ -14,25 +14,25 @@ class CoupuresFixtures extends Fixture
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
         $coupure->setPublishedAt(new \DateTimeImmutable('2018-12-22'));
-        $coupure->setMedia('images/presse/ER-2018-12-22.jpg');
+        $coupure->setCoupure('images/presse/ER-2018-12-22.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
         $coupure->setPublishedAt(new \DateTimeImmutable('2019-01-14'));
-        $coupure->setMedia('images/presse/ER-2019-01-14.jpg');
+        $coupure->setCoupure('images/presse/ER-2019-01-14.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
         $coupure->setPublishedAt(new \DateTimeImmutable('2019-03-16'));
-        $coupure->setMedia('images/presse/ER-2019-03-16.jpg');
+        $coupure->setCoupure('images/presse/ER-2019-03-16.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
         $coupure->setPublishedAt(new \DateTimeImmutable('2019-04-26'));
-        $coupure->setMedia('images/presse/ER-2019-04-26.jpg');
+        $coupure->setCoupure('images/presse/ER-2019-04-26.jpg');
         $manager->persist($coupure);
 
         $manager->flush();
