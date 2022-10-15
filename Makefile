@@ -252,11 +252,14 @@ stop: ## Stop project.
 .PHONY: stop
 
 reset-db: ## Reset database.
+	rm -f migrations/Version*.php
 	$(eval CONFIRM := $(shell read -p "Are you sure you want to reset the database? [y/N] " CONFIRM && echo $${CONFIRM:-N}))
 	@if [ "$(CONFIRM)" = "y" ]; then \
 		$(MAKE) sf-dd; \
 		$(MAKE) sf-dc; \
+		$(MAKE) sf-mm; \
 		$(MAKE) sf-dmm; \
+		$(MAKE) sf-dfl; \
 	fi
 .PHONY: reset-db
 #---------------------------------------------#

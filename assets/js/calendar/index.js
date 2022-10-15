@@ -11,6 +11,7 @@ import "./index.css"; // this will create a calendar.css file reachable to 'enco
 document.addEventListener("DOMContentLoaded", () => {
   let calendarEl = document.getElementById("calendar-holder");
   let { eventsUrl } = calendarEl.dataset;
+          console.log(JSON.stringify({}))
 
   let calendar = new Calendar(calendarEl, {
     locale: frLocale,
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
           filters: JSON.stringify({}) // pass your parameters to the subscriber
         },
         failure: () => {
-          alert("There was an error while fetching FullCalendar!");
+          alert("Il y a eu une erreur à la création de l'agenda!");
         },
       },
     ],
@@ -43,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin ],
     timeZone: "UTC",
   });
-  // console.log(calendar)
 
   calendar.render();
 });

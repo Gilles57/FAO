@@ -36,9 +36,15 @@ class VilleCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->onlyOnIndex(),
-            TextField::new('nom')->onlyOnIndex(),
-            NumberField::new('latitude')->onlyOnIndex(),
-            NumberField::new('longitude')->onlyOnIndex(),
+            TextField::new('nom')->hideWhenCreating(),
+            NumberField::new('latitude')->hideWhenCreating(),
+            NumberField::new('longitude')->hideWhenCreating(),
         ];
+    }
+       public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
     }
 }

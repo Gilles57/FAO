@@ -37,14 +37,14 @@ class EvenementCrudController extends AbstractCrudController
             BooleanField::new('preferred', 'Ville actuelle'),
             DateTimeField::new('beginAt', "Arrivée")->setFormat('d/M/Y'),
             DateTimeField::new('endAt', 'Départ')->setFormat('d/M/Y'),
-            TextEditorField::new('description'),
-//            TextField::new('imageName', "Nom de l'image"),
+            TextField::new('description'),
             TextField::new('imageFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
+                ->setFormTypeOption('allow_delete', false)
                 ->hideOnIndex(),
             ImageField::new('imageName', 'IMAGE')
-                ->setBasePath('/uploads/medias')
-                ->setUploadDir('/public/uploads/medias')
+                ->setBasePath('/uploads/images')
+                ->setUploadDir('/public/uploads/images')
                 ->onlyOnIndex(),
         ];
     }
@@ -52,6 +52,7 @@ class EvenementCrudController extends AbstractCrudController
        public function configureCrud(Crud $crud): Crud
     {
         return $crud
+            ->setPageTitle(Crud::PAGE_INDEX, 'Événements')
             ->showEntityActionsInlined()
         ;
     }

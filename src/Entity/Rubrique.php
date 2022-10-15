@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RubriqueRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +26,11 @@ class Rubrique
      */
     #[ORM\OneToMany(mappedBy: 'rubrique', targetEntity: Evenement::class, cascade: ['persist'], orphanRemoval: false)]
     private Collection $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -56,6 +62,36 @@ class Rubrique
     public function setColor(?string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Evenement>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Evenement $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setRubrique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Evenement $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getRubrique() === $this) {
+                $event->setRubrique(null);
+            }
+        }
 
         return $this;
     }

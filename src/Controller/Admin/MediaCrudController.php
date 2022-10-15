@@ -25,8 +25,8 @@ class MediaCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->onlyWhenCreating(),
             ImageField::new('mediaName', 'IMAGE')
-                ->setBasePath('/uploads/medias')
-                ->setUploadDir('/public/uploads/medias')
+                ->setBasePath('/uploads/_medias')
+                ->setUploadDir('/public/uploads/_medias')
                 ->onlyOnIndex(),
         ];
     }

@@ -4,33 +4,33 @@
 {% block body %}
     <div class="row d-none d-lg-flex"> {# ordi #}
     <div class="col-lg-2">
-        <img class="rounded img-thumbnail" src="/{{ partenaire.logo }}" alt="Logo de {{ partenaire.logo }} ">
+        <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}" alt="Logo de {{ partenaire.logoName }} ">
     </div>
     <div class="col-lg-10">
         <h3>{{ partenaire.entreprise }}</h3>
 
         <p style="text-align: justify">{{ partenaire.description | raw }}</p>
         <hr>
-        <p><span class="fw-bold">{{ partenaire.nom }}</span></br>
-        {{ partenaire.adresse }}</br>
-        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}</br>
+        <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
+        {{ partenaire.adresse }}<br>
+        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
         <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
            style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
                     class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
     </div>
     </div>{# ordi #}
 
-    <div class="row d-lg-none text-center"> {# tél #}
+    <div class="row d-lg-none text-center" style="background-color: #94a3b8"> {# tél #}
         <hr>
         <div class="row">
             <div class="col-4 align-self-center">
-                <img class="rounded img-thumbnail" src="/{{ partenaire.logo }}" alt="Logo de {{ partenaire.logo }} ">
+                <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}" alt="Logo de {{ partenaire.logoName }} ">
             </div>
             <div class="col-8">
                 <h3>{{ partenaire.entreprise }}</h3>
-                <p><span class="fw-bold">{{ partenaire.nom }}</span></br>
-        {{ partenaire.adresse }}</br>
-        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}</br>
+                <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
+        {{ partenaire.adresse }}<br>
+        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
         <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
            style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
                     class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>

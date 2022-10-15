@@ -15,9 +15,7 @@ class EventController extends AbstractController
     {
         $rubriques = $rubriqueRepo->findAll();
 
-        $now = new \DateTimeImmutable('now');
-        $events = $eventRepo->findAllInFuture($now);
-
+        $events = $eventRepo->findAllInFuture(new \DateTimeImmutable('-1 day'));
         return $this->render('agenda/agenda.html.twig', compact('events', 'rubriques'));
     }
 

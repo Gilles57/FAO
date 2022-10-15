@@ -2,12 +2,21 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\Timestampable;
 use App\Repository\ProjetRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjetRepository::class)]
+#[Vich\Uploadable]
+#[ORM\HasLifecycleCallbacks]
 class Projet
 {
+    use Timestampable;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -17,10 +26,29 @@ class Projet
     private $titre;
 
     #[ORM\Column(type: 'text')]
-    private $description;
+    private ?string $description;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $image;
+    #[ORM\Column( length: 255)]
+    private ?string $illustrationName  = null;
+
+    #[Assert\Image(
+        maxSize: '1M',
+        mimeTypes: ['image/*'],
+        maxSizeMessage: "Le fichier ne doit pas dépasser 1 Mo",
+        mimeTypesMessage: "Ce format n'est pas accepté",
+    )]
+    #[Vich\UploadableField(mapping: 'illustrations', fileNameProperty: 'illustrationName')]
+    private ?File $illustrationFile = null;
+
+    public function getIllustrationFile(): ?File
+    {
+        return $this->illustrationFile;
+    }
+
+    public function setIllustrationFile(?File $illustrationFile): void
+    {
+        $this->illustrationFile = $illustrationFile;
+    }
 
     public function getId(): ?int
     {
@@ -51,14 +79,15 @@ class Projet
         return $this;
     }
 
-    public function getImage(): ?string
+
+    public function getIllustrationName(): ?string
     {
-        return $this->image;
+        return $this->illustrationName;
     }
 
-    public function setImage(string $image): self
+    public function setIllustrationName(?string $illustrationName): self
     {
-        $this->image = $image;
+        $this->illustrationName = $illustrationName;
 
         return $this;
     }

@@ -13,26 +13,26 @@ class CoupuresFixtures extends Fixture
         // Création des articles
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
-        $coupure->setPublishedAt(new \DateTimeImmutable('2018-12-22'));
-        $coupure->setCoupure('images/presse/ER-2018-12-22.jpg');
+        $coupure->setPublishedAt(new \DateTime('2018-12-22'));
+        $coupure->setCoupureName('uploads/coupures/ER-2018-12-22.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
-        $coupure->setPublishedAt(new \DateTimeImmutable('2019-01-14'));
-        $coupure->setCoupure('images/presse/ER-2019-01-14.jpg');
+        $coupure->setPublishedAt(new \DateTime('2019-01-14'));
+        $coupure->setCoupureName('uploads/coupures/ER-2019-01-14.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
-        $coupure->setPublishedAt(new \DateTimeImmutable('2019-03-16'));
-        $coupure->setCoupure('images/presse/ER-2019-03-16.jpg');
+        $coupure->setPublishedAt(new \DateTime('2019-03-16'));
+        $coupure->setCoupureName('uploads/coupures/ER-2019-03-16.jpg');
         $manager->persist($coupure);
 
         $coupure = new Coupure();
         $coupure->setReference('Est Républicain');
-        $coupure->setPublishedAt(new \DateTimeImmutable('2019-04-26'));
-        $coupure->setCoupure('images/presse/ER-2019-04-26.jpg');
+        $coupure->setPublishedAt(new \DateTime('2019-04-26'));
+        $coupure->setCoupureName('uploads/coupures/ER-2019-04-26.jpg');
         $manager->persist($coupure);
 
         $manager->flush();

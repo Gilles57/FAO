@@ -5,7 +5,7 @@
 {#{{ dump(event) }}#}
         <div class="col-md-3  ">
             {% if event.imageName is not null %}
-                <img class="img-thumbnail" src="{{ asset('uploads/medias/'~event.imageName) }}" alt="{{ event.imageName }}">
+                <img class="img-thumbnail" src="{{ asset('uploads/images/'~event.imageName) }}" alt="{{ event.imageName }}">
             {% endif %}
         </div>
         <div class="col-md-9 ">

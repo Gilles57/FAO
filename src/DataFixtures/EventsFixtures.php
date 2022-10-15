@@ -3,17 +3,22 @@
 namespace App\DataFixtures;
 
 use App\Entity\Evenement;
+use App\Entity\Ville;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Exception;
+use Faker\Factory;
 
-class EventsFixtures extends Fixture
+class EventsFixtures extends Fixture implements DependentFixtureInterface
 {
     /**
      * @throws Exception
      */
     public function load(ObjectManager $manager): void
     {
+        $faker = Factory::create('fr_FR');
+
         // Création des villes
         $villes = [
             ['Besançon', 47.261, 6.045, 1, '2022-10-02 00:00', null],
@@ -22,22 +27,45 @@ class EventsFixtures extends Fixture
             ['Paris', 48.857, 2.295, 0, '2022-10-01 00:00', '2022-10-08 00:00'],
         ];
 
-        // Création des événements
+        $cities = [];
+
         for ($i = 0; $i < count($villes); ++$i) {
+            $ville = new Ville();
+            $ville->setNom($villes[$i][0]);
+            $ville->setLatitude($villes[$i][1]);
+            $ville->setLongitude($villes[$i][2]);
+            $manager->persist($ville);
+            $cities[] = $ville;
+        }
+        $manager->flush();
+
+        // Création des événements
+        for ($i = 0; $i < count($cities); ++$i) {
             $event = new Evenement();
 
-            $event->setVille($villes[$i][0]);
-            $event->setPreferred($villes[$i][3]);
+            $event->setVille($cities[$i]);
+            $event->setTitre($faker->sentence);
+            $event->setPreferred(False);
             if (null != $villes[$i][4]) {
                 $event->setBeginAt(new \DateTime($villes[$i][4]));
             }
             if (null != $villes[$i][5]) {
                 $event->setEndAt(new \DateTime($villes[$i][4]));
             }
+            $event->setUpdatedAt(new \DateTime($villes[$i][4]));
+            $event->setRubrique($this->getReference('rubrique'.rand(0,2)));
+            $event->setImageName($cities[$i]->getNom() . '.jpg');
 
             $manager->persist($event);
-        }
 
+        }
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            RubriquesFixtures::class,
+        ];
     }
 }

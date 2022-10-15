@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class RubriqueCrudController extends AbstractCrudController
 {
@@ -22,5 +23,11 @@ class RubriqueCrudController extends AbstractCrudController
             TextField::new('nom', 'Nom de la rubrique'),
             ColorField::new('color', 'Couleur de la rubrique'),
         ];
+    }
+       public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
     }
 }

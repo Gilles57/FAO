@@ -30,9 +30,9 @@ class CoupureCrudController extends AbstractCrudController
                 ->setFormat('d/M/Y'),
             TextField::new('coupureFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
+                ->setFormTypeOption('allow_delete', false)
                 ->hideOnIndex(),
-//            TextField::new('coupure', "Nom de l'image"),
-            ImageField::new('coupure', 'DOCUMENT')
+            ImageField::new('coupureName', 'COUPURE')
                 ->setBasePath('/uploads/coupures')
                 ->setUploadDir('/public/uploads/coupures')
                 ->onlyOnIndex(),

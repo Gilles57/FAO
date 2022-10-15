@@ -50,7 +50,6 @@ class EvenementRepository extends ServiceEntityRepository
             ORDER BY e.beginAt ASC
             '
         )->setParameter('date', $now);
-
         return $query->getArrayResult();
     }
 
@@ -68,19 +67,8 @@ class EvenementRepository extends ServiceEntityRepository
             INNER JOIN e.rubrique r
             '
         );
-
         return $query->getArrayResult();
     }
 
-    /**
-     * @return array Returns an array of Evenement objects
-     */
-    public function findAllWithBeginDefined(): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.beginAt IS NOT NULL')
-            ->orderBy('p.beginAt', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
+
 }

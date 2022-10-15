@@ -15,7 +15,8 @@ class PostsFixtures extends Fixture
         $faker = Factory::create('fr_FR');
         $slugger = new AsciiSlugger();
 
-        // Création de posts
+        $stock = ['0-640x480.jpg','63-640x480.jpg', '277-640x480.jpg', '322-640x480.jpg', '376-640x480.jpg', '390-640x480.jpg'];
+        // Création de _posts
         for ($i = 1; $i <= 10; ++$i) {
             $post = new Post();
             $post->setTitre($faker->sentence);
@@ -23,7 +24,7 @@ class PostsFixtures extends Fixture
             $post->setContenu($faker->text(500));
             $post->setCreatedAt($faker->dateTimeBetween('-1 week', 'now'));
             $post->setPublishedAt($faker->dateTimeBetween('now', '+1 week'));
-            $post->setImage('https://picsum.photos/640/480?random='.rand(1, 100));
+            $post->setPhotoName($faker->randomElement($stock));
             $manager->persist($post);
         }
 

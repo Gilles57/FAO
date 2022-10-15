@@ -5,12 +5,27 @@ vich_uploader:
         type: attribute
 
     mappings:
-        coupures:
-            uri_prefix: /uploads/coupures
-            upload_destination: '%kernel.project_dir%/public/uploads/coupures'
+        images:
+            uri_prefix: /uploads/images
+            upload_destination: '%kernel.project_dir%/public/uploads/images'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
         photos:
-            uri_prefix: /uploads/posts
-            upload_destination: '%kernel.project_dir%/public/uploads/posts'
+            uri_prefix: /uploads/photos
+            upload_destination: '%kernel.project_dir%/public/uploads/photos'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        logos:
+            uri_prefix: /uploads/logos
+            upload_destination: '%kernel.project_dir%/public/uploads/logos'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        illustrations:
+            uri_prefix: /uploads/illustrations
+            upload_destination: '%kernel.project_dir%/public/uploads/illustrations'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+        coupures:
+            uri_prefix: /uploads/coupures
+            upload_destination: '%kernel.project_dir%/public/uploads/coupures'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

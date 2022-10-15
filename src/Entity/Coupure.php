@@ -2,16 +2,25 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\Timestampable;
 use App\Repository\CoupureRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
+use App\Repository\PostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\Types;
+
 
 #[ORM\Entity(repositoryClass: CoupureRepository::class)]
 #[Vich\Uploadable]
+#[ORM\HasLifecycleCallbacks]
 class Coupure
 {
+    use Timestampable;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -20,29 +29,34 @@ class Coupure
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $reference;
 
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private ?\DateTimeImmutable $publishedAt;
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTime $publishedAt;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private ?string $coupure;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $coupureName = null;
 
-    #[Vich\UploadableField(mapping: 'coupures', fileNameProperty: 'coupure')]
+    #[Assert\Image(
+        maxSize: '2M',
+        mimeTypes: ['image/*', 'application/pdf', 'application/x-pdf'],
+        maxSizeMessage: "Le fichier ne doit pas dépasser 2 Mo",
+        mimeTypesMessage: "Ce format n'est pas accepté (image ou pdf)",
+    )]
+    #[Vich\UploadableField(mapping: 'coupures', fileNameProperty: 'coupureName')]
     private ?File $coupureFile = null;
 
-    /**
-     * @return ?File
-     */
     public function getCoupureFile(): ?File
     {
         return $this->coupureFile;
     }
 
-    /**
-     * @param File|null $coupureFile
-     */
     public function setCoupureFile(?File $coupureFile): void
     {
+        if (null !== $coupureFile) {
+            $this->updatedAt = new \DateTime();
+        }
+
         $this->coupureFile = $coupureFile;
+
     }
 
     public function getId(): ?int
@@ -62,26 +76,26 @@ class Coupure
         return $this;
     }
 
-    public function getPublishedAt(): ?\DateTimeImmutable
+    public function getPublishedAt(): ?\DateTime
     {
         return $this->publishedAt;
     }
 
-    public function setPublishedAt(?\DateTimeImmutable $publishedAt): self
+    public function setPublishedAt(?\DateTime $publishedAt): self
     {
         $this->publishedAt = $publishedAt;
 
         return $this;
     }
 
-    public function getCoupure(): ?string
+    public function getCoupureName(): ?string
     {
-        return $this->coupure;
+        return $this->coupureName;
     }
 
-    public function setCoupure(string $coupure): self
+    public function setCoupureName(?string $coupureName): self
     {
-        $this->coupure = $coupure;
+        $this->coupureName = $coupureName;
 
         return $this;
     }

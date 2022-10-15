@@ -4,18 +4,18 @@
 
 {% block body %}
     {# <h1 class="text-center  bg-danger" style="color: white;">En cours de #}
-    {#    création... {{ posts.getTotalItemCount }} articles</h1> #}
+    {#    création... {{ _posts.getTotalItemCount }} articles</h1> #}
     <div> {# ordi #}
         <div class="row d-none d-lg-flex ">
 
             {% for post in posts %}
-                {#        {{ dump(posts) }} #}
+                {#        {{ dump(_posts) }} #}
                 <div class="row ">
                     <div class="col-3">
                         <a href="{{ path('app_blog_show' , {'id' : post.id}) }}"><img class="img-thumbnail slidable"
                                                                                       style="display: none"
-                                                                                      src="{{ asset(post.image) }}"
-                                                                                      alt="{{ post.image }}"></a>
+                                                                                      src="{{ asset('uploads/photos/'~post.photoName) }}"
+                                                                                      alt="{{ 'uploads/photos/'~post.photoName }}"></a>
                     </div>
 
                     <div class="col-9">
@@ -43,8 +43,8 @@
             <div class="row">
                 <div class="col-5">
                     <img class="img-thumbnail slidable" style="display: none"
-                         src="{{ asset('uploads/photos/'~post.image) }}"
-                         alt="{{ post.image }}">
+                         src="{{ asset('uploads/photos/'~'uploads/photos/'~post.photoName) }}"
+                         alt="{{ 'uploads/photos/'~post.photoName }}">
                 </div>
                 <div class="col-7">
                     <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true ) }}</h4>

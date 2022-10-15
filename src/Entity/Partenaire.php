@@ -2,21 +2,30 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\Timestampable;
 use App\Repository\PartenaireRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PartenaireRepository::class)]
+#[Vich\Uploadable]
+#[ORM\HasLifecycleCallbacks]
 class Partenaire
 {
+    use Timestampable;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
     private ?string $entreprise;
 
-    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[ORM\Column(type: 'string', length: 250, nullable: true)]
     private ?string $nom;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -34,14 +43,33 @@ class Partenaire
     #[ORM\Column(type: 'string', length: 20, nullable: true)]
     private ?string $tel;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $logo = null;
-
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $site = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $logoName = null;
+
+    #[Assert\Image(
+        maxSize: '1M',
+        mimeTypes: ['image/*'],
+        maxSizeMessage: "Le fichier ne doit pas dépasser 1 Mo",
+        mimeTypesMessage: "Ce format n'est pas accepté",
+    )]
+    #[Vich\UploadableField(mapping: 'logos', fileNameProperty: 'logoName')]
+    private ?File $logoFile = null;
+
+    public function getLogoFile(): ?File
+    {
+        return $this->logoFile;
+    }
+
+    public function setLogoFile(?File $logoFile): void
+    {
+        $this->logoFile = $logoFile;
+    }
 
     public function getId(): ?int
     {
@@ -132,14 +160,14 @@ class Partenaire
         return $this;
     }
 
-    public function getLogo(): ?string
+    public function getLogoName(): ?string
     {
-        return $this->logo;
+        return $this->logoName;
     }
 
-    public function setLogo(?string $logo): self
+    public function setLogoName(?string $logoName): self
     {
-        $this->logo = $logo;
+        $this->logoName = $logoName;
 
         return $this;
     }

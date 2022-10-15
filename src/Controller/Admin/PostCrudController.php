@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -30,31 +31,30 @@ class PostCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('titre', 'Titre du post'),
-//            AssociationField::new('rubrique'),
+            SlugField::new('slug')->setTargetFieldName('titre'),
             DateTimeField::new('publishedAt', 'Date de publication')
                 ->setFormat('d/M/Y'),
-            DateTimeField::new('createdAt', 'Date de création')
-                ->setFormat('d/M/Y')
-                ->onlyOnIndex(),
             TextEditorField::new('contenu'),
-//            TextField::new('imageName', "Nom de l'image"),
-            TextField::new('imageFile', 'Nom du fichier')
+            TextField::new('photoFile', 'Nom de la photo')
+                ->onlyOnDetail(),
+
+            TextField::new('photoFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
+                ->setFormTypeOption('allow_delete', false)
                 ->hideOnIndex(),
+            ImageField::new('photoName', 'PHOTO')
+                ->setBasePath('/uploads/photos')
+                ->setUploadDir('/public/uploads/photos')
+                ->onlyOnIndex(),
 //            CollectionField::new('photos', 'PHOTOS')
 //            ->setEntryType(PhotosType::class),
-            ImageField::new('image', 'IMAGE')
-                ->setBasePath('/uploads/posts')
-                ->setUploadDir('/public/uploads/posts')
-                ->onlyOnIndex(),
         ];
     }
 
-        public function configureCrud(Crud $crud): Crud
+    public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->showEntityActionsInlined()
-        ;
+            ->showEntityActionsInlined();
     }
 
 }

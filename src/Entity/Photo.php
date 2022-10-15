@@ -19,7 +19,7 @@ class Photo
     #[ORM\Column(length: 255)]
     private ?string $mediaName = null;
 
-    #[Vich\UploadableField(mapping: 'medias', fileNameProperty: 'mediaName')]
+    #[Vich\UploadableField(mapping: '_medias', fileNameProperty: 'mediaName')]
     private ?File $mediaFile = null;
 
     public function getMediaFile(): ?File

@@ -36,7 +36,13 @@ class UserCrudController extends AbstractCrudController
             ->allowMultipleChoices()
             ->renderAsBadges()
             ->renderExpanded(),
-//            DateTimeField::new('createdAt')->onlyOnIndex()->setFormat('d/M/Y'),
 ];
+    }
+
+       public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->showEntityActionsInlined()
+        ;
     }
 }
