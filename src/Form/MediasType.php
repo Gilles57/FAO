@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class PhotosType extends AbstractType
+class MediasType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

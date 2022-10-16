@@ -5,10 +5,8 @@ namespace App\Entity;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
-#[Vich\Uploadable]
 class Photo
 {
     #[ORM\Id]
@@ -17,66 +15,36 @@ class Photo
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $mediaName = null;
+    private ?string $photoName = null;
 
-    #[Vich\UploadableField(mapping: '_medias', fileNameProperty: 'mediaName')]
-    private ?File $mediaFile = null;
+    private ?File $photoFile;
 
-    public function getMediaFile(): ?File
+    public function getPhotoFile(): ?File
     {
-        return $this->mediaFile;
+        return $this->photoFile;
     }
 
-    public function setMediaFile($mediaFile): void
+    public function setPhotoFile($photoFile): void
     {
-        $this->mediaFile = $mediaFile;
+        $this->photoFile = $photoFile;
     }
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $uploadedAt = null;
-
-    #[ORM\ManyToOne(inversedBy: 'photos')]
-    private ?Post $post = null;
-
-    public function getId(): ?int
+       public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getMediaName(): ?string
+    public function getPhotoName(): ?string
     {
-        return $this->mediaName;
+        return $this->photoName;
     }
 
-    public function setMediaName(?string $mediaName): self
+    public function setPhotoName(?string $photoName): self
     {
-        $this->mediaName = $mediaName;
-        $this->uploadedAt = new \DateTimeImmutable();
+        $this->photoName = $photoName;
+        $this->uploadedAt = new \DateTime();
 
         return $this;
     }
 
-    public function getUploadedAt(): ?\DateTimeImmutable
-    {
-        return $this->uploadedAt;
-    }
-
-    public function setUploadedAt(\DateTimeImmutable $uploadedAt): self
-    {
-        $this->uploadedAt = $uploadedAt;
-
-        return $this;
-    }
-
-    public function getPost(): ?Post
-    {
-        return $this->post;
-    }
-
-    public function setPost(?Post $post): self
-    {
-        $this->post = $post;
-
-        return $this;
-    }
 }

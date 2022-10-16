@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
-use App\Form\PhotosType;
+use App\Form\MediasType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -35,19 +35,17 @@ class PostCrudController extends AbstractCrudController
             DateTimeField::new('publishedAt', 'Date de publication')
                 ->setFormat('d/M/Y'),
             TextEditorField::new('contenu'),
-            TextField::new('photoFile', 'Nom de la photo')
+            TextField::new('mediaFile', 'Nom du media')
                 ->onlyOnDetail(),
 
-            TextField::new('photoFile', 'Nom du fichier')
+            TextField::new('mediaFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
                 ->setFormTypeOption('allow_delete', false)
                 ->hideOnIndex(),
-            ImageField::new('photoName', 'PHOTO')
-                ->setBasePath('/uploads/photos')
-                ->setUploadDir('/public/uploads/photos')
+            ImageField::new('mediaName', 'MEDIA PRINCIPALE')
+                ->setBasePath('/uploads/medias')
+                ->setUploadDir('/public/uploads/medias')
                 ->onlyOnIndex(),
-//            CollectionField::new('photos', 'PHOTOS')
-//            ->setEntryType(PhotosType::class),
         ];
     }
 

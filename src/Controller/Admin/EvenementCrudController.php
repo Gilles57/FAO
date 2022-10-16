@@ -35,8 +35,10 @@ class EvenementCrudController extends AbstractCrudController
                 ->autocomplete(),
             AssociationField::new('rubrique'),
             BooleanField::new('preferred', 'Ville actuelle'),
-            DateTimeField::new('beginAt', "Arrivée")->setFormat('d/M/Y'),
-            DateTimeField::new('endAt', 'Départ')->setFormat('d/M/Y'),
+            DateTimeField::new('beginAt', "Arrivée")->setFormat('d/M/Y')
+            ->renderAsNativeWidget(),
+            DateTimeField::new('endAt', 'Départ')->setFormat('d/M/Y')
+            ->renderAsNativeWidget(),
             TextField::new('description'),
             TextField::new('imageFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)

@@ -32,12 +32,11 @@ class Post
     #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTime $publishedAt = null;
 
-
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photoName = null;
+    private ?string $mediaName = null;
 
     #[Assert\Image(
         maxSize: '2M',
@@ -45,26 +44,21 @@ class Post
         maxSizeMessage: "Le fichier ne doit pas dépasser 2 Mo",
         mimeTypesMessage: "Ce format n'est pas accepté",
     )]
-    #[Vich\UploadableField(mapping: 'photos', fileNameProperty: 'photoName')]
-    private ?File $photoFile = null;
+    #[Vich\UploadableField(mapping: 'medias', fileNameProperty: 'mediaName')]
+    private ?File $mediaFile = null;
 
-    public function getPhotoFile(): ?File
+    public function getMediaFile(): ?File
     {
-        return $this->photoFile;
+        return $this->mediaFile;
     }
 
-    public function setPhotoFile(?File $photoFile): void
+    public function setMediaFile(?File $mediaFile): void
     {
-        $this->photoFile = $photoFile;
+        $this->mediaFile = $mediaFile;
 
-        if (null !== $photoFile) {
+        if (null !== $mediaFile) {
             $this->updatedAt = new \DateTime();
         }
-    }
-
-    public function __construct()
-    {
-        $this->photos = new ArrayCollection();
     }
 
 
@@ -122,14 +116,14 @@ class Post
         return $this;
     }
 
-    public function getPhotoName(): ?string
+    public function getMediaName(): ?string
     {
-        return $this->photoName;
+        return $this->mediaName;
     }
 
-    public function setPhotoName(?string $photoName): void
+    public function setMediaName(?string $mediaName): void
     {
-        $this->photoName = $photoName;
+        $this->mediaName = $mediaName;
     }
 
 }

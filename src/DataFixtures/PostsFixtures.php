@@ -24,7 +24,7 @@ class PostsFixtures extends Fixture
             $post->setContenu($faker->text(500));
             $post->setCreatedAt($faker->dateTimeBetween('-1 week', 'now'));
             $post->setPublishedAt($faker->dateTimeBetween('now', '+1 week'));
-            $post->setPhotoName($faker->randomElement($stock));
+            $post->setMediaName($faker->randomElement($stock));
             $manager->persist($post);
         }
 

@@ -16,10 +16,10 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', compact('age'));
     }
 
-    #[Route('/mentions', name: 'app_mentions_legales')]
+    #[Route('/mentions_legales', name: 'app_mentions_legales')]
     public function mentions(): Response
     {
-        return $this->render('_legal/mentions.html.twig');
+        return $this->render('_legal/mentions_legales.html.twig');
     }
 
     private function age()

@@ -10,8 +10,8 @@
         </div>
         <div class="col-md-9 ">
             {% set formatted_date = "" %}
-            {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') %}
-                {% set formatted_date = "le "~event.beginAt | date('d-m-Y à h:m') %}
+            {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') or event.endAt is null%}
+                {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
             {% else %}
                 {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
             {% endif %}

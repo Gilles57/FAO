@@ -33,11 +33,11 @@ class EvenementRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $now
+     * @param $yesterday
      *
      * @return array Returns an array of Evenement objects
      */
-    public function findAllInFuture(\DateTimeImmutable $now): array
+    public function findAllInFuture(\DateTimeImmutable $yesterday): array
     {
         $entityManager = $this->getEntityManager();
 
@@ -49,7 +49,7 @@ class EvenementRepository extends ServiceEntityRepository
             WHERE (e.beginAt >= :date or e.endAt >= :date)
             ORDER BY e.beginAt ASC
             '
-        )->setParameter('date', $now);
+        )->setParameter('date', $yesterday);
         return $query->getArrayResult();
     }
 
