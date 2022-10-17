@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Evenement;
+use App\Entity\Rubrique;
 use App\Entity\Ville;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -39,21 +40,22 @@ class EventsFixtures extends Fixture implements DependentFixtureInterface
         }
         $manager->flush();
 
+
         // Création des événements
         for ($i = 0; $i < count($cities); ++$i) {
+            $interval = $faker->numberBetween(0,5).' day';
             $event = new Evenement();
 
             $event->setVille($cities[$i]);
             $event->setTitre($faker->sentence);
+            $event->setDescription($faker->paragraphs(asText: true));
             $event->setPreferred(False);
-            if (null != $villes[$i][4]) {
-                $event->setBeginAt(new \DateTime($villes[$i][4]));
-            }
-            if (null != $villes[$i][5]) {
-                $event->setEndAt(new \DateTime($villes[$i][4]));
-            }
-            $event->setUpdatedAt(new \DateTime($villes[$i][4]));
-            $event->setRubrique($this->getReference('rubrique'.rand(0,2)));
+            $event->setBeginAt($faker->dateTimeThisMonth);
+            $event->setEndAt(clone $event->getBeginAt());
+            $event->setEndAt(date_add($event->getEndAt(), date_interval_create_from_date_string($interval)));
+            ;
+            $event->setUpdatedAt(new \DateTime('now'));
+            $event->setRubrique($this->getReference('rubrique' . rand(0, 2)));
             $event->setImageName($cities[$i]->getNom() . '.jpg');
 
             $manager->persist($event);
