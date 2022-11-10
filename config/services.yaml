@@ -6,8 +6,10 @@
 parameters:
     router.request_context.scheme: 'https'
     asset.request_context.secure: true
-    upload_dir: 'uploads/_medias'
     nb_posts_per_page: 3
+
+    photos_directory: '%kernel.project_dir%/public/uploads/photos'
+
 
 services:
     # default configuration for services in *this* file

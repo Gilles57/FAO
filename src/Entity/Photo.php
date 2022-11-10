@@ -19,6 +19,9 @@ class Photo
 
     private ?File $photoFile;
 
+    #[ORM\ManyToOne(inversedBy: 'photos')]
+    private ?Post $post = null;
+
     public function getPhotoFile(): ?File
     {
         return $this->photoFile;
@@ -43,6 +46,18 @@ class Photo
     {
         $this->photoName = $photoName;
         $this->uploadedAt = new \DateTime();
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }

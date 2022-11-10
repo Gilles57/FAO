@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Traits\Timestampable;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -46,6 +47,14 @@ class Post
     )]
     #[Vich\UploadableField(mapping: 'medias', fileNameProperty: 'mediaName')]
     private ?File $mediaFile = null;
+
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Photo::class, cascade: ["all"], fetch: 'EAGER', orphanRemoval: true)]
+    private Collection $photos;
+
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
+    }
 
     public function getMediaFile(): ?File
     {
@@ -124,6 +133,36 @@ class Post
     public function setMediaName(?string $mediaName): void
     {
         $this->mediaName = $mediaName;
+    }
+
+    /**
+     * @return Collection<int, Photo>
+     */
+    public function getPhotos(): Collection
+    {
+        return $this->photos;
+    }
+
+    public function addPhoto(Photo $photo): self
+    {
+        if (!$this->photos->contains($photo)) {
+            $this->photos->add($photo);
+            $photo->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photo $photo): self
+    {
+        if ($this->photos->removeElement($photo)) {
+            // set the owning side to null (unless already changed)
+            if ($photo->getPost() === $this) {
+                $photo->setPost(null);
+            }
+        }
+
+        return $this;
     }
 
 }

@@ -3,13 +3,10 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-    {# <h1 class="text-center  bg-danger" style="color: white;">En cours de #}
-    {#    création... {{ _posts.getTotalItemCount }} articles</h1> #}
     <div> {# ordi #}
         <div class="row d-none d-lg-flex ">
 
             {% for post in posts %}
-                {#        {{ dump(_posts) }} #}
                 <div class="row ">
                     <div class="col-3">
                         <a href="{{ path('app_blog_show' , {'id' : post.id}) }}"><img class="img-thumbnail slidable"

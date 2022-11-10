@@ -33,8 +33,8 @@ class BlogController extends AbstractController
     #[Route('/blog/show/{id}', name: 'app_blog_show')]
     public function show($id, PostRepository $postRepo): Response
     {
-        $post = $postRepo->find($id);
-
+        $post = $postRepo->find( $id);
+//        dd($post);
         return $this->render('blog/blog_show.html.twig', compact('post'));
     }
 }

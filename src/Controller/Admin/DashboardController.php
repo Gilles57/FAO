@@ -54,7 +54,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Les partenaires', 'fa fa-solid fa-handshake', Partenaire::class);
         yield MenuItem::linkToCrud('Les projets', 'fa fa-solid fa-map-signs ', Projet::class);
         yield MenuItem::linkToCrud('Les articles', 'fa fa-solid fa-newspaper ', Coupure::class);
-//        yield MenuItem::linkToCrud('Les images', 'fa fa-solid fa-photo-video', Photo::class);
+        yield MenuItem::linkToRoute('Les images', 'fa fa-solid fa-photo-video', 'app_post_new');
 
         yield MenuItem::section("Le livre d'or");
         yield MenuItem::linkToCrud('Les commentaires', 'fa fa-solid fa-comments', Commentaire::class);
