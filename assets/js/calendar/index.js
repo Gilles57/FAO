@@ -1,3 +1,9 @@
+// require jQuery normally
+const $ = require('jquery');
+
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
+
 // assets/js/calendar/index.js
 import { Calendar } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -11,7 +17,6 @@ import "./index.css"; // this will create a calendar.css file reachable to 'enco
 document.addEventListener("DOMContentLoaded", () => {
   let calendarEl = document.getElementById("calendar-holder");
   let { eventsUrl } = calendarEl.dataset;
-          console.log(JSON.stringify({}))
 
   let calendar = new Calendar(calendarEl, {
     locale: frLocale,

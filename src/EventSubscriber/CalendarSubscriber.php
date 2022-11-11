@@ -15,9 +15,10 @@ class CalendarSubscriber implements EventSubscriberInterface
     private $router;
 
     public function __construct(
-        EvenementRepository $eventRepo,
+        EvenementRepository   $eventRepo,
         UrlGeneratorInterface $router
-    ) {
+    )
+    {
         $this->eventRepo = $eventRepo;
         $this->router = $router;
     }
@@ -31,6 +32,7 @@ class CalendarSubscriber implements EventSubscriberInterface
 
     public function onCalendarSetData(CalendarEvent $calendar)
     {
+
         $start = $calendar->getStart();
         $end = $calendar->getEnd();
         $filters = $calendar->getFilters();
@@ -43,24 +45,31 @@ class CalendarSubscriber implements EventSubscriberInterface
             ->getQuery()
             ->getResult();
 
+
         foreach ($events as $event) {
             // this create the events with your data (here booking data) to fill calendar
             $bookingEvent = new Event(
                 $event->getVille()->getNom(),
                 $event->getBeginAt(),
-                $event->getEndAt() // If the end date is null or not defined, a all day event is created.
+                $event->getEndAt() // If the end date is null or not defined, an all day event is created.
             );
 
             $bookingEvent->setOptions([
                 'backgroundColor' => $event->getRubrique()->getColor(),
             ]);
 
+//     CODE ORIGINAL
+//            $bookingEvent->addOption(
+//                'url',
+//                $this->router->generate('app_event_show', [
+//                    'id' => $event->getId(),
+//                ])
+//            );
+
+            // REMPLACÉ PAR :
             $bookingEvent->addOption(
                 'url',
-                $this->router->generate('app_event_show', [
-                    'id' => $event->getId(),
-                ])
-            );
+                '/event/    ' . $event->getSlug() . '/' . $event->getId());
 
             // finally, add the event to the CalendarEvent to fill the calendar
             $calendar->addEvent($bookingEvent);
