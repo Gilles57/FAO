@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AnimationController extends AbstractController
 {
-    #[Route('/animation', name: 'app_animation')]
+    #[Route('/animations', name: 'app_animation')]
     public function index(): Response
     {
         return $this->render('animation/animation.html.twig', [

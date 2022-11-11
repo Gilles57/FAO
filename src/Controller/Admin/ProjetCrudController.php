@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProjetCrudController extends AbstractCrudController
@@ -23,6 +24,7 @@ class ProjetCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('titre'),
+            SlugField::new('slug')->setTargetFieldName('titre')->onlyOnIndex(),
             TextEditorField::new('description'),
             TextField::new('illustrationFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)

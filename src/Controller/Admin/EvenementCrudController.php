@@ -10,7 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -31,7 +31,8 @@ class EvenementCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('titre', "Titre de l'événement"),
-            AssociationField::new('ville', 'Lieu')
+             SlugField::new('slug')->setTargetFieldName('titre')->onlyOnIndex(),
+           AssociationField::new('ville', 'Lieu')
                 ->autocomplete(),
             AssociationField::new('rubrique'),
             BooleanField::new('preferred', 'Ville actuelle'),

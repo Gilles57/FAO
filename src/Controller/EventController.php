@@ -19,7 +19,7 @@ class EventController extends AbstractController
         return $this->render('agenda/agenda.html.twig', compact('events', 'rubriques'));
     }
 
-   #[Route('/event[{id}', name: 'app_event_show')]
+   #[Route('/event/{slug}/{id}', name: 'app_event_show')]
     public function showEvent(EvenementRepository $eventRepo, int $id): Response
     {
         $event = $eventRepo->findOneById($id);

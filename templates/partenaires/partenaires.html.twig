@@ -10,7 +10,7 @@
 {#                <div class="card-body">#}
 {#                    <p class="card-text">{{ partenaire.entreprise }}</p>#}
 {#                </div>#}
-                <a href="{{ path('app_partenaire_show', {'id' : partenaire.id}) }}"
+                <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
                        class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
                                                 style="width: 200px; height: 200px; "
                                                 alt="Logo de {{ partenaire.entreprise }} "></a>

@@ -83,11 +83,11 @@ sf-log: ## Show symfony logs.
 .PHONY: sf-log
 
 sf-dc: ## Create symfony database.
-	$(SYMFONY_CONSOLE) doctrine:database:create --if-not-exists
+	$(SYMFONY_CONSOLE) doctrine:database:create
 .PHONY: sf-dc
 
 sf-dd: ## Drop symfony database.
-	$(SYMFONY_CONSOLE) doctrine:database:drop --if-exists --force
+	$(SYMFONY_CONSOLE) doctrine:database:drop  --force
 .PHONY: sf-dd
 
 sf-mm: ## Make migrations.
@@ -259,7 +259,7 @@ reset-db: ## Reset database.
 		$(MAKE) sf-dc; \
 		$(MAKE) sf-mm; \
 		$(MAKE) sf-dmm; \
-		$(MAKE) sf-dfl; \
+		$(MAKE) sf-fixtures; \
 	fi
 .PHONY: reset-db
 #---------------------------------------------#

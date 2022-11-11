@@ -15,7 +15,7 @@ class BlogController extends AbstractController
     {
     }
 
-    #[Route('/blog', name: 'app_blog')]
+    #[Route('/souvenirs', name: 'app_blog')]
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $query = $this->postRepo->getAll();
@@ -30,10 +30,10 @@ class BlogController extends AbstractController
         return $this->render('blog/blog.html.twig', compact('posts'));
     }
 
-    #[Route('/blog/show/{id}', name: 'app_blog_show')]
-    public function show($id, PostRepository $postRepo): Response
+    #[Route('/blog/souvenirs/{slug}', name: 'app_blog_show')]
+    public function show($slug, PostRepository $postRepo): Response
     {
-        $post = $postRepo->find( $id);
+        $post = $postRepo->findOneBySlug( $slug);
 //        dd($post);
         return $this->render('blog/blog_show.html.twig', compact('post'));
     }

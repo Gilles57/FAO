@@ -6,7 +6,8 @@
         {% for projet in projets %}
             <div class="col-lg-6 ">
                 <div class="card mb-3 text-bg-secondary " style="height: 330px;">
-                    <div class="row g-0  effet" style="display: none;">
+{#                    <div class="row g-0  effet" style="display: none;">#}
+                    <div class="row g-0  effet" >
                         <div class="col-lg-4 p-lg-3 ">
                             <img src="{{ 'uploads/illustrations/'~projet.illustrationName }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
@@ -45,7 +46,7 @@
     </div> {# tél #}
 {% endblock %}
 
-{% block javascripts %}
-   {{ parent() }}
-   {{ encore_entry_script_tags('custom') }}
-{% endblock javascripts %}
+{#{% block javascripts %}#}
+{#   {{ parent() }}#}
+{#   {{ encore_entry_script_tags('custom') }}#}
+{#{% endblock javascripts %}#}

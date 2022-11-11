@@ -17,10 +17,10 @@ class PartenairesController extends AbstractController
         return $this->render('partenaires/partenaires.html.twig', compact('partenaires'));
     }
 
-    #[Route('/partenaires/show/{id}', name: 'app_partenaire_show')]
-    public function show($id, PartenaireRepository $partenaireRepository): Response
+    #[Route('/partenaires/{slug}', name: 'app_partenaire_show')]
+    public function show($slug, PartenaireRepository $partenaireRepository): Response
     {
-        $partenaire = $partenaireRepository->findOneById($id);
+        $partenaire = $partenaireRepository->findOneBySlug($slug);
 
         return $this->render('partenaires/partenaire_show.html.twig', compact('partenaire'));
     }

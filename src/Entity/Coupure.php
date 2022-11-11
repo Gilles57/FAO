@@ -8,10 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
-use App\Repository\PostRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\DBAL\Types\Types;
 
 
 #[ORM\Entity(repositoryClass: CoupureRepository::class)]
@@ -34,6 +32,26 @@ class Coupure
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $coupureName = null;
+
+    #[ORM\Column(length: 128, unique: true)]
+    #[Gedmo\Slug(fields: ['reference','publishedAt'], updatable: false, style: 'lower', dateFormat: 'Y/m/d')]
+    private ?string $slug = null;
+
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
+    }
 
     #[Assert\Image(
         maxSize: '2M',

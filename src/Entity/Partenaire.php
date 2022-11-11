@@ -4,11 +4,11 @@ namespace App\Entity;
 
 use App\Entity\Traits\Timestampable;
 use App\Repository\PartenaireRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PartenaireRepository::class)]
 #[Vich\Uploadable]
@@ -51,6 +51,26 @@ class Partenaire
 
     #[ORM\Column(length: 255)]
     private ?string $logoName = null;
+
+    #[ORM\Column(length: 128, unique: true)]
+    #[Gedmo\Slug(fields: ['entreprise'], updatable: false, style: 'lower')]
+    private ?string $slug = null;
+
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
+    }
 
     #[Assert\Image(
         maxSize: '1M',

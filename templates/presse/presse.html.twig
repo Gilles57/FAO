@@ -12,7 +12,7 @@
                             <div class="p-2 small">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
                         </div>
                     </div>
-                    <a href="{{ path('app_presse_show', {'id' : coupure.id}) }}"
+                    <a href="{{ path('app_presse_show', {'slug': coupure.slug}) }}"
                        class="text-center m-2"><img src="{{ coupure.coupureName }}"
                                                 style="width: 200px; height: 200px; "
                                                 alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('full', locale='fr') }}"></a>

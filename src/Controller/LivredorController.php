@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LivredorController extends AbstractController
 {
-    #[Route('/livredor/index/{rubrique}', name: 'app_livre_index')]
+    #[Route('/livredor/{rubrique}', name: 'app_livre_index')]
     public function index(CommentaireRepository $commentaireRepository, string $rubrique): Response
     {
         $commentaires = $commentaireRepository->findByRubriqueField($rubrique);

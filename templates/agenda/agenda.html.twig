@@ -24,7 +24,7 @@
                     {% for event in events %}
                         <div class="p-1 mt-1 mb-2"
                              style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                            <a href="{{ path('app_event_show' , {'id' : event.id}) }}" class="btn text-left">
+                            <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}" class="btn text-left">
                                 {% set formatted_date = "" %}
                                 {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
                                     {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
@@ -70,7 +70,7 @@
                 {% for event in events %}
                     <li class="p-1 m-1 mb-2 "
                         style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                        <a href="{{ path('app_event_show' , {'id' : event.id}) }}" class="btn text-left">
+                        <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}" class="btn text-left">
                             {% set formatted_date = "" %}
                             {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
                                 {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}

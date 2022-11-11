@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[Vich\Uploadable]
@@ -33,7 +34,8 @@ class Post
     #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTime $publishedAt = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 128, unique: true)]
+    #[Gedmo\Slug(fields: ['titre'], updatable: false, style: 'lower')]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
