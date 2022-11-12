@@ -11,19 +11,16 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CalendarSubscriber implements EventSubscriberInterface
 {
-    private $eventRepo;
-    private $router;
+    private EvenementRepository $eventRepo;
 
     public function __construct(
         EvenementRepository   $eventRepo,
-        UrlGeneratorInterface $router
     )
     {
         $this->eventRepo = $eventRepo;
-        $this->router = $router;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             CalendarEvents::SET_DATA => 'onCalendarSetData',
@@ -56,6 +53,11 @@ class CalendarSubscriber implements EventSubscriberInterface
 
             $bookingEvent->setOptions([
                 'backgroundColor' => $event->getRubrique()->getColor(),
+                'borderColor' => $event->getRubrique()->getColor(),
+                'textColor' => '#754517',
+                'title' => $event->getTitre(),
+                'display' =>'block',
+                'displayEventTime' => false,
             ]);
 
 //     CODE ORIGINAL

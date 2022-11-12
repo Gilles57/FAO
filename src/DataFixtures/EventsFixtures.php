@@ -50,7 +50,7 @@ class EventsFixtures extends Fixture implements DependentFixtureInterface
             $event->setTitre($faker->sentence);
             $event->setDescription($faker->paragraphs(asText: true));
             $event->setPreferred(False);
-            $event->setBeginAt($faker->dateTimeThisMonth);
+            $event->setBeginAt($faker->dateTimeInInterval($date = '-60 days', $interval = '+5 days', $timezone = null));
             $event->setEndAt(clone $event->getBeginAt());
             $event->setEndAt(date_add($event->getEndAt(), date_interval_create_from_date_string($interval)));
             ;

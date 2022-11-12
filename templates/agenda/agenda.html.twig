@@ -20,11 +20,20 @@
                                                    style="background-color: {{ rubrique.color }}; color: var(--bs-body-color);">{{ rubrique.nom }}</span>
                     </div>
                 {% endfor %}
+                <hr>
+                {% if events is empty %}
+                    <p class="text-center">Il n'y a aucun événement de programmé prochainement</p>
+                    <p class="text-center"><img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
+                                                   width='200'
+                                                   height='230' alt="Logo FAO Travel"
+                                                class="text-center"></p>
+                {% else %}
                 <div>
                     {% for event in events %}
                         <div class="p-1 mt-1 mb-2"
                              style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                            <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}" class="btn text-left">
+                            <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"
+                               class="btn text-left">
                                 {% set formatted_date = "" %}
                                 {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
                                     {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
@@ -54,6 +63,7 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>{# ordi #}
@@ -70,7 +80,8 @@
                 {% for event in events %}
                     <li class="p-1 m-1 mb-2 "
                         style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                        <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}" class="btn text-left">
+                        <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"
+                           class="btn text-left">
                             {% set formatted_date = "" %}
                             {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
                                 {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
@@ -117,6 +128,6 @@
         {{ parent() }}
         {{ encore_entry_script_tags('calendar') }}
         <script>
-            $('#calendar').fullCalendar('option', 'height', 700);
+            $('#calendar').fullCalendar();
         </script>
     {% endblock %}
