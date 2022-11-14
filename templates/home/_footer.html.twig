@@ -1,55 +1,44 @@
 <div class="row bg-dark mt-3  p-2 text-secondary pied">
-    <div class="row d-none d-lg-flex"> {# ordi #}
-        <div class="col-4">
-            <div>
-                <p class="fs-5 fw-bold">Contacts :</p>
-                <p class="">
-                    <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}"
-                       style="color: #D77739 !important;">Me contacter <i
-                                class="fa fa-envelope-o"></i>
-                    </a></p>
-                <br>
-                <p><a href="{{ path('app_mentions_legales') }}" class="text-decoration-none mentions">Mentions légales</a></p>
-            </div>
+    <div class="row d-sm-flex"> {# ordi #}
+        <div class="col-sm-4">
+            <p class="fs-5 fw-bold d-sm-block d-none">Contacts :</p>
+            <p class="">
+                <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}"
+                   style="color: #D77739 !important;">Me contacter <i
+                            class="fa fa-envelope-o"></i>
+                </a></p>
+            <br>
         </div>
 
-        <div class="col-4">
-            <div>
-                <p class="fs-5 fw-bold">Sur les réseaux sociaux :</p>
-                <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
-                    <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
-                    <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
-                    <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
-            </div>
+        <div class="col-sm-4">
+            <p class="fs-5 fw-bold d-sm-block d-none">Sur les réseaux sociaux :</p>
+            <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
+                <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
+                <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
+                <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
         </div>
 
-        <div class="col-4">
-            <div>
-                <p class="fs-5 fw-bold">Partenaires :</p>
-                <p class="text-secondary pied">
-                    {% for partenaire in partenaires %}
-                        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
-                           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
-                                    class="fw-bold"> {{ partenaire.entreprise | upper}}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
-                        <br>
-                    {% endfor %}
-                </p>
-            </div>
+        <div class="col-sm-4 d-sm-block d-none">
+            <p class="fs-5 fw-bold d-sm-block d-none">Partenaires :</p>
+            <p class="text-secondary pied">
+                {% for partenaire in partenaires %}
+                    <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+                       style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                                class="fw-bold"> {{ partenaire.entreprise | upper }}</span></a> - {{ partenaire.codepostal }} {{ partenaire.ville | upper }}
+                    <br>
+                {% endfor %}
+            </p>
         </div>
-    </div>{# ordi #}
-
-    <div class="row d-lg-none text-center"> {# tél #}
-        <p class=""><a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}">Me contacter <i
-                        class="fa fa-envelope-o"></i> </a></p>
     </div>
 
-    <div class="d-lg-none">
-        <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
-            <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
-            <span class="fw-bold">Instagram : </span>{{ instagram }}<br>
-            <span class="fw-bold">Tik tok : </span>{{ tiktok }}</p>
-    </div> {# tél #}
+    <p class="col-12 text-center">
+        <a href="{{ path('app_mentions_legales') }}"
+           class="text-decoration-none mentions">
+            Mentions légales
+        </a>
+    </p>
 
     <hr>
+
     {% include 'home/_copyright.html.twig' %}
 </div>
