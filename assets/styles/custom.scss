@@ -27,9 +27,11 @@ $font-family-monospace: 'Libre Bodoni', serif;
 body {
     color: #754517;
 }
-.gras{
+
+.gras {
     font-weight: bold;
 }
+
 .bg-image {
     background-size: contain;
     background-position: center;
@@ -41,4 +43,22 @@ body {
     font-size: 12px !important;
     color: $secondary !important;
     padding-bottom: 1rem !important;
+}
+
+.titre {
+    font-size: 7vw;
+}
+
+
+@media (max-width: 576px) {
+    .banniere{
+        display: flex;
+        align-items: center;
+    }
+    .titre {
+        font-size: 6vw;
+    }
+    h3 {
+        font-size: 4vw !important;
+    }
 }

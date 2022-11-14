@@ -1,22 +1,25 @@
 {% include 'home/_locker.html.twig' %}
-<div class="row">{# ordi #}
-    <div class="row d-none d-lg-flex">
+    <div class="banniere row ">
 
-        <div class="col-md-2 offset-md-1 text-center mt-3">
-            <a href="{{ path('app_home') }}"> <img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
+        <div class="col-4 offset-1 col-md-2 offset-md-1 text-center mt-3">
+            <a href="{{ path('app_home') }}">
+                <img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
                                                    width='200'
-                                                   height='230' alt="Logo FAO Travel"></a>
+                                                   height='230' alt="Logo FAO Travel">
+            </a>
         </div>
-        <div class="col-md-9  mt-2">
-            <h1 class="text-center" style="font-family: font-family-serif,serif;  font-size: 7vw;">FAO TRAVEL</h1>
+        <div class="align-content-center col-6 col-md-9  mt-2">
+            <h1 class="titre text-center" style="font-family: font-family-serif,serif;  ">FAO TRAVEL</h1>
 
             <h3 class="text-center ">Musique, Animation</h3>
             <h3 class="text-center">& Bien-être</h3>
         </div>
+        <hr class="col-12 d-sm-none">
     </div>
-</div>{# ordi #}
 
-<div>{# tél #}
+
+
+{#<div>#}{# tél #}{#
     <div class="row d-lg-none text-center">
 
         <div class="col-4 offset-1  text-center mt-3">
@@ -24,7 +27,7 @@
                                                    height='130px' alt="Logo FAO Travel"></a>
         </div>
         <div class="col-7  mt-3 align-self-center">
-            <h1 class="text-center" style="font-family: font-family-serif,serif;  font-size: 8vw;">FAO
+            <h1 class="titre text-center" style="font-family: font-family-serif,serif;  font-size: 8vw;">FAO
                 TRAVEL</h1>
 
             <p class="text-center">Musique, Animation<br>
@@ -32,4 +35,4 @@
         </div>
         <hr>
     </div>
-</div>{# tél #}
+</div>#}{# tél #}
