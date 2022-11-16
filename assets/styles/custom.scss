@@ -48,17 +48,28 @@ $font-family-monospace: 'Libre Bodoni', serif;
 
 
 @media (max-width: 576px) {
-    .banniere{
+    .banniere {
         display: flex;
         align-items: center;
     }
     .titre {
         font-size: 6vw;
     }
+    h1 {
+        font-size: 5vw !important;
+    }
     h3, h4 {
         font-size: 4vw !important;
     }
-    .accueil{
+    .accueil {
+        font-size: 3vw !important;
+    }
+    .telephone {
+        font-size: 3vw !important;
+        width: 100%;
+    }
+
+    .navigation {
         font-size: 3vw !important;
     }
 }

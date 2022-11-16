@@ -3,65 +3,37 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-    <div> {# ordi #}
-        <div class="row d-none d-lg-flex ">
+    <div class="row  d-sm-flex ">
 
-            {% for post in posts %}
-                <div class="row ">
-                    <div class="col-3">
-                        <a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"><img class="img-thumbnail slidable"
-                                                                                      style="display: none"
-                                                                                      src="{{ asset('uploads/photos/'~post.mediaName) }}"
-                                                                                      alt="{{ 'uploads/photos/'~post.mediaName }}"></a>
-                    </div>
-
-                    <div class="col-9">
-                        <h1><a href="{{ path('app_blog_show' , { 'slug': post.slug}) }}"
-                               class="text-decoration-none">{{ post.titre }}</a></h1>
-                        <p class="fst-italic" style="opacity: 80%">Publié le
-                            : {{ post.publishedAt | date('d-m-Y') }}</p>
-                        <div style="text-align: justify;">
-                            {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
-                        </div>
-                        <div style="text-align: right;"><a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"
-                                                           class="btn ">Lire la suite...</a></div>
-                        <br>
-                    </div>
-                    <hr class="text-secondary">
-                </div>
-            {% endfor %}
-        </div>
-    </div> {# ordi #}
-
-    <div> {# tél #}
-    <div class="row d-lg-none p-1">
-        <h1 class="bg-secondary text-center">Souvenirs</h1>
         {% for post in posts %}
-            <div class="row">
-                <div class="col-5">
-                    <img class="img-thumbnail slidable" style="display: none"
-                         src="{{ asset('uploads/medias/'~'uploads/medias/'~post.mediaName) }}"
-                         alt="{{ 'uploads/medias/'~post.mediaName }}">
+            <div class="row ">
+                <div class="col-5 col-sm-2">
+                    <a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"><img class="img-thumbnail slidable"
+                                                                                     style="display: none"
+                                                                                     src="{{ asset('uploads/photos/'~post.mediaName) }}"
+                                                                                     alt="{{ 'uploads/photos/'~post.mediaName }}"></a>
                 </div>
-                <div class="col-7">
-                    <h4 class="text-center">{{ post.titre | u.truncate(30, '...', true ) }}</h4>
-                    <p class="text-center  fst-italic" style="opacity: 80%">Publié le
+
+                <div class="col-7 col-sm-10 post">
+                    <h1 class="h1 "><a href="{{ path('app_blog_show' , { 'slug': post.slug}) }}"
+                                       class="text-decoration-none">{{ post.titre }}</a></h1>
+                    <p class="fst-italic telephone" style="opacity: 80%">Publié le
                         : {{ post.publishedAt | date('d-m-Y') }}</p>
+
                 </div>
-            </div> {# En-tête du post #}
-            <div class="row mb-0">
-                <div style=" text-align: justify;">
-                    {{ post.contenu | striptags | u.truncate(150, '...', false ) }}
+                <div class="telephone" style="text-align: justify;">
+                    {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
                 </div>
-                <a style=" text-align: right;" href="{{ path('app_blog_show' , { 'slug': post.slug}) }}"
-                   class="btn text-left p-0">Lire la
-                    suite...</a>
-            </div> {# Contenu du post #}
-            <hr class="text-secondary">
+                <div style="text-align: right;"><a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"
+                                                   class="btn btn-outline-primary btn-sm my-1">Lire la suite...</a></div>
+                <br>
+                <hr class="text-secondary">
+            </div>
         {% endfor %}
     </div>
-    </div>{# tél #}
-    <div class="row text-center m-auto">
+
+
+    <div class="row text-center m-auto ">
         <div class="navigation ">
             {{ knp_pagination_render(posts) }}
         </div>
@@ -70,6 +42,6 @@
 {% endblock %}
 
 {% block javascripts %}
-   {{ parent() }}
-   {{ encore_entry_script_tags('custom') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('custom') }}
 {% endblock javascripts %}
