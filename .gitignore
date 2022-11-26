@@ -25,3 +25,6 @@ yarn-error.log
 
 /public/images/
 /public/uploads/
+
+.DS_Store
+*/.DS_Store
