@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ partenaire.entreprise }} - FAO TRAVEL !{% endblock %}
+
 {% block body %}
+    {% if is_mobile() %}
+    {% else %}
+    {% endif %}
+
     <div class="row d-none d-lg-flex"> {# ordi #}
     <div class="col-lg-2">
         <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}" alt="Logo de {{ partenaire.logoName }} ">

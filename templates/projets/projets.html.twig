@@ -2,19 +2,23 @@
 
 {% block title %}Projets - FAO TRAVEL !{% endblock %}
 {% block body %}
+    {% if is_mobile() %}
+    {% else %}
+    {% endif %}
     <div class="row d-none d-lg-flex "> {# ordi #}
         {% for projet in projets %}
             <div class="col-lg-6 ">
                 <div class="card mb-3 text-bg-secondary " style="height: 330px;">
-{#                    <div class="row g-0  effet" style="display: none;">#}
-                    <div class="row g-0  effet" >
+                    {#                    <div class="row g-0  effet" style="display: none;"> #}
+                    <div class="row g-0  effet">
                         <div class="col-lg-4 p-lg-3 ">
-                            <img src="{{ 'uploads/illustrations/'~projet.illustrationName }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
+                            <img src="{{ 'uploads/illustrations/'~projet.illustrationName }}"
+                                 class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
                         <div class="col-lg-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{ projet.titre }}</h5>
-                                <p class="card-text"  style="font-size: smaller">{{ projet.description }}</p>
+                                <p class="card-text" style="font-size: smaller">{{ projet.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -31,7 +35,8 @@
                 <div class="card mb-3 text-bg-secondary">
                     <div class="row g-0 ">
                         <div class="p-lg-3 text-center">
-                            <img src="{{ 'uploads/illustrations/'~projet.illustrationName }}" class="img-fluid rounded-start " alt="{{ projet.titre }}">
+                            <img src="{{ 'uploads/illustrations/'~projet.illustrationName }}"
+                                 class="img-fluid rounded-start " alt="{{ projet.titre }}">
                         </div>
                         <div>
                             <div class="card-body">
@@ -46,7 +51,7 @@
     </div> {# tél #}
 {% endblock %}
 
-{#{% block javascripts %}#}
-{#   {{ parent() }}#}
-{#   {{ encore_entry_script_tags('custom') }}#}
-{#{% endblock javascripts %}#}
+{# {% block javascripts %} #}
+{#   {{ parent() }} #}
+{#   {{ encore_entry_script_tags('custom') }} #}
+{# {% endblock javascripts %} #}
