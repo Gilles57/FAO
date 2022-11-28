@@ -3,51 +3,55 @@
 {% block title %} {{ partenaire.entreprise }} - FAO TRAVEL !{% endblock %}
 
 {% block body %}
-    {% if is_mobile() %}
-    {% else %}
-    {% endif %}
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center  p-1">{{ partenaire.entreprise }}</h1>
+            </div>
 
-    <div class="row d-none d-lg-flex"> {# ordi #}
-    <div class="col-lg-2">
-        <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}" alt="Logo de {{ partenaire.logoName }} ">
-    </div>
-    <div class="col-lg-10">
-        <h3>{{ partenaire.entreprise }}</h3>
+            <div class="row">
+                <div class="col-6">
+                    <img class="rounded img-thumbnail border-0" src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
+                         alt="Logo de {{ partenaire.logoName }} ">
+                </div>
+                <div class="col-6">
+                    <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
+                        {{ partenaire.adresse }}<br>
+                        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
+                        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+                           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                                    class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
+                </div>
+            </div>
 
-        <p style="text-align: justify">{{ partenaire.description | raw }}</p>
-        <hr>
-        <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
-        {{ partenaire.adresse }}<br>
-        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
-        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
-           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
-                    class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
-    </div>
-    </div>{# ordi #}
+            <div class="row">
+                <p style="text-align: justify">{{ partenaire.description | raw }}</p>
+            </div>
+        {% else %}
 
-    <div class="row d-lg-none text-center" style="background-color: #94a3b8"> {# tél #}
-        <hr>
+            <div class="row d-lg-flex">
+                <div class="col-lg-2">
+                    <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
+                         alt="Logo de {{ partenaire.logoName }} ">
+                </div>
+                <div class="col-lg-10">
+                    <h3>{{ partenaire.entreprise }}</h3>
+
+                    <p style="text-align: justify">{{ partenaire.description | raw }}</p>
+                    <hr>
+                    <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
+                        {{ partenaire.adresse }}<br>
+                        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
+                        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
+                           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
+                                    class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
+                </div>
+            </div>
+        {% endif %}
+
         <div class="row">
-            <div class="col-4 align-self-center">
-                <img class="rounded img-thumbnail" src="{{ asset('uploads/logos/'~partenaire.logoName) }}" alt="Logo de {{ partenaire.logoName }} ">
-            </div>
-            <div class="col-8">
-                <h3>{{ partenaire.entreprise }}</h3>
-                <p><span class="fw-bold">{{ partenaire.nom }}</span><br>
-        {{ partenaire.adresse }}<br>
-        {{ partenaire.codepostal }} {{ partenaire.ville | upper }}<br>
-        <a href="{{ partenaire.site }}" target="_blank" class="text-decoration-none"
-           style="color: #D77739 !important;"><i class="fa fa-solid fa-globe"></i><span
-                    class="fw-bold"> {{ partenaire.entreprise }}</span></a></p>
-        <hr>
-            </div>
+            <a href="{{ path('app_partenaires') }}" class="btn btn-success mt-3 ">Retour aux partenaires</a>
         </div>
-        <div  style="text-align: justify">{{ partenaire.description | raw }}</div>
-
-    </div> {# tél #}
-
-    <div class="row">
-        <a href="{{ path('app_partenaires') }}" class="btn btn-success mt-3 ">Retour aux partenaires</a>
     </div>
 
 {% endblock %}

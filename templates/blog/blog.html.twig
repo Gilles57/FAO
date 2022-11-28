@@ -3,9 +3,11 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
+    <div class="container">
+
     {% if is_mobile() %}
-        <div class="row p-1">
-            <h1 class="bg-secondary text-center">Souvenirs</h1>
+        <div class="row">
+            <h1 class="bg-secondary text-center p-1">Souvenirs</h1>
         </div>
         {% for post in posts %}
             <div class="row flex-row ">
@@ -24,12 +26,12 @@
                 </div>
             </div>
             <div class="row">
-                    <div style="text-align: justify;">
-                        <p class="pb-0 mb-0 telephone"> {{ post.contenu | striptags | u.truncate(200, '...', false ) }}
-                        </p>
-                    </div>
+                <div style="text-align: justify;">
+                    <p class="pb-0 mb-0 telephone"> {{ post.contenu | striptags | u.truncate(200, '...', false ) }}
+                    </p>
+                </div>
                 <div class="mt-0" style="text-align: right;"><a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"
-                                                   class="btn btn-outline-primary btn-sm my-1">Lire la
+                                                                class="btn btn-outline-primary btn-sm my-1">Lire la
                         suite...</a>
                 </div>
                 <br>

@@ -1,30 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="row">
-{#{{ dump(event) }}#}
-        <div class="col-md-3  ">
-            {% if event.imageName is not null %}
-                <img class="img-thumbnail" src="{{ asset('uploads/images/'~event.imageName) }}" alt="{{ event.imageName }}">
-            {% endif %}
-        </div>
-        <div class="col-md-9 ">
-            {% set formatted_date = "" %}
-            {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') or event.endAt is null%}
-                {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
-            {% else %}
-                {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
-            {% endif %}
-            <h1>{{ event.titre }} </h1>
-            <h4></h4>
-            <p style="background-color: {{ event.rubrique.color }};">{{ event.rubrique.nom }}</p>
-            <div><span  class="fw-bold">{{ event.ville.nom }} :</span> {{ formatted_date }}</div>
-            <hr>
-            <div>{{ event.description | raw}}</div>
-
-        </div>
-            <div class="row">
-                <a href="{{ path('app_agenda') }}" class="btn btn-success mt-3 ">Retour au calendrier</a>
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center p-1">{{ event.titre }}</h1>
+                <div  class="mb-2">
+                    {% if event.imageName is not null %}
+                        <img class="img-thumbnail" src="{{ asset('uploads/images/'~event.imageName) }}"
+                             alt="{{ event.imageName }}">
+                    {% endif %}
+                </div>
+                <div>
+                    {% set formatted_date = "" %}
+                    {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') or event.endAt is null %}
+                        {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
+                    {% else %}
+                        {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
+                    {% endif %}
+                    <p style="background-color: {{ event.rubrique.color }};">{{ event.rubrique.nom }}</p>
+                    <div><span class="fw-bold">{{ event.ville.nom }} :</span> {{ formatted_date }}</div>
+                    <hr>
+                    <div><p style="text-align: justify">{{ event.description | raw }}</p></div>
+                </div>
             </div>
+        {% else %}
+            <div class="row">
+                <div class="col-md-3  ">
+                    {% if event.imageName is not null %}
+                        <img class="img-thumbnail" src="{{ asset('uploads/images/'~event.imageName) }}"
+                             alt="{{ event.imageName }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-9 ">
+                    {% set formatted_date = "" %}
+                    {% if  event.beginAt |  date('d-m-Y') == event.endAt | date('d-m-Y') or event.endAt is null %}
+                        {% set formatted_date = "le "~event.beginAt | date('d-m-Y') %}
+                    {% else %}
+                        {% set formatted_date = "du "~event.beginAt | date('d-m-Y')~" au "~event.endAt | date('d-m-Y') %}
+                    {% endif %}
+                    <h1>{{ event.titre }} </h1>
+                    <h4></h4>
+                    <p style="background-color: {{ event.rubrique.color }};">{{ event.rubrique.nom }}</p>
+                    <div><span class="fw-bold">{{ event.ville.nom }} :</span> {{ formatted_date }}</div>
+                    <hr>
+                    <div>{{ event.description | raw }}</div>
+
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <a href="{{ path('app_agenda') }}" class="btn btn-success mt-3 ">Retour au calendrier</a>
+        </div>
     </div>
 {% endblock %}

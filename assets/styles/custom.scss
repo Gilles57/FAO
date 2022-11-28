@@ -47,6 +47,7 @@ $font-size-base: .9rem;
 }
 
 
+
 @media (max-width: 576px) {
     .banniere {
         display: flex;
@@ -64,5 +65,9 @@ $font-size-base: .9rem;
 
     p, li {
         font-size: 4vw !important;
+    }
+
+    p.livre{
+        font-size: 8vw !important;
     }
 }

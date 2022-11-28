@@ -19,39 +19,63 @@
 
 {% block title %}Livre d'or - FAO TRAVEL !{% endblock %}
 {% block body %}
-    {% if commentaires is empty %}
-        {% if titre == 'inconnu' %}
-            <div style="height: 400px">
-                <div class="h1 bg-warning text-center">Ce livre n'existe pas !</div>
+    <div class="container">
+
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center  p-1">Livre d'or</h1>
             </div>
-        {% else %}
-            <div style="height: 400px">
-                <div class="h1 bg-warning text-center">Il n'y a pas de commentaires dans cette catégorie !</div>
+            <div class="text-center mb-3">
+                <span class="badge badge-pill text-center bg-secondary">
+                <a href="{{ path('app_livre_index', {rubrique:'Relaxation'}) }}"
+                   class="text-decoration-none">Relaxation</a>
+                </span>
+                <span class="badge badge-pill text-center bg-secondary">
+                <a href="{{ path('app_livre_index', {rubrique:'Musique et concerts'}) }}"
+                   class="text-decoration-none">Musique et concerts</a>
+                </span>
+                <span class="badge badge-pill text-center bg-secondary">
+                <a href="{{ path('app_livre_index', {rubrique:'Animations'}) }}"
+                   class="text-decoration-none">Animations</a>
+                </span>
             </div>
         {% endif %}
-    {% else %}
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="bg-image" style="background-image: url('/images/livre/livre.png');display:grid;">
-                    <div class=" m-3  text-center">
-                        <div class="card-body">
-                            <p class="card-text ms-3 pt-4"
-                               style="font-family: Balthazar,serif; font-size: 2em; color: yellow; height: 300px;">
-                                Livre d'or<br>• • •<br>{{ titre | raw }}
-                            </p>
+        {% if commentaires is empty %}
+            {% if titre == 'inconnu' %}
+                <div style="height: 400px">
+                    <div class="h1 bg-warning text-center">Ce livre n'existe pas !</div>
+                </div>
+            {% else %}
+                <div style="height: 400px">
+                    <div class="h1 bg-warning text-center">Il n'y a pas de commentaires dans cette catégorie !</div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="bg-image"
+                         style="background-image:url( {{ asset('/images/livre/livre.png') }});
+                                 display:grid;">
+                        <div class=" m-3  text-center">
+                            <div class="card-body">
+                                <p class="livre card-text ms-3 pt-4"
+                                   style="font-family: Balthazar,serif; font-size: 2em; color: yellow; height: 300px;">
+                                    Livre d'or<br>• • •<br>{{ titre | raw }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-9">
-                {% for comment in commentaires %}
-                    <p class="card-text" style="text-align: justify">{{ comment.message }}</p>
-                    <p class="text-end fst-italic fw-bold"> {{ comment.prenom }}
-                        - {% if comment.age != 0 %}{{ comment.age }} ans{% endif %}</p>
-                    <hr>
-                {% endfor %}
+                <div class="col-lg-9">
+                    {% for comment in commentaires %}
+                        <p class="card-text" style="text-align: justify">{{ comment.message }}</p>
+                        <p class="text-end fst-italic fw-bold"> {{ comment.prenom }}
+                            - {% if comment.age != 0 %}{{ comment.age }} ans{% endif %}</p>
+                        <hr>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 {% endblock %}

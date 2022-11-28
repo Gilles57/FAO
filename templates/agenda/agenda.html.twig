@@ -1,126 +1,131 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if is_mobile() %}
-    {% else %}
-    {% endif %}
+    <div class="container">
 
-<div> {# ordi #}
-    <div class="row d-none d-lg-flex ">
-        <div class="row  mx-0" style="min-height: 600px">
-            <div class="col-9 d-block">
-                <div id="calendar-holder"
-                     data-events-url="{{ path('fc_load_events') }}"
-                     style="background-color: #decdbc; max-height: 800px"
-                ></div>
-                <div class="d-block">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center  p-1">Agenda</h1>
+            </div>
+            <div>
+                <div class="row d-lg-none text-center">
+                    <div class="text-center mb-3"> {% for rubrique in rubriques %}
+                            <span class="badge badge-pill text-center"
+                                  style="background-color: {{ rubrique.color }};">{{ rubrique.nom }}</span>
+                        {% endfor %}
+                    </div>
+                    <ul class="small">
+                        {% for event in events %}
+                            <li class="p-1 m-1 mb-2 "
+                                style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
+                                <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"
+                                   class="btn text-left">
+                                    {% set formatted_date = "" %}
+                                    {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
+                                        {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
+                                    {% else %}
+                                        {% set formatted_date = "du "~event.beginAt | date('d-m-y')~" au "~event.endAt | date('d-m-y') %}
+                                    {% endif %}
+                                    <div class="row">
+                                        <div class="col-4">
+                                            {% if event.imageName is not null %}
+                                                <img class="" style="width: 100px;"
+                                                     src="{{ asset('uploads/images/'~event.imageName) }}"
+                                                     alt="{{ event.imageName }}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-8">
+                                            <span class="gras">{{ event.titre }}</span>
+                                            <p class="small mb-0">
+                                                <span class="gras">{{ event.ville.nom }}</span>
+                                                : {{ formatted_date }}
+                                            </p>
+                                        </div>
 
+                                        {% if event.description is not null %}
+                                            <hr class="mt-1" style="margin: 0">
+                                            <div style="text-align: justify">{{ event.description | striptags | u.truncate(150, ' ...  ➼', false ) }}</div>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
+        {% else %}
+        {% endif %}
 
-            <div class="col-3">
-                {% for rubrique in rubriques %}
-                    <div class="text-center"><span class="badge badge-pill text-center"
-                                                   style="background-color: {{ rubrique.color }}; color: var(--bs-body-color);">{{ rubrique.nom }}</span>
+        <div class="row d-none d-lg-flex ">
+            <div class="row  mx-0" style="min-height: 600px">
+                <div class="col-9 d-block">
+                    <div id="calendar-holder"
+                         data-events-url="{{ path('fc_load_events') }}"
+                         style="background-color: #decdbc; max-height: 800px"
+                    ></div>
+                    <div class="d-block">
+
                     </div>
-                {% endfor %}
-                <hr>
-                {% if events is empty %}
-                    <p class="text-center">Il n'y a aucun événement de programmé prochainement</p>
-                    <p class="text-center"><img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
-                                                   width='200'
-                                                   height='230' alt="Logo FAO Travel"
-                                                class="text-center"></p>
-                {% else %}
-                <div>
-                    {% for event in events %}
-                        <div class="p-1 mt-1 mb-2"
-                             style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
-                            <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"
-                               class="btn text-left">
-                                {% set formatted_date = "" %}
-                                {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
-                                    {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
-                                {% else %}
-                                    {% set formatted_date = "du "~event.beginAt | date('d-m-y')~" au "~event.endAt | date('d-m-y') %}
-                                {% endif %}
-                                <div style="color: var(--bs-body-color);">
-                                    <span class="gras  small">{{ event.titre }}</span>
-                                    <p class="small mb-0">
-                                        <span class="gras  small">{{ event.ville.nom }}</span>
-                                        : {{ formatted_date }}
-                                    </p>
-                                    {% if event.imageName is not null %}
-                                        <img class="img-thumbnail"
-                                             src="{{ asset('uploads/images/'~event.imageName) }}"
-                                             alt="{{ event.imageName }}">
-                                    {% endif %}
+                </div>
 
-                                    {% if event.description is not null %}
-                                        <hr style="margin: 0">
-                                        <div class="small" style="text-align: justify">
-                                            {{ event.description  | u.truncate(50, ' ...  ➼', false ) }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </a>
+                <div class="col-3">
+                    {% for rubrique in rubriques %}
+                        <div class="text-center"><span class="badge badge-pill text-center"
+                                                       style="background-color: {{ rubrique.color }}; color: var(--bs-body-color);">{{ rubrique.nom }}</span>
                         </div>
                     {% endfor %}
+                    <hr>
+                    {% if events is empty %}
+                        <p class="text-center">Il n'y a aucun événement de programmé prochainement</p>
+                        <p class="text-center"><img class="img-fluid" src="{{ asset('images/logos/logo2.png') }}"
+                                                    width='200'
+                                                    height='230' alt="Logo FAO Travel"
+                                                    class="text-center"></p>
+                    {% else %}
+                        <div>
+                            {% for event in events %}
+                                <div class="p-1 mt-1 mb-2"
+                                     style="background-color: {{ event.rubrique.color }}; list-style-type: none;">
+                                    <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"
+                                       class="btn text-left">
+                                        {% set formatted_date = "" %}
+                                        {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}
+                                            {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}
+                                        {% else %}
+                                            {% set formatted_date = "du "~event.beginAt | date('d-m-y')~" au "~event.endAt | date('d-m-y') %}
+                                        {% endif %}
+                                        <div style="color: var(--bs-body-color);">
+                                            <span class="gras  small">{{ event.titre }}</span>
+                                            <p class="small mb-0">
+                                                <span class="gras  small">{{ event.ville.nom }}</span>
+                                                : {{ formatted_date }}
+                                            </p>
+                                            {% if event.imageName is not null %}
+                                                <img class="img-thumbnail"
+                                                     src="{{ asset('uploads/images/'~event.imageName) }}"
+                                                     alt="{{ event.imageName }}">
+                                            {% endif %}
+
+                                            {% if event.description is not null %}
+                                                <hr style="margin: 0">
+                                                <div class="small" style="text-align: justify">
+                                                    {{ event.description  | u.truncate(50, ' ...  ➼', false ) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
         </div>
-    </div>{# ordi #}
 
-{#    <div> #}{# tél #}
-{#        <div class="row d-lg-none text-center">#}
-{#            <h1>Agenda</h1>#}
-{#            <div class="text-center mb-3"> {% for rubrique in rubriques %}#}
-{#                    <span class="badge badge-pill text-center"#}
-{#                          style="background-color: {{ rubrique.color }};">{{ rubrique.nom }}</span>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#            <ul class="small">#}
-{#                {% for event in events %}#}
-{#                    <li class="p-1 m-1 mb-2 "#}
-{#                        style="background-color: {{ event.rubrique.color }}; list-style-type: none;">#}
-{#                        <a href="{{ path('app_event_show' , {'id' : event.id, 'slug': event.slug}) }}"#}
-{#                           class="btn text-left">#}
-{#                            {% set formatted_date = "" %}#}
-{#                            {% if  event.beginAt |  date('d-m-y') == event.endAt | date('d-m-y') %}#}
-{#                                {% set formatted_date = "le "~event.beginAt | date('d-m-y') %}#}
-{#                            {% else %}#}
-{#                                {% set formatted_date = "du "~event.beginAt | date('d-m-y')~" au "~event.endAt | date('d-m-y') %}#}
-{#                            {% endif %}#}
-{#                            <div class="row">#}
-{#                                <div class="col-4">#}
-{#                                    {% if event.imageName is not null %}#}
-{#                                        <img class="" style="width: 100px;"#}
-{#                                             src="{{ asset('uploads/images/'~event.imageName) }}"#}
-{#                                             alt="{{ event.imageName }}">#}
-{#                                    {% endif %}#}
-{#                                </div>#}
-{#                                <div class="col-8">#}
-{#                                    <span class="gras">{{ event.titre }}</span>#}
-{#                                    <p class="small mb-0">#}
-{#                                        <span class="gras">{{ event.ville.nom }}</span>#}
-{#                                        : {{ formatted_date }}#}
-{#                                    </p>#}
-{#                                </div>#}
 
-{#                                {% if event.description is not null %}#}
-{#                                    <hr class="mt-1" style="margin: 0">#}
-{#                                    <div style="text-align: justify">{{ event.description | striptags | u.truncate(150, ' ...  ➼', false ) }}</div>#}
-{#                                {% endif %}#}
-{#                            </div>#}
-{#                        </a>#}
-{#                    </li>#}
-{#                {% endfor %}#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}{# tél #}
+    </div>
 
-    {% endblock %}
+{% endblock %}
 
 
     {% block stylesheets %}

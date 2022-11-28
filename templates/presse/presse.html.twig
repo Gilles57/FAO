@@ -2,23 +2,30 @@
 
 {% block title %}Presse - FAO TRAVEL !{% endblock %}
 {% block body %}
-    <div class="row">
-        {% for coupure in coupures %}
-            <div class="col-lg-4">
-                <div class="card m-3  bg-secondary">
-                    <div class="card-body bg-dark">
-                        <div class="d-flex justify-content-between card-text text-light">
-                            <div class="p-2 small">{{ coupure.reference }}</div>
-                            <div class="p-2 small">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
-                        </div>
-                    </div>
-                    <a href="{{ path('app_presse_show', {'slug': coupure.slug}) }}"
-                       class="text-center m-2"><img src="{{ coupure.coupureName }}"
-                                                style="width: 200px; height: 200px; "
-                                                alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('full', locale='fr') }}"></a>
-                </div>
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center  p-1">Presse</h1>
             </div>
-        {% endfor %}
+        {% endif %}
+        <div class="row">
+            {% for coupure in coupures %}
+                <div class="col-lg-4">
+                    <div class="card m-3  bg-secondary">
+                        <div class="card-body bg-dark">
+                            <div class="d-flex justify-content-between card-text text-light">
+                                <div class="p-2 small">{{ coupure.reference }}</div>
+                                <div class="p-2 small">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
+                            </div>
+                        </div>
+                        <a href="{{ path('app_presse_show', {'slug': coupure.slug}) }}"
+                           class="text-center m-2"><img src="{{ coupure.coupureName }}"
+                                                        style="width: 200px; height: 200px; "
+                                                        alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('full', locale='fr') }}"></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
