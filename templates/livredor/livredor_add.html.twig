@@ -9,6 +9,7 @@
             {{ form_start(form) }}
             {{ form_widget(form) }}
 
+            {{ form_errors(form.recaptcha) }}
             <button type="submit" class="btn btn-secondary w-100" formnovalidate>Envoyer</button>
             {{ form_end(form) }}
         </div>

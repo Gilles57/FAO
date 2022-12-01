@@ -10,6 +10,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
+
 // TODO Captcha
 class ContactType extends AbstractType
 {
@@ -37,6 +39,7 @@ class ContactType extends AbstractType
                     new Length(['min' => 20, 'max' => 300]),
                 ],
             ])
+            ->add("recaptcha", ReCaptchaType::class);
         ;
     }
 }

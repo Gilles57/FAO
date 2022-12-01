@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 
 class CommentaireType extends AbstractType
 {
@@ -48,6 +49,7 @@ class CommentaireType extends AbstractType
                 'constraints' => [
                     new NotBlank(['message' => "Choisis l'une des rubriques."]),
                 ], ])
+             ->add("recaptcha", ReCaptchaType::class);
         ;
     }
 

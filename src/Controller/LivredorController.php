@@ -29,7 +29,7 @@ class LivredorController extends AbstractController
     /**
      * @throws TransportExceptionInterface
      */
-    #[Route('/livredor/add', name: 'app_livre_add')]
+    #[Route('/add/livredor', name: 'app_livre_add')]
     public function saisie(Request $request, CommentaireRepository $repo,
         EntityManagerInterface $manager,
         MailerInterface $mailer,
@@ -51,7 +51,7 @@ class LivredorController extends AbstractController
             $commentaire->setMessage($datas->getMessage());
             $commentaire->setRubrique($datas->getRubrique());
             $commentaire->setValidate(false);
-//dd($commentaire);
+
             $repo->add($commentaire, true);
 
             $postUrl = $this->generateUrl('admin', [

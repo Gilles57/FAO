@@ -33,7 +33,7 @@ security:
 #        - { path: '^/',  requires_channel: '%env(SECURE_SCHEME)%' }
         - { path: '^/admin', roles: ROLE_ADMIN, requires_channel: 'https'  }
         - { path: '^/ville', roles: ROLE_ADMIN, requires_channel: 'https'  }
-        - { path: '^/',  requires_channel: 'https' }
+ #       - { path: '^/',  requires_channel: 'https' } TODO Remettre en production
 
 when@test:
     security:
