@@ -8,8 +8,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -30,9 +31,11 @@ class PostCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('titre')->onlyOnIndex(),
             DateTimeField::new('publishedAt', 'Date de publication')
                 ->setFormat('d/M/Y'),
-            TextEditorField::new('contenu'),
+            TextareaField::new('contenu', "Texte de l'article")
+                ->setFormType(CKEditorType::class)
+                ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig'),
             TextField::new('mediaFile', 'Nom du media')
-                ->onlyOnDetail(),
+                ->hideOnIndex(),
 
             TextField::new('mediaFile', 'Nom du fichier')
                 ->setFormType(VichImageType::class)
