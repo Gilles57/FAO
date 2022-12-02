@@ -15,7 +15,6 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
-// TODO ckeditor
 class PostCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

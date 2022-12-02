@@ -12,7 +12,6 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 
-// TODO Captcha
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
