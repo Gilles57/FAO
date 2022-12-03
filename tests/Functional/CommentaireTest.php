@@ -6,26 +6,27 @@ use Symfony\Bundle\FrameworkBundle\Test\MailerAssertionsTrait;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-class ContactTest extends WebTestCase
+class CommentaireTest extends WebTestCase
 {
     use MailerAssertionsTrait;
 
-    public function testIfSubmitContactFormIsSuccessfull(): void
+    public function testIfSubmitCommentaireFormIsSuccessfull(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/contact');
+        $crawler = $client->request('GET', '/add/livredor');
 
         $this->assertResponseIsSuccessful();
 
-        $this->assertSelectorTextContains('.h2', 'Envoyer');
+        $this->assertSelectorTextContains('.h2', 'Ajouter un commentaire');
 
         // Récupérer le formulaire
         $submitButton = $crawler->selectButton('Envoyer');
         $form = $submitButton->form();
 
-        $form["contact[prenom]"] = "Jean Dupont";
-        $form["contact[email]"] = "g.salmon@free.fr";
-        $form["contact[message]"] = "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest";
+        $form["commentaire[prenom]"] = "Jean Dupont";
+        $form["commentaire[age]"] = "63";
+        $form["commentaire[message]"] = "TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest";
+        $form["commentaire[rubrique]"] = 19;
 
         // Soumettre le formulaire
         $client->submit($form);

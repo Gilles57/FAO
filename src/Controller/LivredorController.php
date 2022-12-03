@@ -70,12 +70,15 @@ class LivredorController extends AbstractController
                 ->to(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
                 ->bcc(new Address('gilles.salmon.57@gmail.com', 'Gilles SALMON'))
                 ->subject('FAO Travel : nouveau commentaire à valider')
-                ->htmlTemplate('emails/validation.html.twig')
+                ->htmlTemplate('emails/commentaire.html.twig')
                 ->context([
                     'message' => $commentaire->getMessage(),
                     'prenom' => $commentaire->getPrenom(),
+                    'age' => $commentaire->getAge(),
+                    'rubrique' => $commentaire->getRubrique()->getNom(),
                     'postUrl' => $postUrl,
-                ]);
+                ])
+            ->text('Sending commentaires is fun again!');
 
             $mailer->send($message);
 

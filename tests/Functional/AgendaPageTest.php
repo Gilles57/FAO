@@ -14,23 +14,24 @@ class AgendaPageTest extends WebTestCase
     public function testAgendaPageWorks(): void
     {
         $client = static::createClient();
-        $crawler =  $client->request('GET', 'https://localhost/agenda');
+        $crawler =  $client->request('GET', '/agenda');
 
-        $fmt = new IntlDateFormatter(
-            'fr_FR',
-            IntlDateFormatter::FULL,
-            IntlDateFormatter::FULL,
-            'Europe/Paris',
-            IntlDateFormatter::GREGORIAN,
-            'MMMM YYYY'
-        );
-        $currentMonth = $fmt->format(new \Datetime('now'));
+//        $fmt = new IntlDateFormatter(
+//            'fr_FR',
+//            IntlDateFormatter::FULL,
+//            IntlDateFormatter::FULL,
+//            'Europe/Paris',
+//            IntlDateFormatter::GREGORIAN,
+//            'MMMM YYYY'
+//        );
+//        $currentMonth = $fmt->format(new \Datetime('now'));
+//        $this->assertSelectorTextContains('#fc-dom-1', $currentMonth);
 
         $this->assertResponseIsSuccessful();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-//        $this->assertSelectorTextContains('h2.fc-toolbar-title', 'novembre 2022');
-
+        $this->assertCount(3,  $crawler->filter('.badge'));
+        $this->assertSelectorTextContains(".toto","Il n'y a aucun événement de programmé prochainement");
     }
 
    

@@ -2,23 +2,47 @@
 
 namespace App\Tests\Functional;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Projet;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ProjetPageTest extends WebTestCase
+class ProjetsPageTest extends WebTestCase
 {
+    /**
+     * @var \Doctrine\ORM\EntityManager
+     */
+    private $entityManager;
 
-    public function testProjetPageWorks(): void
+//    protected function setUp(): void
+//    {
+//        $kernel = self::bootKernel();
+//
+//        $this->entityManager = $kernel->getContainer()
+//            ->get('doctrine')
+//            ->getManager();
+//    }
+
+    public function testProjetsPageWorks(): void
     {
         $client = static::createClient();
-        $crawler =  $client->request('GET', 'https://localhost/projets');
+
+
+        dd($this->entityManager);
+        $nbProjets = count($this->entityManager
+            ->getRepository(Projet::class)
+            ->findAll())
+        ;
+
+        $crawler =  $client->request('GET', '/projets');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'FAO TRAVEL');
 
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+
+        $this->assertCount($nbProjets,  $crawler->filter('.card'));
+
+
     }
 
    

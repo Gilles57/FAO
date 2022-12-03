@@ -7,21 +7,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CartePageTest extends WebTestCase
+class RelaxationPageTest extends WebTestCase
 {
 
-    public function testCartePageWorks(): void
+    public function testRelaxationPageWorks(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/carte');
+        $crawler =  $client->request('GET', '/relaxation');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'FAO TRAVEL');
 
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-        $this->assertSelectorExists('#map');
+        $this->assertCount(11,  $crawler->filter('img'));
 
-        $this->assertCount(6, $crawler->filter('img'));
     }
+
+  
+
 }

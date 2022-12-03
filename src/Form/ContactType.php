@@ -18,27 +18,27 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('prenom', TextType::class, [
-                'label' => 'Votre prénom',
+                'label' => 'Ton prénom',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['min' => 3, 'max' => 30]),
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre email',
+                'label' => 'Ton email',
                 'constraints' => [
                     new NotBlank(),
                     new Email(),
                 ],
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'Votre message',
+                'label' => 'Ton message',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['min' => 20, 'max' => 300]),
                 ],
             ])
-            ->add("recaptcha", ReCaptchaType::class);
+//            ->add("recaptcha", ReCaptchaType::class); //TODO Réactiver en pro
         ;
     }
 }

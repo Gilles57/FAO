@@ -13,7 +13,7 @@ class HomePageTest extends WebTestCase
     public function testHomePageWorks(): void
     {
         $client = static::createClient();
-        $crawler =  $client->request('GET', 'https://localhost/');
+        $crawler =  $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'FAO TRAVEL');
@@ -21,10 +21,21 @@ class HomePageTest extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
     }
 
-     public function testMentionsWorks(): void
+    public function testImageWorks(): void
     {
         $client = static::createClient();
-        $crawler =  $client->request('GET', 'https://localhost/');
+        $crawler =  $client->request('GET', '/');
+
+        $this->assertResponseIsSuccessful();
+//        $this->assertFileExists('/images/accueil/accueil.jpeg');
+//        $this->assert
+//        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
+    }
+
+    public function testMentionsWorks(): void
+    {
+        $client = static::createClient();
+        $crawler =  $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
@@ -40,7 +51,7 @@ class HomePageTest extends WebTestCase
      public function testPartenairesWorks(): void
     {
         $client = static::createClient();
-        $crawler =  $client->request('GET', 'https://localhost/');
+        $crawler =  $client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);

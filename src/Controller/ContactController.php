@@ -31,15 +31,17 @@ class ContactController extends AbstractController
             // mail de contact ;
             $message = (new TemplatedEmail())
                 ->from(new Address('contact@faotravel.fr', 'Site FAO Travel'))
-                ->to(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
+//                ->to(new Address('barbapapan@gmail.com', 'Étienne SALMON'))
                 ->bcc(new Address('g.salmon@free.fr', 'Gilles SALMON'))
-                ->subject('FAO Travel : nouveau commentaire à valider')
+                ->subject('FAO Travel : nouveau message depuis le site')
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
                     'prenom' => $datas['prenom'],
                     'mail' => $datas['email'],
                     'message' => $datas['message'],
-                ]);
+                ])
+                ->text('Sending emails is fun again!');
+
 
             $mailer->send($message);
 

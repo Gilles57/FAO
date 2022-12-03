@@ -9,6 +9,9 @@
 
     <a href=" {{ absolute_url(postUrl) }}"> Lien vers le commentaire</a>
     <hr>
-    <h3>Le message :</h3>
+    <div class="card">
+    <h4>Pour la rubrique : {{ rubrique }}</h4>
     <div><i>{{ message }}</i></div>
+    <div>de {{ prenom }} - {{ age }} ans </div>
+    </div>
 {% endblock %}
