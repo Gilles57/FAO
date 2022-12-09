@@ -1,36 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    {% if is_mobile() %}
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row">
+                <h1 style=" text-align: justify;">{{ post.titre }} </h1>
+                <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
+                <hr>
+                <div>{{ post.contenu | raw }} </p></div>
+            </div>
+
+        {% else %}
+            <div class="row col-8 offset-2  ">
+                <div class="row col-2">
+                    <img class="img-thumbnail slidable"
+                         style="display: none"
+                         src="{{ asset('uploads/photos/'~post.mediaName) }}"
+                         alt="{{ 'uploads/photos/'~post.mediaName }}">
+                </div>
+                <div class="row col-10">
+                    <h1 style=" text-align: justify;">{{ post.titre }} </h1>
+                    <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
+                </div>
+                <hr>
+                <div>{{ post.contenu | raw }} </p></div>
+            </div>
+        {% endif %}
+
         <div class="row">
-                <h1  style=" text-align: justify;">{{ post.titre }} </h1>
-                <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
-            <hr>
-            <div>{{ post.contenu | raw }} </p></div>
+            <a href="{{ path('app_blog') }}" class="btn btn-success mt-3 ">Retour aux souvenirs</a>
         </div>
-
-    {% else %}
-        <div class="row col-8 offset-2  ">
-            <div class="row col-2">
-                <img class="img-thumbnail slidable"
-                     style="display: none"
-                     src="{{ asset('uploads/photos/'~post.mediaName) }}"
-                     alt="{{ 'uploads/photos/'~post.mediaName }}">
-            </div>
-            <div class="row col-10">
-                <h1  style=" text-align: justify;">{{ post.titre }} </h1>
-                <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
-            </div>
-            <hr>
-            <div>{{ post.contenu | raw }} </p></div>
-        </div>
-    {% endif %}
-
-    <div class="row">
-        <a href="{{ path('app_blog') }}" class="btn btn-success mt-3 ">Retour aux souvenirs</a>
     </div>
-    {% endblock %}
+{% endblock %}
 
     {% block javascripts %}
         {{ parent() }}

@@ -2,22 +2,25 @@
 
 {% block title %}Article du {{ coupure.publishedAt | format_date ('short', locale='fr') }} - FAO TRAVEL !{% endblock %}
 {% block body %}
-<div class="container">
-    {% if is_mobile() %}
-        <div class="row p-1">
-            <h1 class="bg-secondary text-center m-0 p-1 ">« {{ coupure.reference }} »</h1>
-            <h4 class="bg-secondary text-center  p-1">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</h4>
-        </div>
-    {% else %}
-        <div class="d-flex justify-content-between bg-dark text-secondary">
-            <div class="p-2">{{ coupure.reference }}</div>
-            <div class="p-2">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
-        </div>
-    {% endif %}
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center m-0 p-1 ">« {{ coupure.reference }} »</h1>
+                <h4 class="bg-secondary text-center  p-1">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</h4>
+            </div>
+        {% else %}
+            <div class="d-flex justify-content-between bg-dark text-secondary">
+                <div class="p-2">{{ coupure.reference }}</div>
+                <div class="p-2">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
+            </div>
+        {% endif %}
 
-    <img src="/uploads/coupures/{{ coupure.coupureName }}" style="width: 100%; height: 100%;"
-         alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('short', locale='fr') }}">
-    <div class="row">
-        <a id="retour" href="{{ path('app_presse') }}" class="btn btn-success mt-3 ">Retour aux coupures de presse</a>
+        <img src="/uploads/coupures/{{ coupure.coupureName }}" style="width: 100%; height: 100%;"
+             alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('short', locale='fr') }}">
+        <div class="row">
+            <a id="retour" href="{{ path('app_presse') }}" class="btn btn-success mt-3 ">Retour aux coupures de
+                presse</a>
+        </div>
     </div>
-    {% endblock %}
+
+{% endblock %}

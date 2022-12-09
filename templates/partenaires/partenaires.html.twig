@@ -3,23 +3,24 @@
 {% block title %}Partenaires - FAO TRAVEL !{% endblock %}
 
 {% block body %}
-<div class="container">
-    {% if is_mobile() %}
-        <div class="row p-1">
-            <h1 class="bg-secondary text-center  p-1">Mes partenaires</h1>
-        </div>
-    {% endif %}
-
-    <div class="row ">
-        {% for partenaire in partenaires %}
-        <div class="col-lg-4">
-            <div class="card m-3  bg-secondary">
-                <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
-                       class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
-                                                style="width: 200px; height: 200px; "
-                                                alt="Logo de {{ partenaire.entreprise }} "></a>
+    <div class="container">
+        {% if is_mobile() %}
+            <div class="row p-1">
+                <h1 class="bg-secondary text-center  p-1">Mes partenaires</h1>
             </div>
+        {% endif %}
+
+        <div class="row ">
+            {% for partenaire in partenaires %}
+                <div class="col-lg-4">
+                    <div class="card m-3  bg-secondary">
+                        <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
+                           class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
+                                                        style="width: 200px; height: 200px; "
+                                                        alt="Logo de {{ partenaire.entreprise }} "></a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 {% endblock %}
