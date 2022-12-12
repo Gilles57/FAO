@@ -56,7 +56,7 @@ class EventsFixtures extends Fixture implements DependentFixtureInterface
             ;
             $event->setUpdatedAt(new \DateTime('now'));
             $event->setRubrique($this->getReference('rubrique' . rand(0, 2)));
-            $event->setImageName($cities[$i]->getNom() . '.jpg');
+            $event->setImageName($cities[$i]->getNom() . 'mariage.jpg');
 
             $manager->persist($event);
 
