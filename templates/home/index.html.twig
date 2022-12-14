@@ -3,7 +3,6 @@
 {% block title %}Accueil - FAO TRAVEL&nbsp;!{% endblock %}
 {% block body %}
     <div class="container">
-
         {% if is_mobile() %}
             <div class="row p-1">
                 <h1 class="bg-secondary text-center">Salut à toi l’ami.e&nbsp;!</h1>
@@ -11,28 +10,25 @@
                 <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan">
                 <div class="pt-1">
                     <p style=" text-align: justify;">Bienvenue sur mon site <span data-bs-toggle="tooltip"
-                                                                  data-bs-delay=0
-                                                                  data-bs-placement="top"
-                                                                  title="Étienne, en langue kanak"
-                                                                  class="fst-italic"
+                                                                                  data-bs-delay=0
+                                                                                  data-bs-placement="top"
+                                                                                  title="Étienne, en langue kanak"
+                                                                                  class="fst-italic"
                         >Fao*</span>
                         Travel, l’endroit où tu
                         découvriras tout ce qui se passe dans ma vie
                         atypique de voyageur semi-nomade&nbsp;!</p>
                     <p style=" text-align: justify;">Je m’appelle Étienne, j’ai {{ age }} ans et, en mars 2018 j’ai
-                        décidé de quitter mon job pour partir à la découverte du monde et des merveilles qui le compose.</p>
+                        décidé de quitter mon job pour partir à la découverte du monde et des merveilles qui le
+                        compose.</p>
                     <p style=" text-align: justify;">Après 14 mois de voyages en sac à dos à travers l’Asie et
                         l’Océanie, j’ai changé mon statut de
-                        <span data-bs-toggle="tooltip"
-                              data-bs-delay=0
-                              data-bs-placement="top"
-                              title="un routard, un bourlingueur"
-                              class="fst-italic">backpacker*</span>
-                        pour celui de <span data-bs-toggle="tooltip"
-                                            data-bs-delay=0
-                                            data-bs-placement="top"
-                                            title="qui vit et habite dans un véhicule aménagé"
-                                            class="fst-italic">vanlifer*</span>&nbsp;!</p>
+                    <div class="bulle">backpacker
+                        <span class="bulletext">un routard, un bourlingueur</span>
+                    </div>
+                        pour celui de <div class="bulle">vanlifer
+                        <span class="bulletext">qui vit et habite dans un véhicule aménagé</span>
+                    </div>&nbsp;!</p>
                     <p style=" text-align: justify;">À mon retour en France, le handpan est entrée dans ma vie, et
                         depuis, tout a changé&nbsp;!
                         Alors si tu veux en savoir un peu plus, balade-toi sur mon site et tu y trouveras plein de
@@ -44,34 +40,24 @@
         {% else %}
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan">
+                    <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan" class="illustration">
                 </div>
                 <div class="col-lg-8">
                     <h1 class="h4 text-center">Salut à toi l’ami.e&nbsp;!</h1>
                     <div class="pt-1 text-center align-self-center">
 
-                        <p>Bienvenue sur mon site <span data-bs-toggle="tooltip"
-                                                        data-bs-delay=0
-                                                        data-bs-placement="top"
-                                                        title="Étienne, en langue kanak"
-                                                        class="fst-italic">Fao*</span> Travel, l’endroit
-                            où tu découvriras tout ce qui se passe dans ma vie atypique de voyageur semi-nomade&nbsp;!</p>
+                        <p style="display: inline">Bienvenue sur mon site
+                        <div class="bulle">FAO<span class="bulletext">Étienne, en langue kanak</span>
+                        </div>Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie atypique de voyageur semi-nomade&nbsp;!</p>
 
                         <p>Je m’appelle Étienne, j’ai {{ age }} ans et, en mars 2018 j’ai décidé de quitter mon job pour
                             partir à la découverte du monde et des merveilles qui le compose.</p>
 
-                        <p>Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut
+                        <p  style="display: inline">Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut
                             de
-                            <span data-bs-toggle="tooltip"
-                                  data-bs-delay=0
-                                  data-bs-placement="top"
-                                  title="un routard, un bourlingueur"
-                                  class="fst-italic">backpacker*</span>
-                            pour celui de <span data-bs-toggle="tooltip"
-                                                data-bs-delay=0
-                                                data-bs-placement="top"
-                                                title="qui vit et habite dans un véhicule aménagé"
-                                                class="fst-italic">vanlifer*</span>&nbsp;!
+                        <div class="bulle">backpacker <span class="bulletext">un routard, un bourlingueur</span>
+                        </div> pour celui de <div class="bulle">vanlifer<span class="bulletext">qui vit et habite dans un véhicule aménagé</span>
+                        </div>&nbsp!
                         </p>
                         <p>À mon retour en France, le handpan est entrée dans ma vie, et depuis, tout a changé&nbsp;!
                             Alors si tu veux en savoir un peu plus, balade-toi sur mon site et tu y trouveras plein de
@@ -92,19 +78,12 @@
                     avant mon
                     départ pour le tour du monde.</p>
 
-                <p style=" text-align: justify;">Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone
+                <p style=" text-align: justify; display: inline">Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone
                     pendant dix ans, puis, en
-                    autodidacte, la guitare, le piano, le djembé, la <span data-bs-toggle="tooltip"
-                                                                           data-bs-delay=0
-                                                                           data-bs-placement="top"
-                                                                           title="instrument de percussion faisant partie des membranophones."
-                                                                           class="fst-italic">derbouka*</span>,
-                    le <span data-bs-toggle="tooltip"
-                             data-bs-delay=0
-                             data-bs-placement="top"
-                             title="Le  cajón (prononcé « karone ») est un instrument de percussion inventé au Pérou."
-                             class="fst-italic">cajón*</span>
-                    et enfin le handpan.
+                    autodidacte, la guitare, le piano, le djembé, la
+                <div class="bulle">derbouka<span class="bulletext">instrument de percussion faisant partie des membranophones.</span>
+                </div>, le <div class="bulle">cajón<span class="bulletext">Le cajón (prononcé « karone ») est un instrument de percussion inventé au Pérou.</span>
+                </div> et enfin le handpan.
                     Aujourd’hui, multi-instrumentaliste, je compose mes propres morceaux soit avec les handpan seuls ou
                     via
                     la MAO (Musique Assistée par Ordinateur) pour créer mon propre orchestre.</p>

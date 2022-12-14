@@ -1,16 +1,16 @@
-<div class="row bg-dark mt-3  p-2 text-secondary pied">
+<div class="row bg-dark mt-3  p-2  ">
     <div class="row d-sm-flex">
         <div class="col-sm-4">
-            <p class="fs-5 fw-bold d-sm-block d-none">Contacts :</p>
+            <p class="fs-5 fw-bold d-sm-block d-none pied">Contacts :</p>
             <p class="">
-                <a class="btn btn-outline-secondary btn-sm" href="{{ path('app_contact') }}"
-                   style="color: #D77739 !important;">Me contacter <i
+                <a class=" btn-contact " href="{{ path('app_contact') }}"
+                   >Me contacter <i
                             class="fa fa-envelope-o"></i>
                 </a></p>
             <br>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 pied">
             <p class="fs-5 fw-bold d-sm-block d-none">Sur les réseaux sociaux :</p>
             <p><span class="fw-bold">Facebook : </span>{{ facebook }}<br>
                 <span class="fw-bold">Youtube : </span>{{ youtube }}<br>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <p class="col-12 text-center">
+    <p class="row text-center">
         <a href="{{ path('app_mentions_legales') }}"
            class="text-decoration-none mentions">
             Mentions légales

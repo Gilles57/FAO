@@ -9,13 +9,15 @@
                 <h4 class="bg-secondary text-center  p-1">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</h4>
             </div>
         {% else %}
-            <div class="d-flex justify-content-between bg-dark text-secondary">
+            <div class="d-flex justify-content-between bg-dark text-secondary illustration">
                 <div class="p-2">{{ coupure.reference }}</div>
                 <div class="p-2">{{ coupure.publishedAt | format_date ('full', locale='fr') }}</div>
             </div>
         {% endif %}
 
-        <img src="/uploads/coupures/{{ coupure.coupureName }}" style="width: 100%; height: 100%;"
+        <img src="/uploads/coupures/{{ coupure.coupureName }}"
+             style="width: 100%; height: 100%;"
+             class="illustration"
              alt="Article de {{ coupure.reference }} publié le {{ coupure.publishedAt | format_date ('short', locale='fr') }}">
         <div class="row">
             <a id="retour" href="{{ path('app_presse') }}" class="btn btn-success mt-3 ">Retour aux coupures de

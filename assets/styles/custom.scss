@@ -24,7 +24,7 @@ $secondary: #d57735;
 $body-bg: #fadcaf;
 $body-color: #754517;
 $font-family-monospace: 'Libre Bodoni', serif;
-$font-size-base: .9rem;
+$font-size-base: 1.1rem;
 .gras {
     font-weight: bold;
 }
@@ -46,7 +46,71 @@ $font-size-base: .9rem;
     font-size: 7vw;
 }
 
+/* Tooltip container */
+.bulle {
+    position: relative;
+    display: inline;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    opacity: 1;
+}
 
+/* Tooltip text */
+.bulle .bulletext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #754517;
+    border: #fadcaf dotted 1px;
+    color: #fadcaf;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the bulle text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: 120%;
+    left: 80%;
+    margin-left: -60px;
+}
+
+/* Show the bulle text when you mouse over the bulle container */
+.bulle:hover .bulletext {
+    visibility: visible;
+}
+
+.btn-contact {
+    color: #d57735  !important;
+    background: #000;
+    border: solid 1px #d57735 !important;
+    transition-duration: 1s  !important;
+    padding: 0.75rem;
+    font-size: 1.0rem;
+    font-weight: 400;
+    line-height: 1.0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+}
+.btn-contact:hover {
+    color: #000  !important;
+    background: #d57735  !important;
+    border: solid 1px  #000  !important;
+}
+
+.illustration{
+    //transform: skewX(-20deg);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.illustration:hover{
+    //transform: skewX(-20deg);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 @media (max-width: 576px) {
     .banniere {

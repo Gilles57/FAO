@@ -10,8 +10,10 @@
             <h1 class="bg-secondary text-center p-1">Musique</h1>
         </div>
 
-        <div class="row">
-            <img src="{{ asset('images/musique/ponton.png') }}" width="100%"
+        <div class="row ">
+            <img src="{{ asset('images/musique/ponton.png') }}"
+                 width="100%"
+                 class="illustration"
                  alt="Étienne jouant du handpan sur un ponton">
             <h5>Clips</h5>
 
@@ -52,7 +54,9 @@
                             target="_blank">là</a>&nbsp;!
             </div>
 
-            <img src="{{ asset('images/musique/mariage.jpg') }}" width="100%" alt="Animation d'un mariage">
+            <img src="{{ asset('images/musique/mariage.jpg') }}" width="100%" alt="Animation d'un mariage"
+                 class="illustration"
+            >
             <h5>Créations</h5>
             <p style=" text-align: justify;">L’un de mes objectifs musicaux est également de promouvoir le
                 handpan à
@@ -60,9 +64,10 @@
                 cela que je joue beaucoup dans la rue, mais je fais également des concerts à la demande
                 (mariage,
                 anniversaire, soirée privée...) qui peuvent se compléter d’une animation "BlindTest".</p>
-            <p style=" text-align: justify;">Je fais également découvrir le handpan à travers d’autres activités et c’est pour cela que je
-            propose
-            mes services pour créer des morceaux sur mesure pour :</p>
+            <p style=" text-align: justify;">Je fais également découvrir le handpan à travers d’autres activités et
+                c’est pour cela que je
+                propose
+                mes services pour créer des morceaux sur mesure pour :</p>
             <ul>
                 <li>des troupes de danses (ou danseur.seuse solo)</li>
                 <li>des beatmakers</li>
@@ -90,7 +95,7 @@
             <div class="row px-0 mx-0">
                 <div class="col-6 ">
                     <img src="{{ asset('images/musique/ponton.png') }}" width="100%"
-                         alt="Étienne jouant du handpan sur un ponton" class="mb-2"
+                         alt="Étienne jouant du handpan sur un ponton" class="mb-2 illustration"
                     >
                 </div>
                 <div class="col-6">
@@ -120,15 +125,17 @@
                     </p>
                     <p><a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}"
                           target="_blank"><img
-                                    src="{{ asset('images/logos/youtube.png') }}" alt="logo youtube"
-                                    style="height: 20px;"></a>
+                                    src="{{ asset('images/logos/youtube.webp') }}" alt="logo youtube"
+                                    style="height: 20px;"
+                                    ></a>
                         Pour découvrir ou redécouvrir mes clips, clique juste
                         <a href="{{ absolute_url('https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg') }}"
                            id="youtube"
                            target="_blank">ici</a>,</p>
                     <p><a href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}" target="_blank"><img
                                     src="{{ asset('images/logos/tiktok.webp') }}" alt="logo tiktok"
-                                    style="height: 20px;"></a>
+                                    style="height: 20px;"
+                                    ></a>
                         Et pour me suivre sur "Tik tok"<sup>©</sup> clique <a
                                 href="{{ absolute_url('https://www.tiktok.com/@barbapapan') }}"
                                 id="tiktok"
@@ -157,7 +164,8 @@
                     </ul>
                 </div>
                 <div class="col-4  align-self-center">
-                    <img src="{{ asset('images/musique/mariage.jpg') }}" class="img-fluid" alt="Animation d'un mariage">
+                    <img src="{{ asset('images/musique/mariage.jpg') }}" class="img-fluid illustration"
+                         alt="Animation d'un mariage">
                 </div>
             </div>
             <div class="row px-0 mx-0">
@@ -168,7 +176,7 @@
                     <p class="fw-bold">Pour avoir un devis ou discuter des termes du contrat, merci de m’envoyer
                         votre
                         demande :<br><a
-                                class="btn btn-secondary btn-sm fw-bold btn" style="color: #754517 !important;"
+                                class="btn-contact mt-2"
                                 href="{{ path('app_contact') }}">Demander un devis <i
                                     class="fa fa-envelope-o"></i>
                         </a></p>

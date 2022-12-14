@@ -35,7 +35,7 @@ class CoupureCrudController extends AbstractCrudController
                 ->setFormTypeOption('allow_delete', false)
                 ->hideOnIndex(),
             ImageField::new('coupureName', 'COUPURE')
-                ->setBasePath('/uploads/coupures')
+                ->setBasePath('/')
                 ->setUploadDir('/public/uploads/coupures')
                 ->onlyOnIndex(),
 
