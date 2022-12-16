@@ -38,7 +38,7 @@ class ContactType extends AbstractType
                     new Length(['min' => 20, 'max' => 300]),
                 ],
             ])
-//            ->add("recaptcha", ReCaptchaType::class); //TODO Réactiver en pro
+            ->add("recaptcha", ReCaptchaType::class); //TODO Réactiver en pro
         ;
     }
 }

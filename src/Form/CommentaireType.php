@@ -51,7 +51,7 @@ class CommentaireType extends AbstractType
                 'constraints' => [
                     new NotBlank(['message' => "Choisis l'une des rubriques."]),
                 ], ])
-//             ->add("recaptcha", ReCaptchaType::class); //TODO Réactiver en pro
+             ->add("recaptcha", ReCaptchaType::class); //TODO Réactiver en pro
         ;
     }
 

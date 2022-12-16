@@ -22,20 +22,20 @@ class CarteController extends AbstractController
         $index = 0;
         $cities = [];
         foreach ($events as $e) {
-            $cities[$index]['nom'] = $e['ville']['nom'];
-            $cities[$index]['latitude'] = $e['ville']['latitude'];
-            $cities[$index]['longitude'] = $e['ville']['longitude'];
-            if (null != $e['beginAt']) {
-                $cities[$index]['start'] = $e['beginAt']->format('d-m-Y');
+            $cities[$index]['nom'] = $e->getVille()->getNom();
+            $cities[$index]['latitude'] = $e->getVille()->getLatitude();
+            $cities[$index]['longitude'] = $e->getVille()->getLongitude();
+            if (null != $e->getBeginAt()) {
+                $cities[$index]['start'] = $e->getBeginAt()->format('d-m-Y');
             } else {
                 $cities[$index]['start'] = '... ?';
             }
-            if (null != $e['endAt']) {
-                $cities[$index]['end'] = $e['endAt']->format('d-m-Y');
+            if (null != $e->getEndAt()) {
+                $cities[$index]['end'] = $e->getEndAt()->format('d-m-Y');
             } else {
                 $cities[$index]['end'] = '... ?';
             }
-            $cities[$index]['preferred'] = $e['preferred'];
+            $cities[$index]['preferred'] = $e->getPreferred();
             ++$index;
         }
         $cities = json_encode($cities);

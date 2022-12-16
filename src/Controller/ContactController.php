@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'app_contact')]
+    #[Route('/contact', name: 'app_contact', methods: ['GET','POST'])]
     public function contact(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ContactType::class);
@@ -48,6 +48,6 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->renderForm('contact/contact.html.twig', compact('form'));
+        return $this->render('contact/contact.html.twig', compact('form'));
     }
 }
