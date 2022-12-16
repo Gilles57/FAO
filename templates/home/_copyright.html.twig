@@ -1,5 +1,22 @@
-<div class="row text-center text-secondary copyright pied">
+<hr>
+<div class="row">
+    <div class="copyright pied d-flex justify-content-around">
+        <div>
+            <a href="{{ path('app_sitemap') }}"
+               class="text-decoration-none mentions">
+                Plan du site
+            </a>
+        </div>
+        <div>
         <span class="copyright">© 2021 - {{ 'now'|date('Y') }} <a href="https://gildev.fr" class="text-secondary"
-                                                           style="text-decoration: none"
-                                                           target="_blank"> GilDev</a></span>
+                                                                  style="text-decoration: none"
+                                                                  target="_blank"> GilDev</a></span>
+        </div>
+        <div>
+            <a href="{{ path('app_mentions_legales') }}"
+               class="text-decoration-none mentions">
+                Mentions légales
+            </a>
+        </div>
+    </div>
 </div>

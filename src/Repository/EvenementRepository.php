@@ -10,6 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Evenement|null find($id, $lockMode = null, $lockVersion = null)
  * @method Evenement|null findOneBy(array $criteria, array $orderBy = null)
  * @method Evenement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Evenement[]    findAll()
  */
 class EvenementRepository extends ServiceEntityRepository
 {
@@ -50,13 +51,13 @@ class EvenementRepository extends ServiceEntityRepository
             ORDER BY e.beginAt ASC
             '
         )->setParameter('date', $yesterday);
-        return $query->getArrayResult();
+        return $query->getResult();
     }
 
     /**
      * @return array Returns an array of Evenement objects
      */
-    public function findAll(): array
+    public function findAllWithVilleAndRubrique(): Evenement
     {
         $entityManager = $this->getEntityManager();
 
