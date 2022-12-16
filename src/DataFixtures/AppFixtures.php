@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
         $contact2->setEmail('barbapapan25@gmail.com');
         $contact2->setForename('Étienne');
         $contact2->setName('SALMON');
-        $contact2->setPassword('$2y$13$34NeZiP42kSYOqCpMPpSFeyL65nyhQqU.k20ZQ.5M.JiawuZoTP1e');
+        $contact2->setPassword('$2y$13$5.Szx.9fE7mNDEDrOXxrVu1CE/nD0M6rl7Du5l.xxF5t9sEYVv.dO');//LiberTurtle1!
         $contact2->setRoles(['ROLE_ADMIN']);
         $manager->persist($contact2);
 

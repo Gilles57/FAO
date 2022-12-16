@@ -22,7 +22,7 @@
                         <a href="#" class="btn btn-primary   rounded-0 ">Massage californien</a>
                         <img class="card-img-top illustration" src="{{ asset('images/bienetre/massage-a-venir.png') }}"
                              alt="Illustration pour le Massage"
-                             >
+                        >
                         {#  TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg #}
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                     DECOUVERTE VIBRATOIRE
                                 </div>
                                 <div>
-                                    Durée : 10 minutes - Tarif : 10 €
+                                    Durée : 10 minutes
                                 </div>
                                 <hr class="mt-2 mb-1">
                             </div>
@@ -67,7 +67,7 @@
                                     RELAXATION VIBRATOIRE
                                 </div>
                                 <div>
-                                    Durée : 30 minutes - Tarif : 25 €
+                                    Durée : 30 minutes
                                 </div>
                                 <hr class="mt-2 mb-1">
                             </div>
@@ -110,7 +110,7 @@
                                     SEANCE BIEN-ÊTRE
                                 </div>
                                 <div>
-                                    Durée : 60 min - Tarif : 50 €
+                                    Durée : 60 min
                                 </div>
                                 <hr class="mt-2 mb-1">
                             </div>
@@ -119,7 +119,7 @@
                                     {{ 'Déroulement&nbsp;:'|italic }}
                                 </div>
                                 <div>
-                                    Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et
+                                    Cette séance vous propose un massage du corps (dos, bras, mains, jambes et
                                     pieds)
                                     avec une huile 100 % naturelle, dans une ambiance sonore de handpan. Ensuite, je
                                     continuerai
@@ -152,15 +152,16 @@
                             <img class="card-img-top  rounded-0" src="{{ asset('images/bienetre/relaxation.jpeg') }}"
                                  style="width: 100%; height:100%"
                                  alt="Illustration pour la Relaxation."
-                                 >
+                            >
                         </div>
                     </div>
                     <div class="col-lg-4 offset-lg-2">
                         <div class="card m-3 illustration border-0">
                             <a href="#" class="btn btn-primary   rounded-0 ">Massage californien</a>
-                            <img class="card-img-top  rounded-0" src="{{ asset('images/bienetre/massage-a-venir.png') }}"
+                            <img class="card-img-top  rounded-0"
+                                 src="{{ asset('images/bienetre/massage-a-venir.png') }}"
                                  alt="Illustration pour le Massage"
-                                 >
+                            >
                             {#  TODO réactiver le lien {{ path('app_massage') }} et changer l'image massage.jpg #}
                         </div>
                     </div>
@@ -174,9 +175,9 @@
                             <div class="col">
                                 Durée : 10 minutes
                             </div>
-                            <div class="col">
-                                Tarif : 10 €
-                            </div>
+                            {#                            <div class="col"> #}
+                            {#                                Tarif : 10 € #}
+                            {#                            </div> #}
                         </div>
                         <div class="row ">
                             <div class="col-2">
@@ -206,9 +207,9 @@
                             <div class="col">
                                 Durée : 30 minutes
                             </div>
-                            <div class="col">
-                                Tarif : 25 €
-                            </div>
+                            {#                            <div class="col"> #}
+                            {#                                Tarif : 25 € #}
+                            {#                            </div> #}
                         </div>
                         <div class="row ">
                             <div class="col-2">
@@ -248,16 +249,16 @@
                             <div class="col">
                                 Durée : 60 min
                             </div>
-                            <div class="col">
-                                Tarif : 50 €
-                            </div>
+                            {#                            <div class="col"> #}
+                            {#                                Tarif : 50 € #}
+                            {#                            </div> #}
                         </div>
                         <div class="row ">
                             <div class="col-2">
                                 {{ 'Déroulement&nbsp;:'|italic }}
                             </div>
                             <div>
-                                Cette séance vous propose un massage californien (tête, dos, bras, mains, jambes et
+                                Cette séance vous propose un massage du corps (dos, bras, mains, jambes et
                                 pieds)
                                 avec
                                 une huile 100 % naturelle, dans une ambiance sonore de handpan. Ensuite, je continuerai
@@ -284,5 +285,12 @@
                 </div>
             </div>
         {% endif %}
+        <div class="row text-center">
+            <p><a
+                    class="btn-contact mt-2"
+                    href="{{ path('app_contact') }}">Demander un devis <i
+                        class="fa fa-envelope-o"></i>
+            </a></p>
+        </div>
     </div>
 {% endblock %}
