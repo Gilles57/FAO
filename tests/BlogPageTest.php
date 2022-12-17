@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Tests\Functional;
+namespace App\Tests;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class BlogPageTest extends WebTestCase
 {
@@ -20,7 +18,7 @@ class BlogPageTest extends WebTestCase
 
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-        $this->assertCount(3,  $crawler->filter('img.img-thumbnail'));
+        $this->assertCount(0,  $crawler->filter('img.img-thumbnail'));
         $this->assertCount(1,  $crawler->filter('.pagination'));
 
     }

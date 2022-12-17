@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Tests\Functional;
+namespace App\Tests;
 
 use App\Entity\Projet;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProjetsPageTest extends WebTestCase
 {

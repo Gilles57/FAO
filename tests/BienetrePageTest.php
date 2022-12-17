@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Tests\Functional;
+namespace App\Tests;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 class BienetrePageTest extends WebTestCase
 {

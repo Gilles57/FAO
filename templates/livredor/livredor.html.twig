@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Livre d'or - Fao Travel{% endblock %}
 
 {% if app.request.attributes.get('_route_params') is not empty %}
     {% set rubrique =  app.request.attributes.get('_route_params')['rubrique'] %}
