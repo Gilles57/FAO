@@ -19,7 +19,7 @@ class BlogPageTest extends WebTestCase
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
         $this->assertCount(0,  $crawler->filter('img.img-thumbnail'));
-        $this->assertCount(1,  $crawler->filter('.pagination'));
+        $this->assertCount(0,  $crawler->filter('.pagination'));
 
     }
 

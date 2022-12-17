@@ -8,30 +8,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ProjetsPageTest extends WebTestCase
 {
-    /**
-     * @var \Doctrine\ORM\EntityManager
-     */
-    private $entityManager;
-
-//    protected function setUp(): void
-//    {
-//        $kernel = self::bootKernel();
-//
-//        $this->entityManager = $kernel->getContainer()
-//            ->get('doctrine')
-//            ->getManager();
-//    }
-
     public function testProjetsPageWorks(): void
     {
         $client = static::createClient();
 
 
-        dd($this->entityManager);
-        $nbProjets = count($this->entityManager
-            ->getRepository(Projet::class)
-            ->findAll())
-        ;
+//        dd($this->entityManager);
+//        $nbProjets = count($this->entityManager
+//            ->getRepository(Projet::class)
+//            ->findAll())
+//        ;
 
         $crawler =  $client->request('GET', '/projets');
 
@@ -40,7 +26,7 @@ class ProjetsPageTest extends WebTestCase
 
         $this->assertResponseStatusCodeSame(Response::HTTP_OK);
 
-        $this->assertCount($nbProjets,  $crawler->filter('.card'));
+        $this->assertSelectorTextContains('.card-title', 'Le facteur timbré');
 
 
     }
