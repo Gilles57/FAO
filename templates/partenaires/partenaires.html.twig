@@ -8,20 +8,36 @@
             <div class="row p-1">
                 <h1 class="bg-secondary text-center  p-1">Mes partenaires</h1>
             </div>
+            <div class="row">
+                {% for partenaire in partenaires %}
+                    <div class="col-lg-4">
+                        <div class="card m-3  bg-secondary">
+                            <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
+                               class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
+                                                            style="width: 200px; height: 200px; "
+                                                            class="illustration"
+                                                            alt="Logo de {{ partenaire.entreprise }} "></a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        {% else %}
+
+            <div class="row align-items-start" style="height: 50vh;">
+                {% for partenaire in partenaires %}
+                    <div class="col-lg-4">
+                        <div class="card m-3  bg-secondary">
+                            <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
+                               class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
+                                                            style="width: 200px; height: 200px; "
+                                                            class="illustration"
+                                                            alt="Logo de {{ partenaire.entreprise }} "></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         {% endif %}
 
-        <div class="row align-items-start" style="height: 50vh;">
-            {% for partenaire in partenaires %}
-                <div class="col-lg-4">
-                    <div class="card m-3  bg-secondary">
-                        <a href="{{ path('app_partenaire_show', {'slug': partenaire.slug}) }}"
-                           class="text-center m-2"><img src="{{ asset('uploads/logos/'~partenaire.logoName) }}"
-                                                        style="width: 200px; height: 200px; "
-                                                        class="illustration"
-                                                        alt="Logo de {{ partenaire.entreprise }} "></a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
     </div>
 {% endblock %}
