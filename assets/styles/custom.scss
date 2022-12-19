@@ -112,6 +112,19 @@ $font-size-base: 1.1rem;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.imgBx img{
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: rotate(2deg);
+    }
+    50%{
+        transform: rotate(-2deg);
+    }
+}
+
 @media (max-width: 576px) {
     .banniere {
         display: flex;
