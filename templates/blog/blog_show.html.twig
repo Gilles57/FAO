@@ -13,13 +13,13 @@
 
         {% else %}
             <div class="row col-8 offset-2  ">
-                <div class="row col-2">
+                <div class="row col-3">
                     <img class="img-thumbnail slidable"
                          style="display: none"
                          src="{{ asset('uploads/medias/'~post.mediaName) }}"
                          alt="{{ 'uploads/medias/'~post.mediaName }}">
                 </div>
-                <div class="row col-10">
+                <div class="row col-9">
                     <h1 style=" text-align: justify;">{{ post.titre }} </h1>
                     <div class="fw-bold">{{ post.publishedAt | date('d-m-Y') }}</div>
                 </div>

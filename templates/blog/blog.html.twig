@@ -24,8 +24,8 @@
                         <a href="{{ path('app_blog_show' , {'slug': post.slug}) }}">
                             <img class="img-thumbnail slidable"
                                  style="display: none"
-                                 src="{{ asset('uploads/photos/'~post.mediaName) }}"
-                                 alt="{{ 'uploads/photos/'~post.mediaName }}">
+                                 src="{{ asset('uploads/medias/'~post.mediaName) }}"
+                                 alt="{{ 'uploads/medias/'~post.mediaName }}">
                         </a>
                     </div>
                     <div class="col-7 align-content-center ">
@@ -59,8 +59,8 @@
                             <a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"><img
                                         class="img-thumbnail slidable"
                                         style="display: none"
-                                        src="{{ asset('uploads/photos/'~post.mediaName) }}"
-                                        alt="{{ 'uploads/photos/'~post.mediaName }}"></a>
+                                        src="{{ asset('uploads/medias/'~post.mediaName) }}"
+                                        alt="{{ 'uploads/medias/'~post.mediaName }}"></a>
                         </div>
 
                         <div class="col-7 col-sm-10 post">
@@ -71,7 +71,7 @@
 
                         </div>
                         <div class="telephone" style="text-align: justify;">
-                            {{ post.contenu | striptags | u.truncate(400, '...', false ) }}
+                            {{ post.contenu | striptags | u.truncate(400, '...', false ) | raw}}
                         </div>
                         <div style="text-align: right;"><a href="{{ path('app_blog_show' , {'slug': post.slug}) }}"
                                                            class="btn btn-outline-primary btn-sm my-1">Lire la
