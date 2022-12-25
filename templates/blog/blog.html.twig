@@ -36,7 +36,7 @@
                 </div>
                 <div class="row">
                     <div style="text-align: justify;">
-                        <p class="pb-0 mb-0 telephone"> {{ post.contenu | striptags | u.truncate(200, '...', false ) }}
+                        <p class="pb-0 mb-0 telephone"> {{ post.contenu | striptags | u.truncate(200, '...', false )|raw }}
                         </p>
                     </div>
                     <div class="mt-0" style="text-align: right;"><a
