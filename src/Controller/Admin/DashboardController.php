@@ -44,7 +44,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Retour au site', 'fa fa-solid fa-undo', 'app_home');
 //        yield MenuItem::linkToRoute('La carte', 'fa fa-solid fa-map', 'app_carte');
         yield MenuItem::section('Administration');
-//        yield MenuItem::linkToCrud('Les utilisateurs', 'fa fa-solid fa-user', User::class);
+        yield MenuItem::linkToCrud('Les utilisateurs', 'fa fa-solid fa-user', User::class);
         yield MenuItem::linkToCrud('Les villes', 'fa fa-solid fa-city', Ville::class);
         yield MenuItem::linkToCrud('Les rubriques', 'fa fa-solid fa-book', Rubrique::class);
 
