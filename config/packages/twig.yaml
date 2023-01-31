@@ -7,10 +7,10 @@ twig:
         mailFAO: 'barbapapan25@gmail.com'
         mailWM: 'g.salmon@free.fr'
         telephone: '06 32 51 85 85'
-        facebook: 'Étienne Salmon'
-        youtube: 'Étienne Salmon'
-        instagram : 'Étienne Salmon TDM'
-        tiktok : 'Barbapapan'
+        facebook: 'https://www.facebook.com/salmon.etienne'
+        youtube: 'https://www.youtube.com/channel/UCJmuI3OdfHtrI7L-Gf2OeDg'
+        instagram : 'https://www.instagram.com/etienne.salmon/?hl=fr'
+        tiktok : 'https://www.tiktok.com/@barbapapan'
     form_themes: ['bootstrap_5_horizontal_layout.html.twig']
     paths:
         # point this wherever your images live

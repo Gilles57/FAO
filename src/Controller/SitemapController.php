@@ -71,7 +71,7 @@ class SitemapController extends AbstractController
         foreach ($posts as $post) {
             $urls[] = [
                 'loc' => $this->generateUrl(
-                    'app_souvenirs',
+                    'app_blog',
                     ['titre' => $post->getTitre()],
                     UrlGeneratorInterface::ABSOLUTE_URL
                 ),
