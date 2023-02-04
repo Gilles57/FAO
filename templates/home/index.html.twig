@@ -2,72 +2,44 @@
 {# TODO RGPD #}
 {% block title %}Accueil - Fao Travel{% endblock %}
 {% block body %}
-    <div class="container">
-        {% if is_mobile() %}
-            <div class="row p-1">
-                <h1 class="bg-secondary text-center">Salut à toi l’ami.e&nbsp;!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan"
+                 class="illustration">
+        </div>
+        <div class="col-lg-8">
+            <h1 class="h4 text-center">Salut à toi l’ami.e&nbsp;!</h1>
+            <div class="pt-1 text-center align-self-center">
 
-                <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan">
-                <div class="pt-1">
-                    <p style=" text-align: justify;">Bienvenue sur mon site <span data-bs-toggle="tooltip"
-                                                                                  data-bs-delay=0
-                                                                                  data-bs-placement="top"
-                                                                                  title="Étienne, en langue kanak"
-                                                                                  class="fst-italic"
-                        >Fao*</span>
-                        Travel, l’endroit où tu
-                        découvriras tout ce qui se passe dans ma vie
-                        atypique de voyageur semi-nomade&nbsp;!</p>
-                    <p style=" text-align: justify;">Je m’appelle Étienne, j’ai {{ age }} ans et, en mars 2018 j’ai
-                        décidé de quitter mon job pour partir à la découverte du monde et des merveilles qui le
-                        compose.</p>
-                    <p style=" text-align: justify;">Après 14 mois de voyages en sac à dos à travers l’Asie et
-                        l’Océanie, j’ai changé mon statut de
-                    <div class="bulle">backpacker
-                        <span class="bulletext">un routard, un bourlingueur</span>
-                    </div>
-                        pour celui de <div class="bulle">vanlifer
-                        <span class="bulletext">qui vit et habite dans un véhicule aménagé</span>
-                    </div>&nbsp;!</p>
-                    <p style=" text-align: justify;">À mon retour en France, le handpan est entrée dans ma vie, et
-                        depuis, tout a changé&nbsp;!
-                        Alors si tu veux en savoir un peu plus, balade-toi sur mon site et tu y trouveras plein de
-                        belles
-                        choses&nbsp;!
-                    </p>
-                </div>
+                <p style="display: inline">Bienvenue sur mon site
+                    <span class="bulle">FAO<span class="bulletext">Étienne, en langue kanak</span></span>
+
+                    Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie atypique de voyageur
+                    semi-nomade&nbsp;!</p>
+
+                <p>Je m’appelle Étienne, j’ai {{ age }} ans et, en mars 2018 j’ai décidé de quitter mon job pour
+                    partir à la découverte du monde et des merveilles qui le compose.</p>
+
+                <p style="display: inline">Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai
+                    changé mon statut
+                    de
+                    <span class="bulle">backpacker <span class="bulletext">un routard, un bourlingueur</span>
+                    </span>
+                    pour celui de
+                    <span class="bulle">vanlifer<span
+                                class="bulletext">qui vit et habite dans un véhicule aménagé</span>
+                    </span>
+                    &nbsp!
+                </p>
+                <p>À mon retour en France, le handpan est entrée dans ma vie, et depuis, tout a changé&nbsp;!
+                    Alors si tu veux en savoir un peu plus, balade-toi sur mon site et tu y trouveras plein de
+                    belles
+                    choses&nbsp;!
+                </p>
+                </span>
             </div>
-        {% else %}
-            <div class="row">
-                <div class="col-lg-4">
-                    <img src="{{ asset('images/accueil/accueil.jpeg') }}" width="100%" alt="Etienne jouant du handpan" class="illustration">
-                </div>
-                <div class="col-lg-8">
-                    <h1 class="h4 text-center">Salut à toi l’ami.e&nbsp;!</h1>
-                    <div class="pt-1 text-center align-self-center">
-
-                        <p style="display: inline">Bienvenue sur mon site
-                        <div class="bulle">FAO<span class="bulletext">Étienne, en langue kanak</span>
-                        </div>Travel, l’endroit où tu découvriras tout ce qui se passe dans ma vie atypique de voyageur semi-nomade&nbsp;!</p>
-
-                        <p>Je m’appelle Étienne, j’ai {{ age }} ans et, en mars 2018 j’ai décidé de quitter mon job pour
-                            partir à la découverte du monde et des merveilles qui le compose.</p>
-
-                        <p  style="display: inline">Après 14 mois de voyages en sac à dos à travers l’Asie et l’Océanie, j’ai changé mon statut
-                            de
-                        <div class="bulle">backpacker <span class="bulletext">un routard, un bourlingueur</span>
-                        </div> pour celui de <div class="bulle">vanlifer<span class="bulletext">qui vit et habite dans un véhicule aménagé</span>
-                        </div>&nbsp!
-                        </p>
-                        <p>À mon retour en France, le handpan est entrée dans ma vie, et depuis, tout a changé&nbsp;!
-                            Alors si tu veux en savoir un peu plus, balade-toi sur mon site et tu y trouveras plein de
-                            belles
-                            choses&nbsp;!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        {% endif %}
+        </div>
         <div class="row">
             <h1 class="h3 pt-1 text-decoration-underline">Qui suis-je ?</h1>
             <div class="">
@@ -78,12 +50,16 @@
                     avant mon
                     départ pour le tour du monde.</p>
 
-                <p style=" text-align: justify; display: inline">Musicien depuis l’âge de sept ans, j’ai commencé avec le saxophone
+                <p style=" text-align: justify; display: inline">Musicien depuis l’âge de sept ans, j’ai commencé avec
+                    le saxophone
                     pendant dix ans, puis, en
                     autodidacte, la guitare, le piano, le djembé, la
-                <div class="bulle">derbouka<span class="bulletext">instrument de percussion faisant partie des membranophones.</span>
-                </div>, le <div class="bulle">cajón<span class="bulletext">Le cajón (prononcé « karone ») est un instrument de percussion inventé au Pérou.</span>
-                </div> et enfin le handpan.
+                    <span class="bulle">derbouka,<span class="bulletext">instrument de percussion faisant partie des membranophones.</span>
+                </span>
+                     le
+                    <span class="bulle">cajón<span class="bulletext">Le cajón (prononcé « karone ») est un instrument de percussion inventé au Pérou.</span>
+                </span>
+                    et enfin le handpan.
                     Aujourd’hui, multi-instrumentaliste, je compose mes propres morceaux soit avec les handpan seuls ou
                     via
                     la MAO (Musique Assistée par Ordinateur) pour créer mon propre orchestre.</p>
@@ -102,11 +78,12 @@
                     liberté. <br>
                     La liberté d’aller partout, de rencontrer des gens, de les découvrir, de découvrir leurs cultures,
                     leurs traditions, leurs paysages ... <br>
-                    La liberté de faire ce qu’il me plait, quand il me plait&nbsp;!</p>
+                    La liberté de faire ce qu’il me plaît, quand il me plaît&nbsp;!</p>
                 <p style=" text-align: justify;">Et pour continuer cette vie, j’ai mis en place différents projets pour
                     me permettre d’être autonome
                     n’importe où sur la planète (hors zone de guerre, désert brûlant et iceberg géant&nbsp;!)</p>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
+    {% endblock %}

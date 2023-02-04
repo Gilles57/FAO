@@ -46,6 +46,9 @@ $font-size-base: 1.1rem;
     font-size: 7vw;
 }
 
+
+
+
 /* Tooltip container */
 .bulle {
     position: relative;
@@ -71,11 +74,14 @@ $font-size-base: 1.1rem;
     top: 120%;
     left: 80%;
     margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 /* Show the bulle text when you mouse over the bulle container */
 .bulle:hover .bulletext {
     visibility: visible;
+    opacity: 1;
 }
 
 .btn-contact {
